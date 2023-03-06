@@ -11,6 +11,7 @@ const {
   toHtmlInline,
   readingTime,
   sample,
+  slice,
   splitLines,
   stripHtml
 } = require('./config/filters/index.js');
@@ -50,6 +51,7 @@ module.exports = eleventyConfig => {
   eleventyConfig.addFilter('toHtmlInline', toHtmlInline);
   eleventyConfig.addFilter('readingTime', readingTime);
   eleventyConfig.addFilter('sample', sample);
+  eleventyConfig.addFilter('slice', slice);
   eleventyConfig.addFilter('splitLines', splitLines);
   eleventyConfig.addFilter('stripHtml', stripHtml);
 

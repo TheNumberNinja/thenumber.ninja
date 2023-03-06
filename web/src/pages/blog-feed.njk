@@ -15,7 +15,7 @@ metadata:
   <author>
     <name>The Number Ninja</name>
   </author>
-  {%- for post in posts | sort(attribute='date', reverse=true) | sample(10)  %}
+  {%- for post in posts | sort(attribute='date', reverse=true) | slice(0, 10) %}
     {%- set relativePath = '/blog/' + post.slug + '/' %}
     {%- set absolutePostUrl = relativePath | absoluteUrl(metadata.url) %}
     <entry>

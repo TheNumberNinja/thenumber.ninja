@@ -15,6 +15,10 @@ const sample = (collection, size = 1) => {
   return _.sampleSize(collection, size)
 }
 
+const slice = (collection, start, end) => {
+  return _.slice(collection, start, end)
+}
+
 const longDate = (dateString) => {
   throwIfNotType(dateString, 'string')
 
@@ -90,6 +94,7 @@ module.exports = {
   longDate,
   readingTime,
   sample,
+  slice,
   splitLines,
   stripHtml
 }
