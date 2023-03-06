@@ -22,7 +22,6 @@ metadata:
       <title>{{ post.title }}</title>
       <link href="{{ absolutePostUrl }}" />
       <published>{{ post.date }}T00:00:00Z</published>
-      <updated>{{ post._updatedAt }}</updated>
       <id>{{ absolutePostUrl }}</id>
       <content xml:lang="en" type="html">
         {{ '<p><img src="' + post.image.urls.page1x + '" alt="' + post.image.alt | default('') + '" /></p>' }}
