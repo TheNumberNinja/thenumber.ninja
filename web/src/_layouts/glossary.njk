@@ -1,0 +1,10 @@
+---
+layout: base-page.njk
+---
+
+{{ content | safe }}
+
+{% for term in glossaryTerms %}
+  <h2>{{ term.term }}</h2>
+  <p>{{ term.definition }}</p>
+{% endfor %}

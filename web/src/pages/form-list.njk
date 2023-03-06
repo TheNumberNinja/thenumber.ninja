@@ -1,0 +1,18 @@
+---
+layout: page-full-width.njk
+title: Forms
+permalink: /forms/
+eleventyNavigation:
+  Parent: Home
+  key: Forms
+  order: -1
+---
+
+{% for category, forms in forms | groupby("category") %}
+  <h2 class="service_item--title" style='text-align: left; margin-top: 1.5em'>{{ category | default('') }}</h2>
+  <ul>
+    {% for form in forms | sort(attribute='title') %}
+      <li><a href="/forms/{{ form.slug }}/">{{ form.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}

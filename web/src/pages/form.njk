@@ -1,0 +1,19 @@
+---
+layout: page-full-width.njk
+permalink: /forms/{{ form.slug }}/
+pagination:
+  data: forms
+  size: 1
+  alias: form
+  addAllPagesToCollections: true
+eleventyComputed:
+  title: "{{ form.title }}"
+  eleventyNavigation:
+    key: "{{ form.title }}"
+    parent: Forms
+excludeFromSitemap: true
+---
+
+{% if form.formService == 'airtable' %}
+  {% airtable form.formId %}
+{% endif %}

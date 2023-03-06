@@ -1,0 +1,60 @@
+<footer class="footer -deluge">
+  <div class="footer--inner">
+    <div class="container">
+      <div class="footer_main">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+            <div class="footer_main--column">
+              <strong class="footer_main--column_title">About The Number Ninja</strong>
+              <div class="footer_about">
+                <p class="footer_about--text">
+                  Whether you're looking for someone to manage your business finances, or just a helping hand to make sure you're on the right track, The Number Ninja can help.
+                </p>
+                <p class="footer_about--text">
+                  Removing the fear of accounts for growing online service-based businesses.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+            <div class="footer_main--column">
+              <strong class="footer_main--column_title">Latest Blog Posts</strong>
+              <ul class="footer_navigation">
+                {% for post in posts.slice(0, 5) %}
+                  <li class="footer_navigation--item">
+                    <a href="/blog/{{ post.slug }}/" class="footer_navigation--link">{{ post.title }}</a>
+                  </li>
+                {% endfor %}
+							</ul>
+						</div>
+					</div>
+					<div class="clearfix visible-sm-block"></div>
+					<div class="col-lg-4 col-md-12 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+						<div class="footer_main--column">
+							<strong class="footer_main--column_title">Contact Info</strong>
+							<ul class="footer_contact_info">
+								<li class="footer_contact_info--item"><i class="fa fa-map-marker"></i><span>Ely, Cambridgeshire</span></li>
+								<li class="footer_contact_info--item"><i class="fa fa-phone"></i><span><a href="/book-a-call/" class="footer_navigation--link">Book a call</a></span></li>
+								<li class="footer_contact_info--item"><i class="fa fa-newspaper-o"></i><span><a href="https://thenumberninja.us16.list-manage.com/subscribe?u=e06be6a0b0b107734d1a5a4d4&id=76a0c7024a" class="footer_navigation--link">Sign up to the Ninja News</a></span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<section class="footer_copyrights">
+				<div class="footer_copyrights--container">
+					<div class="row">
+						<div class="col-sm-12 col-xs-12">
+							<div class="footer_copyrights--item">
+								<p class="footer_copyrights--item_copyrights"><span><a href="/cookie-policy/" class="footer_navigation--link">Cookie Policy</a></span> and
+								<span><a href="/privacy-policy/" class="footer_navigation--link">Privacy Policy</a></span></p>
+								<p class="footer_copyrights--item_copyrights">Copyright © {% year %} The Number Ninjas Ltd t/a The Number Ninja.</p>
+								<p class="footer_copyrights--item_copyrights">Registered in England and Wales, company number 10935726. Registered office: International House, 24 Holborn Viaduct, London, EC1A 2BN.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</footer>

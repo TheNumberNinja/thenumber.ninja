@@ -1,0 +1,18 @@
+<nav class="breadcrumbs">
+  <div class="container">
+    <ul class="breadcrumbs--list">
+      <li class="breadcrumbs--item"><a href="/" class="breadcrumbs--link">Home</a></li>
+      {% set breadcrumbs = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true, allowMissing: true }) %}
+      {% for crumb in breadcrumbs %}
+        {% set isCurrentPage = crumb.url == page.url %}
+        <li class="breadcrumbs--item">
+          {% if isCurrentPage %}
+            <span class="breadcrumbs--link -active">{{ crumb.title }}</span>
+          {% else %}
+            <a href="{{ crumb.url | url }}" class="breadcrumbs--link">{{ crumb.title }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

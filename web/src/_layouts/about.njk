@@ -1,0 +1,27 @@
+---
+layout: base-page.njk
+---
+<div class="our_company">
+  <div class="row">
+    <div class="col-md-3">
+      <img id="headshot" src="/assets/images/headshots/emma.jpg" alt="Emma" />
+    </div>
+    <div class="col-md-9">
+      <div class="our_company--text">
+
+        {{ content | safe }}
+
+        <div class="seals">
+          {% for seal in seals %}
+            <img src="/assets/images/seals/{{ seal.image }}"
+                 title="{{ seal.title }}"
+                 alt="{{ seal.name }} logo"
+                 srcset="/assets/images/seals/@2x/{{ seal.image }} 2x"
+            />
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

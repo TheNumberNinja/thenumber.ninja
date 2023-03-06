@@ -1,0 +1,8 @@
+/dashboard/*:
+  X-Robots-Tag: noindex
+
+/forms/*:
+  X-Robots-Tag: noindex
+
+/calls/*:
+  X-Robots-Tag: noindex

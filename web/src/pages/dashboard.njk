@@ -1,0 +1,330 @@
+---
+layout: page-full-width.njk
+permalink: "/dashboard/{{ client.clientId }}/"
+pagination:
+  data: clients
+  size: 1
+  alias: client
+  addAllPagesToCollections: true
+title: Your client dashboard
+excludeFromSitemap: true
+---
+
+<style>
+  .services {
+    margin: 0.8em auto 1em 1em;
+  }
+
+  .our_company--text li {
+    line-height: 1.5em;
+    list-style-type: circle;
+    color: #969696;
+  }
+
+  .helpsheets li {
+    list-style-type: none;
+    margin-bottom: 0.3em;
+  }
+
+  .helpsheets button {
+    width: 100%;
+  }
+
+  .swal2-html-container p {
+    text-align: left;
+    margin-bottom: 0.5em;
+  }
+
+  button small {
+    font-size: 90%;
+  }
+</style>
+
+{% set subscription = client.subscription %}
+{% set products = subscription.products %}
+{% if subscription and products | length > 0 %}
+  <div class="row">
+    <div class="col-md-6">
+      <div class="case_study--section">
+        <h2 class="case_study--section_title">Your subscription details</h2>
+        <h3 class="contact_item--title">Services</h3>
+        <ul class="services">
+          {% for product in products | sort(attribute='name') %}
+            {% set suffix = '' %}
+            {% if product.quantity > 1 %}
+              {% set suffix = product.quantity %}
+              {% if product._type === 'accountsProduct' %}
+                {% set suffix = suffix + ' sections' %}
+              {% endif %}
+            {% endif %}
+            <li>{{ product.name }}{% if suffix | length > 0 %} ({{ suffix }}){% endif %}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="case_study--section our_company--text">
+        <button class="button -menu_size -waikawa_gray -bordered"
+                id="start-subscription"
+                role="link"
+                style="margin-top: 1em; display: none"
+        >
+              <span class="button--inner">
+                Start subscription
+              </span>
+        </button>
+
+        <button class="button -menu_size -waikawa_gray -bordered"
+                id="update-payment-card"
+                role="link"
+                style="margin-top: 1em; display: none"
+        >
+              <span class="button--inner">
+                Update payment method
+              </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% set documents = client.documents %}
+  {% if documents | length > 0 %}
+    <div class="row">
+      <div class="col-md-6">
+        <div class="case_study--section">
+          <h2 class="case_study--section_title">Helpsheets</h2>
+          <p>These helpsheets provide important information and dates for your business.</p>
+          <ul class="helpsheets">
+            {% for document in documents %}
+              <li>
+                <button class="button -waikawa_gray -bordered download-document"
+                        data-document-key="{{ document.key }}"
+                        data-masked-email='{{ client.maskedEmail }}'
+                >
+                  <i class="fa fa-download"></i>
+                  Download {{ document.type }}<br />
+                  <small>Last updated {{ document.lastUpdated | longDate }}</small>
+                </button>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.7/dist/sweetalert2.all.min.js"></script>
+
+  <template id="success">
+    <swal-icon type="success"></swal-icon>
+    <swal-title>Your subscription has been successfully started</swal-title>
+    <swal-html>
+      <p>You can update the payment method, once the subscription has been completely set up, by revisiting this
+        page. This normally takes no more than 48 hours.</p>
+      <p>Please <a href="mailto:support@thenumberninja.co.uk">contact support</a> if you need to change the payment method
+        before then.</p>
+    </swal-html>
+  </template>
+
+  <template id="cancelled">
+    <swal-icon type="info"></swal-icon>
+    <swal-title>Your subscription has not been started</swal-title>
+    <swal-html>
+      <p>Don't worry, you can revisit this page at any time to start it.</p>
+    </swal-html>
+  </template>
+
+  <template id="update-payment-card-success">
+    <swal-icon type="success"></swal-icon>
+    <swal-title>Your payment method has been changed</swal-title>
+    <swal-html>
+      <p>The new method will be used when the next payment is due.</p>
+    </swal-html>
+  </template>
+
+  <template id="update-payment-card-cancel">
+    <swal-icon type="info"></swal-icon>
+    <swal-title>Your payment method has not been changed</swal-title>
+    <swal-html>
+      <p>The existing method will continue to be be charged when the next payment is due.</p>
+      <p>You can revisit this page at any time to update your details.</p>
+    </swal-html>
+  </template>
+
+  <template id="document-confirm-email">
+    <swal-icon type="question"></swal-icon>
+    <swal-title>We just need to check it's you</swal-title>
+  </template>
+
+  <script>
+    (function () {
+      const url = new URL(window.location.href);
+      const state = url.searchParams.get('state');
+      const startSubscriptionButton = document.getElementById('start-subscription');
+      const updatePaymentCardButton = document.getElementById('update-payment-card');
+      const downloadDocumentButtons = document.getElementsByClassName('download-document');
+      const customerId = '{{ subscription.customerId }}';
+      const subscriptionId = '{{ subscription.subscriptionId }}';
+      const stripe = Stripe('{{ env.stripe.publishableKey }}');
+      const baseUrl = url.protocol + '//' + url.hostname + ':' + url.port + url.pathname;
+
+      function showButton(button) {
+        if (!button) {
+          return;
+        }
+
+        button.style.display = 'block';
+      }
+
+      if (!state) {
+        if (customerId && subscriptionId) {
+          showButton(updatePaymentCardButton);
+        } else {
+          showButton(startSubscriptionButton);
+        }
+      }
+
+      if (state === 'success') {
+        Swal.fire({
+          template: '#success',
+        });
+
+        if (customerId && subscriptionId) {
+          showButton(updatePaymentCardButton);
+        }
+      }
+
+      if (state === 'cancelled') {
+        Swal.fire({
+          template: '#cancelled',
+        });
+
+        showButton(startSubscriptionButton);
+      }
+
+      if (state === 'update-success') {
+        Swal.fire({
+          template: '#update-payment-card-success',
+        });
+
+        if (customerId && subscriptionId) {
+          showButton(updatePaymentCardButton);
+        }
+      }
+
+      if (state === 'update-cancelled') {
+        Swal.fire({
+          template: '#update-payment-card-cancel',
+        });
+
+        if (customerId && subscriptionId) {
+          updatePaymentCardButton.style.display = 'block';
+        }
+      }
+
+      if (startSubscriptionButton) {
+        startSubscriptionButton.addEventListener('click', function () {
+          axios.post('/.netlify/functions/create-checkout-session', {
+            configuration: '{{ client.clientId }}',
+            baseUrl: baseUrl,
+          })
+            .then(function (result) {
+              stripe.redirectToCheckout({
+                sessionId: result.data.session_id
+              })
+                .then(function (result) {
+                  if (result.error) {
+                    displayError(result.error.message);
+                  }
+                });
+            })
+            .catch(function (error) {
+              if (error.response?.data?.error) {
+                displayError(error.response.data.error);
+              } else {
+                displayError("Something unexpected happened there. We'll fix it as soon as possible so please try again later.")
+              }
+            });
+        });
+      }
+
+      if (updatePaymentCardButton) {
+        updatePaymentCardButton.addEventListener('click', function () {
+          axios.post('/.netlify/functions/update-payment-card', {
+            customerId: customerId,
+            subscriptionId: subscriptionId,
+            baseUrl: baseUrl,
+          })
+            .then(function (result) {
+              stripe.redirectToCheckout({
+                sessionId: result.data.session_id
+              })
+                .then(function (result) {
+                  if (result.error) {
+                    displayError(result.error.message);
+                  }
+                });
+            })
+            .catch(function (error) {
+              if (error.response?.data?.error) {
+                displayError(error.response.data.error);
+              } else {
+                displayError("Something unexpected happened there. We'll fix it as soon as possible so please try again later.")
+              }
+            });
+        });
+      }
+
+      for (let i = 0; i < downloadDocumentButtons.length; i++) {
+        const button = downloadDocumentButtons[i];
+
+        button.addEventListener('click', function (e) {
+          e.preventDefault();
+          const documentKey = this.dataset.documentKey;
+          const maskedEmail = this.dataset.maskedEmail;
+
+          let message = `<p>To make sure only you can access the information in these helpsheets, please confirm the email address we have on file for you. The format is ${maskedEmail}</p><p>Please <a
+                href="mailto:support@thenumberninja.co.uk">contact support</a> if you need to change the email address we
+              have for you.</p>`
+
+          if (!maskedEmail) {
+            message = `<p>To make sure only you can access the information in these helpsheets, we need to confirm your email address but we don't currently have one for you.</p><p>Please <a href="mailto:support@thenumberninja.co.uk">contact support</a> so we can update our records.</p>`
+          }
+
+          Swal.fire({
+            template: '#document-confirm-email',
+            input: 'email',
+            html: message,
+            inputPlaceholder: 'Enter your email address',
+            inputAttributes: {
+              autocomplete: 'email',
+            },
+            confirmButtonText: 'Confirm',
+            preConfirm: (email) => {
+              return axios.post('/.netlify/functions/download-helpsheet', {
+                documentKey,
+                email,
+              })
+                .then(response => response.data.url)
+                .then(url => window.location.assign(url))
+                .catch(async function (error) {
+                  const message = error.response?.data?.error ||
+                    'There was an unexpected problem downloading your helpsheet. Please try again later.';
+
+                  Swal.showValidationMessage(message)
+                });
+            },
+          });
+        });
+      }
+
+      function displayError(errorMessage) {
+        Swal.fire({
+          title: 'Sorry',
+          icon: 'error',
+          text: errorMessage,
+        })
+      }
+    })();
+  </script>

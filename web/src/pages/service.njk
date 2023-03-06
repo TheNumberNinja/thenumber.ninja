@@ -1,0 +1,53 @@
+---
+layout: base-page.njk
+pagination:
+  data: services
+  size: 1
+  alias: service
+  addAllPagesToCollections: true
+permalink: "/services/{{ service.slug }}/"
+eleventyComputed:
+  title: "{{ service.title }}{% if service.subheading %} · {{ service.subheading }}{% endif %}"
+  heading: "{{ service.title }}"
+  subheading: "{{ service.subheading }}"
+  eleventyNavigation:
+    parent: Services
+    key: "{{ service.title }}"
+---
+{{ service.title }}
+{% set testimonial = service.testimonials | sample | first %}
+<div class="our_company">
+  <div class="row">
+    <div class="col-md-9 col-md-offset-0 col-xs-10 col-xs-offset-1">
+      <div class="our_company--text">
+        {{ service.content | safe }}
+        {% if service.requiresAmlCheckForCall %}
+          {% include 'partials/aml-warning.njk' %}
+        {% endif %}
+        {% if service.calendly %}
+          {% calendly service.calendly %}
+        {% endif %}
+      </div>
+    </div>
+    {% if testimonial %}
+      <div class="col-md-3 col-md-offset-0 col-xs-10 col-xs-offset-1">
+        <div class="our_company--quote">
+          <div class="row">
+            <figure class="our_company--quote_media" style="padding-bottom: 2em">
+              <img src="{{ testimonial.image.url }}"
+                   alt="{{ testimonial.image.alt }}">
+            </figure>
+            <blockquote class="our_company--quote_text">
+              {{ testimonial.testimonial | safe }}
+            </blockquote>
+            <div class="our_company--quote_author">
+              <strong>{{ testimonial.person_name }}</strong>
+              <span>{{ testimonial.person_description }}</span></div>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      {% include 'partials/emma-service-sidebar.njk' %}
+    {% endif %}
+  </div>
+</div>

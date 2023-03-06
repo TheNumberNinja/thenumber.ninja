@@ -1,0 +1,61 @@
+---
+layout: base-page.njk
+title: Get in touch
+permalink: /get-in-touch/
+eleventyNavigation:
+  key: Get In Touch
+  order: 6
+---
+
+<div class="our_company">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="our_company--text">
+        <p>
+          I'd love to find out more about you and your business and discuss how I can help you keep on top of your
+          finances whilst
+          freeing up your time.
+        </p>
+        <p>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="contact_us tabby">
+  <div data-tabs-content class="contact_us--list">
+    <div id="tab-japan" data-tabs-pane class="contact_us--item tabby--pane">
+      <div class="row">
+        <div class="col-md-5 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+          <ul class="contact_us--contacts">
+            <li class="contact_us--contacts_item">
+              <div class="contact_item">
+                <i class="contact_item--icon fa fa-phone"></i>
+                <h3 class="contact_item--title"><a href="/book-a-call/">Book an introductory call</a></h3>
+                <p class="contact_item--text">
+                  Speak to me no matter where you are! Using video conferencing software we can meet face to face
+                  without the travel.
+                </p>
+              </div>
+            </li>
+            <li class="contact_us--contacts_item">
+              <div class="contact_item">
+                <i class="contact_item--icon fa fa-instagram"></i>
+                <h3 class="contact_item--title"><a href="https://www.instagram.com/the_number_ninja/">Be social!</a>
+                </h3>
+                <p class="contact_item--text">
+                  I regularly post tips, tricks and news over on Instagram, so come on over and say hi!
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-7 col-md-offset-0 col-xs-12">
+          <div class="contact_us--form">
+            {% calendly 'introductory-call' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+---
+layout: base-page.njk
+title: Blog posts
+pagination:
+  data: posts
+  size: 12
+  alias: posts
+permalink: /blog/{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber + 1 }}/{% endif %}
+eleventyNavigation:
+  Parent: Home
+  key: Blog
+  order: 3
+---
+
+<div class="blog">
+  <div class="row">
+    {% for post in posts %}
+      {% set index = loop.index %}
+      {% set endOfTabletsRow = index % 2 == 0 %}
+      {% set endOfDesktopRow = index % 3 == 0 %}
+      <div class="col-md-4 col-sm-6">
+        <div class="article -blog_page">
+          <figure class="article--preview">
+            <a href="/blog/{{ post.slug }}/">
+              <img src="{{ post.image.urls.list1x }}" alt="{{ post.image.alt }}"
+                   srcset="{{ post.image.urls.list2x }} 2x" />
+            </a>
+          </figure>
+          <header class="article--header">
+            <h2 class="article--title"><a href="/blog/{{ post.slug }}/" rel="">{{ post.title }}</a></h2>
+            <ul class="article--meta">
+              <li class="article--meta_item -date">{{ post.date | longDate }}</li>
+            </ul>
+          </header>
+          <div class="article--content">{{ post.summary | safe }}</div>
+          <div class="article--footer">
+            <a href="/blog/{{ post.slug }}/" class="link">Read More</a>
+          </div>
+        </div>
+      </div>
+      {% if endOfTabletsRow %}
+        <div class="clearfix visible-sm-block"></div>
+      {% endif %}
+
+      {% if endOfDesktopRow %}
+        <div class="clearfix visible-lg-block clearfix visible-md-block"></div>
+      {% endif %}
+    {% endfor %}
+
+    <nav class="pagination">
+{#      {{ $currentPageNumber := .Paginator.PageNumber }}#}
+{#      {{ if .Paginator.HasPrev }}#}
+      {% if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}" class="pagination--link -prev">
+        <i class="icons8-right"></i>&nbsp;Newer
+      </a>
+      {% endif %}
+
+      <ul>
+        {% for pageEntry in pagination.pages %}
+        <li>
+          {% if page.url == pagination.hrefs[ loop.index0 ] %}
+          <a class="-active" aria-current="page">{{ loop.index }}</a>
+            {% else %}
+          <a href="{{ pagination.hrefs[loop.index0] }}">{{ loop.index }}</a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+
+      {% if pagination.href.next %}
+      <a href="{{ pagination.href.next }}" class="pagination--link -next">
+        Older &nbsp;<i class="icons8-right"></i>
+      </a>
+    {% endif %}
+    </nav>
+  </div>
+</div>

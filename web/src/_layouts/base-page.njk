@@ -1,0 +1,22 @@
+---
+layout: base.njk
+---
+<div class="layout--container">
+  <div class="page_header">
+    <div class="container">
+      <h1
+        class="page_header--title">{{ heading | default(title) }}</h1>
+      {% if subheading %}
+        <h2 class="section--title" style="color: #fff">{{ subheading }}</h2>
+      {% endif %}
+    </div>
+  </div>
+  {% include 'partials/breadcrumbs.njk' %}
+  <section class="section">
+    <div class="container">
+      <div class="section--container">
+        {{ content | safe }}
+      </div>
+    </div>
+  </section>
+</div>

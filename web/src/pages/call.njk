@@ -1,0 +1,18 @@
+---
+layout: page-full-width.njk
+permalink: /book-a-call/{{ call.slug }}/
+pagination:
+  data: calls
+  size: 1
+  alias: call
+  addAllPagesToCollections: true
+eleventyComputed:
+  title: "{{ call.title }}"
+  eleventyNavigation:
+    key: "{{ call.title }}"
+    parent: Book a call
+---
+
+{{ call.description | safe }}
+
+{% calendly call.calendly %}

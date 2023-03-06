@@ -1,0 +1,12 @@
+[dev]
+  framework = "eleventy"
+  port = 8888
+  command = "npx @11ty/eleventy --serve --incremental"
+
+[build]
+  base = "web/"
+  command = "npm run build"
+  publish = "dist/"
+
+[functions]
+  directory = "src/functions"

@@ -1,0 +1,44 @@
+---
+layout: base-page.njk
+---
+<div class="our_company">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="our_company--text">
+        {{ content | safe }}
+
+        <div class="services">
+          <div class="row">
+            {% for service in collections.servicesList %}
+              {% set index = loop.index %}
+              {% set endOfTabletsRow = index % 2 == 0 %}
+              {% set endOfDesktopRow = index % 2 == 0 %}
+              <div class="col-md-6 col-sm-6 col-sm-offset-0 col-xs-11 col-xs-offset-1">
+                <div class="service_item -horizontal">
+                  <i class="service_item--icon fa fa-{{ service.icon }}"></i>
+                  <h3 class="service_item--title"><a href="{{ service.path }}">{{ service.title }}</a>
+                  </h3>
+                  <div class="service_item--text">
+                    {{ service.summary | safe }}
+                    <p style="margin: 1em 0 0 0;">
+                      <a href="/services/{{ service.slug }}/" class="button -bordered -menu_size">
+                        <span class="button--inner">Find out more</span>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {% if endOfTabletsRow %}
+                <div class="clearfix visible-sm-block"></div>
+              {% endif %}
+
+              {% if endOfDesktopRow %}
+                <div class="clearfix visible-lg-block clearfix visible-md-block"></div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

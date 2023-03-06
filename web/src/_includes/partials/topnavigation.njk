@@ -1,0 +1,100 @@
+<div class="topbar visible-md-block visible-lg-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 col-md-offset-3">
+        <div class="topbar--right">
+          <div class="follow_us">
+            <strong>Follow me</strong>
+            <ul>
+              <li><a href="https://www.instagram.com/the_number_ninja/"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="https://www.facebook.com/thenumberninja/"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="/blog/feed.xml"><i class="fa fa-rss"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container">
+    <div class="header--inner">
+      <div class="row">
+        <div class="col-lg-2 col-md-12">
+          <div class="header--logo logo">
+            <a href="/"><img src="/assets/images/logo-header.png" alt="The Number Ninja" /></a>
+          </div>
+        </div>
+        <div class="col-lg-10 col-md-12 visible-md-block visible-lg-block">
+          <div class="header--right">
+            <a href="/book-a-call/" class="button -bordered -menu_size"><span
+                class="button--inner">Book a call</span></a>
+          </div>
+          <div class="header--right" style="margin-right: 1em;">
+            <a href="https://thenumberninja.us16.list-manage.com/subscribe?u=e06be6a0b0b107734d1a5a4d4&id=76a0c7024a"
+               class="button -bordered -menu_size"><span class="button--inner">Sign up to the Ninja News</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav id="main" class="header_nav -wide visible-md-block visible-lg-block">
+    <div class="header_nav--inner">
+      <ul class="menu">
+        {% set navPages = collections.all | eleventyNavigation %}
+        {% for entry in navPages | filterUnwantedNavigationElements %}
+          {% set isCurrentPage = entry.url == page.url %}
+          {% if entry.key == 'Blog' %}
+            <li class="menu-item menu-item-has-mega-menu {% if isCurrentPage %}current-menu-item{% endif %}"
+                {% if isCurrentPage %}aria-current="page"{% endif %}>
+              <a href="{{ entry.url }}">{{ entry.title }}</a>
+              <div class="mega-menu">
+                <div class="mega_nav">
+                  <div class="container">
+                    <div class="row">
+                      {% for post in posts.slice(0, 4) %}
+                        <div class="col-md-6 col-xs-6">
+                          <a href="/blog/{{ post.slug }}/" class="mega_nav--item">
+                            <figure class="mega_nav--item_image">
+                              <img src="{{ post.image.urls.topNavigation1x }}" alt="{{ post.image.alt }}"
+                                   srcset="{{ post.image.urls.topNavigation2x }} 2x" />
+                            </figure>
+                            <dl class="mega_nav--item_body">
+                              <dt><strong>{{ post.title }}</strong></dt>
+                            </dl>
+                          </a>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                  <a href="{{ entry.url }}" class="mega_nav--open_all"><span>All posts</span></a>
+                </div>
+              </div>
+            </li>
+          {% else %}
+            <li class="menu-item {% if isCurrentPage %}current-menu-item{% endif %}"
+                {% if isCurrentPage %}aria-current="page"{% endif %}>
+              <a href="{{ entry.url }}">{{ entry.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+
+
+        {# {{/* Allows us to access blog posts even if we're looking at a different page type, e.g. About. */}} #}
+        {#                      {{ range first 4 (where site.RegularPages "Type" "blog") }} #}
+        {#                        {{ .Render "single-in-navigation" }} #}
+        {#                      {{ end }} #}
+
+      </ul>
+    </div>
+  </nav>
+
+  <div class="header--menu_opener visible-xs-block visible-sm-block">
+		<span class="c-hamburger c-hamburger--htx">
+  		<span>toggle menu</span>
+  	</span>
+  </div>
+
+</header>

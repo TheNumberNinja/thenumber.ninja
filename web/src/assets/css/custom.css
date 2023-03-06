@@ -1,0 +1,261 @@
+.topbar,
+.header_nav .menu>.menu-item>a:before,
+.promo_slider_nav--item::before,
+.footer.-deluge,
+.mobile_sidebar,
+.pagination ul a::before {
+  background-color: #1A9785;
+}
+
+.footer a {
+  color: #FFF
+}
+
+.header_contacts .contact_mini--icon,
+.promo_slider_nav--item_icon,
+.article--content a,
+.header_nav .menu>.menu-item.current-menu-item>a,
+.header_nav .menu>.menu-item:hover>a,
+.header_nav.-wide .header_nav--inner>.menu>.menu-item.current-menu-item>a,
+.breadcrumbs--link.-active,
+.article--meta_item:after,
+.link,
+.our_company--text a,
+.service_item--icon,
+.section--description a,
+.contact_item--title a,
+.contact_item--icon,
+.contact_us--form h3,
+.pagination ul a.-active,
+.our_mission--item_body ul li::before,
+.our_company--quote_text::before,
+.blog .widget li i,
+.case_study--details dl dt i {
+  color: #1A9785;
+}
+
+.case_study--section_title,
+.case_study--details dl dt {
+  color: #969696;
+}
+
+.header--right .button,
+.button.-waikawa_gray.-bordered,
+.services .button {
+  color: #1A9785;
+  border-color: #1A9785;
+}
+
+.button.-waikawa_gray.-bordered:hover {
+  background-color: #1A9785;
+  border-color: #1A9785;
+  color: #fff;
+}
+
+.follow_us a {
+  opacity: 0.6;
+}
+
+.slide_simple--text {
+  opacity: 1.0;
+}
+
+.section {
+  padding: 40px 0;
+}
+
+.our_company .row::after {
+  padding-bottom: 10px;
+}
+
+.our_company--text h2 {
+  color: #969696;
+  font-weight: bold;
+  padding-top: 15px;
+}
+
+.our_company--text p {
+  margin-top: 5px;
+}
+
+.contact_item h3,
+.service_item h3,
+.contact_item--text strong {
+  color: #969696;
+  font-weight: bold;
+}
+
+#why-outsource .service_item.-horizontal {
+  padding-right: 19px;
+}
+
+.seals {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.seals img {
+  margin: 15px;
+}
+
+.footer {
+  background: none;
+}
+
+.section.-pattern.-dark,
+.section.-rounded,
+.cta_banner,
+.page_header {
+  background-image: url("../images/pattern.png");
+}
+
+.footer_navigation--item:before {
+  content: "\f18e";
+  font-family: FontAwesome;
+}
+
+.footer_copyrights--item_copyrights {
+  text-align: left;
+}
+
+#search {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#search-results-container.hidden {
+  display: none;
+}
+
+#headshot {
+  width: 100%;
+}
+
+.blog nav.pagination {
+  margin-bottom: 0;
+}
+
+.blog .widget--title {
+  padding-left: 20px;
+}
+
+.blog .widget li i {
+  padding-right: 10px;
+  width: 24px;
+}
+
+.search-result em {
+  color: #1A9785;
+}
+
+.blog-side-list .date {
+  font-size: 10px;
+  display: block;
+}
+
+.article--content figure {
+  border-top: 3px solid #1A9785;
+  border-bottom: 3px solid #1A9785;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.article--content figcaption {
+  padding: 4px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+  background-color: hsl(0, 0%, 95%);
+  color: hsl(0, 0%, 20%);
+}
+
+.article--content figure a {
+  cursor: zoom-in;
+}
+
+.header_nav .menu > .menu-item > a .menu-item-notify {
+  background: #1A9785;
+}
+
+.case_study--details dl dt {
+  width: 30%;
+}
+
+.case_study--details dl dd {
+  width: 70%;
+}
+
+.message {
+  cursor: default;
+  padding: 0 0 0 16px;
+  border-left: 4px solid;
+  margin-top: 1em !important;
+}
+
+.message.success {
+  border-color: green;
+}
+
+.message.notice {
+  border-color: #34c1e4;
+}
+
+.message.error {
+  border-color: #ed5151;
+}
+
+.our_company--text h3 {
+  color: #969696;
+  font-weight: 700;
+  padding-top: 15px;
+}
+
+.our_company--text p {
+  margin: 20px auto;
+  line-height: 1.6em;
+}
+
+ol {
+  margin: 0.8em auto 1.2em 1.4em;
+}
+
+ol > li {
+  color: #969696;
+  list-style-type: decimal;
+  line-height: 1.6em;
+}
+
+.mobile_sidebar {
+  margin-top: 110px;
+  z-index: 999;
+}
+
+.service .our_company--text > ul li,
+.form-list .our_company--text > ul li {
+  position: relative;
+  margin: 14px 0 0;
+  padding: 0 0 0 25px;
+  color: #969696;
+  font-style: italic
+}
+
+.service .our_company--text > ul li:before,
+.form-list .our_company--text > ul li:before
+{
+  content: '\f14c';
+  font-family: "icons";
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  position: absolute;
+  display: block;
+  color: #59bcdb;
+  top: 0;
+  left: 0
+}
