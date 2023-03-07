@@ -1,3 +1,5 @@
+import {StripeLinkInput} from '../components/StripeLinkInput'
+
 export default {
   name: 'subscription',
   type: 'object',
@@ -10,11 +12,25 @@ export default {
     {
       name: 'customerId',
       type: 'string',
+      components: {
+        input: StripeLinkInput,
+      },
+      options: {
+        baseUrl: 'https://dashboard.stripe.com/customers/',
+        objectType: 'customer',
+      },
       title: 'Stripe customer ID'
     },
     {
       name: 'subscriptionId',
       type: 'string',
+      components: {
+        input: StripeLinkInput,
+      },
+      options: {
+        baseUrl: 'https://dashboard.stripe.com/subscriptions/',
+        objectType: 'subscription',
+      },
       title: 'Stripe subscription ID'
     },
     {
