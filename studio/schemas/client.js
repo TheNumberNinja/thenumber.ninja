@@ -74,7 +74,23 @@ export default {
               type: 'date',
               validation: Rule => Rule.required()
             }
-          ]
+          ],
+          preview: {
+            select: {
+              title: 'type',
+              lastUpdated: 'lastUpdated'
+            },
+            prepare(selection) {
+              const {title, lastUpdated} = selection
+              console.log('date', lastUpdated)
+              const parsedDate = new Date(Date.parse(lastUpdated))
+              const dateOptions = {year: 'numeric', month: 'long', day: 'numeric'}
+              return {
+                title,
+                subtitle: parsedDate.toLocaleDateString(undefined, dateOptions),
+              }
+            }
+          }
         }
       ]
     }
