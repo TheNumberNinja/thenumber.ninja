@@ -9,6 +9,7 @@ export default {
     {
       name: 'yearEnd',
       type: 'date',
+      validation: Rule => Rule.required(),
     }
   ]
 }

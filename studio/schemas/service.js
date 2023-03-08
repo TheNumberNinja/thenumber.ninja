@@ -5,14 +5,16 @@ export default {
   fields: [
     {
       name: 'title',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'slug',
       type: 'slug',
       options: {
         source: 'title'
-      }
+      },
+      validation: Rule => Rule.required(),
     },
     {
       name: 'subheading',
@@ -25,7 +27,8 @@ export default {
         {
           type: 'block'
         }
-      ]
+      ],
+      validation: Rule => Rule.required(),
     },
     {
       name: 'content',
@@ -34,11 +37,13 @@ export default {
         {
           type: 'block'
         }
-      ]
+      ],
+      validation: Rule => Rule.required(),
     },
     {
       name: 'icon',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'requiresAmlCheckForCall',
@@ -64,7 +69,8 @@ export default {
             value: 'automation-power-hour'
           }
         ]
-      }
+      },
+      validation: Rule => Rule.required(),
     },
     {
       name: 'includeOnServicesPage',

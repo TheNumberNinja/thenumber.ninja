@@ -5,21 +5,41 @@ export default {
   fields: [
     {
       name: 'name',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required()
     },
     {
       name: 'clientId',
       type: 'string',
-      title: 'Client ID'
+      title: 'Client ID',
+      validation: Rule => [
+        Rule.custom(async (clientId, context) => {
+          // Taken from https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest#converting_a_digest_to_a_hex_string
+          const clientName = context.document.name
+          const msgUint8 = new TextEncoder().encode(clientName) // encode as (utf-8) Uint8Array
+          const hashBuffer = await crypto.subtle.digest('SHA-1', msgUint8) // hash the message
+          const hashArray = Array.from(new Uint8Array(hashBuffer)) // convert buffer to byte array
+          const hashHex = hashArray
+            .map((b) => b.toString(16).padStart(2, '0'))
+            .join('') // convert bytes to hex string
+
+          if (clientId === hashHex) {
+            return true
+          }
+
+          return 'The client ID doesn\'t match the name. If this is not intentional it will need to be updated and any old references changed or redirected.'
+        })
+      ]
     },
     {
       name: 'email',
       type: 'string',
-      title: 'E-mail'
+      title: 'E-mail',
+      validation: Rule => Rule.required().email()
     },
     {
       name: 'subscription',
-      type: 'subscription',
+      type: 'subscription'
     },
     {
       name: 'documents',
@@ -44,15 +64,15 @@ export default {
                   {
                     title: 'VAT summary',
                     value: 'VAT summary'
-                  },
+                  }
                 ]
               },
-              validation: Rule => Rule.required(),
+              validation: Rule => Rule.required()
             },
             {
               name: 'lastUpdated',
               type: 'date',
-              validation: Rule => Rule.required(),
+              validation: Rule => Rule.required()
             }
           ]
         }

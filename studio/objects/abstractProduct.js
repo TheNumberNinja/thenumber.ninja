@@ -6,20 +6,26 @@ export default {
   fields: [
     {
       name: 'name',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'priceId',
-      type: 'string'
+      type: 'string',
+      title: 'Price ID',
+      validation: Rule => Rule.regex(/^(plan_|price_).+/).error('Price ID must start with "plan_" or "price_"'),
     },
     {
       name: 'quantity',
       type: 'number',
-      default: 1
+      default: 1,
+      validation: Rule => Rule.required().integer(),
     },
     {
       name: 'amount',
-      type: 'number'
+      type: 'number',
+      description: 'Product price in pence, for a single unit (NOT a total for this line)',
+      validation: Rule => Rule.required().integer(),
     }
   ],
   preview: {

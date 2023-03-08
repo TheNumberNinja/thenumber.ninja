@@ -5,11 +5,13 @@ export default {
   fields: [
     {
       name: 'person_name',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'person_description',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'testimonial',
@@ -18,7 +20,8 @@ export default {
         {
           type: 'block'
         }
-      ]
+      ],
+      validation: Rule => Rule.required(),
     },
     {
       name: 'image',
@@ -50,6 +53,7 @@ export default {
           }
         }
       ],
+      validation: Rule => Rule.required(),
     },
   ],
   preview: {

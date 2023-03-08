@@ -12,7 +12,8 @@ export default {
       type: 'slug',
       options: {
         source: 'title'
-      }
+      },
+      validation: Rule => Rule.required(),
     },
     {
       name: 'description',
@@ -21,7 +22,8 @@ export default {
         {
           type: 'block'
         }
-      ]
+      ],
+      validation: Rule => Rule.required(),
     },
     {
       name: 'calendly',
@@ -49,7 +51,8 @@ export default {
             value: 'xero-setup-and-training'
           },
         ].sort((a, b) => a.title.localeCompare(b.title))
-      }
+      },
+      validation: Rule => Rule.required()
     }
   ]
 }

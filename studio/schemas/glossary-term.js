@@ -5,11 +5,14 @@ export default {
   fields: [
     {
       name: 'term',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required(),
+
     },
     {
       name: 'definition',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required(),
     }
   ]
 }

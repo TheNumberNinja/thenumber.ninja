@@ -5,18 +5,21 @@ export default {
   fields: [
     {
       name: 'title',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'slug',
       type: 'slug',
       options: {
         source: 'title'
-      }
+      },
+      validation: Rule => Rule.required(),
     },
     {
       name: 'date',
-      type: 'date'
+      type: 'date',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'image',
@@ -53,7 +56,8 @@ export default {
         {
           type: 'block'
         }
-      ]
+      ],
+      validation: Rule => Rule.required(),
     },
     {
       name: 'content',
@@ -78,7 +82,8 @@ export default {
             hotspot: true
           },
         }
-      ]
+      ],
+      validation: Rule => Rule.required(),
     },
     {
       name: 'categories',
@@ -136,7 +141,8 @@ export default {
             value: 'Tips'
           }
         ]
-      }
+      },
+      validation: Rule => Rule.required(),
     },
     {
       name: 'tags',
