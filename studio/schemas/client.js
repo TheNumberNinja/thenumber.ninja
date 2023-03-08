@@ -1,3 +1,20 @@
+async function clientIdMatchesName(clientId, context) {
+  // Taken from https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest#converting_a_digest_to_a_hex_string
+  const clientName = context.document.name
+  const msgUint8 = new TextEncoder().encode(clientName) // encode as (utf-8) Uint8Array
+  const hashBuffer = await crypto.subtle.digest('SHA-1', msgUint8) // hash the message
+  const hashArray = Array.from(new Uint8Array(hashBuffer)) // convert buffer to byte array
+  const hashHex = hashArray
+    .map((b) => b.toString(16).padStart(2, '0'))
+    .join('') // convert bytes to hex string
+
+  if (clientId === hashHex) {
+    return true
+  }
+
+  return 'The client ID doesn\'t match the name. If this is not intentional it will need to be updated and any old references changed or redirected.'
+}
+
 export default {
   name: 'client',
   type: 'document',
@@ -12,24 +29,7 @@ export default {
       name: 'clientId',
       type: 'string',
       title: 'Client ID',
-      validation: Rule => [
-        Rule.custom(async (clientId, context) => {
-          // Taken from https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest#converting_a_digest_to_a_hex_string
-          const clientName = context.document.name
-          const msgUint8 = new TextEncoder().encode(clientName) // encode as (utf-8) Uint8Array
-          const hashBuffer = await crypto.subtle.digest('SHA-1', msgUint8) // hash the message
-          const hashArray = Array.from(new Uint8Array(hashBuffer)) // convert buffer to byte array
-          const hashHex = hashArray
-            .map((b) => b.toString(16).padStart(2, '0'))
-            .join('') // convert bytes to hex string
-
-          if (clientId === hashHex) {
-            return true
-          }
-
-          return 'The client ID doesn\'t match the name. If this is not intentional it will need to be updated and any old references changed or redirected.'
-        })
-      ]
+      validation: Rule => Rule.custom(clientIdMatchesName).warning(),
     },
     {
       name: 'email',
@@ -87,7 +87,7 @@ export default {
               const dateOptions = {year: 'numeric', month: 'long', day: 'numeric'}
               return {
                 title,
-                subtitle: parsedDate.toLocaleDateString(undefined, dateOptions),
+                subtitle: parsedDate.toLocaleDateString(undefined, dateOptions)
               }
             }
           }
