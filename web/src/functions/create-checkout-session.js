@@ -270,11 +270,10 @@ async function createSession(clientId, baseUrl, taxRateId) {
       client_id: clientId
     }
 
-    console.log(subscriptionConfiguration)
     if ('agreement' in subscriptionConfiguration) {
       const trialEndDate = calculateTrialEnd(subscriptionConfiguration.agreement.start)
       if (trialEndDate) {
-        payload['subscription_data']['trial_end'] = calculateTrialEnd(trialEndDate)
+        payload['subscription_data']['trial_end'] = trialEndDate
       }
     }
   }
