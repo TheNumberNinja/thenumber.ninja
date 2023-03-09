@@ -97,8 +97,20 @@ export default {
         layout: 'grid',
         list: [
           {
+            title: 'Behind the Calculator',
+            value: 'Behind the Calculator'
+          },
+          {
             title: 'Bookkeeping',
             value: 'Bookkeeping'
+          },
+          {
+            title: 'Cloud',
+            value: 'Cloud'
+          },
+          {
+            title: 'Government Support',
+            value: 'Government Support'
           },
           {
             title: 'Invoicing',
@@ -107,6 +119,10 @@ export default {
           {
             title: 'Legal',
             value: 'Legal'
+          },
+          {
+            title: 'Limited Company',
+            value: 'Limited Company'
           },
           {
             title: 'News',
@@ -133,8 +149,16 @@ export default {
             value: 'Self-Employed'
           },
           {
+            title: 'Sole Trader',
+            value: 'Sole Trader'
+          },
+          {
             title: 'Tax',
             value: 'Tax'
+          },
+          {
+            title: 'Technical',
+            value: 'Technical'
           },
           {
             title: 'Tips',
