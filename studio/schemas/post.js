@@ -144,18 +144,6 @@ export default {
       },
       validation: Rule => Rule.required(),
     },
-    {
-      name: 'tags',
-      type: 'array',
-      of: [
-        {
-          type: 'string'
-        }
-      ],
-      options: {
-        layout: 'tags'
-      }
-    }
   ],
   preview: {
     select: {

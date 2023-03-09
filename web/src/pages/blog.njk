@@ -46,19 +46,6 @@ eleventyComputed:
 {#        </ul>#}
 {#      </div>#}
       <div class="widget blog-side-list">
-        <h2 class="widget--title">Related blogs</h2>
-{#        FIXME: Related blogs #}
-        <ul>
-{#          {{ range . }}#}
-          <li>
-{#            <a href="{{ .RelPermalink }}">{{ .Title | title }}</a>#}
-{#            <span class="date">{{ .Date.Format "2 January 2006" }}</span>#}
-          </li>
-{#          {{ end }}#}
-        </ul>
-      </div>
-{#      {{ end }}#}
-      <div class="widget blog-side-list">
         <h2 class="widget--title">Latest blogs</h2>
         <ul>
           {% for latestPost in posts.slice(0, 5) %}
