@@ -7,6 +7,8 @@
   base = "web/"
   command = "npm run build"
   publish = "dist/"
+  # Only build if changes are in the web directory
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ."
 
 [functions]
   directory = "src/functions"
