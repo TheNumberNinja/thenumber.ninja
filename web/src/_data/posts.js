@@ -84,6 +84,7 @@ async function getPosts() {
     return posts.map(post => {
       post.summary = toHtml(post.summary)
       post.content = toHtml(post.content, {components: portableTextComponents})
+      post.image.attribution = toHtml(post.image.attribution)
       post.image.urls = {
         list1x: image(post.image, 360, 220).url(),
         list2x: image(post.image, 360, 220).dpr(2).url(),
