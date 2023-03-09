@@ -47,7 +47,8 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      validation: Rule => Rule.required(),
     },
     {
       name: 'summary',
