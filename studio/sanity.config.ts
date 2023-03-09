@@ -4,6 +4,8 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 import {table} from '@sanity/table'
 import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
+import { dashboardTool } from "@sanity/dashboard";
+import { netlifyWidget } from "sanity-plugin-dashboard-widget-netlify";
 
 export default defineConfig({
   name: 'default',
@@ -13,6 +15,21 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [
+    dashboardTool({
+      widgets: [
+        netlifyWidget({
+          title: 'Netlify',
+          sites: [
+            {
+              title: 'thenumber.ninja',
+              apiId: process.env.SANITY_STUDIO_NETLIFY_SITE_API_ID,
+              buildHookId: process.env.SANITY_STUDIO_NETLIFY_SITE_BUILD_HOOK_ID,
+              name: 'thenumber-ninja',
+            }
+          ]
+        })
+      ]
+    }),
     deskTool({
       structure: (S, context) => {
         return S.list()
