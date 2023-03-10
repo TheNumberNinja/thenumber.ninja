@@ -6,6 +6,24 @@ export default {
   title: 'Subscription',
   fields: [
     {
+      name: 'type',
+      type: 'string',
+      options: {
+        list: [
+          {
+            title: 'Stripe',
+            value: 'stripe'
+          },
+          {
+            title: 'Invoice',
+            value: 'invoice'
+          },
+        ]
+      },
+      default: 'stripe',
+      validation: Rule => Rule.required(),
+    },
+    {
       name: 'agreement',
       type: 'agreement',
     },

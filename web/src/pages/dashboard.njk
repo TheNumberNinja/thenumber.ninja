@@ -64,25 +64,27 @@ excludeFromSitemap: true
     </div>
     <div class="col-md-6">
       <div class="case_study--section our_company--text">
-        <button class="button -menu_size -waikawa_gray -bordered"
-                id="start-subscription"
-                role="link"
-                style="margin-top: 1em; display: none"
-        >
+        {% if subscription.type == 'stripe' %}
+          <button class="button -menu_size -waikawa_gray -bordered"
+                  id="start-subscription"
+                  role="link"
+                  style="margin-top: 1em; display: none"
+          >
               <span class="button--inner">
                 Start subscription
               </span>
-        </button>
+          </button>
 
-        <button class="button -menu_size -waikawa_gray -bordered"
-                id="update-payment-card"
-                role="link"
-                style="margin-top: 1em; display: none"
-        >
+          <button class="button -menu_size -waikawa_gray -bordered"
+                  id="update-payment-card"
+                  role="link"
+                  style="margin-top: 1em; display: none"
+          >
               <span class="button--inner">
                 Update payment method
               </span>
-        </button>
+          </button>
+        {% endif %}
       </div>
     </div>
   </div>
