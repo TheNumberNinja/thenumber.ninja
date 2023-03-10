@@ -85,7 +85,8 @@ exports.handler = Sentry.AWSLambda.wrapHandler(async function(event, context) {
   }
 
   const {client, type, url} = document
-  const pdfUrl = `${url}?dl=${type} for ${client}`
+  const filename = `${type} for ${client}.pdf`.replaceAll(' ', '-')
+  const pdfUrl = `${url}?dl=${filename}`
   const body = {
     url: pdfUrl
   }
