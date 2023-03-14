@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx @11ty/eleventy"
+    "dev": "node_modules/.bin/netlify dev",
+    "build": "node_modules/.bin/eleventy",
+    "netlify:build": "npm run build && npm run jampack",
+    "jampack": "jampack ./dist"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +27,7 @@
     "markdown-it-link-attributes": "^4.0.1"
   },
   "devDependencies": {
+    "@divriots/jampack": "^0.9.4",
     "netlify-cli": "^13.0.0"
   }
 }
