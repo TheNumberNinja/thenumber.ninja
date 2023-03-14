@@ -1,3 +1,6 @@
+import {ClientIdInput} from '../components/ClientIdInput'
+import {StripeLinkInput} from '../components/StripeLinkInput'
+
 async function clientIdMatchesName(clientId, context) {
   // Taken from https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest#converting_a_digest_to_a_hex_string
   const clientName = context.document.name
@@ -12,7 +15,7 @@ async function clientIdMatchesName(clientId, context) {
     return true
   }
 
-  return 'The client ID doesn\'t match the name. If this is not intentional it will need to be updated and any old references changed or redirected.'
+  return "The client ID doesn't match the name. If this is not intentional it will need to be updated and any old references changed or redirected."
 }
 
 export default {
@@ -29,6 +32,9 @@ export default {
       name: 'clientId',
       type: 'string',
       title: 'Client ID',
+      components: {
+        input: ClientIdInput,
+      },
       validation: Rule => Rule.custom(clientIdMatchesName).warning(),
     },
     {
