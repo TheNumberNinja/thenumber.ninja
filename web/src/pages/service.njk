@@ -14,7 +14,6 @@ eleventyComputed:
     parent: Services
     key: "{{ service.title }}"
 ---
-{{ service.title }}
 {% set testimonial = service.testimonials | sample | first %}
 <div class="our_company">
   <div class="row">

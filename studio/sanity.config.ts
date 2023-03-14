@@ -23,8 +23,8 @@ export default defineConfig({
           sites: [
             {
               title: 'thenumber.ninja',
-              apiId: process.env.SANITY_STUDIO_NETLIFY_SITE_API_ID,
-              buildHookId: process.env.SANITY_STUDIO_NETLIFY_SITE_BUILD_HOOK_ID,
+              apiId: process.env.SANITY_STUDIO_NETLIFY_SITE_API_ID as string,
+              buildHookId: process.env.SANITY_STUDIO_NETLIFY_SITE_BUILD_HOOK_ID as string,
               name: 'thenumber-ninja',
             }
           ]
