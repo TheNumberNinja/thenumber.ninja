@@ -35,7 +35,7 @@
   </div>
 
 {{ content | safe }}
-
+</div>
 {% include 'partials/footer.njk' %}
 
 <script src="/assets/libs/jquery.min.js"></script>
@@ -43,7 +43,7 @@
 <script src="/assets/scripts/app.js"></script>
 
 {% if page.url == '/' %}
-  <link rel="stylesheet" href="/assets/libs/slick-carousel/slick.css" integrity="{{ $cssSlick.Data.Integrity }}">
+  <link rel="stylesheet" href="/assets/libs/slick-carousel/slick.css">
   <script src="/assets/libs/slick-carousel/slick.min.js"></script>
   <script src="/assets/scripts/home.js"></script>
 {% endif %}
