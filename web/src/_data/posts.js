@@ -17,7 +17,7 @@ const portableTextComponents = {
       const image2x = image(block, 720, 440).dpr(2).url()
       return `<figure class='in-article'>
                 <a href='${block.asset.url}' title='View fullsize version of ${block.caption}' target='_blank'>
-                  <img src='${image1x}' alt='${image.alt}' srcset='${image2x} 2x' />
+                  <img src='${image1x}' alt='${image.alt}' srcset='${image2x} 2x' height='440' width='720' />
                 </a>
                 <figcaption>${block.caption}</figcaption>
             </figure>`

@@ -22,8 +22,12 @@ eleventyNavigation:
         <div class="article -blog_page">
           <figure class="article--preview">
             <a href="/blog/{{ post.slug }}/">
-              <img src="{{ post.image.urls.list1x }}" alt="{{ post.image.alt }}"
-                   srcset="{{ post.image.urls.list2x }} 2x" />
+              <img src='{{ post.image.urls.list1x }}'
+                   alt='{{ post.image.alt }}'
+                   srcset='{{ post.image.urls.list2x }} 2x'
+                   height='220'
+                   width='360'
+              />
             </a>
           </figure>
           <header class="article--header">

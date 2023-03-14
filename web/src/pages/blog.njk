@@ -19,8 +19,12 @@ eleventyComputed:
       <div class="article--content">
         {{ post.summary | safe }}
         <figure>
-          <img src="{{ post.image.urls.page1x }}" alt="{{ post.image.alt | default('') }}"
-               srcset="{{ post.image.urls.page2x }} 2x" />
+          <img src='{{ post.image.urls.page1x }}'
+               alt="{{ post.image.alt | default('') }}"
+               srcset='{{ post.image.urls.page2x }} 2x'
+               height='440'
+               width='720'
+          />
         </figure>
         {{ post.content | safe }}
         {% if post.image.attribution %}

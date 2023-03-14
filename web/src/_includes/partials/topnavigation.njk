@@ -58,8 +58,12 @@
                         <div class="col-md-6 col-xs-6">
                           <a href="/blog/{{ post.slug }}/" class="mega_nav--item">
                             <figure class="mega_nav--item_image">
-                              <img src="{{ post.image.urls.topNavigation1x }}" alt="{{ post.image.alt }}"
-                                   srcset="{{ post.image.urls.topNavigation2x }} 2x" />
+                              <img src='{{ post.image.urls.topNavigation1x }}'
+                                   alt='{{ post.image.alt }}'
+                                   srcset='{{ post.image.urls.topNavigation2x }} 2x'
+                                   height='32'
+                                   width='32'
+                              />
                             </figure>
                             <dl class="mega_nav--item_body">
                               <dt><strong>{{ post.title }}</strong></dt>
