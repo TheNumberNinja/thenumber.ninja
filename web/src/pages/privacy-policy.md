@@ -68,7 +68,9 @@ If you opt out of receiving marketing communications this opt-out does not apply
 We may have to share your personal data with the parties set out below:
 
 - Service providers who provide IT and system administration services.
+
 - Professional advisers including lawyers, bankers, auditors and insurers
+
 - Government bodies that require us to report processing activities.
 
 We require all third parties to whom we transfer your data to respect the security of your personal data and to treat it in accordance with the law. We only allow such third parties to process your personal data for specified purposes and in accordance with our instructions.
@@ -76,9 +78,13 @@ We require all third parties to whom we transfer your data to respect the securi
 ## 6. International transfers
 
 We are subject to the provisions of the General Data Protection Regulations that protect your personal data. Where we transfer your data to third parties outside the EEA, we will ensure that certain safeguards are in place to ensure a similar degree of security for your personal data. As such:
+
 - We may transfer your personal data to countries that the European Commission have approved as providing an adequate level of protection for personal data by; or
+
 - If we use US-based providers that are part of EU-US Privacy Shield, we may transfer data to them, as they have equivalent safeguards in place; or
+
 - Where we use certain service providers who are established outside the EEA, we may use specific contracts or codes of conduct or certification mechanisms approved by the European Commission which give personal data the same protection it has in Europe.
+
 If none of the above safeguards is available, we may request your explicit consent to the specific transfer. You will have the right to withdraw this consent at any time.
 
 ## 7. Data security

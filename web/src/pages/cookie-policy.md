@@ -22,7 +22,7 @@ Cookies are either:
 - **Persistent cookies**: these are stored as a file on your computer and remain there when you close your browser. The cookie can be read by the website that created it when you return to that website. We use persistent cookies for Google Analytics.
 
 They can also be categorised as follows:
--
+
 - **Strictly necessary cookies**: essential to enable you to use the website effectively, such as when buying a service/product, and therefore cannot be turned off. Without these cookies, the services available to you on our website cannot be provided. These cookies do not gather information about you that could be used for marketing or remembering where you have been on the internet.
 
 - **Performance cookies**: enable us to monitor and improve the performance of our website. For example, they allow us to count visits, identify traffic sources and see which parts of the site are most popular.
