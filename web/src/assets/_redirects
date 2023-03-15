@@ -1,8 +1,8 @@
 # thenumberninja[s].co.uk -> thenumber.ninja
-https://thenumberninja.co.uk/* https://thenumber.ninja/:splat!
-https://www.thenumberninja.co.uk/* https://thenumber.ninja/:splat!
-https://thenumberninjas.co.uk/* https://thenumber.ninja/:splat!
-https://www.thenumberninjas.co.uk/* https://thenumber.ninja/:splat!
+https://thenumberninja.co.uk/* https://thenumber.ninja/:splat 301!
+https://www.thenumberninja.co.uk/* https://thenumber.ninja/:splat 301!
+https://thenumberninjas.co.uk/* https://thenumber.ninja/:splat 301!
+https://www.thenumberninjas.co.uk/* https://thenumber.ninja/:splat 301!
 
 # Pages
 /emma/  /about/
