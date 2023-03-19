@@ -59,3 +59,7 @@ https://www.thenumberninjas.co.uk/* https://thenumber.ninja/:splat 301!
 
 # Dashboard help
 /help/updating-your-payment-details/ /dashboard/ 302 # Maybe there will be a fuller help section and it would make sense to have this page again so don't make this a permanent redirect
+
+# Clicky proxy
+/sgc/* https://static.getclicky.com/:splat 200
+/igc/* https://in.getclicky.com/:splat 200
