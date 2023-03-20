@@ -18,6 +18,7 @@ const {
 
 const {
   airtable,
+  tally,
   calendly
 } = require('./config/shortcodes/index.js')
 
@@ -31,6 +32,7 @@ const markdownLib = require('./config/plugins/markdown.js');
 
 module.exports = eleventyConfig => {
   eleventyConfig.addShortcode('airtable', airtable);
+  eleventyConfig.addShortcode('tally', tally);
   eleventyConfig.addShortcode('calendly', calendly);
   eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
 

@@ -1,7 +1,8 @@
 const calendly = require('./calendly')
-const {airtable} = require('./forms')
+const {airtable, tally} = require('./forms')
 
 module.exports = {
   airtable,
+  tally,
   calendly,
 }
