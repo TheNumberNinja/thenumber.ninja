@@ -6,7 +6,6 @@ import {table} from '@sanity/table'
 import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
 import { dashboardTool } from "@sanity/dashboard";
 import { netlifyWidget } from "sanity-plugin-dashboard-widget-netlify";
-import {media} from 'sanity-plugin-media'
 
 export default defineConfig({
   name: 'default',
@@ -67,7 +66,6 @@ export default defineConfig({
     }),
     visionTool(),
     table(),
-    media(),
   ],
 
   schema: {
