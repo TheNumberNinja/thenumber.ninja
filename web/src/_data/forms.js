@@ -2,8 +2,8 @@ module.exports = [
   {
     slug: 'id-form',
     title: 'ID form',
-    formService: 'airtable',
-    formId: 'shrMae0GzMBFvd3gX',
+    formService: 'tally',
+    formId: 'w4QGAA',
     category: 'General',
   },
   {
