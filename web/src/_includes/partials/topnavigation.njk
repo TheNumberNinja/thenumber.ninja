@@ -80,13 +80,6 @@
             </li>
           {% endif %}
         {% endfor %}
-
-
-        {# {{/* Allows us to access blog posts even if we're looking at a different page type, e.g. About. */}} #}
-        {#                      {{ range first 4 (where site.RegularPages "Type" "blog") }} #}
-        {#                        {{ .Render "single-in-navigation" }} #}
-        {#                      {{ end }} #}
-
       </ul>
     </div>
   </nav>
