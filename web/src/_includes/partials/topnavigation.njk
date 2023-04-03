@@ -85,9 +85,43 @@
   </nav>
 
   <div class="header--menu_opener visible-xs-block visible-sm-block">
-		<span class="c-hamburger c-hamburger--htx">
+		<span id="hamburger" class="c-hamburger c-hamburger--htx">
   		<span>toggle menu</span>
   	</span>
   </div>
+
+  <div id="mobile_sidebar" class="mobile_sidebar">
+    <div class="mobile_sidebar--closer -white">
+      <button class="c-hamburger c-hamburger--htx is-active"><span>toggle menu</span></button>
+    </div>
+    <div class="mobile_menu">
+      <ul class="menu">
+        {% set navPages = collections.all | eleventyNavigation %}
+        {% for entry in navPages | filterUnwantedNavigationElements %}
+          <li class="menu-item {% if isCurrentPage %}current-menu-item{% endif %}"
+              {% if isCurrentPage %}aria-current="page"{% endif %}>
+            <a href="{{ entry.url }}">{{ entry.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- topbar_contacts-->
+    <ul class="topbar_contacts -mobile_sidebar">
+      <li class="topbar_contacts--item"><span class="contact_quote"><i class="fa fa-phone"></i><a href="/book-a-call/">Book a Call</a></span></li>
+    </ul>
+    <!-- /topbar_contacts-->
+    <!-- follow me-->
+    <div class="follow_us -mobile_sidebar">
+      <strong>Follow me</strong>
+      <ul>
+        <li><a href="https://www.instagram.com/the_number_ninja/"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="https://www.facebook.com/thenumberninja/"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="/blog/feed.xml"><i class="fa fa-rss"></i></a></li>
+      </ul>
+    </div>
+    <!-- /follow me-->
+  </div>
+
 
 </header>

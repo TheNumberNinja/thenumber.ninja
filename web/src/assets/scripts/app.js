@@ -1,56 +1,30 @@
 // hamburger toggler
-if ($('.c-hamburger').length) {
-  var toggleHandler = function toggleHandler(toggle) {
-    toggle.addEventListener("tap", function (e) {
-      e.preventDefault();
-      this.classList.contains("is-active") === true ? this.classList.remove("is-active") : this.classList.add("is-active");
-    });
-  };
-
-  var toggles = document.querySelectorAll(".c-hamburger");
-
-  for (var i = toggles.length - 1; i >= 0; i--) {
-    var toggle = toggles[i];
-    toggleHandler(toggle);
-  };
-}
+const hamburgerToggle = document.getElementById('hamburger')
+hamburgerToggle.addEventListener('click', function(e) {
+  e.preventDefault()
+  hamburgerToggle.classList.toggle('is-active')
+})
 
 // slideout menu
-if ($('.mobile_sidebar').length) {
+if (window.innerWidth <= 992) {
+  const slideout = new Slideout({
+    'panel': document.getElementById('main'),
+    'menu': document.getElementById('mobile_sidebar'),
+    'padding': 320,
+    'tolerance': 70
+  })
 
-  if ($(window).width() <= 992) {
-    (function () {
+  const opener = document.getElementsByClassName('header--menu_opener').item(0)
+  const closer = document.getElementsByClassName('mobile_sidebar--closer').item(0)
 
-      var slideout = new Slideout({
-        'panel': document.getElementById('main'),
-        'menu': document.getElementById('mobile_sidebar'),
-        'padding': 320,
-        'tolerance': 70
-      });
+  opener.addEventListener('click', function(e) {
+    slideout.toggle()
+    e.preventDefault()
+  })
 
-      if ($('.header--menu_opener').length) {
-        $('.header--menu_opener').on('click', function (e) {
-          slideout.toggle();
-          e.preventDefault();
-        });
-
-        // $('.header--menu_opener button').on('click', (e) => {
-        // 	e.preventDefault()
-        // });
-      }
-
-      if ($('.mobile_sidebar--closer').length) {
-        $('.mobile_sidebar--closer').on('click', function (e) {
-          e.preventDefault();
-          $('.c-hamburger').removeClass('is-active');
-          slideout.close();
-        });
-      }
-
-      $('.mobile_menu .menu-item > a').on('click', function (e) {
-        var $item = $(e.target);
-        $item.parent('.menu-item').toggleClass('-active');
-      });
-    })();
-  }
+  closer.addEventListener('click', function(e) {
+    e.preventDefault()
+    hamburgerToggle.classList.remove('is-active')
+    slideout.close()
+  })
 }
