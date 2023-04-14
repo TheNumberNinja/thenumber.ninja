@@ -68,9 +68,9 @@ module.exports = [
   },
   {
     slug: 'self-assessment-questionnaire',
-    title: 'Self Assessment Tax Return 2021-22',
-    formService: 'airtable',
-    formId: 'shrBkxympvuEuBHEB',
+    title: 'Self Assessment Tax Return 2022/23',
+    formService: 'tally',
+    formId: 'n0dA1B',
     category: 'Self Assessment',
   },
   {
