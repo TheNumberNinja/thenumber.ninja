@@ -59,10 +59,18 @@ exports.handler = exports.handler = Sentry.AWSLambda.wrapHandler(async function(
     return respond(405, {error: 'Method Not Allowed'})
   }
 
-  const signature = event.headers['stripe-signature']
+  let signature = event.headers['stripe-signature']
   let stripeEvent
 
   try {
+    if (!isProduction()) {
+      console.warn(`⚠️ Generating test signature because we're in the ${process.env.ENV} environment.`)
+      signature = stripe.webhooks.generateTestHeaderString({
+        payload: event.body,
+        secret: process.env.STRIPE_WEBHOOK_SIGNING_SECRET,
+      });
+    }
+
     stripeEvent = stripe.webhooks.constructEvent(event.body, signature, process.env.STRIPE_WEBHOOK_SIGNING_SECRET)
     console.log('📝 Stripe event:', stripeEvent)
   } catch (err) {
