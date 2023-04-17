@@ -160,7 +160,14 @@ async function customerSubscriptionCreated(event) {
     await updateSanityClientDocument(document.id, customerId, subscriptionId)
   }
 
+  async function triggerNetlifyBuild() {
+    await fetch(process.env.STRIPE_WEBHOOK_BUILD_HOOK, {
+      method: 'POST',
+    })
+  }
+
   await setCustomerAndSubscriptionIdsInSanity()
+  await triggerNetlifyBuild()
 
   return respond(200)
 }
