@@ -1,28 +1,10 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const Sentry = require("@sentry/serverless");
-
-function isProduction() {
-    return process.env.HUGO_ENV === "production";
-}
-
-let buildInformation = {}
-try {
-    buildInformation = require(`${__dirname}/build.json`)
-} catch (e) {
-    // File doesn't exist. Probably running locally.
-}
-
-function getCommitRef() {
-    if ("commitRef" in buildInformation) {
-        return buildInformation["commitRef"];
-    }
-
-    return "unknown";
-}
+const {getCommitRef, isProduction} = require('../../config/functions/index')
 
 Sentry.AWSLambda.init({
     dsn: process.env.SENTRY_DSN,
-    environment: process.env.HUGO_ENV,
+    environment: process.env.ENV,
     release: `the-number-ninja@${(getCommitRef())}`,
     beforeSend(event, hint) {
         // Don't send events if it's not production

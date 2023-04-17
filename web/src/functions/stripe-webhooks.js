@@ -7,7 +7,7 @@ const writeClient = readClient.withConfig({
 })
 
 function isProduction() {
-  return process.env.HUGO_ENV === 'production'
+  return process.env.ENV === 'production'
 }
 
 let buildInformation = {}
@@ -27,7 +27,7 @@ function getCommitRef() {
 
 Sentry.AWSLambda.init({
   dsn: process.env.SENTRY_DSN,
-  environment: process.env.HUGO_ENV,
+  environment: process.env.ENV,
   release: `the-number-ninja@${(getCommitRef())}`,
   beforeSend(event, hint) {
     // Don't send events if it's not production
