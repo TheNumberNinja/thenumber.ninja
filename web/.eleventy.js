@@ -29,6 +29,7 @@ const {
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const eleventyRssPlugin = require("@11ty/eleventy-plugin-rss");
 const markdownLib = require('./config/plugins/markdown.js');
+const slinkity = require('slinkity')
 
 module.exports = eleventyConfig => {
   eleventyConfig.addShortcode('airtable', airtable);
@@ -43,6 +44,19 @@ module.exports = eleventyConfig => {
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(eleventyRssPlugin);
+  eleventyConfig.addPlugin(slinkity.plugin, slinkity.defineConfig({
+    // optional: use slinkity.defineConfig
+    // for some handy autocomplete in your editor
+  }));
+
+  /**
+   * Why copy the /public directory?
+   *
+   * Slinkity uses Vite (https://vitejs.dev) under the hood for processing styles and JS resources
+   * This tool encourages a /public directory for your static assets like social images
+   * To ensure this directory is discoverable by Vite, we copy it to our 11ty build output like so:
+   */
+  eleventyConfig.addPassthroughCopy('public')
 
   // 	---------------------  Custom filters -----------------------
   eleventyConfig.addFilter('getMostRecentUpdatedDate', getMostRecentUpdatedDate);
@@ -59,20 +73,8 @@ module.exports = eleventyConfig => {
 
   // 	--------------------- Passthrough File Copy -----------------------
   [
-    'src/assets/css/',
-    'src/assets/fonts/',
-    'src/assets/images/',
-    'src/assets/libs/',
-    'src/assets/scripts/'
+    'src/assets',
   ].forEach(path => eleventyConfig.addPassthroughCopy(path));
-
-  [
-    {'src/assets/_headers': '/_headers'},
-    {'src/assets/_redirects': '/_redirects'},
-    {'src/assets/documents/': '/documents/'},
-    {'src/assets/images/favicon/*': '/'},
-    {'src/assets/robots.txt': '/robots.txt'},
-  ].forEach(rule => eleventyConfig.addPassthroughCopy(rule));
 
   return {
     // Pre-process *.md, *.html and global data files files with: (default: `liquid`)
