@@ -137,23 +137,26 @@ function generateOneOffLineItems(products) {
 }
 
 function generateAccountsLineItems(products) {
-  return products.filter(product => product._type === 'accountsProduct')
-    .map((product) => {
+  const lineItems = []
+
+  products
+    .filter(product => product._type === 'accountsProduct')
+    .forEach((product) => {
       const {name, amount, priceId, quantity} = product
       const catchUpMonths = calculateNumberOfCatchUpMonths(product['yearEnd'])
 
       // Need to add future subscription items
       if (catchUpMonths < 12) {
-        return {
+        lineItems.push({
           price: priceId,
           quantity: quantity
-        }
+        })
       }
 
       // Work-around because descriptions are not shown on checkout page for subscriptions
       const month = catchUpMonths === 1 ? 'month' : 'months'
 
-      return {
+      lineItems.push({
         quantity: 1,
         price_data: {
           product_data: {
@@ -162,8 +165,11 @@ function generateAccountsLineItems(products) {
           currency: 'gbp',
           unit_amount: amount * catchUpMonths
         }
-      }
+      })
+
     })
+
+  return lineItems
 }
 
 function determineMode(recurringLineItems) {
