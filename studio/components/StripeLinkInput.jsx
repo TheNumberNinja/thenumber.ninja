@@ -3,7 +3,6 @@ import {Stack, Text, TextInput} from '@sanity/ui'
 import {set, unset} from 'sanity'
 
 export const StripeLinkInput = (props) => {
-  console.log(props)
   const {elementProps, onChange, schemaType, value = ''} = props
   const {baseUrl, objectType} = schemaType.options
 
