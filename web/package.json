@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node_modules/.bin/netlify dev",
-    "build": "node_modules/.bin/eleventy",
+    "11ty:build": "rm -rf ./dist && npx @11ty/eleventy",
+    "11ty:dev": "npx @11ty/eleventy --serve --incremental",
+    "build": "npm run 11ty:build",
+    "dev": "npm run netlify:dev",
+    "jampack": "npx jampack ./dist",
     "netlify:build": "npm run build && npm run jampack",
-    "jampack": "jampack ./dist"
+    "netlify:dev": "BROWSER=none npx netlify dev"
   },
   "keywords": [],
   "author": "",
