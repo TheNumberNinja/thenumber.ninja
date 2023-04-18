@@ -110,8 +110,8 @@
 }
 
 .footer_navigation--item:before {
-  content: "\f18e";
-  font-family: FontAwesome;
+  content: "\f35a";
+  font-family: "Font Awesome 6 Free";
 }
 
 .footer_copyrights--item_copyrights {

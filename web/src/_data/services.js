@@ -18,6 +18,7 @@ async function getServices () {
     summary,
     content,
     icon,
+    fontAwesomeSixIcon,
     calendly,
     requiresAmlCheckForCall,
     includeOnServicesPage,
