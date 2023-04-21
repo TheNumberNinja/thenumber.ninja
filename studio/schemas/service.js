@@ -1,3 +1,15 @@
+import {FontAwesomeSixIconInput} from '../components/FontAwesomeSixIcon'
+
+async function requiredIfServiceIsIncludedOnServicesPage(field, context) {
+  const includeOnServicesPage = context.document.includeOnServicesPage;
+
+  if (field || !includeOnServicesPage) {
+    return true;
+  }
+
+  return "This service is set to display on the services page so this field is required."
+}
+
 export default {
   name: 'service',
   type: 'document',
@@ -28,7 +40,7 @@ export default {
           type: 'block'
         }
       ],
-      validation: Rule => Rule.required(),
+      validation: Rule => Rule.custom(requiredIfServiceIsIncludedOnServicesPage),
     },
     {
       name: 'content',
@@ -43,7 +55,17 @@ export default {
     {
       name: 'icon',
       type: 'string',
-      validation: Rule => Rule.required(),
+      validation: Rule => Rule.custom(requiredIfServiceIsIncludedOnServicesPage),
+      description: 'These are the old-style icons and are being replaced with version 6, below'
+    },
+    {
+      name: 'fontAwesomeSixIcon',
+      title: 'FontAwesome 6 icon',
+      type: 'string',
+      components: {
+        input: FontAwesomeSixIconInput,
+      },
+      validation: Rule => Rule.custom(requiredIfServiceIsIncludedOnServicesPage),
     },
     {
       name: 'requiresAmlCheckForCall',

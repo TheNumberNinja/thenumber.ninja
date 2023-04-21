@@ -1,3 +1,8 @@
+@import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
+@import "@fortawesome/fontawesome-free/css/brands.min.css";
+@import "@fortawesome/fontawesome-free/css/solid.min.css";
+@import "@fortawesome/fontawesome-free/css/regular.min.css";
+
 .topbar,
 .header_nav .menu>.menu-item>a:before,
 .promo_slider_nav--item::before,
@@ -110,8 +115,8 @@
 }
 
 .footer_navigation--item:before {
-  content: "\f18e";
-  font-family: FontAwesome;
+  content: "\f35a";
+  font-family: "Font Awesome 6 Free";
 }
 
 .footer_copyrights--item_copyrights {

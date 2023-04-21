@@ -1,3 +1,4 @@
+.jampack/
 .netlify/
 dist/
 node_modules/

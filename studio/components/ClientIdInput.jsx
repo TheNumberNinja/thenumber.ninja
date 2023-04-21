@@ -3,7 +3,6 @@ import {Stack, Text, TextInput} from '@sanity/ui'
 import {set, unset} from 'sanity'
 
 export const ClientIdInput = (props) => {
-  console.log(props)
   const {elementProps, onChange, value = ''} = props
 
   const handleChange = useCallback((event) => {

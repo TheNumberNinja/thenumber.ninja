@@ -1,5 +1,4 @@
 import {ClientIdInput} from '../components/ClientIdInput'
-import {StripeLinkInput} from '../components/StripeLinkInput'
 
 async function clientIdMatchesName(clientId, context) {
   // Taken from https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest#converting_a_digest_to_a_hex_string
