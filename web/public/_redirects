@@ -4,6 +4,9 @@ https://www.thenumberninja.co.uk/* https://thenumber.ninja/:splat 301!
 https://thenumberninjas.co.uk/* https://thenumber.ninja/:splat 301!
 https://www.thenumberninjas.co.uk/* https://thenumber.ninja/:splat 301!
 
+# Netlify to thenumber.ninja
+https://thenumberninja.netlify.app/* https://thenumber.ninja/:splat 301!
+
 # Pages
 /emma/  /about/
 /helping-hand/ /services/
