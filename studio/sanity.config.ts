@@ -11,8 +11,8 @@ export default defineConfig({
   name: 'default',
   title: 'thenumber.ninja',
 
-  projectId: 'g94bd5vf',
-  dataset: 'production',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID as string,
+  dataset: process.env.SANITY_STUDIO_DATASET as string,
 
   plugins: [
     dashboardTool({
