@@ -56,16 +56,6 @@ export default {
       name: 'icon',
       type: 'string',
       validation: Rule => Rule.custom(requiredIfServiceIsIncludedOnServicesPage),
-      description: 'These are the old-style icons and are being replaced with version 6, below'
-    },
-    {
-      name: 'fontAwesomeSixIcon',
-      title: 'FontAwesome 6 icon',
-      type: 'string',
-      components: {
-        input: FontAwesomeSixIconInput,
-      },
-      validation: Rule => Rule.custom(requiredIfServiceIsIncludedOnServicesPage),
     },
     {
       name: 'requiresAmlCheckForCall',
