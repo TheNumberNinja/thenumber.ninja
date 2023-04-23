@@ -55,6 +55,9 @@ export default {
     {
       name: 'icon',
       type: 'string',
+      components: {
+        input: FontAwesomeSixIconInput,
+      },
       validation: Rule => Rule.custom(requiredIfServiceIsIncludedOnServicesPage),
     },
     {
