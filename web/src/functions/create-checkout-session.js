@@ -144,7 +144,9 @@ function generateAccountsLineItems(products) {
     .forEach((product) => {
       const {name, amount, priceId, quantity} = product
       let catchUpMonths = calculateNumberOfCatchUpMonths(product['yearEnd'])
-      const catchUpMethod = product.catchUpMethod
+      // Default to upfront because there are lots of clients that have accounts products without
+      // a catch-up method.
+      const catchUpMethod = product.catchUpMethod || 'upfront'
 
       if (catchUpMethod === 'upfront' && catchUpMonths >= 11) {
         // Round up to 12 months if we've already got to 11 to save having to tweak the subscription straight away
