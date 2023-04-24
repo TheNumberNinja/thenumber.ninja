@@ -161,6 +161,10 @@ function generateAccountsLineItems(products) {
         })
       }
 
+      if (catchUpMonths === 0) {
+        return
+      }
+
       // Work-around because descriptions are not shown on checkout page for subscriptions
       const month = catchUpMonths === 1 ? 'month' : 'months'
       const totalCatchUpFee = amount * catchUpMonths
