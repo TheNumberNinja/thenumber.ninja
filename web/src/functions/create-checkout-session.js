@@ -143,7 +143,13 @@ function generateAccountsLineItems(products) {
     .filter(product => product._type === 'accountsProduct')
     .forEach((product) => {
       const {name, amount, priceId, quantity} = product
-      const catchUpMonths = calculateNumberOfCatchUpMonths(product['yearEnd'])
+      let catchUpMonths = calculateNumberOfCatchUpMonths(product['yearEnd'])
+      const catchUpMethod = product.catchUpMethod
+
+      if (catchUpMethod === 'upfront' && catchUpMonths >= 11) {
+        // Round up to 12 months if we've already got to 11 to save having to tweak the subscription straight away
+        catchUpMonths = 12
+      }
 
       // Need to add future subscription items
       if (catchUpMonths < 12) {
@@ -155,18 +161,36 @@ function generateAccountsLineItems(products) {
 
       // Work-around because descriptions are not shown on checkout page for subscriptions
       const month = catchUpMonths === 1 ? 'month' : 'months'
+      const totalCatchUpFee = amount * catchUpMonths
 
-      lineItems.push({
+      const catchUpLineItem = {
         quantity: 1,
         price_data: {
           product_data: {
             name: `${name} (${catchUpMonths} ${month} catch-up)`
           },
           currency: 'gbp',
-          unit_amount: amount * catchUpMonths
+          unit_amount: totalCatchUpFee
         }
-      })
+      }
 
+
+      if (catchUpMethod === 'monthlyInstalments') {
+        const remainingMonthsForAccountingYear = 12 - catchUpMonths
+        const monthlyPayment = Math.ceil(totalCatchUpFee / remainingMonthsForAccountingYear)
+        catchUpLineItem['price_data'] = {
+          product_data: {
+            name: `${name} (${catchUpMonths} ${month} catch-up paid over ${remainingMonthsForAccountingYear} months)`
+          },
+          currency: 'gbp',
+          unit_amount: monthlyPayment,
+          recurring: {
+            interval: 'month'
+          }
+        }
+      }
+
+      lineItems.push(catchUpLineItem)
     })
 
   return lineItems
@@ -286,11 +310,6 @@ function calculateNumberOfCatchUpMonths(yearEnd) {
 
   // Don't charge for more than a year's worth of fees if the year-end was more than 12 months ago
   months = Math.min(months, 12)
-
-  // Round up to 12 months if we've already got to 11 to save having to tweak the subscription straight away
-  if (months >= 11) {
-    return 12
-  }
 
   // Financial year hasn't started
   if (months < 0) {
