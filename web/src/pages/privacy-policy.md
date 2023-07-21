@@ -18,7 +18,7 @@ The Number Ninjas Ltd is the data controller and responsible for your personal d
 **Contact Details**
 Full name of legal entity: The Number Ninjas Ltd
 Email address: hello@thenumber.ninja
-Postal address: International House, 24 Holborn Viaduct, London, EC1A 2BN
+Postal address: International House, 776-778 Barking Road, London, E13 9PJ
 
 It is very important that the information we hold about you is accurate and up to date. Please let us know if at any time your personal information changes by emailing us at hello@thenumber.ninja.
 
