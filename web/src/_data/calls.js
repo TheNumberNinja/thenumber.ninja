@@ -6,7 +6,7 @@ async function getCalls () {
     title,
 		"slug": slug.current,
 		description,
-		calendly,
+		call,
   }`
   return await client.fetch(filter).then(calls => {
     return calls.map(call => {

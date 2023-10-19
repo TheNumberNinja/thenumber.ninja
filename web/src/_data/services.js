@@ -18,7 +18,7 @@ async function getServices () {
     summary,
     content,
     icon,
-    calendly,
+    call,
     requiresAmlCheckForCall,
     includeOnServicesPage,
     "testimonials": *[_type=='testimonial' && references(^._id)]

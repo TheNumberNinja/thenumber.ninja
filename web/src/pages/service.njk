@@ -23,8 +23,8 @@ eleventyComputed:
         {% if service.requiresAmlCheckForCall %}
           {% include 'partials/aml-warning.njk' %}
         {% endif %}
-        {% if service.calendly %}
-          {% calendly service.calendly %}
+        {% if service.call %}
+          {% trafft service.call %}
         {% endif %}
       </div>
     </div>

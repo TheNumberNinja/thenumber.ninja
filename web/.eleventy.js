@@ -19,7 +19,7 @@ const {
 const {
   airtable,
   tally,
-  calendly
+  trafft,
 } = require('./config/shortcodes/index.js')
 
 const {
@@ -34,7 +34,7 @@ const slinkity = require('slinkity')
 module.exports = eleventyConfig => {
   eleventyConfig.addShortcode('airtable', airtable);
   eleventyConfig.addShortcode('tally', tally);
-  eleventyConfig.addShortcode('calendly', calendly);
+  eleventyConfig.addShortcode('trafft', trafft);
   eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
 
   // 	--------------------- Custom collections -----------------------

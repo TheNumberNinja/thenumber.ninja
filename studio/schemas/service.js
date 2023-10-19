@@ -67,21 +67,21 @@ export default {
       initialValue: false
     },
     {
-      name: 'calendly',
+      name: 'call',
       type: 'string',
       options: {
         list: [
           {
             title: 'Introductory call',
-            value: 'introductory-call'
+            value: 'bb50d345-c515-452b-aaba-81b1cb631d26'
           },
           {
             title: 'Power hour',
-            value: 'power-hour'
+            value: '8ece32f5-84b4-494c-9e67-9748f5b4948e'
           },
           {
             title: 'Automation power hour',
-            value: 'automation-power-hour'
+            value: 'e342377e-0005-4633-8be7-d518565bbd1f'
           }
         ]
       },

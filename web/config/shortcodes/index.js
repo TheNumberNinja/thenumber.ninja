@@ -1,8 +1,8 @@
-const calendly = require('./calendly')
-const {airtable, tally} = require('./forms')
+const { trafft } = require("./scheduling");
+const { airtable, tally } = require("./forms");
 
 module.exports = {
   airtable,
   tally,
-  calendly,
-}
+  trafft,
+};
