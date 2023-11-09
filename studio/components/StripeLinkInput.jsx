@@ -12,7 +12,7 @@ export const StripeLinkInput = (props) => {
   }, [onChange])
 
   let link = ''
-  if (value.length > 4) {
+  if (value && value.length > 4) {
     link = `<a href="${baseUrl}${value}" target='_blank'>View ${objectType} in Stripe</a>`
   }
 
