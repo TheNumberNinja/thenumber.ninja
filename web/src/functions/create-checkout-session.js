@@ -136,7 +136,16 @@ function generateOneOffLineItems(products) {
     })
 }
 
-function generateAccountsLineItems(products) {
+function calculateRemainingContractMonths(agreementEndDate) {
+  const today = new moment().startOf('day')
+  const agreementEnd = moment(agreementEndDate, 'YYYY-MM-DD')
+
+  console.log('DIFF', Math.ceil(agreementEnd.diff(today, 'months', true)))
+
+  return Math.ceil(agreementEnd.diff(today, 'months', true))
+}
+
+function generateAccountsLineItems(products, agreementEndDate) {
   const lineItems = []
 
   products
@@ -173,7 +182,7 @@ function generateAccountsLineItems(products) {
         quantity: 1,
         price_data: {
           product_data: {
-            name: `${name} (${catchUpMonths} ${month} catch-up)`
+            name: `${name} (${catchUpMonths} ${month} alignment fee)`
           },
           currency: 'gbp',
           unit_amount: totalCatchUpFee
@@ -182,11 +191,11 @@ function generateAccountsLineItems(products) {
 
 
       if (catchUpMethod === 'monthlyInstalments') {
-        const remainingMonthsForAccountingYear = 12 - catchUpMonths
-        const monthlyPayment = Math.ceil(totalCatchUpFee / remainingMonthsForAccountingYear)
+        const remainingContractMonths = calculateRemainingContractMonths(agreementEndDate)
+        const monthlyPayment = Math.ceil(totalCatchUpFee / remainingContractMonths)
         catchUpLineItem['price_data'] = {
           product_data: {
-            name: `${name} (${catchUpMonths} ${month} catch-up paid over ${remainingMonthsForAccountingYear} months)`
+            name: `${name} (${catchUpMonths} ${month} alignment fee paid over ${remainingContractMonths} months)`
           },
           currency: 'gbp',
           unit_amount: monthlyPayment,
@@ -257,7 +266,7 @@ async function createSession(clientId, baseUrl, taxRateId) {
 
   let lineItems = [
     ...(generateMonthlyProductLineItems(subscriptionConfiguration.products)),
-    ...(generateAccountsLineItems(subscriptionConfiguration.products)),
+    ...(generateAccountsLineItems(subscriptionConfiguration.products, subscriptionConfiguration.agreement.end)),
     ...(generateOneOffLineItems(subscriptionConfiguration.products)),
   ]
 
@@ -314,8 +323,6 @@ function calculateNumberOfCatchUpMonths(yearEnd) {
 
   let months = 12 - Math.ceil(yearEndDate.diff(now, 'months', true))
 
-  // Don't charge for more than a year's worth of fees if the year-end was more than 12 months ago
-  months = Math.min(months, 12)
 
   // Financial year hasn't started
   if (months < 0) {
