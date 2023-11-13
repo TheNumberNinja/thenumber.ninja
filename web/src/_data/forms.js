@@ -67,6 +67,14 @@ module.exports = [
     category: 'VAT',
   },
   {
+    slug: 'self-assessment-new-client',
+    title: 'New client information',
+    formService: 'tally',
+    formId: 'mVGoLN',
+    parameters: 'self_assessment=yes',
+    category: 'Self Assessment',
+  },
+  {
     slug: 'self-assessment-questionnaire',
     title: 'Self Assessment Tax Return 2022/23',
     formService: 'tally',
