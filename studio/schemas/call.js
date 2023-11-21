@@ -46,6 +46,10 @@ export default {
             title: 'Xero set-up and training',
             value: '5860248e-6ce0-4e1a-ab68-3e419e2d0a93'
           },
+          {
+            title: 'Recontracting',
+            value: '6887ab5f-e384-4795-9222-72b40cea2860'
+          },
         ].sort((a, b) => a.title.localeCompare(b.title))
       },
       validation: Rule => Rule.required()
