@@ -16,15 +16,15 @@ https://thenumberninja.netlify.app/* https://thenumber.ninja/:splat 301!
 
 # Subscriptions and dashboards
 /subscriptions/:id/ /dashboard/:id/
-/dashboard/xob0t7umy5/ /dashboard/7886c81ef08cef9c34e09c7cf7f001f83ff5e277/
-/dashboard/228bde0efbd2eba44c0691baa7214c4a741853ed/ /dashboard/c83f98a639e1954b55290088f8c4ff0cc6a08501/
-/dashboard/nyvqsdsno2/ /dashboard/a88471767f8ee6ee66c78f1653421e950503f985/
-/dashboard/60a4d6fecc443f88127acacd2424c0d3de8f73cd/ /dashboard/424e4615972de36b850ebdd4eca304d339fa36e4/
-/dashboard/7ymyidc6ye/ /dashboard/a88471767f8ee6ee66c78f1653421e950503f985/
-/dashboard/by01cgiwpx/ /dashboard/47c4be5d7cb4a679b61e8144d5e0e21b0bef436a/
-/dashboard/4c4897d313bbc094d7bd9c35e896e6e51028c122/ /dashboard/2d9fc142530702ac28ee8dd090cc5a683b835b27/
-/dashboard/2eb9360c6508c819792077ea4869839b7a1f9902/ /dashboard/cf7f1ecec917aa0d5ec01e49540243d9015984d4/
-/dashboard/47ec420a5a5fe6beb3f274ee1df5ffae6ec22b7c/ /dashboard/a3d61426c024c2836d7b0aed943907811e63b315/
+/dashboard/xob0t7umy5/                                /dashboard/7886c81ef08cef9c34e09c7cf7f001f83ff5e277/
+/dashboard/228bde0efbd2eba44c0691baa7214c4a741853ed/  /dashboard/c83f98a639e1954b55290088f8c4ff0cc6a08501/
+/dashboard/nyvqsdsno2/                                /dashboard/a88471767f8ee6ee66c78f1653421e950503f985/
+/dashboard/7ymyidc6ye/                                /dashboard/a88471767f8ee6ee66c78f1653421e950503f985/
+/dashboard/60a4d6fecc443f88127acacd2424c0d3de8f73cd/  /dashboard/424e4615972de36b850ebdd4eca304d339fa36e4/
+/dashboard/by01cgiwpx/                                /dashboard/47c4be5d7cb4a679b61e8144d5e0e21b0bef436a/
+/dashboard/4c4897d313bbc094d7bd9c35e896e6e51028c122/  /dashboard/2d9fc142530702ac28ee8dd090cc5a683b835b27/
+/dashboard/2eb9360c6508c819792077ea4869839b7a1f9902/  /dashboard/cf7f1ecec917aa0d5ec01e49540243d9015984d4/
+/dashboard/47ec420a5a5fe6beb3f274ee1df5ffae6ec22b7c/  /dashboard/a3d61426c024c2836d7b0aed943907811e63b315/
 
 # Blog
 /blog/index.xml /blog/feed.xml
