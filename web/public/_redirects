@@ -16,15 +16,27 @@ https://thenumberninja.netlify.app/* https://thenumber.ninja/:splat 301!
 
 # Subscriptions and dashboards
 /subscriptions/:id/ /dashboard/:id/
-/dashboard/xob0t7umy5/                                /dashboard/7886c81ef08cef9c34e09c7cf7f001f83ff5e277/
-/dashboard/228bde0efbd2eba44c0691baa7214c4a741853ed/  /dashboard/c83f98a639e1954b55290088f8c4ff0cc6a08501/
-/dashboard/nyvqsdsno2/                                /dashboard/a88471767f8ee6ee66c78f1653421e950503f985/
-/dashboard/7ymyidc6ye/                                /dashboard/a88471767f8ee6ee66c78f1653421e950503f985/
-/dashboard/60a4d6fecc443f88127acacd2424c0d3de8f73cd/  /dashboard/424e4615972de36b850ebdd4eca304d339fa36e4/
-/dashboard/by01cgiwpx/                                /dashboard/47c4be5d7cb4a679b61e8144d5e0e21b0bef436a/
-/dashboard/4c4897d313bbc094d7bd9c35e896e6e51028c122/  /dashboard/2d9fc142530702ac28ee8dd090cc5a683b835b27/
-/dashboard/2eb9360c6508c819792077ea4869839b7a1f9902/  /dashboard/cf7f1ecec917aa0d5ec01e49540243d9015984d4/
-/dashboard/47ec420a5a5fe6beb3f274ee1df5ffae6ec22b7c/  /dashboard/a3d61426c024c2836d7b0aed943907811e63b315/
+/dashboard/xob0t7umy5/                                /dashboard/7886c81ef08cef9c34e09c7cf7f001f83ff5e277/ # BBT01BLC
+/dashboard/228bde0efbd2eba44c0691baa7214c4a741853ed/  /dashboard/c83f98a639e1954b55290088f8c4ff0cc6a08501/ # P01BLC
+/dashboard/nyvqsdsno2/                                /dashboard/a88471767f8ee6ee66c78f1653421e950503f985/ # EP01BLC
+/dashboard/7ymyidc6ye/                                /dashboard/a88471767f8ee6ee66c78f1653421e950503f985/ # EP01BLC
+/dashboard/60a4d6fecc443f88127acacd2424c0d3de8f73cd/  /dashboard/424e4615972de36b850ebdd4eca304d339fa36e4/ # TEDS01BLC
+/dashboard/by01cgiwpx/                                /dashboard/47c4be5d7cb4a679b61e8144d5e0e21b0bef436a/ # KC01BLC
+/dashboard/4c4897d313bbc094d7bd9c35e896e6e51028c122/  /dashboard/2d9fc142530702ac28ee8dd090cc5a683b835b27/ # SEP01BLC
+/dashboard/2eb9360c6508c819792077ea4869839b7a1f9902/  /dashboard/cf7f1ecec917aa0d5ec01e49540243d9015984d4/ # HCC01BLC
+/dashboard/47ec420a5a5fe6beb3f274ee1df5ffae6ec22b7c/  /dashboard/a3d61426c024c2836d7b0aed943907811e63b315/ # DB01P
+/dashboard/056fe8e693eb68b358577026119b7501edf67c90/  /dashboard/7338115353b4d19a9ebfc9b72544641c1c933dfc/ # ATBN01BLC
+/dashboard/a3d61426c024c2836d7b0aed943907811e63b315/  /dashboard/47ec420a5a5fe6beb3f274ee1df5ffae6ec22b7c/ # PC01BST
+/dashboard/546331b774554f9077c9d0b1a9e9cdb994bc4a78/  /dashboard/80f59e8a7b470c01c9f1fe5a5e339922bf8d1182/ # ERVA01BST
+/dashboard/85f7f48b4874741b49768114a996639c5bee67c5/  /dashboard/1041a667670e5280172192de1a8a4f6986145de0/ # DD01BST
+/dashboard/54299cd9487d433f8cdb76b0d943f1bb4375b833/  /dashboard/0059b90007623dd6087986904dcb0341d8439054/ # JJ01P
+/dashboard/b8771309047e5ac044ef1c9e21abe671fc23b021/  /dashboard/89763a6f7d5a76309ac0c74b2c77af71e0b69909/ # JF01P
+/dashboard/a3d0e8620c261cc6d8f6aa487a69a19a8c730a66/  /dashboard/654efb4f78b9837b0cfcab767d2694c924d245b0/ # S01BST
+/dashboard/490467dff31e5c02e2bf83225d309ed7d3692983/  /dashboard/fd5feb6c71a0f34987a065d4c20d4985e91102a0/ # EC01BST
+/dashboard/408cca294b629b99d509d862855f2b9067241d28/  /dashboard/64142f89bbf6791e24486cf9a64b7303933ed5e6/ # PP01P
+/dashboard/d543a2413a1bda29626b852901207f00084d166a/  /dashboard/3fa8977791f1fdc868d1993fedcd0ea6b04b514f/ # PF01BST
+/dashboard/ad7afe52614e742915bc46c6713860dd4f67306e/  /dashboard/adb70801538d95a6688448435977bd0c19b8d1b1/ # HFG01BLC
+/dashboard/a65cdea6d9b684aadbd51e35b2fb422fa12c4279/  /dashboard/bb31924e5a7b2fc19b53bac942210afcea32798c/ # HF01BLC
 
 # Blog
 /blog/index.xml /blog/feed.xml
