@@ -236,6 +236,32 @@ async function getConfiguration(clientId) {
   return await client.fetch(filter).catch(err => console.error(err))
 }
 
+async function createDiscountCoupon(discountConfiguration) {
+  if (!discountConfiguration) {
+    return []
+  }
+
+  let params = {
+    name: discountConfiguration.description,
+    duration: "forever",
+  }
+
+  if (discountConfiguration.amount) {
+    params = {
+      ...params,
+      amount_off: discountConfiguration.amount,
+      currency: "GBP",
+    }
+  } else {
+    params["percent_off"] = discountConfiguration.percentage
+  }
+
+
+  return [{
+    coupon: (await stripe.coupons.create(params)).id,
+  }]
+}
+
 async function createSession(clientId, baseUrl, taxRateId) {
   const configuration = await getConfiguration(clientId)
   const email = isProduction() ? configuration.email : generateDummyEmail(configuration.email)
@@ -265,13 +291,7 @@ async function createSession(clientId, baseUrl, taxRateId) {
   payload['mode'] = paymentMode
   payload['line_items'] = lineItems
 
-  if ('discount' in subscriptionConfiguration && subscriptionConfiguration['discount']) {
-    payload['discounts'] = [
-      {
-        'coupon': subscriptionConfiguration['discount']['coupon']
-      }
-    ]
-  }
+  payload['discounts'] = await createDiscountCoupon(subscriptionConfiguration.discount)
 
   if (paymentMode === 'subscription') {
     payload['payment_method_types'].push('bacs_debit')

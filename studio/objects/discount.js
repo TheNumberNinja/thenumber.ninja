@@ -6,10 +6,15 @@ export default {
     {
       name: 'amount',
       type: 'number',
-      validation: Rule => Rule.required().integer(),
+      validation: Rule => Rule.integer().min(0),
     },
     {
-      name: 'coupon',
+      name: 'percentage',
+      type: 'number',
+      validation: Rule => Rule.integer().min(0).max(100),
+    },
+    {
+      name: 'description',
       type: 'string',
       validation: Rule => Rule.required(),
     }
