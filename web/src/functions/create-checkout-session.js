@@ -140,8 +140,6 @@ function calculateRemainingContractMonths(agreementEndDate) {
   const today = new moment().startOf('day')
   const agreementEnd = moment(agreementEndDate, 'YYYY-MM-DD')
 
-  console.log('DIFF', Math.ceil(agreementEnd.diff(today, 'months', true)))
-
   return Math.ceil(agreementEnd.diff(today, 'months', true))
 }
 
@@ -153,14 +151,6 @@ function generateAccountsLineItems(products, agreementEndDate) {
     .forEach((product) => {
       const {name, amount, priceId, quantity} = product
       let catchUpMonths = calculateNumberOfCatchUpMonths(product['yearEnd'])
-      // Default to upfront because there are lots of clients that have accounts products without
-      // a catch-up method.
-      const catchUpMethod = product.catchUpMethod || 'upfront'
-
-      if (catchUpMethod === 'upfront' && catchUpMonths >= 11) {
-        // Round up to 12 months if we've already got to 11 to save having to tweak the subscription straight away
-        catchUpMonths = 12
-      }
 
       // Need to add future subscription items
       if (catchUpMonths < 12) {
@@ -189,19 +179,20 @@ function generateAccountsLineItems(products, agreementEndDate) {
         }
       }
 
-
-      if (catchUpMethod === 'monthlyInstalments') {
-        const remainingContractMonths = calculateRemainingContractMonths(agreementEndDate)
-        const monthlyPayment = Math.ceil(totalCatchUpFee / remainingContractMonths)
-        catchUpLineItem['price_data'] = {
-          product_data: {
-            name: `${name} (${catchUpMonths} ${month} alignment fee paid over ${remainingContractMonths} month${remainingContractMonths > 1 ? 's' : ''})`
-          },
-          currency: 'gbp',
-          unit_amount: monthlyPayment,
-          recurring: {
-            interval: 'month'
-          }
+      let remainingContractMonths = calculateRemainingContractMonths(agreementEndDate)
+      // Make sure we never calculate a negative number of catch-up months
+      if (remainingContractMonths < 0) {
+        remainingContractMonths = 1
+      }
+      const monthlyPayment = Math.ceil(totalCatchUpFee / remainingContractMonths)
+      catchUpLineItem['price_data'] = {
+        product_data: {
+          name: `${name} (${catchUpMonths} ${month} alignment fee paid over ${remainingContractMonths} month${remainingContractMonths > 1 ? 's' : ''})`
+        },
+        currency: 'gbp',
+        unit_amount: monthlyPayment,
+        recurring: {
+          interval: 'month'
         }
       }
 
