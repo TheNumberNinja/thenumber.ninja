@@ -9,10 +9,8 @@ https://thenumberninja.netlify.app/* https://thenumber.ninja/:splat 301!
 
 # Pages
 /emma/  /about/
-/helping-hand/ /services/
 /cloud-software/ /how-we-work-together/
 /covid-19/ /blog/covid-19/
-/virtual-financial-director/ /finance-sidekick/
 
 # Subscriptions and dashboards
 /subscriptions/:id/ /dashboard/:id/
@@ -61,9 +59,12 @@ https://thenumberninja.netlify.app/* https://thenumber.ninja/:splat 301!
 # Services
 /automation-power-hour/ /services/automation-power-hour/
 /finance-sidekick/ /services/finance-sidekick/
+/helping-hand/ /services/
 /limited-company/ /services/limited-company/
 /power-hour/ /services/power-hour/
+/services/finance-sidekick/ /services/
 /sole-trader/ /services/sole-trader/
+/virtual-financial-director/ /finance-sidekick/
 
 # Calls
 /catch-up-call/ /book-a-call/catch-up-call/
