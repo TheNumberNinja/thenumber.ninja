@@ -9,28 +9,25 @@ function headshotUrl(source) {
     .url()
 }
 
-async function getServices () {
-  const filter = `*[_type == "service" && !(_id in path("drafts.**"))]|order(orderRank) {
+async function getServices() {
+  const filter = `*[_type == "service" && "websiteOwnPage" in destinations && !(_id in path("drafts.**"))]|order(orderRank) {
     _id,
     title,
     "slug": slug.current,
     subheading,
-    summary,
     content,
-    icon,
     call,
     requiresAmlCheckForCall,
-    includeOnServicesPage,
     "testimonials": *[_type=='testimonial' && references(^._id)]
   }`
   return await client.fetch(filter).then(services => {
     return services.map(service => {
-      service.summary = toHtml(service.summary)
       service.content = toHtml(service.content)
       service.testimonials.map(testimonial => {
         testimonial.testimonial = toHtml(testimonial.testimonial)
         testimonial.image.url = headshotUrl(testimonial.image)
       })
+
       return service
     })
   }).catch(err => console.error(err));

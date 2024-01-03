@@ -22,10 +22,6 @@ const {
   trafft,
 } = require('./config/shortcodes/index.js')
 
-const {
-  getServicesForList,
-} = require('./config/collections/index')
-
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const eleventyRssPlugin = require("@11ty/eleventy-plugin-rss");
 const markdownLib = require('./config/plugins/markdown.js');
@@ -36,9 +32,6 @@ module.exports = eleventyConfig => {
   eleventyConfig.addShortcode('tally', tally);
   eleventyConfig.addShortcode('trafft', trafft);
   eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
-
-  // 	--------------------- Custom collections -----------------------
-  eleventyConfig.addCollection('servicesList', getServicesForList);
 
   eleventyConfig.setLibrary('md', markdownLib);
 

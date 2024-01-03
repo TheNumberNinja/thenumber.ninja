@@ -9,7 +9,7 @@ layout: base-page.njk
 
         <div class="services">
           <div class="row">
-            {% for service in collections.servicesList %}
+            {% for service in servicesForList %}
               {% set index = loop.index %}
               {% set endOfTabletsRow = index % 2 == 0 %}
               {% set endOfDesktopRow = index % 2 == 0 %}
