@@ -266,10 +266,11 @@ export default {
       title: 'Is an AML check required before the call?',
       group: 'website',
       fieldset: 'website',
-      initialValue: false,
       validation: Rule => [
         Rule.custom(requiredForWebsiteOwnPage),
-        Rule.custom(disallowedIfWebsiteOwnPageDestinationNotSelected),
+        // I can't find a way to allow a boolean to be set to undefined so any existing value
+        // will have to be left if it was ever set. It will be ignored based on the destinations,
+        // so that's not a big issue.
       ],
     },
     {
