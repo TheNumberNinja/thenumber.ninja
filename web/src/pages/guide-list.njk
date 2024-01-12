@@ -1,0 +1,18 @@
+---
+layout: page-full-width.njk
+title: Guides
+permalink: /guides/
+eleventyNavigation:
+  Parent: Home
+  key: Guides
+  order: -1
+---
+
+{% for category, guides in guides | groupby("category") %}
+  <h2 class="service_item--title" style='text-align: left; margin-top: 1.5em'>{{ category | default('') }}</h2>
+  <ul>
+    {% for guide in guides | sort(attribute='title') %}
+      <li><a href="/guides/{{ guide.slug }}/">{{ guide.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}

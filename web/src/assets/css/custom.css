@@ -236,6 +236,7 @@ ol > li {
 
 .service .our_company--text > ul li,
 .form-list .our_company--text > ul li,
+.guide-list .our_company--text > ul li,
 .the-growth-event .our_company--text > ul li {
   position: relative;
   margin: 14px 0 0;
@@ -246,6 +247,7 @@ ol > li {
 
 .service .our_company--text > ul li:before,
 .form-list .our_company--text > ul li:before,
+.guide-list .our_company--text > ul li:before,
 .the-growth-event .our_company--text > ul li:before
 {
   content: '\f14c';
