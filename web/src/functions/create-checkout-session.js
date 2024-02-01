@@ -229,6 +229,7 @@ function calculateTrialEnd(startDate) {
 
 async function getConfiguration(clientId) {
   const filter = `*[_type == "client" && !(_id in path("drafts.**")) && clientId == "${clientId}"][0] {
+    name,
     email,
     subscription,
   }`
@@ -298,7 +299,8 @@ async function createSession(clientId, baseUrl, taxRateId) {
     payload['subscription_data'] = {}
     payload['subscription_data']['default_tax_rates'] = [taxRateId]
     payload['subscription_data']['metadata'] = {
-      client_id: clientId
+      client_id: clientId,
+      client_name: configuration.name,
     }
 
     if ('agreement' in subscriptionConfiguration) {
