@@ -321,6 +321,11 @@ async function createSession(clientId, baseUrl, taxRateId) {
       // services in future. Otherwise they may have to subscribe again.
       setup_future_usage: 'off_session',
     }
+
+    // Tax information needs to be set per-item if no subscription is started with the checkout session.
+    for (const lineItem of payload['line_items']) {
+      lineItem.tax_rates = [taxRateId]
+    }
   }
 
   console.log('📨', JSON.stringify(payload, null, 2))
