@@ -314,8 +314,12 @@ async function createSession(clientId, baseUrl, taxRateId) {
   if (paymentMode === 'payment') {
     payload['payment_intent_data'] = {
       metadata: {
-        client_id: clientId
-      }
+        client_id: clientId,
+        client_name: configuration.name,
+      },
+      // Allow us to take future payments. We need this in case we have another agreement with the client to provide
+      // services in future. Otherwise they may have to subscribe again.
+      setup_future_usage: 'off_session',
     }
   }
 
