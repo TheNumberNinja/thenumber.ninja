@@ -46,6 +46,14 @@ module.exports = [
     category: 'Limited company',
   },
   {
+    slug: 'limited-company-register-for-vat',
+    title: 'Register for VAT',
+    formService: 'tally',
+    formId: 'mJAeVY',
+    parameters: 'limited_company=yes',
+    category: 'Limited company',
+  },
+  {
     slug: 'payroll-agent',
     title: 'Payroll agent authorisation',
     formService: 'airtable',
@@ -58,13 +66,6 @@ module.exports = [
     formService: 'airtable',
     formId: 'shrNT6py9gPGfxxwk',
     category: 'Payroll',
-  },
-  {
-    slug: 'register-for-vat',
-    title: 'Register for VAT',
-    formService: 'airtable',
-    formId: 'shrWVzEPHH148pLP4',
-    category: 'VAT',
   },
   {
     slug: 'self-assessment-new-client',
@@ -111,6 +112,14 @@ module.exports = [
     formService: 'tally',
     formId: 'mVGoLN',
     parameters: 'sole_trader=yes&payroll=yes&vat=yes',
+    category: 'Sole trader',
+  },
+  {
+    slug: 'sole-trader-register-for-vat',
+    title: 'Register for VAT',
+    formService: 'tally',
+    formId: 'mJAeVY',
+    parameters: 'sole_trader=yes',
     category: 'Sole trader',
   },
   {
