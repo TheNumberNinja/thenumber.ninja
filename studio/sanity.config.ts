@@ -4,8 +4,9 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 import {table} from '@sanity/table'
 import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
-import { dashboardTool } from "@sanity/dashboard";
-import { netlifyWidget } from "sanity-plugin-dashboard-widget-netlify";
+import {dashboardTool} from '@sanity/dashboard'
+import {netlifyWidget} from 'sanity-plugin-dashboard-widget-netlify'
+import {media} from 'sanity-plugin-media'
 
 export default defineConfig({
   name: 'default',
@@ -24,7 +25,7 @@ export default defineConfig({
               title: 'thenumber.ninja',
               apiId: process.env.SANITY_STUDIO_NETLIFY_SITE_API_ID as string,
               buildHookId: process.env.SANITY_STUDIO_NETLIFY_SITE_BUILD_HOOK_ID as string,
-              name: 'thenumberninja',
+              name: 'thenumberninja'
             }
           ]
         })
@@ -44,12 +45,13 @@ export default defineConfig({
               filter: `"websiteServicesPage" in destinations`,
               S,
               context
-            }),
+            })
           ])
       }
     }),
     visionTool(),
     table(),
+    media()
   ],
 
   schema: {
