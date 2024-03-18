@@ -96,24 +96,21 @@ excludeFromSitemap: true
       <div class="col-md-6">
         <div class="case_study--section">
           <h2 class="case_study--section_title">Helpsheets</h2>
-          <p>We've recently moved to a different client management system and are not able to create the client
-            helpsheets. We're hoping to bring them back in future and will update you when yours are available
-            again.</p>
-          {#          <p>These helpsheets provide important information and dates for your business.</p>#}
-{#          <ul class="helpsheets">#}
-{#            {% for document in documents %}#}
-{#              <li>#}
-{#                <button class="button -waikawa_gray -bordered download-document"#}
-{#                        data-document-key="{{ document.key }}"#}
-{#                        data-masked-email='{{ client.maskedEmail }}'#}
-{#                >#}
-{#                  <i class="fa-solid fa-file-arrow-down"></i>#}
-{#                  Download {{ document.type }}<br />#}
-{#                  <small>Last updated {{ document.lastUpdated | longDate }}</small>#}
-{#                </button>#}
-{#              </li>#}
-{#            {% endfor %}#}
-{#          </ul>#}
+          <p>These helpsheets provide important information and dates for your business.</p>
+          <ul class="helpsheets">
+            {% for document in documents %}
+              <li>
+                <button class="button -waikawa_gray -bordered download-document"
+                        data-document-key="{{ document.key }}"
+                        data-masked-email='{{ client.maskedEmail }}'
+                >
+                  <i class="fa-solid fa-file-arrow-down"></i>
+                  Download {{ document.type }}<br/>
+                  <small>Last updated {{ document.lastUpdated | longDate }}</small>
+                </button>
+              </li>
+            {% endfor %}
+          </ul>
         </div>
       </div>
     </div>
