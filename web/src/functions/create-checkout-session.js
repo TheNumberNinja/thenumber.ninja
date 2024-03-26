@@ -201,7 +201,7 @@ function generateAccountsLineItems(products, agreementEndDate) {
       }
 
       if (catchUpMonths < 12) {
-        catchUpLineItem['recurring'] = {
+        catchUpLineItem['price_data']['recurring'] = {
           interval: 'month'
         }
       }
