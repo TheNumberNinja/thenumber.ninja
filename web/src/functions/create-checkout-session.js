@@ -152,6 +152,11 @@ function generateAccountsLineItems(products, agreementEndDate) {
       const {name, amount, priceId, quantity} = product
       let catchUpMonths = calculateNumberOfCatchUpMonths(product['yearEnd'])
 
+      // Avoid having a catch-up fee with a single monthly payment before they're all paid up for the agreement
+      if (catchUpMonths === 11) {
+        catchUpMonths = 12
+      }
+
       // Need to add future subscription items
       if (catchUpMonths < 12) {
         lineItems.push({
@@ -191,7 +196,10 @@ function generateAccountsLineItems(products, agreementEndDate) {
         },
         currency: 'gbp',
         unit_amount: monthlyPayment,
-        recurring: {
+      }
+
+      if (catchUpMonths < 12) {
+        catchUpLineItem['recurring'] = {
           interval: 'month'
         }
       }
@@ -202,8 +210,8 @@ function generateAccountsLineItems(products, agreementEndDate) {
   return lineItems
 }
 
-function determineMode(recurringLineItems) {
-  if (recurringLineItems.filter(item => Object.hasOwn(item, 'price')).length > 0) {
+function determineMode(lineItems) {
+  if (lineItems.filter(item => Object.hasOwn(item, 'price')).length > 0) {
     return 'subscription'
   }
 
