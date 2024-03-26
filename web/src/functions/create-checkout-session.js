@@ -190,9 +190,11 @@ function generateAccountsLineItems(products, agreementEndDate) {
         remainingContractMonths = 1
       }
       const monthlyPayment = Math.ceil(totalCatchUpFee / remainingContractMonths)
+      const alignmentFeeDescription = ` (${catchUpMonths} ${month} alignment fee paid over ${remainingContractMonths} month${remainingContractMonths > 1 ? 's' : ''})`
+      let productName = `${name}${catchUpMonths < 12 ? alignmentFeeDescription : ''}`;
       catchUpLineItem['price_data'] = {
         product_data: {
-          name: `${name} (${catchUpMonths} ${month} alignment fee paid over ${remainingContractMonths} month${remainingContractMonths > 1 ? 's' : ''})`
+          name: productName,
         },
         currency: 'gbp',
         unit_amount: monthlyPayment,
