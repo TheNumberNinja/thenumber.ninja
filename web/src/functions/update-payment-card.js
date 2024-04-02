@@ -68,7 +68,7 @@ async function createSession(customerId, subscriptionId, baseUrl) {
     let payload = {
         success_url: `${baseUrl}?state=update-success`,
         cancel_url: `${baseUrl}?state=update-cancelled`,
-        payment_method_types: ['card'],
+        payment_method_types: ['card', 'bacs_debit'],
         mode: 'setup',
         customer: customerId,
         setup_intent_data: {
