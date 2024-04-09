@@ -77,9 +77,9 @@ module.exports = [
   },
   {
     slug: 'self-assessment-questionnaire',
-    title: 'Self Assessment Tax Return 2022/23',
+    title: 'Self Assessment Tax Return 2023/24',
     formService: 'tally',
-    formId: 'n0dA1B',
+    formId: 'w2e90g',
     category: 'Self Assessment',
   },
   {
