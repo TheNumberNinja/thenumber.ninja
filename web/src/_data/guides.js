@@ -24,6 +24,12 @@ module.exports = [
     category: 'Xero',
   },
   {
+    slug: 'add-attachments-to-a-xero-bill-or-sales-invoice',
+    title: 'Add attachments to a Xero bill or sales invoice',
+    id: '2814a08c-0bd0-449b-b87c-8ee4afc98ac4',
+    category: 'Xero',
+  },
+  {
     slug: 'create-a-xero-sales-invoice-with-a-tracking-category',
     title: 'Create a Xero sales invoice with a tracking category',
     id: '64d563a7-6076-4f6b-a7e6-cad81c736d1c',
