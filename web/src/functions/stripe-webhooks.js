@@ -54,7 +54,7 @@ const respond = (statusCode, body = null) => {
   }
 }
 
-exports.handler = exports.handler = Sentry.AWSLambda.wrapHandler(async function(event, context) {
+exports.handler = exports.handler = Sentry.AWSLambda.wrapHandler(async function (event, context) {
   if (event.httpMethod !== 'POST') {
     return respond(405, {error: 'Method Not Allowed'})
   }
@@ -81,7 +81,8 @@ exports.handler = exports.handler = Sentry.AWSLambda.wrapHandler(async function(
 
   const eventTypesToProcess = {
     'checkout.session.completed': checkoutSessionCompleted,
-    'customer.subscription.created': customerSubscriptionCreated
+    'checkout.session.expired': checkoutSessionExpired,
+    'customer.subscription.created': customerSubscriptionCreated,
   }
 
   const eventType = stripeEvent['type']
@@ -101,6 +102,37 @@ exports.handler = exports.handler = Sentry.AWSLambda.wrapHandler(async function(
     return respond(err.statusCode)
   }
 })
+
+async function getSanityDocumentIdForClientId(clientId) {
+  const filter = `*[_type == "client" && clientId == "${clientId}"][0] {
+        "id": _id
+      }`
+
+  return await readClient.fetch(filter).catch(err => {
+    console.error('💣 Sanity get client error:', err)
+    Sentry.captureException(err)
+  })
+}
+
+async function updateSanityClientDocument(id, customerId, subscriptionId) {
+  const patch = {
+    "subscription.customerId": customerId,
+    "subscription.subscriptionId": subscriptionId,
+  }
+
+  const doc = await writeClient
+    .patch(id)
+    .set(patch)
+    .commit()
+
+  console.info(`✏️ Updated Sanity client document ${id} (rev ${doc._rev}) with ${JSON.stringify(patch)}`)
+}
+
+async function triggerNetlifyBuild() {
+  await fetch(process.env.STRIPE_WEBHOOK_BUILD_HOOK, {
+    method: 'POST',
+  })
+}
 
 async function checkoutSessionCompleted(event) {
   async function updateSubscriptionPaymentMethod() {
@@ -126,31 +158,6 @@ async function checkoutSessionCompleted(event) {
 
 async function customerSubscriptionCreated(event) {
   async function setCustomerAndSubscriptionIdsInSanity() {
-    async function getSanityDocumentIdForClientId(clientId) {
-      const filter = `*[_type == "client" && clientId == "${clientId}"][0] {
-        "id": _id
-      }`
-
-      return await readClient.fetch(filter).catch(err => {
-        console.error('💣 Sanity get client error:', err)
-        Sentry.captureException(err)
-      })
-    }
-
-    async function updateSanityClientDocument(id, customerId, subscriptionId) {
-      const patch = {
-        "subscription.customerId": customerId,
-        "subscription.subscriptionId": subscriptionId,
-      }
-
-      const doc = await writeClient
-        .patch(id)
-        .set(patch)
-        .commit()
-
-      console.info(`✏️ Updated Sanity client document ${id} (rev ${doc._rev}) with ${JSON.stringify(patch)}`)
-    }
-
     const object = event.data.object
     const customerId = object.customer
     const subscriptionId = object.id
@@ -168,13 +175,30 @@ async function customerSubscriptionCreated(event) {
     await updateSanityClientDocument(document.id, customerId, subscriptionId)
   }
 
-  async function triggerNetlifyBuild() {
-    await fetch(process.env.STRIPE_WEBHOOK_BUILD_HOOK, {
-      method: 'POST',
-    })
+  await setCustomerAndSubscriptionIdsInSanity()
+  await triggerNetlifyBuild()
+
+  return respond(200)
+}
+
+async function checkoutSessionExpired(event) {
+  async function removeStripeIdsFromSanity() {
+    const object = event.data.object
+    const clientId = object.metadata.client_id
+
+    const document = await getSanityDocumentIdForClientId(clientId)
+
+    // There should always be a matching client document but that will need to be manually
+    // investigated if it's not the case
+    if (!document) {
+      console.error(`💣No Sanity client document found for ID ${clientId}`)
+      return
+    }
+
+    await updateSanityClientDocument(document.id, null, null)
   }
 
-  await setCustomerAndSubscriptionIdsInSanity()
+  await removeStripeIdsFromSanity()
   await triggerNetlifyBuild()
 
   return respond(200)
