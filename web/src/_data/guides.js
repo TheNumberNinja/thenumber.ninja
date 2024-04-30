@@ -1,9 +1,9 @@
 module.exports = [
   {
-    slug: 'setting-a-tracking-category-for-an-invoice-in-dext',
-    title: 'Setting a tracking category for an invoice in Dext',
-    id: '3afaa192-2531-423c-bd9c-4f45b7a7b3a4',
-    category: 'Dext',
+    slug: 'securely-share-a-password-with-us',
+    title: 'Securely share a password with us',
+    id: '3cec99f1-4a9a-4244-ae45-1b0166acea8f',
+    category: 'Other',
   },
   {
     slug: 'accept-our-request-to-get-access-to-your-store',
