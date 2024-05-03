@@ -187,7 +187,7 @@ function generateAccountsLineItems(products, agreementEndDate) {
             name: productName,
           },
           currency: 'gbp',
-          unit_amount: totalCatchUpFee
+          unit_amount: Math.ceil(totalCatchUpFee / remainingContractMonths),
         }
       }
 
