@@ -130,6 +130,13 @@ module.exports = [
     category: 'Sole trader',
   },
   {
+    slug: 'sole-trader-working-from-home-expenses-calculator',
+    title: 'Sole trader working from home expenses',
+    formService: 'tally',
+    formId: 'npLXLy',
+    category: 'Sole trader',
+  },
+  {
     slug: 'vat-agent',
     title: 'VAT agent authorisation',
     formService: 'airtable',
