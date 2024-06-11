@@ -14,13 +14,6 @@ module.exports = [
     category: 'Limited company',
   },
   {
-    slug: 'incorporating-limited-company',
-    title: 'Incorporating a limited company',
-    formService: 'airtable',
-    formId: 'shrkHFUHUTDro4ZXS',
-    category: 'Limited company',
-  },
-  {
     slug: 'limited-company-new-client',
     title: 'New client information',
     formService: 'tally',
@@ -53,25 +46,10 @@ module.exports = [
     category: 'Limited company',
   },
   {
-    slug: 'limited-company-register-for-vat',
-    title: 'Register for VAT',
-    formService: 'tally',
-    formId: 'mJAeVY',
-    parameters: 'limited_company=yes',
-    category: 'Limited company',
-  },
-  {
     slug: 'payroll-agent',
     title: 'Payroll agent authorisation',
     formService: 'airtable',
     formId: 'shrS4wBW0DUH2O1fw',
-    category: 'Payroll',
-  },
-  {
-    slug: 'register-as-employer',
-    title: 'Register as an employer',
-    formService: 'airtable',
-    formId: 'shrNT6py9gPGfxxwk',
     category: 'Payroll',
   },
   {
@@ -119,14 +97,6 @@ module.exports = [
     formService: 'tally',
     formId: 'mVGoLN',
     parameters: 'sole_trader=yes&payroll=yes&vat=yes',
-    category: 'Sole trader',
-  },
-  {
-    slug: 'sole-trader-register-for-vat',
-    title: 'Register for VAT',
-    formService: 'tally',
-    formId: 'mJAeVY',
-    parameters: 'sole_trader=yes',
     category: 'Sole trader',
   },
   {
