@@ -17,7 +17,6 @@ const {
 } = require('./config/filters/index.js');
 
 const {
-  airtable,
   tally,
   trafft,
 } = require('./config/shortcodes/index.js')
@@ -28,7 +27,6 @@ const markdownLib = require('./config/plugins/markdown.js');
 const slinkity = require('slinkity')
 
 module.exports = eleventyConfig => {
-  eleventyConfig.addShortcode('airtable', airtable);
   eleventyConfig.addShortcode('tally', tally);
   eleventyConfig.addShortcode('trafft', trafft);
   eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);

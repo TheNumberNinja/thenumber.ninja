@@ -14,10 +14,6 @@ eleventyComputed:
 excludeFromSitemap: true
 ---
 
-{% if form.formService == 'airtable' %}
-  {% airtable form.formId %}
-{% endif %}
-
 {% if form.formService == 'tally' %}
   {% tally form.formId, form.parameters %}
 {% endif %}

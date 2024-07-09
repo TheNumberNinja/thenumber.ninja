@@ -46,13 +46,6 @@ module.exports = [
     category: 'Limited company',
   },
   {
-    slug: 'payroll-agent',
-    title: 'Payroll agent authorisation',
-    formService: 'airtable',
-    formId: 'shrS4wBW0DUH2O1fw',
-    category: 'Payroll',
-  },
-  {
     slug: 'self-assessment-new-client',
     title: 'New client information',
     formService: 'tally',
@@ -105,12 +98,5 @@ module.exports = [
     formService: 'tally',
     formId: 'npLXLy',
     category: 'Sole trader',
-  },
-  {
-    slug: 'vat-agent',
-    title: 'VAT agent authorisation',
-    formService: 'airtable',
-    formId: 'shrbaJctHVo6QUjQm',
-    category: 'VAT',
   },
 ]
