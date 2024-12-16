@@ -169,31 +169,33 @@ function generateAccountsLineItems(products, agreementEndDate) {
         return
       }
 
-      // Work-around because descriptions are not shown on checkout page for subscriptions
-      const month = catchUpMonths === 1 ? 'month' : 'months'
-      const totalCatchUpFee = amount * catchUpMonths
-
-      let remainingContractMonths = calculateRemainingContractMonths(agreementEndDate)
-      // Make sure we never calculate a negative number of catch-up months
-      if (remainingContractMonths < 0) {
-        remainingContractMonths = 1
-      }
-      const alignmentFeeDescription = ` (${catchUpMonths} ${month} alignment fee paid over ${remainingContractMonths} month${remainingContractMonths > 1 ? 's' : ''})`
-      let productName = `${name}${catchUpMonths < 12 ? alignmentFeeDescription : ''}`;
       const catchUpLineItem = {
         quantity: 1,
         price_data: {
-          product_data: {
-            name: productName,
-          },
+          product_data: {},
           currency: 'gbp',
-          unit_amount: Math.ceil(totalCatchUpFee / remainingContractMonths),
         }
       }
 
-      if (catchUpMonths < 12) {
-        catchUpLineItem['price_data']['recurring'] = {
-          interval: 'month'
+      // For year ends that have already passed, take the entire amount now
+      // For year ends that end in the future, split the catch-up fee across the remaining months
+      if (catchUpMonths == 12) {
+        catchUpLineItem.price_data.product_data.name = `${name} (12 months alignment fee)`
+        catchUpLineItem.price_data.unit_amount = amount * 12
+      } else {
+        // Work-around because descriptions are not shown on checkout page for subscriptions
+        const month = catchUpMonths === 1 ? 'month' : 'months'
+        const totalCatchUpFee = amount * catchUpMonths
+        let remainingContractMonths = calculateRemainingContractMonths(agreementEndDate)
+        // Make sure we never calculate a negative number of catch-up months
+        if (remainingContractMonths <= 0) {
+          remainingContractMonths = 1
+        }
+        const alignmentFeeDescription = ` (${catchUpMonths} ${month} alignment fee paid over ${remainingContractMonths} month${remainingContractMonths > 1 ? 's' : ''})`
+        catchUpLineItem.price_data.product_data.name = `${name}${catchUpMonths < 12 ? alignmentFeeDescription : ''}`
+        catchUpLineItem.price_data.unit_amount = Math.ceil(totalCatchUpFee / remainingContractMonths)
+        catchUpLineItem.price_data['recurring'] = {
+          'interval': 'month'
         }
       }
 
@@ -355,7 +357,8 @@ function calculateNumberOfCatchUpMonths(yearEnd) {
   return months
 }
 
-
-// module.exports = {
-//     calculateNumberOfCatchUpMonths
-// }
+module.exports = {
+  calculateNumberOfCatchUpMonths,
+  generateAccountsLineItems,
+  calculateRemainingContractMonths
+}
