@@ -31,11 +31,11 @@ jest.mock('@sentry/serverless', () => ({
   captureException: jest.fn()
 }));
 
-jest.mock('../../config/utils/sanityClient', () => ({
+jest.mock('../../../config/utils/sanityClient', () => ({
   fetch: jest.fn()
 }));
 
-jest.mock('../../config/functions/index', () => ({
+jest.mock('../../../config/functions/index', () => ({
   generateDummyEmail: jest.fn(),
   getCommitRef: jest.fn(),
   isProduction: jest.fn()

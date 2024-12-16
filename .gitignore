@@ -2,4 +2,4 @@
 .netlify
 .DS_Store
 .idea
-web/src/functions/coverage
+web/src/functions/tests/coverage

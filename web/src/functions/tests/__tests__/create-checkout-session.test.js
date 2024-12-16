@@ -3,7 +3,7 @@ const {
   calculateNumberOfCatchUpMonths,
   generateAccountsLineItems,
   calculateRemainingContractMonths
-} = require('./create-checkout-session');
+} = require('../../create-checkout-session');
 
 describe('Time-based calculations', () => {
   let fixedDate;

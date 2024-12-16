@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "functions for thenumber.ninja",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test": "jest --config tests/jest.config.js",
+    "test:watch": "jest --config tests/jest.config.js --watch",
+    "test:coverage": "jest --config tests/jest.config.js --coverage"
   },
   "author": "Stuart Chapman",
   "dependencies": {

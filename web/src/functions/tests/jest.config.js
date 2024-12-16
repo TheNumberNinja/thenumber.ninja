@@ -7,7 +7,7 @@ module.exports = {
   coverageReporters: ['text', 'lcov'],
   coverageDirectory: 'coverage',
   collectCoverageFrom: [
-    'create-checkout-session.js'
+    '../functions/create-checkout-session.js'
   ],
   moduleNameMapper: {
     // Add any module name mappings if needed
