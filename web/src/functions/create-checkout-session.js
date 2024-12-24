@@ -47,7 +47,7 @@ async function getTaxRate() {
   throw 'No VAT tax rate configured in Stripe'
 }
 
-exports.handler = Sentry.AWSLambda.wrapHandler(async (event, context, callback) => {
+const handler = Sentry.AWSLambda.wrapHandler(async (event, context, callback) => {
   if (event.httpMethod !== 'POST') {
     return respond(405, {error: 'Method Not Allowed'})
   }
@@ -358,6 +358,7 @@ function calculateNumberOfCatchUpMonths(yearEnd) {
 }
 
 module.exports = {
+  handler,
   calculateNumberOfCatchUpMonths,
   generateAccountsLineItems,
   calculateRemainingContractMonths
