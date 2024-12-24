@@ -30,7 +30,6 @@
   "devDependencies": {
     "@sanity/client": "^6.24.1",
     "@sanity/eslint-config-studio": "^5.0.1",
-    "dotenv": "^16.4.7",
     "eslint": "^9.17.0",
     "prettier": "^3.4.2",
     "typescript": "^5.7.2"

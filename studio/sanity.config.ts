@@ -4,7 +4,7 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 import {table} from '@sanity/table'
 import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
-import { netlifyTool } from 'sanity-plugin-netlify'
+import {netlifyTool} from 'sanity-plugin-netlify'
 import {media} from 'sanity-plugin-media'
 
 export default defineConfig({
