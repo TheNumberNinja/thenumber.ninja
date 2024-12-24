@@ -1,11 +1,10 @@
 import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
+import {structureTool} from "sanity/structure";
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 import {table} from '@sanity/table'
 import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
-import {dashboardTool} from '@sanity/dashboard'
-import {netlifyWidget} from 'sanity-plugin-dashboard-widget-netlify'
+import { netlifyTool } from 'sanity-plugin-netlify'
 import {media} from 'sanity-plugin-media'
 
 export default defineConfig({
@@ -16,22 +15,8 @@ export default defineConfig({
   dataset: process.env.SANITY_STUDIO_DATASET as string,
 
   plugins: [
-    dashboardTool({
-      widgets: [
-        netlifyWidget({
-          title: 'Netlify',
-          sites: [
-            {
-              title: 'thenumber.ninja',
-              apiId: process.env.SANITY_STUDIO_NETLIFY_SITE_API_ID as string,
-              buildHookId: process.env.SANITY_STUDIO_NETLIFY_SITE_BUILD_HOOK_ID as string,
-              name: 'thenumberninja'
-            }
-          ]
-        })
-      ]
-    }),
-    deskTool({
+    netlifyTool(),
+    structureTool({
       structure: (S, context) => {
         return S.list()
           .title('Content')
