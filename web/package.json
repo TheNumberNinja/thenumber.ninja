@@ -9,7 +9,7 @@
     "build": "npm run 11ty:build",
     "dev": "npm run netlify:dev",
     "jampack": "npx jampack ./dist",
-    "netlify:build": "npm run build && npm run jampack",
+    "netlify:build": "npm run build",
     "netlify:dev": "BROWSER=none npx netlify dev"
   },
   "keywords": [],
@@ -33,7 +33,6 @@
     "slinkity": "1.0.0-canary.0"
   },
   "devDependencies": {
-    "@divriots/jampack": "^0.32.0",
     "netlify-cli": "^17.38.1"
   }
 }
