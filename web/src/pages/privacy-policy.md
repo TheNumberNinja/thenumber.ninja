@@ -17,10 +17,10 @@ The Number Ninjas Ltd is the data controller and responsible for your personal d
 
 **Contact Details**
 Full name of legal entity: The Number Ninjas Ltd
-Email address: hello@thenumber.ninja
-Postal address: International House, 776-778 Barking Road, London, E13 9PJ
+Email address: support@thenumberninja.co.uk
+Postal address: 3rd Floor, 86-90 Paul Street, London, EC2A 4NE
 
-It is very important that the information we hold about you is accurate and up to date. Please let us know if at any time your personal information changes by emailing us at hello@thenumber.ninja.
+It is very important that the information we hold about you is accurate and up to date. Please let us know if at any time your personal information changes by emailing us at support@thenumberninja.co.uk
 
 ## 2. What data do we collect about you, for what purpose, and on what ground we process it
 
