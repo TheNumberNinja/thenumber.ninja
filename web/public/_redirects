@@ -48,10 +48,6 @@ https://thenumberninja.netlify.app/* https://thenumber.ninja/:splat 301!
 /register-as-employer/ /forms/register-as-employer/
 /register-for-vat/ /forms/limited-company-register-for-vat/
 /self-assessment-questionnaire/ /forms/self-assessment-questionnaire/
-/sole-trader-new-client-payroll/ /forms/sole-trader-new-client-payroll/
-/sole-trader-new-client-vat-payroll/ /forms/sole-trader-new-client-vat-payroll/
-/sole-trader-new-client-vat/ /forms/sole-trader-new-client-vat/
-/sole-trader-new-client/ /forms/sole-trader-new-client/
 /vat-agent/ /forms/vat-agent/
 /forms/register-for-vat/ /forms/limited-company-register-for-vat/
 
@@ -62,7 +58,6 @@ https://thenumberninja.netlify.app/* https://thenumber.ninja/:splat 301!
 /limited-company/ /services/limited-company/
 /power-hour/ /services/power-hour/
 /services/finance-sidekick/ /services/
-/sole-trader/ /services/sole-trader/
 /virtual-financial-director/ /finance-sidekick/
 
 # Calls

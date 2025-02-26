@@ -110,7 +110,6 @@ function proposalOrMenuDestinationSelected(chosenDestinations) {
   return destinationSelected(chosenDestinations, [
     'proposal',
     'menuLimitedCompany',
-    'menuSoleTrader',
     'menuSelfAssessment',
   ])
 }
@@ -180,7 +179,6 @@ export default {
           {title: 'Website: Services page', value: 'websiteServicesPage'},
           {title: 'Proposal', value: 'proposal'},
           {title: 'Menu: Limited Company', value: 'menuLimitedCompany'},
-          {title: 'Menu: Sole Trader', value: 'menuSoleTrader'},
           {title: 'Menu: Self Assessment', value: 'menuSelfAssessment'},
         ]
       }
