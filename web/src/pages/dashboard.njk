@@ -88,7 +88,7 @@ excludeFromSitemap: true
       </div>
     </div>
   </div>
-  {% endif %}
+{% endif %}
 
   {% set documents = client.documents %}
   {% if documents | length > 0 %}
@@ -115,219 +115,71 @@ excludeFromSitemap: true
       </div>
     </div>
   {% endif %}
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.7/dist/sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.7/dist/sweetalert2.all.min.js"></script>
 
-  <template id="success">
-    <swal-icon type="success"></swal-icon>
-    <swal-title>Your subscription has been successfully started</swal-title>
-    <swal-html>
-      <p>You can update the payment method, once the subscription has been completely set up, by revisiting this
-        page. This normally takes no more than 48 hours.</p>
-      <p>Please <a href="mailto:support@thenumberninja.co.uk">contact support</a> if you need to change the payment method
-        before then.</p>
-    </swal-html>
-  </template>
+<template id="success">
+  <swal-icon type="success"></swal-icon>
+  <swal-title>Your subscription has been successfully started</swal-title>
+  <swal-html>
+    <p>If you need to change your payment method at any time, just revisit this page.</p>
+  </swal-html>
+</template>
 
-  <template id="cancelled">
-    <swal-icon type="info"></swal-icon>
-    <swal-title>Your subscription has not been started</swal-title>
-    <swal-html>
-      <p>Don't worry, you can revisit this page at any time to start it.</p>
-    </swal-html>
-  </template>
+<template id="cancelled">
+  <swal-icon type="info"></swal-icon>
+  <swal-title>Your subscription has not been started</swal-title>
+  <swal-html>
+    <p>Don't worry, you can revisit this page at any time to start it.</p>
+  </swal-html>
+</template>
 
-  <template id="update-payment-card-success">
-    <swal-icon type="success"></swal-icon>
-    <swal-title>Your payment method has been changed</swal-title>
-    <swal-html>
-      <p>The new method will be used when the next payment is due.</p>
-    </swal-html>
-  </template>
+<template id="update-payment-card-success">
+  <swal-icon type="success"></swal-icon>
+  <swal-title>Your payment method has been changed</swal-title>
+  <swal-html>
+    <p>We'll use the new details when the next payment is due.</p>
+  </swal-html>
+</template>
 
-  <template id="update-payment-card-cancel">
-    <swal-icon type="info"></swal-icon>
-    <swal-title>Your payment method has not been changed</swal-title>
-    <swal-html>
-      <p>The existing method will continue to be be charged when the next payment is due.</p>
-      <p>You can revisit this page at any time to update your details.</p>
-    </swal-html>
-  </template>
+<template id="update-payment-card-cancel">
+  <swal-icon type="info"></swal-icon>
+  <swal-title>Your payment method has not been changed</swal-title>
+  <swal-html>
+    <p>The existing payment details will continue to be used when the next payment is due.</p>
+  </swal-html>
+</template>
 
-  <template id="document-confirm-email">
-    <swal-icon type="question"></swal-icon>
-    <swal-title>We just need to check it's you</swal-title>
-  </template>
+<template id="loe-signed-renewal">
+  <swal-icon type="success"></swal-icon>
+  <swal-title>Thank you for continuing with us</swal-title>
+  <swal-html>
+    <p>We're really happy that you're staying with us for another year.</p>
+    <p>Your subscription will automatically be updated based on the services you have chosen.</p>
+  </swal-html>
+</template>
 
-  <script src="https://js.stripe.com/v3"></script>
-  <script>
-    (function () {
-      const url = new URL(window.location.href);
-      const state = url.searchParams.get('state');
-      const startSubscriptionButton = document.getElementById('start-subscription');
-      const updatePaymentCardButton = document.getElementById('update-payment-card');
-      const downloadDocumentButtons = document.getElementsByClassName('download-document');
-      const customerId = '{{ subscription.customerId }}';
-      const subscriptionId = '{{ subscription.subscriptionId }}';
-      const stripe = Stripe('{{ env.stripe.publishableKey }}');
-      const baseUrl = url.protocol + '//' + url.hostname + ':' + url.port + url.pathname;
+<template id="loe-signed-changed-services">
+  <swal-icon type="success"></swal-icon>
+  <swal-title>Thank you for confirming the changes</swal-title>
+  <swal-html>
+    <p>The changes to the services we provide will take effect from the agreed date, and your subscription will be updated to reflect the new price.</p>
+  </swal-html>
+</template>
 
-      function showButton(button) {
-        if (!button) {
-          return;
-        }
+<template id="document-confirm-email">
+  <swal-icon type="question"></swal-icon>
+  <swal-title>We just need to check it's you</swal-title>
+</template>
 
-        button.style.display = 'block';
-      }
+<script src="https://js.stripe.com/v3"></script>
 
-      if (!state) {
-        if (customerId && subscriptionId) {
-          showButton(updatePaymentCardButton);
-        } else {
-          showButton(startSubscriptionButton);
-        }
-      }
-
-      if (state === 'success') {
-        Swal.fire({
-          template: '#success',
-        });
-
-        if (customerId && subscriptionId) {
-          showButton(updatePaymentCardButton);
-        }
-      }
-
-      if (state === 'cancelled') {
-        Swal.fire({
-          template: '#cancelled',
-        });
-
-        showButton(startSubscriptionButton);
-      }
-
-      if (state === 'update-success') {
-        Swal.fire({
-          template: '#update-payment-card-success',
-        });
-
-        if (customerId && subscriptionId) {
-          showButton(updatePaymentCardButton);
-        }
-      }
-
-      if (state === 'update-cancelled') {
-        Swal.fire({
-          template: '#update-payment-card-cancel',
-        });
-
-        if (customerId && subscriptionId) {
-          updatePaymentCardButton.style.display = 'block';
-        }
-      }
-
-      if (startSubscriptionButton) {
-        startSubscriptionButton.addEventListener('click', function () {
-          axios.post('/.netlify/functions/create-checkout-session', {
-            configuration: '{{ client.clientId }}',
-            baseUrl: baseUrl,
-          })
-            .then(function (result) {
-              stripe.redirectToCheckout({
-                sessionId: result.data.session_id
-              })
-                .then(function (result) {
-                  if (result.error) {
-                    displayError(result.error.message);
-                  }
-                });
-            })
-            .catch(function (error) {
-              if (error.response?.data?.error) {
-                displayError(error.response.data.error);
-              } else {
-                displayError("Something unexpected happened there. We'll fix it as soon as possible so please try again later.")
-              }
-            });
-        });
-      }
-
-      if (updatePaymentCardButton) {
-        updatePaymentCardButton.addEventListener('click', function () {
-          axios.post('/.netlify/functions/update-payment-card', {
-            customerId: customerId,
-            subscriptionId: subscriptionId,
-            baseUrl: baseUrl,
-          })
-            .then(function (result) {
-              stripe.redirectToCheckout({
-                sessionId: result.data.session_id
-              })
-                .then(function (result) {
-                  if (result.error) {
-                    displayError(result.error.message);
-                  }
-                });
-            })
-            .catch(function (error) {
-              if (error.response?.data?.error) {
-                displayError(error.response.data.error);
-              } else {
-                displayError("Something unexpected happened there. We'll fix it as soon as possible so please try again later.")
-              }
-            });
-        });
-      }
-
-      for (let i = 0; i < downloadDocumentButtons.length; i++) {
-        const button = downloadDocumentButtons[i];
-
-        button.addEventListener('click', function (e) {
-          e.preventDefault();
-          const documentKey = this.dataset.documentKey;
-          const maskedEmail = this.dataset.maskedEmail;
-
-          let message = `<p>To make sure only you can access the information in these helpsheets, please confirm the email address we have on file for you. The format is ${maskedEmail}</p><p>Please <a
-                href="mailto:support@thenumberninja.co.uk">contact support</a> if you need to change the email address we
-              have for you.</p>`
-
-          if (!maskedEmail) {
-            message = `<p>To make sure only you can access the information in these helpsheets, we need to confirm your email address but we don't currently have one for you.</p><p>Please <a href="mailto:support@thenumberninja.co.uk">contact support</a> so we can update our records.</p>`
-          }
-
-          Swal.fire({
-            template: '#document-confirm-email',
-            input: 'email',
-            html: message,
-            inputPlaceholder: 'Enter your email address',
-            inputAttributes: {
-              autocomplete: 'email',
-            },
-            confirmButtonText: 'Confirm',
-            preConfirm: (email) => {
-              return axios.post('/.netlify/functions/download-helpsheet', {
-                documentKey,
-                email,
-              })
-                .then(response => response.data.url)
-                .then(url => window.location.assign(url))
-                .catch(async function (error) {
-                  const message = error.response?.data?.error ||
-                    'There was an unexpected problem downloading your helpsheet. Please try again later.';
-
-                  Swal.showValidationMessage(message)
-                });
-            },
-          });
-        });
-      }
-
-      function displayError(errorMessage) {
-        Swal.fire({
-          title: 'Sorry',
-          icon: 'error',
-          text: errorMessage,
-        })
-      }
-    })();
-  </script>
+<script>
+  window.dashboardConfig = {
+    customerId: '{{ subscription.customerId }}',
+    subscriptionId: '{{ subscription.subscriptionId }}',
+    clientId: '{{ client.clientId }}',
+    stripePublishableKey: '{{ env.stripe.publishableKey }}'
+  };
+</script>
+<script src="/@root/src/assets/scripts/dashboard.js" type='module'></script>
