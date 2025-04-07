@@ -112,9 +112,27 @@ async function getCustomer(email) {
 function generateMonthlyProductLineItems(products) {
   return products.filter(product => product._type === 'monthlyProduct')
     .map(product => {
+      if (product.priceId) {
+        return {
+          price: product.priceId,
+          quantity: product.quantity
+        }
+      }
+
+      // Extra monthly jobs
       return {
-        price: product.priceId,
-        quantity: product.quantity
+        quantity: 1,
+        price_data: {
+          product_data: {
+            name: product.name,
+          },
+          currency: 'gbp',
+          unit_amount: product.amount,
+          recurring: {
+            interval: "month",
+            interval_count: 1,
+          }
+        }
       }
     })
 }
@@ -130,7 +148,7 @@ function generateOneOffLineItems(products) {
             name
           },
           currency: 'gbp',
-          unit_amount: amount
+          unit_amount: amount,
         }
       }
     })
