@@ -60,4 +60,11 @@ module.exports = [
     formId: 'w2e90g',
     category: 'Self Assessment',
   },
+  {
+    slug: 'self-assessment-questionnaire-2024-25',
+    title: 'Self Assessment Tax Return 2024/25',
+    formService: 'tally',
+    formId: 'wQ4Pa1',
+    category: 'Self Assessment',
+  },
 ]
