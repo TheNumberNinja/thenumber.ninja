@@ -67,4 +67,11 @@ module.exports = [
     formId: 'wQ4Pa1',
     category: 'Self Assessment',
   },
+  {
+    slug: 'sole-trader-working-from-home-expenses-calculator',
+    title: 'Sole Trader Working From Home Expenses Calculator',
+    formService: 'tally',
+    formId: 'npLXLy',
+    category: 'General',
+  },
 ]
