@@ -1,27 +1,27 @@
-@import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
-@import "@fortawesome/fontawesome-free/css/brands.min.css";
-@import "@fortawesome/fontawesome-free/css/solid.min.css";
-@import "@fortawesome/fontawesome-free/css/regular.min.css";
+@import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
+@import '@fortawesome/fontawesome-free/css/brands.min.css';
+@import '@fortawesome/fontawesome-free/css/solid.min.css';
+@import '@fortawesome/fontawesome-free/css/regular.min.css';
 
 .topbar,
-.header_nav .menu>.menu-item>a:before,
+.header_nav .menu > .menu-item > a:before,
 .promo_slider_nav--item::before,
 .footer.-deluge,
 .mobile_sidebar,
 .pagination ul a::before {
-  background-color: #1A9785;
+  background-color: #1a9785;
 }
 
 .footer a {
-  color: #FFF
+  color: #fff;
 }
 
 .header_contacts .contact_mini--icon,
 .promo_slider_nav--item_icon,
 .article--content a,
-.header_nav .menu>.menu-item.current-menu-item>a,
-.header_nav .menu>.menu-item:hover>a,
-.header_nav.-wide .header_nav--inner>.menu>.menu-item.current-menu-item>a,
+.header_nav .menu > .menu-item.current-menu-item > a,
+.header_nav .menu > .menu-item:hover > a,
+.header_nav.-wide .header_nav--inner > .menu > .menu-item.current-menu-item > a,
 .breadcrumbs--link.-active,
 .article--meta_item:after,
 .link,
@@ -36,24 +36,24 @@
 .our_company--quote_text::before,
 .blog .widget li i,
 .case_study--details dl dt i {
-  color: #1A9785;
+  color: #1a9785;
 }
 
 .case_study--section_title,
 .case_study--details dl dt {
-  color: #4B4B4B;
+  color: #4b4b4b;
 }
 
 .header--right .button,
 .button.-waikawa_gray.-bordered,
 .services .button {
-  color: #1A9785;
-  border-color: #1A9785;
+  color: #1a9785;
+  border-color: #1a9785;
 }
 
 .button.-waikawa_gray.-bordered:hover {
-  background-color: #1A9785;
-  border-color: #1A9785;
+  background-color: #1a9785;
+  border-color: #1a9785;
   color: #fff;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .slide_simple--text {
-  opacity: 1.0;
+  opacity: 1;
 }
 
 .section {
@@ -74,7 +74,7 @@
 }
 
 .our_company--text h2 {
-  color: #4B4B4B;
+  color: #4b4b4b;
   font-weight: bold;
   padding-top: 15px;
 }
@@ -86,7 +86,7 @@
 .contact_item h3,
 .service_item h3,
 .contact_item--text strong {
-  color: #4B4B4B;
+  color: #4b4b4b;
   font-weight: bold;
 }
 
@@ -111,12 +111,12 @@
 .section.-rounded,
 .cta_banner,
 .page_header {
-  background-image: url("../images/pattern.png");
+  background-image: url('../images/pattern.png');
 }
 
 .footer_navigation--item:before {
-  content: "\f35a";
-  font-family: "Font Awesome 6 Free";
+  content: '\f35a';
+  font-family: 'Font Awesome 6 Free';
 }
 
 .footer_copyrights--item_copyrights {
@@ -150,7 +150,7 @@
 }
 
 .search-result em {
-  color: #1A9785;
+  color: #1a9785;
 }
 
 .blog-side-list .date {
@@ -159,8 +159,8 @@
 }
 
 .article--content figure {
-  border-top: 3px solid #1A9785;
-  border-bottom: 3px solid #1A9785;
+  border-top: 3px solid #1a9785;
+  border-bottom: 3px solid #1a9785;
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
 }
 
@@ -178,7 +178,7 @@
 }
 
 .header_nav .menu > .menu-item > a .menu-item-notify {
-  background: #1A9785;
+  background: #1a9785;
 }
 
 .case_study--details dl dt {
@@ -209,7 +209,7 @@
 }
 
 .our_company--text h3 {
-  color: #4B4B4B;
+  color: #4b4b4b;
   font-weight: 700;
   padding-top: 15px;
 }
@@ -224,7 +224,7 @@ ol {
 }
 
 ol > li {
-  color: #4B4B4B;
+  color: #4b4b4b;
   list-style-type: decimal;
   line-height: 1.6em;
 }
@@ -241,17 +241,16 @@ ol > li {
   position: relative;
   margin: 14px 0 0;
   padding: 0 0 0 25px;
-  color: #4B4B4B;
-  font-style: italic
+  color: #4b4b4b;
+  font-style: italic;
 }
 
 .service .our_company--text > ul li:before,
 .form-list .our_company--text > ul li:before,
 .guide-list .our_company--text > ul li:before,
-.the-growth-event .our_company--text > ul li:before
-{
+.the-growth-event .our_company--text > ul li:before {
   content: '\f14c';
-  font-family: "icons";
+  font-family: 'icons';
   font-style: normal;
   font-weight: 400;
   font-variant: normal;
@@ -266,5 +265,5 @@ ol > li {
   display: block;
   color: #59bcdb;
   top: 0;
-  left: 0
+  left: 0;
 }

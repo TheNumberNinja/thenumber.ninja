@@ -1,7 +1,4 @@
-const { trafft } = require("./scheduling");
-const { tally } = require("./forms");
+import { trafft } from './scheduling.js';
+import { tally } from './forms.js';
 
-module.exports = {
-  tally,
-  trafft,
-};
+export { tally, trafft };

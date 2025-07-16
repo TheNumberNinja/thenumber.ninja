@@ -8,11 +8,13 @@ eleventyNavigation:
 ---
 
 ## What is a cookie?
+
 A cookie is a piece of information stored on your computer's hard drive which records how you move your way around a website so that, when you revisit that website, it can present tailored options based on the information stored about your last visit. Cookies can also be used to analyse traffic, and for advertising and marketing purposes.
 
 Cookies are used by nearly all websites and do not harm your system. If you want to check or change what types of cookies you accept, this can usually be altered within your browser settings. You can block cookies at any time by activating, within your browser settings. By not blocking cookies and continuing to browse you are authorising the use of cookies. If you block all cookies (including essential cookies) you may not be able to access all, or parts, of this site.
 
 ## How does The Number Ninja use cookies?
+
 We use cookies to track your use of our website. This enables us to understand how you use the site, and to track any patterns with regard to how you are using our site. This helps us to develop and improve our website, as well as services/products in response to what you might need or want.
 
 Cookies are either:

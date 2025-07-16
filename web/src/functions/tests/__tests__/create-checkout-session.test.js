@@ -2,7 +2,7 @@ const moment = require('moment');
 const {
   calculateNumberOfCatchUpMonths,
   generateAccountsLineItems,
-  calculateRemainingContractMonths
+  calculateRemainingContractMonths,
 } = require('../../create-checkout-session');
 
 describe('Time-based calculations', () => {
@@ -84,33 +84,37 @@ describe('generateAccountsLineItems', () => {
   });
 
   test('should generate subscription without alignment fee when yearEnd is far in future', () => {
-    const products = [{
-      _type: 'accountsProduct',
-      name: 'Basic Accounts',
-      amount: 10000, // £100 in pence
-      priceId: 'price_123',
-      quantity: 1,
-      yearEnd: '2024-12-31'
-    }];
+    const products = [
+      {
+        _type: 'accountsProduct',
+        name: 'Basic Accounts',
+        amount: 10000, // £100 in pence
+        priceId: 'price_123',
+        quantity: 1,
+        yearEnd: '2024-12-31',
+      },
+    ];
 
     const result = generateAccountsLineItems(products, '2024-12-31');
 
     expect(result).toHaveLength(1);
     expect(result[0]).toEqual({
       price: 'price_123',
-      quantity: 1
+      quantity: 1,
     });
   });
 
   test('should calculate alignment fee spread over remaining contract months', () => {
-    const products = [{
-      _type: 'accountsProduct',
-      name: 'Basic Accounts',
-      amount: 10000, // £100 in pence
-      priceId: 'price_123',
-      quantity: 1,
-      yearEnd: '2024-06-30' // 5.5 months away from mock date
-    }];
+    const products = [
+      {
+        _type: 'accountsProduct',
+        name: 'Basic Accounts',
+        amount: 10000, // £100 in pence
+        priceId: 'price_123',
+        quantity: 1,
+        yearEnd: '2024-06-30', // 5.5 months away from mock date
+      },
+    ];
 
     // Contract ends in 12 months
     const result = generateAccountsLineItems(products, '2024-12-31');
@@ -119,7 +123,7 @@ describe('generateAccountsLineItems', () => {
     // Regular subscription
     expect(result[0]).toEqual({
       price: 'price_123',
-      quantity: 1
+      quantity: 1,
     });
     // Alignment fee
     const alignmentFee = result[1];
@@ -133,14 +137,16 @@ describe('generateAccountsLineItems', () => {
     fixedDate = moment('2024-01-31').startOf('day');
     jest.spyOn(moment, 'now').mockReturnValue(fixedDate);
     const productAmount = 10000;
-    const products = [{
-      _type: 'accountsProduct',
-      name: 'Basic Accounts',
-      amount: productAmount,
-      priceId: 'price_123',
-      quantity: 1,
-      yearEnd: '2024-02-28' // Just 1 month away
-    }];
+    const products = [
+      {
+        _type: 'accountsProduct',
+        name: 'Basic Accounts',
+        amount: productAmount,
+        priceId: 'price_123',
+        quantity: 1,
+        yearEnd: '2024-02-28', // Just 1 month away
+      },
+    ];
 
     const result = generateAccountsLineItems(products, '2024-02-28');
 
@@ -154,14 +160,16 @@ describe('generateAccountsLineItems', () => {
     fixedDate = moment('2024-01-31').startOf('day');
     jest.spyOn(moment, 'now').mockReturnValue(fixedDate);
     const productAmount = 10000;
-    const products = [{
-      _type: 'accountsProduct',
-      name: 'Basic Accounts',
-      amount: productAmount,
-      priceId: 'price_123',
-      quantity: 1,
-      yearEnd: '2023-06-30'
-    }];
+    const products = [
+      {
+        _type: 'accountsProduct',
+        name: 'Basic Accounts',
+        amount: productAmount,
+        priceId: 'price_123',
+        quantity: 1,
+        yearEnd: '2023-06-30',
+      },
+    ];
 
     // Agreement already ended
     const result = generateAccountsLineItems(products, '2023-06-30');
@@ -170,21 +178,23 @@ describe('generateAccountsLineItems', () => {
     // 12 months of catch-up should be spread over 1 month (minimum)
     expect(result[0].price_data.unit_amount).toBe(12 * productAmount);
     // Verify the description mentions it's paid over 1 month
-    expect(result[0].price_data.product_data.name).toBe("Basic Accounts (12 months alignment fee)");
+    expect(result[0].price_data.product_data.name).toBe('Basic Accounts (12 months alignment fee)');
   });
 
   test('should default to 1 month when contract end date is over 1 year ago', () => {
     const fixedDate = moment('2024-01-15').startOf('day');
     jest.spyOn(moment, 'now').mockReturnValue(fixedDate.valueOf());
 
-    const products = [{
-      _type: 'accountsProduct',
-      name: 'Basic Accounts',
-      amount: 10000,
-      priceId: 'price_123',
-      quantity: 1,
-      yearEnd: '2024-06-30'
-    }];
+    const products = [
+      {
+        _type: 'accountsProduct',
+        name: 'Basic Accounts',
+        amount: 10000,
+        priceId: 'price_123',
+        quantity: 1,
+        yearEnd: '2024-06-30',
+      },
+    ];
 
     // Set agreement end date to 2 years in the past
     const result = generateAccountsLineItems(products, '2022-01-15');
@@ -197,8 +207,9 @@ describe('generateAccountsLineItems', () => {
     expect(alignmentFee.price_data.unit_amount).toBe(60000);
 
     // Verify the description indicates it's being paid over 1 month
-    expect(alignmentFee.price_data.product_data.name)
-      .toContain('6 months alignment fee paid over 1 month');
+    expect(alignmentFee.price_data.product_data.name).toContain(
+      '6 months alignment fee paid over 1 month'
+    );
   });
 
   test('should handle multiple products with different year ends', () => {
@@ -209,7 +220,7 @@ describe('generateAccountsLineItems', () => {
         amount: 10000,
         priceId: 'price_123',
         quantity: 1,
-        yearEnd: '2024-12-31'
+        yearEnd: '2024-12-31',
       },
       {
         _type: 'accountsProduct',
@@ -217,8 +228,8 @@ describe('generateAccountsLineItems', () => {
         amount: 5000,
         priceId: 'price_456',
         quantity: 1,
-        yearEnd: '2024-06-30'
-      }
+        yearEnd: '2024-06-30',
+      },
     ];
 
     const result = generateAccountsLineItems(products, '2024-12-31');
@@ -238,14 +249,14 @@ describe('generateAccountsLineItems', () => {
         amount: 10000,
         priceId: 'price_123',
         quantity: 1,
-        yearEnd: '2024-12-31'
+        yearEnd: '2024-12-31',
       },
       {
         _type: 'monthlyProduct',
         name: 'Support',
         amount: 5000,
-        priceId: 'price_456'
-      }
+        priceId: 'price_456',
+      },
     ];
 
     const result = generateAccountsLineItems(products, '2024-12-31');
@@ -254,7 +265,7 @@ describe('generateAccountsLineItems', () => {
     expect(result[0].price).toBe('price_123');
   });
 
-  test("should charge full catch-up fee for previous years accounts when agreement ends in future", () => {
+  test('should charge full catch-up fee for previous years accounts when agreement ends in future', () => {
     fixedDate = moment('2024-10-31').startOf('day');
     jest.spyOn(moment, 'now').mockReturnValue(fixedDate);
 
@@ -266,8 +277,8 @@ describe('generateAccountsLineItems', () => {
         amount: productAmount,
         priceId: 'price_123',
         quantity: 1,
-        yearEnd: '2024-09-30'
-      }
+        yearEnd: '2024-09-30',
+      },
     ];
 
     const result = generateAccountsLineItems(products, '2024-12-31');
@@ -275,5 +286,5 @@ describe('generateAccountsLineItems', () => {
     expect(result).toHaveLength(1);
     expect(result[0].price_data.unit_amount).toBe(productAmount * 12);
     expect(result[0].price_data.product_data.name).toBe('Basic Accounts (12 months alignment fee)');
-  })
+  });
 });

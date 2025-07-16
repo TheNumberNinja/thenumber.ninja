@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   // Configuration from Nunjucks template
@@ -17,7 +17,7 @@
       loeSignedChangedServices: '#loe-signed-changed-services',
       loeSignedRenewal: '#loe-signed-renewal',
       documentConfirmEmail: '#document-confirm-email',
-    }
+    },
   };
 
   // Initialize Stripe
@@ -25,54 +25,54 @@
 
   // URL utilities
   const URLUtils = {
-    getCurrentUrl: function() {
+    getCurrentUrl: function () {
       return new URL(window.location.href);
     },
 
-    getBaseUrl: function() {
+    getBaseUrl: function () {
       const url = this.getCurrentUrl();
       return `${url.protocol}//${url.hostname}${url.port ? ':' + url.port : ''}${url.pathname}`;
     },
 
-    getParameter: function(paramName) {
+    getParameter: function (paramName) {
       return this.getCurrentUrl().searchParams.get(paramName);
-    }
+    },
   };
 
   // API module
   const API = {
-    createCheckoutSession: function(clientId, baseUrl) {
+    createCheckoutSession: function (clientId, baseUrl) {
       return axios.post('/.netlify/functions/create-checkout-session', {
         configuration: clientId,
-        baseUrl: baseUrl
+        baseUrl: baseUrl,
       });
     },
 
-    updatePaymentCard: function(customerId, subscriptionId, baseUrl) {
+    updatePaymentCard: function (customerId, subscriptionId, baseUrl) {
       return axios.post('/.netlify/functions/update-payment-card', {
         customerId: customerId,
         subscriptionId: subscriptionId,
-        baseUrl: baseUrl
+        baseUrl: baseUrl,
       });
     },
 
-    downloadHelpsheet: function(documentKey, email) {
+    downloadHelpsheet: function (documentKey, email) {
       return axios.post('/.netlify/functions/download-helpsheet', {
         documentKey: documentKey,
-        email: email
+        email: email,
       });
-    }
+    },
   };
 
   // UI module
   const UI = {
-    showButton: function(button) {
+    showButton: function (button) {
       if (button) {
         button.style.display = 'block';
       }
     },
 
-    displayError: function(errorMessage) {
+    displayError: function (errorMessage) {
       Swal.fire({
         title: 'Sorry',
         icon: 'error',
@@ -80,22 +80,21 @@
       });
     },
 
-    showAlert: function(templateId) {
+    showAlert: function (templateId) {
       Swal.fire({
-        template: templateId
+        template: templateId,
       });
     },
 
-    redirectToCheckout: function(sessionId) {
-      stripe.redirectToCheckout({ sessionId: sessionId })
-        .then(function(result) {
-          if (result.error) {
-            UI.displayError(`<p>${result.error.message}</p>`);
-          }
-        });
+    redirectToCheckout: function (sessionId) {
+      stripe.redirectToCheckout({ sessionId: sessionId }).then(function (result) {
+        if (result.error) {
+          UI.displayError(`<p>${result.error.message}</p>`);
+        }
+      });
     },
 
-    showEmailConfirmation: function(documentKey, maskedEmail) {
+    showEmailConfirmation: function (documentKey, maskedEmail) {
       let message = `<p>To make sure only you can access the information in these helpsheets, please confirm the email address we have on file for you. The format is ${maskedEmail}</p><p>Please <a href="mailto:support@thenumberninja.co.uk">contact support</a> if you need to change the email address we have for you.</p>`;
 
       if (!maskedEmail) {
@@ -111,23 +110,24 @@
           autocomplete: 'email',
         },
         confirmButtonText: 'Confirm',
-        preConfirm: (email) => {
+        preConfirm: email => {
           return API.downloadHelpsheet(documentKey, email)
             .then(response => response.data.url)
             .then(url => window.location.assign(url))
-            .catch(async function(error) {
-              const message = error.response?.data?.error ||
+            .catch(async function (error) {
+              const message =
+                error.response?.data?.error ||
                 'There was an unexpected problem downloading your helpsheet. Please try again later.';
               Swal.showValidationMessage(message);
             });
         },
       });
-    }
+    },
   };
 
   // State handler module
   const StateHandler = {
-    handleURLState: function() {
+    handleURLState: function () {
       const state = URLUtils.getParameter('state');
 
       // Default state (no state parameter)
@@ -138,8 +138,8 @@
 
       // Map of state handlers
       const stateHandlers = {
-        'success': this.handleSuccessState,
-        'cancelled': this.handleCancelledState,
+        success: this.handleSuccessState,
+        cancelled: this.handleCancelledState,
         'update-success': this.handleUpdateSuccessState,
         'update-cancelled': this.handleUpdateCancelledState,
         'loe-signed-renewal': this.handleLoeSignedRenewalState,
@@ -154,8 +154,8 @@
       }
     },
 
-    handleDefaultState: function() {
-      console.log(config)
+    handleDefaultState: function () {
+      console.log(config);
       if (config.customerId && config.subscriptionId) {
         UI.showButton(DOM.updatePaymentCardButton);
       } else {
@@ -163,7 +163,7 @@
       }
     },
 
-    handleSuccessState: function() {
+    handleSuccessState: function () {
       UI.showAlert(DOM.templates.success);
 
       if (config.customerId && config.subscriptionId) {
@@ -171,12 +171,12 @@
       }
     },
 
-    handleCancelledState: function() {
+    handleCancelledState: function () {
       UI.showAlert(DOM.templates.cancelled);
       UI.showButton(DOM.startSubscriptionButton);
     },
 
-    handleUpdateSuccessState: function() {
+    handleUpdateSuccessState: function () {
       UI.showAlert(DOM.templates.updateSuccess);
 
       if (config.customerId && config.subscriptionId) {
@@ -184,7 +184,7 @@
       }
     },
 
-    handleUpdateCancelledState: function() {
+    handleUpdateCancelledState: function () {
       UI.showAlert(DOM.templates.updateCancelled);
 
       if (config.customerId && config.subscriptionId) {
@@ -192,7 +192,7 @@
       }
     },
 
-    handleLoeSignedRenewalState: function() {
+    handleLoeSignedRenewalState: function () {
       UI.showAlert(DOM.templates.loeSignedRenewal);
 
       if (config.customerId && config.subscriptionId) {
@@ -200,7 +200,7 @@
       }
     },
 
-    handleLoeSignedChangedServices: function() {
+    handleLoeSignedChangedServices: function () {
       UI.showAlert(DOM.templates.loeSignedChangedServices);
 
       if (config.customerId && config.subscriptionId) {
@@ -220,11 +220,14 @@
     const baseUrl = URLUtils.getBaseUrl();
 
     API.createCheckoutSession(config.clientId, baseUrl)
-      .then(function(result) {
+      .then(function (result) {
         UI.redirectToCheckout(result.data.session_id);
       })
-      .catch(function(error) {
-        handleAPIError(error, "Something unexpected happened there. We'll fix it as soon as possible so please try again later.");
+      .catch(function (error) {
+        handleAPIError(
+          error,
+          "Something unexpected happened there. We'll fix it as soon as possible so please try again later."
+        );
       });
   }
 
@@ -232,11 +235,14 @@
     const baseUrl = URLUtils.getBaseUrl();
 
     API.updatePaymentCard(config.customerId, config.subscriptionId, baseUrl)
-      .then(function(result) {
+      .then(function (result) {
         UI.redirectToCheckout(result.data.session_id);
       })
-      .catch(function(error) {
-        handleAPIError(error, "Something unexpected happened there. We'll fix it as soon as possible so please try again later.");
+      .catch(function (error) {
+        handleAPIError(
+          error,
+          "Something unexpected happened there. We'll fix it as soon as possible so please try again later."
+        );
       });
   }
 

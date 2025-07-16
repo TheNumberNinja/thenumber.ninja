@@ -1,8 +1,10 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV || 'development'}`
-})
+import dotenv from 'dotenv';
 
-const {
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV || 'development'}`,
+});
+
+import {
   getMostRecentUpdatedDate,
   filterUnwantedNavigationElements,
   longDate,
@@ -13,43 +15,64 @@ const {
   sample,
   slice,
   splitLines,
-  stripHtml
-} = require('./config/filters/index.js');
+  stripHtml,
+} from './config/filters/index.js';
 
-const {
-  tally,
-  trafft,
-} = require('./config/shortcodes/index.js')
+import { tally, trafft } from './config/shortcodes/index.js';
 
-const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-const eleventyRssPlugin = require("@11ty/eleventy-plugin-rss");
-const markdownLib = require('./config/plugins/markdown.js');
-const slinkity = require('slinkity')
-
-module.exports = eleventyConfig => {
+import eleventyNavigationPlugin from '@11ty/eleventy-navigation';
+import eleventyRssPlugin from '@11ty/eleventy-plugin-rss';
+import EleventyVitePlugin from '@11ty/eleventy-plugin-vite';
+import markdownLib from './config/plugins/markdown.js';
+export default function (eleventyConfig) {
+  // Add shortcodes
   eleventyConfig.addShortcode('tally', tally);
   eleventyConfig.addShortcode('trafft', trafft);
   eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
 
+  // Set markdown library
   eleventyConfig.setLibrary('md', markdownLib);
 
+  // Add plugins
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(eleventyRssPlugin);
-  eleventyConfig.addPlugin(slinkity.plugin, slinkity.defineConfig({
-    // optional: use slinkity.defineConfig
-    // for some handy autocomplete in your editor
-  }));
+  eleventyConfig.addPlugin(EleventyVitePlugin, {
+    viteOptions: {
+      clearScreen: false,
+      appType: 'mpa',
+      build: {
+        rollupOptions: {
+          input: {
+            app: 'assets/app.js',
+            dashboard: 'assets/dashboard.js',
+          },
+          output: {
+            entryFileNames: 'assets/[name].js',
+            chunkFileNames: 'assets/[name]-[hash].js',
+            assetFileNames: (assetInfo) => {
+              if (assetInfo.name.endsWith('.css')) {
+                return 'assets/[name][extname]';
+              }
+              return 'assets/[name][extname]';
+            },
+          },
+        },
+      },
+    },
+  });
 
-  /**
-   * Why copy the /public directory?
-   *
-   * Slinkity uses Vite (https://vitejs.dev) under the hood for processing styles and JS resources
-   * This tool encourages a /public directory for your static assets like social images
-   * To ensure this directory is discoverable by Vite, we copy it to our 11ty build output like so:
-   */
-  eleventyConfig.addPassthroughCopy('public')
+  // Copy static assets with performance optimizations
+  eleventyConfig.addPassthroughCopy('public');
+  eleventyConfig.addPassthroughCopy('src/assets/images');
+  eleventyConfig.addPassthroughCopy('src/assets/fonts');
+  // Copy assets for Vite to process from dist directory
+  eleventyConfig.addPassthroughCopy('src/assets/app.js');
+  eleventyConfig.addPassthroughCopy('src/assets/dashboard.js');
+  eleventyConfig.addPassthroughCopy('src/assets/main.css');
+  eleventyConfig.addPassthroughCopy('src/assets/css');
+  eleventyConfig.addPassthroughCopy('src/assets/scripts');
 
-  // 	---------------------  Custom filters -----------------------
+  // Add custom filters
   eleventyConfig.addFilter('getMostRecentUpdatedDate', getMostRecentUpdatedDate);
   eleventyConfig.addFilter('filterUnwantedNavigationElements', filterUnwantedNavigationElements);
   eleventyConfig.addFilter('longDate', longDate);
@@ -62,13 +85,18 @@ module.exports = eleventyConfig => {
   eleventyConfig.addFilter('splitLines', splitLines);
   eleventyConfig.addFilter('stripHtml', stripHtml);
 
-  // 	--------------------- Passthrough File Copy -----------------------
-  [
-    'src/assets',
-  ].forEach(path => eleventyConfig.addPassthroughCopy(path));
+  // Performance optimizations
+  eleventyConfig.setServerOptions({
+    // Show local network IP addresses for device testing
+    showAllHosts: true,
+  });
+
+  // Add development-specific optimizations
+  if (process.env.NODE_ENV === 'development') {
+    eleventyConfig.setWatchThrottleWaitTime(100);
+  }
 
   return {
-    // Pre-process *.md, *.html and global data files files with: (default: `liquid`)
     markdownTemplateEngine: 'njk',
     htmlTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',
@@ -77,7 +105,7 @@ module.exports = eleventyConfig => {
       output: 'dist',
       input: 'src',
       includes: '_includes',
-      layouts: '_layouts'
-    }
-  }
+      layouts: '_layouts',
+    },
+  };
 }

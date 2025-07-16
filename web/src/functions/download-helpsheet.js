@@ -1,25 +1,25 @@
-const Sentry = require('@sentry/serverless')
-const client = require('../../config/utils/sanityClient')
-const {getCommitRef, isProduction} = require('../../config/functions/index')
+import Sentry from '@sentry/serverless';
+import client from '../../config/utils/sanityClient.js';
+import { getCommitRef, isProduction } from '../../config/functions/index.js';
 
 Sentry.AWSLambda.init({
   dsn: process.env.SENTRY_DSN,
   environment: process.env.ENV,
-  release: `the-number-ninja@${(getCommitRef())}`,
+  release: `the-number-ninja@${getCommitRef()}`,
   beforeSend(event, hint) {
     // Don't send events if it's not production
     if (!isProduction()) {
-      return null
+      return null;
     }
 
-    return event
+    return event;
   },
 
   // Set tracesSampleRate to 1.0 to capture 100%
   // of transactions for performance monitoring.
   // We recommend adjusting this value in production
-  tracesSampleRate: 1.0
-})
+  tracesSampleRate: 1.0,
+});
 
 async function getDocument(documentKey, email) {
   const filter = `*[
@@ -31,9 +31,9 @@ async function getDocument(documentKey, email) {
     "client": name,
     "type": documents[_key == "${documentKey}"][0].type,
     "url": documents[_key == "${documentKey}"][0].asset->url
-}`
+}`;
 
-  return await client.fetch(filter).catch(err => console.error(err))
+  return await client.fetch(filter).catch(err => console.error(err));
 }
 
 const respond = (statusCode, body) => {
@@ -41,37 +41,40 @@ const respond = (statusCode, body) => {
     statusCode: statusCode,
     body: JSON.stringify(body, null, 2),
     headers: {
-      'Content-Type': 'application/json'
-    }
-  }
+      'Content-Type': 'application/json',
+    },
+  };
 
-  console.log('➡️  Response:', response)
+  console.log('➡️  Response:', response);
 
-  return response
-}
+  return response;
+};
 
-exports.handler = Sentry.AWSLambda.wrapHandler(async function(event, context) {
+export const handler = Sentry.AWSLambda.wrapHandler(async function (event, context) {
   if (event.httpMethod !== 'POST') {
-    return respond(405, {error: 'Method Not Allowed'})
+    return respond(405, { error: 'Method Not Allowed' });
   }
 
-  const {email, documentKey} = JSON.parse(event.body)
-  console.info(`✉️ ${email}`)
-  console.info(`🗝️ ${documentKey}`)
+  const { email, documentKey } = JSON.parse(event.body);
+  console.info(`✉️ ${email}`);
+  console.info(`🗝️ ${documentKey}`);
 
-  const document = await getDocument(documentKey, email)
-  console.log('📄', document)
+  const document = await getDocument(documentKey, email);
+  console.log('📄', document);
 
   if (!document) {
-    return respond(400, {error: 'The email address you provided does not match the one we have on record. Please try again or email support@thenumberninja.co.uk if you need to update it.'})
+    return respond(400, {
+      error:
+        'The email address you provided does not match the one we have on record. Please try again or email support@thenumberninja.co.uk if you need to update it.',
+    });
   }
 
-  const {client, type, url} = document
-  const filename = `${type} for ${client}.pdf`.replaceAll(' ', '-')
-  const pdfUrl = `${url}?dl=${filename}`
+  const { client, type, url } = document;
+  const filename = `${type} for ${client}.pdf`.replaceAll(' ', '-');
+  const pdfUrl = `${url}?dl=${filename}`;
   const body = {
-    url: pdfUrl
-  }
+    url: pdfUrl,
+  };
 
-  return respond(200, body)
-})
+  return respond(200, body);
+});

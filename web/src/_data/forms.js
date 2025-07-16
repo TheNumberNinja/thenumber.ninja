@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   {
     slug: 'id-form',
     title: 'ID form',
@@ -74,4 +74,4 @@ module.exports = [
     formId: 'npLXLy',
     category: 'General',
   },
-]
+];

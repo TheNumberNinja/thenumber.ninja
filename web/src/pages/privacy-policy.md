@@ -41,7 +41,7 @@ We may process the following categories of personal data about you:
 - We may use Customer Data, User Data, Technical Data and Marketing Data to deliver relevant website content and advertisements to you (including Facebook adverts or other display advertisements) and to measure or understand the effectiveness of the advertising we serve you. Our lawful ground for this processing is legitimate interests which is to grow our business. We may also use such data to send other marketing communications to you.
 
 - **Sensitive Data**
-We do not collect any Sensitive Data about you. Sensitive data refers to data that includes details about your race or ethnicity, religious or philosophical beliefs, sex life, sexual orientation, political opinions, trade union membership, information about your health and genetic and biometric data. We do not collect any information about criminal convictions and offences.
+  We do not collect any Sensitive Data about you. Sensitive data refers to data that includes details about your race or ethnicity, religious or philosophical beliefs, sex life, sexual orientation, political opinions, trade union membership, information about your health and genetic and biometric data. We do not collect any information about criminal convictions and offences.
 
 ## 3. How we collect your personal data.
 
@@ -63,7 +63,7 @@ You can ask us to stop sending you marketing messages at any time by following t
 
 If you opt out of receiving marketing communications this opt-out does not apply to personal data provided as a result of other transactions, such as a contract for us to provide you with services.
 
- ## 5. Disclosures of your personal data
+## 5. Disclosures of your personal data
 
 We may have to share your personal data with the parties set out below:
 

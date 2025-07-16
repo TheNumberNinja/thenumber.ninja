@@ -13,7 +13,6 @@ seals:
 eleventyNavigation:
   key: About
   order: 2
-
 ---
 
 Hi there. I'm Emma and I demystify accounts (as well as making sure everything is up to date and accurate) so that you can concentrate on providing the best service to your clients and building your business. No more fighting with a spreadsheet the day before a tax return is due.

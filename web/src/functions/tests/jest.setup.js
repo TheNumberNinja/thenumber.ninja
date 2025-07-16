@@ -8,35 +8,35 @@ jest.mock('stripe', () => {
   return jest.fn(() => ({
     checkout: {
       sessions: {
-        create: jest.fn().mockResolvedValue({ id: 'test_session_id' })
-      }
+        create: jest.fn().mockResolvedValue({ id: 'test_session_id' }),
+      },
     },
     customers: {
-      list: jest.fn().mockResolvedValue([])
+      list: jest.fn().mockResolvedValue([]),
     },
     taxRates: {
-      list: jest.fn().mockResolvedValue([])
+      list: jest.fn().mockResolvedValue([]),
     },
     coupons: {
-      create: jest.fn().mockResolvedValue({ id: 'test_coupon_id' })
-    }
+      create: jest.fn().mockResolvedValue({ id: 'test_coupon_id' }),
+    },
   }));
 });
 
 jest.mock('@sentry/serverless', () => ({
   AWSLambda: {
     init: jest.fn(),
-    wrapHandler: jest.fn(handler => handler)
+    wrapHandler: jest.fn(handler => handler),
   },
-  captureException: jest.fn()
+  captureException: jest.fn(),
 }));
 
 jest.mock('../../../config/utils/sanityClient', () => ({
-  fetch: jest.fn()
+  fetch: jest.fn(),
 }));
 
 jest.mock('../../../config/functions/index', () => ({
   generateDummyEmail: jest.fn(),
   getCommitRef: jest.fn(),
-  isProduction: jest.fn()
+  isProduction: jest.fn(),
 }));

@@ -1,11 +1,11 @@
-const slugify = require('slugify');
+import slugify from 'slugify';
 
 /** Converts string to a slug form. */
 const slugifyString = str => {
   return slugify(str, {
     replacement: '-',
     remove: /[#,&,+()$~%.'":*?<>{}]/g,
-    lower: true
+    lower: true,
   });
 };
 
@@ -18,7 +18,4 @@ const throwIfNotType = (arg, expectedType) => {
   }
 };
 
-module.exports = {
-  slugifyString,
-  throwIfNotType
-};
+export { slugifyString, throwIfNotType };

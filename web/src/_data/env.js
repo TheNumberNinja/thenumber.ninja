@@ -1,7 +1,7 @@
-require('dotenv').config()
+import 'dotenv/config';
 
-module.exports = {
+export default {
   stripe: {
-    publishableKey: process.env.STRIPE_PUBLISHABLE_KEY
-  }
-}
+    publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+  },
+};

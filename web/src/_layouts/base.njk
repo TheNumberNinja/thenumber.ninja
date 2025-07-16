@@ -20,8 +20,7 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1a9785">
   <meta name="theme-color" content="#ffffff">
 
-  <link rel="stylesheet" href="/@root/src/assets/css/main.min.css">
-  <link rel="stylesheet" href="/@root/src/assets/css/custom.css">
+  <link rel="stylesheet" href="/assets/main.css">
 </head>
 <body id="{{ page.url | slug }}" class="{{ page.fileSlug }} {{ page.url | slug }}">
 <div class="layout">
@@ -34,7 +33,7 @@
 {% include 'partials/footer.njk' %}
 
 <script src="/assets/libs/slideout.min.js" type='module'></script>
-<script src="/@root/src/assets/scripts/app.js" type='module'></script>
+<script type="module" src="/assets/app.js"></script>
 
 {# These are proxied. See _redirects #}
 <script async src="/sgc/101401749.js"></script>

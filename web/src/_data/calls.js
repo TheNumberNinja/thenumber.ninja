@@ -1,19 +1,22 @@
-const client = require('../../config/utils/sanityClient.js')
-const toHtml = require('@portabletext/to-html').toHTML
+import client from '../../config/utils/sanityClient.js';
+import { toHTML as toHtml } from '@portabletext/to-html';
 
-async function getCalls () {
+async function getCalls() {
   const filter = `*[_type == "call" && !(_id in path("drafts.**"))] {
     title,
 		"slug": slug.current,
 		description,
 		call,
-  }`
-  return await client.fetch(filter).then(calls => {
-    return calls.map(call => {
-      call.description = toHtml(call.description)
-      return call
+  }`;
+  return await client
+    .fetch(filter)
+    .then(calls => {
+      return calls.map(call => {
+        call.description = toHtml(call.description);
+        return call;
+      });
     })
-  }).catch(err => console.error(err));
+    .catch(err => console.error(err));
 }
 
-module.exports = getCalls
+export default getCalls;

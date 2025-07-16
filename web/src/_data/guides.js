@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   {
     slug: 'securely-share-a-password-with-us',
     title: 'Securely share a password with us',
@@ -41,4 +41,4 @@ module.exports = [
     id: '1c09101c-7020-4626-bc78-6d4bfe9340d5',
     category: 'Xero',
   },
-]
+];
