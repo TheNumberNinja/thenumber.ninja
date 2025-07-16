@@ -16,30 +16,30 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@11ty/eleventy": "^2.0.0",
-    "@11ty/eleventy-navigation": "^0.3.5",
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-navigation": "^1.0.4",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
-    "@fortawesome/fontawesome-free": "^6.4.0",
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "@netlify/integrations": "^0.5.4",
     "@netlify/sentry": "^0.0.10",
-    "@portabletext/to-html": "^2.0.13",
-    "@sanity/client": "^6.24.1",
-    "@sanity/image-url": "^1.0.2",
+    "@portabletext/to-html": "^2.0.14",
+    "@sanity/client": "^7.7.0",
+    "@sanity/image-url": "^1.1.0",
     "@sentry/serverless": "^7.120.3",
     "@splidejs/splide": "^4.1.4",
-    "dotenv": "^16.0.3",
+    "dotenv": "^17.2.0",
     "lodash": "^4.17.21",
-    "luxon": "^3.2.1",
+    "luxon": "^3.7.1",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-link-attributes": "^4.0.1",
     "moment": "^2.30.1",
     "qs": "^6.14.0",
     "slinkity": "1.0.0-canary.0",
-    "stripe": "^18.1.0"
+    "stripe": "^18.3.0"
   },
   "devDependencies": {
-    "netlify-cli": "^17.38.1"
+    "netlify-cli": "^22.2.2"
   },
   "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c"
 }
