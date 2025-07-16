@@ -1,4 +1,5 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
+import Stripe from 'stripe';
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 const moment = require('moment')
 const Sentry = require('@sentry/serverless')
 const client = require('../../config/utils/sanityClient')
