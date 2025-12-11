@@ -28,6 +28,17 @@ export default {
       type: 'agreement',
     },
     {
+      name: 'proposalId',
+      type: 'string',
+      title: 'Proposal ID',
+      validation: Rule => Rule.warning()
+    },
+    {
+      name: 'proposalNumber',
+      type: 'string',
+      validation: Rule => Rule.warning()
+    },
+    {
       name: 'customerId',
       type: 'string',
       components: {
