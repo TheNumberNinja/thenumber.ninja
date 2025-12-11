@@ -4,7 +4,7 @@
   // Configuration from Nunjucks template
   const config = window.dashboardConfig || {};
 
-  // DOM elements module
+  // DOM elements
   const DOM = {
     startSubscriptionButton: document.getElementById('start-subscription'),
     updatePaymentCardButton: document.getElementById('update-payment-card'),
@@ -19,9 +19,6 @@
       documentConfirmEmail: '#document-confirm-email',
     },
   };
-
-  // Initialize Stripe
-  const stripe = Stripe(config.stripePublishableKey);
 
   // URL utilities
   const URLUtils = {
@@ -86,12 +83,8 @@
       });
     },
 
-    redirectToCheckout: function (sessionId) {
-      stripe.redirectToCheckout({ sessionId: sessionId }).then(function (result) {
-        if (result.error) {
-          UI.displayError(`<p>${result.error.message}</p>`);
-        }
-      });
+    redirectToCheckout: function (sessionUrl) {
+      window.location.href = sessionUrl;
     },
 
     showEmailConfirmation: function (documentKey, maskedEmail) {
@@ -221,7 +214,7 @@
 
     API.createCheckoutSession(config.clientId, baseUrl)
       .then(function (result) {
-        UI.redirectToCheckout(result.data.session_id);
+        UI.redirectToCheckout(result.data.session_url);
       })
       .catch(function (error) {
         handleAPIError(
@@ -236,7 +229,7 @@
 
     API.updatePaymentCard(config.customerId, config.subscriptionId, baseUrl)
       .then(function (result) {
-        UI.redirectToCheckout(result.data.session_id);
+        UI.redirectToCheckout(result.data.session_url);
       })
       .catch(function (error) {
         handleAPIError(

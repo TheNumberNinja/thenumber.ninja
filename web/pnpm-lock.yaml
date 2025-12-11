@@ -45,8 +45,8 @@ importers:
         specifier: ^6.14.0
         version: 6.14.0
       stripe:
-        specifier: ^18.3.0
-        version: 18.3.0(@types/node@24.0.14)
+        specifier: ^20.0.0
+        version: 20.0.0(@types/node@24.0.14)
     devDependencies:
       '@11ty/eleventy':
         specifier: ^3.1.2
@@ -4967,11 +4967,11 @@ packages:
     resolution: {integrity: sha512-A21Xsm1XzUkK0qK1ZrytDUvqsQWict2Cykhvi0fBQntGG5JSprESasEyV1EZ/4CiR5WB5KjzLTrP/bO37B0wPg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  stripe@18.3.0:
-    resolution: {integrity: sha512-FkxrTUUcWB4CVN2yzgsfF/YHD6WgYHduaa7VmokCy5TLCgl5UNJkwortxcedrxSavQ8Qfa4Ir4JxcbIYiBsyLg==}
-    engines: {node: '>=12.*'}
+  stripe@20.0.0:
+    resolution: {integrity: sha512-EaZeWpbJOCcDytdjKSwdrL5BxzbDGNueiCfHjHXlPdBQvLqoxl6AAivC35SPzTmVXJb5duXQlXFGS45H0+e6Gg==}
+    engines: {node: '>=16'}
     peerDependencies:
-      '@types/node': '>=12.x.x'
+      '@types/node': '>=16'
     peerDependenciesMeta:
       '@types/node':
         optional: true
@@ -10976,7 +10976,7 @@ snapshots:
 
   strip-outer@2.0.0: {}
 
-  stripe@18.3.0(@types/node@24.0.14):
+  stripe@20.0.0(@types/node@24.0.14):
     dependencies:
       qs: 6.14.0
     optionalDependencies:

@@ -66,10 +66,10 @@ const handler = Sentry.AWSLambda.wrapHandler(async (event, context, callback) =>
 
   try {
     const taxRate = await getTaxRate();
-    const sessionId = await createSession(clientId, baseUrl, taxRate.id);
-    console.log('🔧 Created session ID', sessionId);
+    const session = await createSession(clientId, baseUrl, taxRate.id);
+    console.log('🔧 Created session', session.id);
 
-    return respond(200, { session_id: sessionId });
+    return respond(200, { session_url: session.url });
   } catch (err) {
     Sentry.captureException(err);
     console.error('💣 Stripe error:', err);
@@ -376,9 +376,9 @@ async function createSession(clientId, baseUrl, taxRateId) {
 
   console.log('📨', JSON.stringify(payload, null, 2));
 
-  const response = await stripe.checkout.sessions.create(payload);
+  const session = await stripe.checkout.sessions.create(payload);
 
-  return response.id;
+  return { id: session.id, url: session.url };
 }
 
 function calculateNumberOfCatchUpMonths(yearEnd) {

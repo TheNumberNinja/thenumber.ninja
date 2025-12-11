@@ -172,14 +172,11 @@ excludeFromSitemap: true
   <swal-title>We just need to check it's you</swal-title>
 </template>
 
-<script src="https://js.stripe.com/v3"></script>
-
 <script>
   window.dashboardConfig = {
     customerId: '{{ subscription.customerId }}',
     subscriptionId: '{{ subscription.subscriptionId }}',
-    clientId: '{{ client.clientId }}',
-    stripePublishableKey: '{{ env.stripe.publishableKey }}'
+    clientId: '{{ client.clientId }}'
   };
 </script>
 <script type="module" src="/assets/dashboard.js"></script>

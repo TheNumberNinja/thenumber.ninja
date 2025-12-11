@@ -51,10 +51,10 @@ export const handler = Sentry.AWSLambda.wrapHandler(async function (event, conte
   }
 
   try {
-    const sessionId = await createSession(customerId, subscriptionId, baseUrl);
-    console.log('Created session ID', sessionId);
+    const session = await createSession(customerId, subscriptionId, baseUrl);
+    console.log('Created session', session.id);
 
-    return respond(200, { session_id: sessionId });
+    return respond(200, { session_url: session.url });
   } catch (err) {
     Sentry.captureException(err);
     console.error('Stripe error', err);
@@ -81,7 +81,7 @@ async function createSession(customerId, subscriptionId, baseUrl) {
     },
   };
 
-  const response = await stripe.checkout.sessions.create(payload);
+  const session = await stripe.checkout.sessions.create(payload);
 
-  return response.id;
+  return { id: session.id, url: session.url };
 }

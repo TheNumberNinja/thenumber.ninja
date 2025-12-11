@@ -8,7 +8,7 @@ jest.mock('stripe', () => {
   return jest.fn(() => ({
     checkout: {
       sessions: {
-        create: jest.fn().mockResolvedValue({ id: 'test_session_id' }),
+        create: jest.fn().mockResolvedValue({ id: 'test_session_id', url: 'https://checkout.stripe.com/test' }),
       },
     },
     customers: {
