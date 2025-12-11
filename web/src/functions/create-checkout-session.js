@@ -312,8 +312,8 @@ async function createSession(clientId, baseUrl, taxRateId) {
       individual: {
         enabled: true,
         optional: false,
-      }
-    }
+      },
+    },
   };
 
   const customer = await getCustomer(email);

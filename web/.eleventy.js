@@ -49,7 +49,7 @@ export default function (eleventyConfig) {
           output: {
             entryFileNames: 'assets/[name].js',
             chunkFileNames: 'assets/[name]-[hash].js',
-            assetFileNames: (assetInfo) => {
+            assetFileNames: assetInfo => {
               if (assetInfo.name.endsWith('.css')) {
                 return 'assets/[name][extname]';
               }

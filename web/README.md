@@ -13,12 +13,14 @@ curl https://mise.run | sh
 ## Development Setup
 
 1. **Install dependencies:**
+
    ```bash
    mise install
    pnpm install
    ```
 
 2. **Start development server:**
+
    ```bash
    pnpm run dev
    ```
@@ -39,27 +41,29 @@ This project uses exact version pinning for consistency across development and p
 
 ### Version Configuration Files
 
-| File | Purpose | Configuration |
-|------|---------|---------------|
-| `mise.toml` | Development environment | `node = "22.17.1"`, `pnpm = "10.13.1"` |
-| `package.json` | Runtime requirements | `"engines": {"node": ">=22.17.1", "pnpm": ">=10.13.1"}` |
-| `package.json` | Package manager lock | `"packageManager": "pnpm@10.13.1"` |
-| `netlify.toml` | Deployment environment | `NODE_VERSION = "22.17.1"` |
+| File           | Purpose                 | Configuration                                           |
+| -------------- | ----------------------- | ------------------------------------------------------- |
+| `mise.toml`    | Development environment | `node = "22.17.1"`, `pnpm = "10.13.1"`                  |
+| `package.json` | Runtime requirements    | `"engines": {"node": ">=22.17.1", "pnpm": ">=10.13.1"}` |
+| `package.json` | Package manager lock    | `"packageManager": "pnpm@10.13.1"`                      |
+| `netlify.toml` | Deployment environment  | `NODE_VERSION = "22.17.1"`                              |
 
 ### Updating Versions
 
 To update Node.js and pnpm versions across the project:
 
 1. **Check available versions:**
+
    ```bash
    # Check latest Node.js versions
    mise ls-remote node
-   
+
    # Check latest pnpm versions
    mise ls-remote pnpm
    ```
 
 2. **Update mise.toml:**
+
    ```toml
    [tools]
    node = "22.17.1"  # Update to desired version
@@ -67,6 +71,7 @@ To update Node.js and pnpm versions across the project:
    ```
 
 3. **Update package.json engines:**
+
    ```json
    {
      "engines": {
@@ -78,12 +83,14 @@ To update Node.js and pnpm versions across the project:
    ```
 
 4. **Update netlify.toml:**
+
    ```toml
    [build.environment]
    NODE_VERSION = "22.17.1"  # Update to match mise.toml
    ```
 
 5. **Install new versions:**
+
    ```bash
    mise install
    pnpm install

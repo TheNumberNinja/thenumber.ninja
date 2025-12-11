@@ -19,9 +19,9 @@ function getCommitRef() {
       './build.json',
       '../build.json',
       '../../build.json',
-      process.cwd() + '/build.json'
+      process.cwd() + '/build.json',
     ];
-    
+
     for (const path of possiblePaths) {
       try {
         const buildInformation = JSON.parse(readFileSync(path, 'utf8'));
