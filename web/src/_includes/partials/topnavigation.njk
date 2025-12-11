@@ -8,7 +8,6 @@
             <ul>
               <li><a href="https://www.instagram.com/the_number_ninja/"><i class="fa-brands fa-instagram"></i></a></li>
               <li><a href="https://www.facebook.com/thenumberninja/"><i class="fa-brands fa-facebook-square"></i></a></li>
-              <li><a href="/blog/feed.xml"><i class="fa-solid fa-rss-square"></i></a></li>
             </ul>
           </div>
         </div>
@@ -42,43 +41,10 @@
         {% set navPages = collections.all | eleventyNavigation %}
         {% for entry in navPages | filterUnwantedNavigationElements %}
           {% set isCurrentPage = entry.url == page.url %}
-          {% if entry.key == 'Blog' %}
-            <li class="menu-item menu-item-has-mega-menu {% if isCurrentPage %}current-menu-item{% endif %}"
-                {% if isCurrentPage %}aria-current="page"{% endif %}>
-              <a href="{{ entry.url }}">{{ entry.title }}</a>
-              <div class="mega-menu">
-                <div class="mega_nav">
-                  <div class="container">
-                    <div class="row">
-                      {% for post in posts.slice(0, 4) %}
-                        <div class="col-md-6 col-xs-6">
-                          <a href="/blog/{{ post.slug }}/" class="mega_nav--item">
-                            <figure class="mega_nav--item_image">
-                              <img src='{{ post.image.urls.topNavigation1x }}'
-                                   alt='{{ post.image.alt }}'
-                                   srcset='{{ post.image.urls.topNavigation2x }} 2x'
-                                   height='32'
-                                   width='32'
-                              />
-                            </figure>
-                            <dl class="mega_nav--item_body">
-                              <dt><strong>{{ post.title }}</strong></dt>
-                            </dl>
-                          </a>
-                        </div>
-                      {% endfor %}
-                    </div>
-                  </div>
-                  <a href="{{ entry.url }}" class="mega_nav--open_all"><span>All posts</span></a>
-                </div>
-              </div>
-            </li>
-          {% else %}
-            <li class="menu-item {% if isCurrentPage %}current-menu-item{% endif %}"
-                {% if isCurrentPage %}aria-current="page"{% endif %}>
-              <a href="{{ entry.url }}">{{ entry.title }}</a>
-            </li>
-          {% endif %}
+          <li class="menu-item {% if isCurrentPage %}current-menu-item{% endif %}"
+              {% if isCurrentPage %}aria-current="page"{% endif %}>
+            <a href="{{ entry.url }}">{{ entry.title }}</a>
+          </li>
         {% endfor %}
       </ul>
     </div>
@@ -115,7 +81,6 @@
       <ul>
         <li><a href="https://www.instagram.com/the_number_ninja/"><i class="fa-brands fa-instagram-square"></i></a></li>
         <li><a href="https://www.facebook.com/thenumberninja/"><i class="fa-brands fa-facebook-square"></i></a></li>
-        <li><a href="/blog/feed.xml"><i class="fa-solid fa-rss-square"></i></a></li>
       </ul>
     </div>
     <!-- /follow me-->

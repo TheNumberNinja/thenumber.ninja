@@ -5,13 +5,11 @@ dotenv.config({
 });
 
 import {
-  getMostRecentUpdatedDate,
   filterUnwantedNavigationElements,
   longDate,
   isoDate,
   toHtml,
   toHtmlInline,
-  readingTime,
   sample,
   slice,
   splitLines,
@@ -21,7 +19,6 @@ import {
 import { tally, trafft } from './config/shortcodes/index.js';
 
 import eleventyNavigationPlugin from '@11ty/eleventy-navigation';
-import eleventyRssPlugin from '@11ty/eleventy-plugin-rss';
 import EleventyVitePlugin from '@11ty/eleventy-plugin-vite';
 import markdownLib from './config/plugins/markdown.js';
 export default function (eleventyConfig) {
@@ -35,7 +32,6 @@ export default function (eleventyConfig) {
 
   // Add plugins
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-  eleventyConfig.addPlugin(eleventyRssPlugin);
   eleventyConfig.addPlugin(EleventyVitePlugin, {
     viteOptions: {
       clearScreen: false,
@@ -73,13 +69,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/assets/scripts');
 
   // Add custom filters
-  eleventyConfig.addFilter('getMostRecentUpdatedDate', getMostRecentUpdatedDate);
   eleventyConfig.addFilter('filterUnwantedNavigationElements', filterUnwantedNavigationElements);
   eleventyConfig.addFilter('longDate', longDate);
   eleventyConfig.addFilter('isoDate', isoDate);
   eleventyConfig.addFilter('toHtml', toHtml);
   eleventyConfig.addFilter('toHtmlInline', toHtmlInline);
-  eleventyConfig.addFilter('readingTime', readingTime);
   eleventyConfig.addFilter('sample', sample);
   eleventyConfig.addFilter('slice', slice);
   eleventyConfig.addFilter('splitLines', splitLines);

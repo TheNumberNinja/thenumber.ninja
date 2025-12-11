@@ -34,7 +34,6 @@
 .pagination ul a.-active,
 .our_mission--item_body ul li::before,
 .our_company--quote_text::before,
-.blog .widget li i,
 .case_study--details dl dt i {
   color: #1a9785;
 }
@@ -136,26 +135,8 @@
   width: 100%;
 }
 
-.blog nav.pagination {
-  margin-bottom: 0;
-}
-
-.blog .widget--title {
-  padding-left: 20px;
-}
-
-.blog .widget li i {
-  padding-right: 10px;
-  width: 24px;
-}
-
 .search-result em {
   color: #1a9785;
-}
-
-.blog-side-list .date {
-  font-size: 10px;
-  display: block;
 }
 
 .article--content figure {
