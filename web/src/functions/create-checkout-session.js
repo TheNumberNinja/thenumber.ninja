@@ -304,6 +304,16 @@ async function createSession(clientId, baseUrl, taxRateId) {
     success_url: `${baseUrl}?state=success`,
     cancel_url: `${baseUrl}?state=cancelled`,
     payment_method_types: ['card'],
+    name_collection: {
+      business: {
+        enabled: true,
+        optional: false,
+      },
+      individual: {
+        enabled: true,
+        optional: false,
+      }
+    }
   };
 
   const customer = await getCustomer(email);
