@@ -27,6 +27,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.967.0",
+    "@aws-sdk/s3-request-presigner": "^3.967.0",
     "@fortawesome/fontawesome-free": "^7.1.0",
     "@netlify/integrations": "^0.5.4",
     "@netlify/sentry": "^0.0.10",
@@ -35,6 +37,9 @@
     "@sanity/image-url": "^2.0.2",
     "@sentry/serverless": "^7.120.4",
     "@splidejs/splide": "^4.1.4",
+    "@uppy/aws-s3": "^5.1.0",
+    "@uppy/core": "^5.2.0",
+    "@uppy/dashboard": "^5.1.0",
     "dotenv": "^17.2.3",
     "lodash": "^4.17.21",
     "luxon": "^3.7.2",
