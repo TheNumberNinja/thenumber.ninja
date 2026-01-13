@@ -1,0 +1,117 @@
+---
+layout: page-full-width.njk
+permalink: "/dashboard/{{ client.clientId }}/upload/"
+pagination:
+  data: clients
+  size: 1
+  alias: client
+  addAllPagesToCollections: true
+title: Upload Documents
+excludeFromSitemap: true
+---
+
+<style>
+  .upload-header {
+    margin-bottom: 1.5em;
+  }
+
+  .upload-header h2 {
+    margin-bottom: 0.5em;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1em;
+  }
+
+  .back-link i {
+    margin-right: 0.3em;
+  }
+
+  #uppy-dashboard {
+    margin: 1em 0;
+  }
+
+  /* Uppy theme overrides */
+  .uppy-Dashboard-inner {
+    border-color: #1a9785;
+  }
+
+  .uppy-Dashboard-AddFiles-title {
+    color: #4b4b4b;
+  }
+
+  .uppy-DashboardContent-addMore {
+    color: #1a9785;
+  }
+
+  .uppy-DashboardContent-addMore:hover {
+    color: #147a6b;
+  }
+
+  .uppy-Dashboard-Item-action--remove:hover {
+    color: #ed5151;
+  }
+
+  .uppy-StatusBar-actionBtn--upload {
+    background-color: #1a9785;
+  }
+
+  .uppy-StatusBar-actionBtn--upload:hover {
+    background-color: #147a6b;
+  }
+
+  .uppy-StatusBar.is-complete .uppy-StatusBar-progress {
+    background-color: #1a9785;
+  }
+
+  .uppy-StatusBar.is-complete .uppy-StatusBar-statusIndicator {
+    color: #1a9785;
+  }
+
+  .note-field {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+  }
+
+  .note-field:focus {
+    border-color: #1a9785;
+    outline: none;
+  }
+
+  .note-counter {
+    font-size: 12px;
+    color: #888;
+    text-align: right;
+    margin-top: 4px;
+  }
+
+  .note-counter.warning {
+    color: #ed5151;
+  }
+</style>
+
+<div class="upload-header">
+  <a href="/dashboard/{{ client.clientId }}/" class="back-link link">
+    <i class="fa-solid fa-arrow-left"></i> Back to dashboard
+  </a>
+  <h2 class="case_study--section_title">Upload Documents for {{ client.name }}</h2>
+  <p>Select files to upload. You can add an optional note to each file.</p>
+</div>
+
+<div id="uppy-dashboard"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.7/dist/sweetalert2.all.min.js"></script>
+
+<script>
+  window.uploadConfig = {
+    clientId: '{{ client.clientId }}',
+    clientName: '{{ client.name }}'
+  };
+</script>
+<script type="module" src="/assets/upload.js"></script>

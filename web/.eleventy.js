@@ -41,6 +41,7 @@ export default function (eleventyConfig) {
           input: {
             app: 'assets/app.js',
             dashboard: 'assets/dashboard.js',
+            upload: 'assets/upload.js',
           },
           output: {
             entryFileNames: 'assets/[name].js',
@@ -64,6 +65,7 @@ export default function (eleventyConfig) {
   // Copy assets for Vite to process from dist directory
   eleventyConfig.addPassthroughCopy('src/assets/app.js');
   eleventyConfig.addPassthroughCopy('src/assets/dashboard.js');
+  eleventyConfig.addPassthroughCopy('src/assets/upload.js');
   eleventyConfig.addPassthroughCopy('src/assets/main.css');
   eleventyConfig.addPassthroughCopy('src/assets/css');
   eleventyConfig.addPassthroughCopy('src/assets/scripts');
