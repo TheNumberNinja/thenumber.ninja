@@ -1,21 +1,54 @@
-const moment = require('moment');
-const {
+import { describe, test, expect, vi, beforeEach, afterEach } from 'vitest';
+import { DateTime, Settings } from 'luxon';
+
+// Mock external dependencies before importing the module
+vi.mock('../../../../config/utils/sanityClient.js', () => ({
+  default: { fetch: vi.fn() },
+}));
+
+vi.mock('@sentry/serverless', () => ({
+  default: {
+    AWSLambda: {
+      init: vi.fn(),
+      wrapHandler: fn => fn,
+    },
+    captureException: vi.fn(),
+  },
+}));
+
+vi.mock('../../../../config/functions/index.js', () => ({
+  getCommitRef: () => 'test-commit',
+  isProduction: () => false,
+  generateDummyEmail: () => 'test@example.com',
+}));
+
+vi.mock('stripe', () => {
+  return {
+    default: class Stripe {
+      constructor() {
+        this.checkout = { sessions: { create: vi.fn() } };
+        this.taxRates = { list: vi.fn() };
+      }
+    },
+  };
+});
+
+import {
   calculateNumberOfCatchUpMonths,
   generateAccountsLineItems,
   calculateRemainingContractMonths,
-} = require('../../create-checkout-session');
+} from '../../create-checkout-session.js';
 
 describe('Time-based calculations', () => {
-  let fixedDate;
+  const fixedTimestamp = new Date('2024-01-15T00:00:00.000Z').getTime();
 
   beforeEach(() => {
     // Fix the date to make tests deterministic
-    fixedDate = moment('2024-01-15').startOf('day');
-    jest.spyOn(moment, 'now').mockReturnValue(fixedDate);
+    Settings.now = () => fixedTimestamp;
   });
 
   afterEach(() => {
-    jest.restoreAllMocks();
+    Settings.now = () => Date.now();
   });
 
   describe('calculateRemainingContractMonths', () => {
@@ -60,22 +93,19 @@ describe('Time-based calculations', () => {
 
     test('should handle exact month boundaries', () => {
       // Mock the current date to the start of a month
-      jest.spyOn(moment, 'now').mockReturnValue(moment('2024-01-01').startOf('day'));
+      Settings.now = () => new Date('2024-01-01T00:00:00.000Z').getTime();
       expect(calculateNumberOfCatchUpMonths('2024-12-31')).toBe(0);
     });
   });
 });
 
 describe('generateAccountsLineItems', () => {
-  let fixedDate;
-
   beforeEach(() => {
-    fixedDate = moment('2024-01-15').startOf('day');
-    jest.spyOn(moment, 'now').mockReturnValue(fixedDate);
+    Settings.now = () => new Date('2024-01-15T00:00:00.000Z').getTime();
   });
 
   afterEach(() => {
-    jest.restoreAllMocks();
+    Settings.now = () => Date.now();
   });
 
   test('should handle empty products array', () => {
@@ -134,8 +164,7 @@ describe('generateAccountsLineItems', () => {
   });
 
   test('should handle the 11-month edge case by converting to full year', () => {
-    fixedDate = moment('2024-01-31').startOf('day');
-    jest.spyOn(moment, 'now').mockReturnValue(fixedDate);
+    Settings.now = () => new Date('2024-01-31T00:00:00.000Z').getTime();
     const productAmount = 10000;
     const products = [
       {
@@ -157,8 +186,7 @@ describe('generateAccountsLineItems', () => {
   });
 
   test('should handle agreement end date in past', () => {
-    fixedDate = moment('2024-01-31').startOf('day');
-    jest.spyOn(moment, 'now').mockReturnValue(fixedDate);
+    Settings.now = () => new Date('2024-01-31T00:00:00.000Z').getTime();
     const productAmount = 10000;
     const products = [
       {
@@ -182,8 +210,7 @@ describe('generateAccountsLineItems', () => {
   });
 
   test('should default to 1 month when contract end date is over 1 year ago', () => {
-    const fixedDate = moment('2024-01-15').startOf('day');
-    jest.spyOn(moment, 'now').mockReturnValue(fixedDate.valueOf());
+    Settings.now = () => new Date('2024-01-15T00:00:00.000Z').getTime();
 
     const products = [
       {
@@ -266,8 +293,7 @@ describe('generateAccountsLineItems', () => {
   });
 
   test('should charge full catch-up fee for previous years accounts when agreement ends in future', () => {
-    fixedDate = moment('2024-10-31').startOf('day');
-    jest.spyOn(moment, 'now').mockReturnValue(fixedDate);
+    Settings.now = () => new Date('2024-10-31T00:00:00.000Z').getTime();
 
     const productAmount = 10000;
     const products = [
