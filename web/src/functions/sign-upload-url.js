@@ -137,6 +137,7 @@ export const handler = Sentry.AWSLambda.wrapHandler(async function (event) {
 
   const metadata = {
     'original-name': filename,
+    'client-name': client.name,
   };
 
   if (note) {
