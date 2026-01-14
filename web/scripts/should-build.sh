@@ -20,11 +20,12 @@ if [ -z "${CACHED_COMMIT_REF:-}" ]; then
     exit 1
 fi
 
-# If both refs are the same, no need to build
+# If both refs are the same, we should build
+# This happens when cache is unavailable - Netlify sets CACHED_COMMIT_REF to COMMIT_REF
 if [ "$CACHED_COMMIT_REF" = "$COMMIT_REF" ]; then
-    echo "Commit refs are identical, no changes"
-    echo "Decision: SKIP"
-    exit 0
+    echo "Commit refs are identical (cache likely unavailable)"
+    echo "Decision: BUILD"
+    exit 1
 fi
 
 # Check if the cached commit exists in the repo
