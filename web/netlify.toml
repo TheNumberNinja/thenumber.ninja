@@ -17,6 +17,7 @@
 [functions]
   directory = "src/functions"
   node_bundler = "esbuild"
+  excluded_files = ["**/*.test.js", "**/*.test.ts", "**/*.spec.js", "**/*.spec.ts"]
 
 [[plugins]]
 package = "@netlify/plugin-functions-install-core"
