@@ -18,7 +18,9 @@
     "format:check": "prettier --check .",
     "lint": "eslint . --fix",
     "lint:check": "eslint .",
-    "netlify:build": "npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "netlify:build": "npm run test && npm run build",
     "netlify:dev": "BROWSER=none npx netlify dev",
     "optimize": "npx jampack ./dist",
     "serve": "npx @11ty/eleventy --serve --incremental"
