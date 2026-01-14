@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeAll } from 'vitest';
 
 // Mock external dependencies before importing the module
-vi.mock('../../config/utils/sanityClient.js', () => ({
+vi.mock('../../../../config/utils/sanityClient.js', () => ({
   default: { fetch: vi.fn() },
 }));
 
@@ -15,12 +15,12 @@ vi.mock('@sentry/serverless', () => ({
   },
 }));
 
-vi.mock('../../config/functions/index.js', () => ({
+vi.mock('../../../../config/functions/index.js', () => ({
   getCommitRef: () => 'test-commit',
   isProduction: () => false,
 }));
 
-import { validateRequest, isBlockedExtension, isValidUUID } from './sign-upload-url.js';
+import { validateRequest, isBlockedExtension, isValidUUID } from '../../sign-upload-url.js';
 
 describe('isBlockedExtension', () => {
   it('blocks executable files', () => {
