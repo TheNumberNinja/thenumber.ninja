@@ -24,7 +24,7 @@ importers:
         specifier: 0.0.10
         version: 0.0.10
       '@portabletext/to-html':
-        specifier: ^5.0.0
+        specifier: 5.0.0
         version: 5.0.0
       '@sanity/client':
         specifier: 7.13.2
@@ -36,7 +36,7 @@ importers:
         specifier: ^7.120.4
         version: 7.120.4
       '@splidejs/splide':
-        specifier: ^4.1.4
+        specifier: 4.1.4
         version: 4.1.4
       '@uppy/aws-s3':
         specifier: 5.1.0
@@ -48,19 +48,19 @@ importers:
         specifier: 5.1.0
         version: 5.1.0(@uppy/core@5.2.0)
       dotenv:
-        specifier: ^17.2.3
+        specifier: 17.2.3
         version: 17.2.3
       lodash:
-        specifier: ^4.17.21
+        specifier: 4.18.1
         version: 4.18.1
       luxon:
-        specifier: ^3.7.2
+        specifier: 3.7.2
         version: 3.7.2
       qs:
-        specifier: ^6.14.0
+        specifier: 6.14.2
         version: 6.14.2
       stripe:
-        specifier: ^20.0.0
+        specifier: 20.0.0
         version: 20.0.0(@types/node@25.0.0)
     devDependencies:
       '@11ty/eleventy':
@@ -82,13 +82,13 @@ importers:
         specifier: 7.2.1
         version: 7.2.1(terser@5.43.1)(vite@7.3.2(@types/node@25.0.0)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.2))
       chokidar:
-        specifier: ^5.0.0
+        specifier: 5.0.0
         version: 5.0.0
       concurrently:
-        specifier: ^9.2.1
+        specifier: 9.2.1
         version: 9.2.1
       esbuild:
-        specifier: ^0.27.1
+        specifier: 0.27.1
         version: 0.27.1
       eslint:
         specifier: 9.39.1
@@ -97,13 +97,13 @@ importers:
         specifier: 16.5.0
         version: 16.5.0
       markdown-it:
-        specifier: ^14.1.0
+        specifier: 14.1.1
         version: 14.1.1
       markdown-it-anchor:
-        specifier: ^9.2.0
+        specifier: 9.2.0
         version: 9.2.0(@types/markdown-it@14.1.2)(markdown-it@14.1.1)
       markdown-it-link-attributes:
-        specifier: ^4.0.1
+        specifier: 4.0.1
         version: 4.0.1
       netlify-cli:
         specifier: 23.12.3
@@ -112,7 +112,7 @@ importers:
         specifier: 3.7.4
         version: 3.7.4
       slugify:
-        specifier: ^1.6.6
+        specifier: 1.6.6
         version: 1.6.6
       vite:
         specifier: 7.3.2
@@ -121,7 +121,7 @@ importers:
         specifier: 4.0.17
         version: 4.0.17(@opentelemetry/api@1.8.0)(@types/node@25.0.0)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.2)
       ws:
-        specifier: ^8.18.3
+        specifier: 8.20.1
         version: 8.20.1
 
 packages:
