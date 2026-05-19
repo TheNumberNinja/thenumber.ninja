@@ -36,17 +36,17 @@ This project uses exact version pinning for consistency across development and p
 
 ### Current Versions
 
-- **Node.js**: `22.17.1` (Active LTS)
-- **pnpm**: `10.13.1` (Latest Stable)
+- **Node.js**: `22.22.3` (Active LTS — Jod)
+- **pnpm**: `10.33.4` (Latest Stable in v10.x)
 
 ### Version Configuration Files
 
 | File           | Purpose                 | Configuration                                           |
 | -------------- | ----------------------- | ------------------------------------------------------- |
-| `mise.toml`    | Development environment | `node = "22.17.1"`, `pnpm = "10.13.1"`                  |
-| `package.json` | Runtime requirements    | `"engines": {"node": ">=22.17.1", "pnpm": ">=10.13.1"}` |
-| `package.json` | Package manager lock    | `"packageManager": "pnpm@10.13.1"`                      |
-| `netlify.toml` | Deployment environment  | `NODE_VERSION = "22.17.1"`                              |
+| `mise.toml`    | Development environment | `node = "22.22.3"`, `pnpm = "10.33.4"`                  |
+| `package.json` | Runtime requirements    | `"engines": {"node": ">=22.22.3", "pnpm": ">=10.33.4"}` |
+| `package.json` | Package manager lock    | `"packageManager": "pnpm@10.33.4"`                      |
+| `netlify.toml` | Deployment environment  | `NODE_VERSION = "22.22.3"`                              |
 
 ### Updating Versions
 
@@ -66,8 +66,8 @@ To update Node.js and pnpm versions across the project:
 
    ```toml
    [tools]
-   node = "22.17.1"  # Update to desired version
-   pnpm = "10.13.1"  # Update to desired version
+   node = "22.22.3"  # Update to desired version
+   pnpm = "10.33.4"  # Update to desired version
    ```
 
 3. **Update package.json engines:**
@@ -75,10 +75,10 @@ To update Node.js and pnpm versions across the project:
    ```json
    {
      "engines": {
-       "node": ">=22.17.1",  # Update minimum version
-       "pnpm": ">=10.13.1"   # Update minimum version
+       "node": ">=22.22.3",  # Update minimum version
+       "pnpm": ">=10.33.4"   # Update minimum version
      },
-     "packageManager": "pnpm@10.13.1"  # Update exact version
+     "packageManager": "pnpm@10.33.4"  # Update exact version
    }
    ```
 
@@ -86,7 +86,7 @@ To update Node.js and pnpm versions across the project:
 
    ```toml
    [build.environment]
-   NODE_VERSION = "22.17.1"  # Update to match mise.toml
+   NODE_VERSION = "22.22.3"  # Update to match mise.toml
    ```
 
 5. **Install new versions:**
@@ -116,8 +116,8 @@ To update Node.js and pnpm versions across the project:
 ## Technology Stack
 
 - **Static Site Generator**: [Eleventy](https://11ty.dev) v3.1.2
-- **Runtime**: Node.js 22.17.1 (Active LTS)
-- **Package Manager**: pnpm 10.13.1
+- **Runtime**: Node.js 22.22.3 (Active LTS — Jod)
+- **Package Manager**: pnpm 10.33.4
 - **Deployment**: Netlify
 - **Payments**: Stripe
 - **CMS**: Sanity

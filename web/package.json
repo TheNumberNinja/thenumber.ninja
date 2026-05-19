@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "engines": {
-    "node": ">=22.17.1",
-    "pnpm": ">=10.13.1"
+    "node": ">=22.22.3",
+    "pnpm": ">=10.33.4"
   },
   "scripts": {
     "build": "rm -rf ./dist && npx @11ty/eleventy",
@@ -70,5 +70,5 @@
     "vitest": "^4.0.17",
     "ws": "^8.18.3"
   },
-  "packageManager": "pnpm@10.13.1"
+  "packageManager": "pnpm@10.33.4+sha512.HGezs1my1AgRm6HtKJ80uPw8aHNBK+xv0mT73IJInlEPy+y5zp0i2ufzt2Jp2EQQRgFL3KU7mXnNelYa1jG4AA=="
 }

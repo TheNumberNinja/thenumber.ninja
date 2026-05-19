@@ -1,0 +1,140 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "timezone": "Europe/London",
+  "schedule": ["before 7am every weekday"],
+  "prConcurrentLimit": 0,
+  "prHourlyLimit": 0,
+  "dependencyDashboard": true,
+  "configMigration": true,
+  "rangeStrategy": "replace",
+  "postUpdateOptions": ["pnpmDedupe"],
+  "ignorePaths": ["**/node_modules/**", "**/package-lock.json"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 7am on sunday"]
+  },
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "minimumReleaseAge": "1 day",
+    "schedule": ["at any time"],
+    "labels": ["security"]
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Track Node.js version in any mise.toml (web/, studio/) — captures bare semver; the node-version datasource returns bare numeric so no extractVersion needed. studio/mise.toml uses node=\"lts\" which intentionally won't match.",
+      "managerFilePatterns": ["/(^|/)mise\\.toml$/"],
+      "matchStrings": [
+        "(^|\\n)node\\s*=\\s*\"(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)\""
+      ],
+      "datasourceTemplate": "node-version",
+      "depNameTemplate": "node"
+    },
+    {
+      "customType": "regex",
+      "description": "Track pnpm version in any mise.toml — captures bare semver; the npm datasource returns bare numeric",
+      "managerFilePatterns": ["/(^|/)mise\\.toml$/"],
+      "matchStrings": [
+        "(^|\\n)pnpm\\s*=\\s*\"(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)\""
+      ],
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "pnpm"
+    },
+    {
+      "customType": "regex",
+      "description": "Track NODE_VERSION in netlify.toml — captures bare semver so it stays in sync with mise.toml and engines.node",
+      "managerFilePatterns": ["/(^|/)netlify\\.toml$/"],
+      "matchStrings": [
+        "NODE_VERSION\\s*=\\s*\"(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)\""
+      ],
+      "datasourceTemplate": "node-version",
+      "depNameTemplate": "node"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Label every Renovate PR for filtering",
+      "matchPackageNames": ["*"],
+      "labels": ["dependencies"]
+    },
+    {
+      "description": "Tag major updates for triage (no automerge anywhere; default automerge is false)",
+      "matchUpdateTypes": ["major"],
+      "labels": ["major-update"]
+    },
+    {
+      "description": "Group Eleventy core + plugins (all @11ty/* packages release in lockstep)",
+      "matchPackageNames": ["@11ty/**"],
+      "groupName": "Eleventy"
+    },
+    {
+      "description": "Group Sanity core, plugins, client, and ecosystem (studio + web)",
+      "matchPackageNames": ["sanity", "@sanity/**", "sanity-plugin-*"],
+      "groupName": "Sanity"
+    },
+    {
+      "description": "Group React (react, react-dom, react-is must move together)",
+      "matchPackageNames": ["react", "react-dom", "react-is"],
+      "groupName": "React"
+    },
+    {
+      "description": "Group Vite, Vitest, and Vite plugins (versions are coupled)",
+      "matchPackageNames": ["vite", "vitest", "@vitejs/**"],
+      "groupName": "Vite"
+    },
+    {
+      "description": "Group ESLint core, configs, and globals (flat-config ecosystem moves together)",
+      "matchPackageNames": ["eslint", "@eslint/**", "@sanity/eslint-config-studio", "globals"],
+      "groupName": "ESLint"
+    },
+    {
+      "description": "Group Prettier and its plugins (plugin versions are tied to Prettier's API)",
+      "matchPackageNames": ["prettier", "prettier-plugin-*"],
+      "groupName": "Prettier"
+    },
+    {
+      "description": "Group AWS SDK v3 packages (clients + signers must move together)",
+      "matchPackageNames": ["@aws-sdk/**"],
+      "groupName": "AWS SDK"
+    },
+    {
+      "description": "Group Sentry SDK packages",
+      "matchPackageNames": ["@sentry/**"],
+      "groupName": "Sentry"
+    },
+    {
+      "description": "Group Netlify CLI and integrations",
+      "matchPackageNames": ["netlify-cli", "@netlify/**"],
+      "groupName": "Netlify"
+    },
+    {
+      "description": "Group Uppy core + plugins (versions move together)",
+      "matchPackageNames": ["@uppy/**"],
+      "groupName": "Uppy"
+    },
+    {
+      "description": "Cross-file: collapse Node bumps from mise.toml customManager and engines.node into one PR; apply 5-day supply-chain floor (manager-specific dep types bypass the matchDepTypes rules below)",
+      "matchPackageNames": ["node"],
+      "groupName": "node",
+      "minimumReleaseAge": "5 days"
+    },
+    {
+      "description": "Cross-file: collapse pnpm bumps from mise.toml customManager, packageManager field, and engines.pnpm into one PR; apply 5-day supply-chain floor (manager-specific dep types bypass the matchDepTypes rules below)",
+      "matchPackageNames": ["pnpm"],
+      "groupName": "pnpm",
+      "minimumReleaseAge": "5 days"
+    },
+    {
+      "description": "5-day minimum age for production dependencies (supply-chain protection)",
+      "matchDepTypes": ["dependencies"],
+      "minimumReleaseAge": "5 days"
+    },
+    {
+      "description": "2-day minimum age for dev dependencies",
+      "matchDepTypes": ["devDependencies"],
+      "minimumReleaseAge": "2 days"
+    }
+  ]
+}
