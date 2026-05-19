@@ -52,7 +52,7 @@ importers:
         version: 17.2.3
       lodash:
         specifier: ^4.17.21
-        version: 4.17.21
+        version: 4.18.1
       luxon:
         specifier: ^3.7.2
         version: 3.7.2
@@ -4699,6 +4699,9 @@ packages:
 
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+
+  lodash@4.18.1:
+    resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
   log-process-errors@11.0.1:
     resolution: {integrity: sha512-HXYU83z3kH0VHfJgGyv9ZP9z7uNEayssgvpeQwSzh60mvpNqUBCPyXLSzCDSMxfGvAUUa0Kw06wJjVR46Ohd3A==}
@@ -9665,7 +9668,7 @@ snapshots:
       '@transloadit/prettier-bytes': 0.3.5
       '@uppy/store-default': 5.0.0
       '@uppy/utils': 7.1.5
-      lodash: 4.17.21
+      lodash: 4.18.1
       mime-match: 1.0.2
       namespace-emitter: 2.0.1
       nanoid: 5.1.6
@@ -9679,7 +9682,7 @@ snapshots:
       '@uppy/thumbnail-generator': 5.1.0(@uppy/core@5.2.0)
       '@uppy/utils': 7.1.5
       classnames: 2.5.1
-      lodash: 4.17.21
+      lodash: 4.18.1
       nanoid: 5.1.6
       preact: 10.28.2
       shallow-equal: 3.1.0
@@ -9689,7 +9692,7 @@ snapshots:
       '@uppy/core': 5.2.0
       '@uppy/utils': 7.1.5
       classnames: 2.5.1
-      lodash: 4.17.21
+      lodash: 4.18.1
       nanoid: 5.1.6
       p-queue: 8.1.1
       preact: 10.28.2
@@ -9704,7 +9707,7 @@ snapshots:
 
   '@uppy/utils@7.1.5':
     dependencies:
-      lodash: 4.17.21
+      lodash: 4.18.1
       preact: 10.28.2
 
   '@vercel/nft@0.29.4(rollup@4.45.1)(supports-color@10.2.2)':
@@ -10011,7 +10014,7 @@ snapshots:
       graceful-fs: 4.2.11
       is-stream: 2.0.1
       lazystream: 1.0.1
-      lodash: 4.17.21
+      lodash: 4.18.1
       normalize-path: 3.0.0
       readable-stream: 4.7.0
 
@@ -11548,7 +11551,7 @@ snapshots:
       cli-cursor: 3.1.0
       cli-width: 3.0.0
       figures: 3.2.0
-      lodash: 4.17.21
+      lodash: 4.18.1
       mute-stream: 0.0.8
       ora: 5.4.1
       run-async: 2.4.1
@@ -11895,6 +11898,8 @@ snapshots:
   lodash.transform@4.6.0: {}
 
   lodash@4.17.21: {}
+
+  lodash@4.18.1: {}
 
   log-process-errors@11.0.1:
     dependencies:
