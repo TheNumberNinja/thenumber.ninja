@@ -57,8 +57,8 @@ importers:
         specifier: 3.7.2
         version: 3.7.2
       qs:
-        specifier: 6.14.2
-        version: 6.14.2
+        specifier: 6.15.1
+        version: 6.15.1
       stripe:
         specifier: 20.0.0
         version: 20.0.0(@types/node@25.0.0)
@@ -5278,8 +5278,8 @@ packages:
     resolution: {integrity: sha512-+38qI9SOr8tfZ4QmJNplMUxqjbe7LKvvZgWdExBOmd+egZTtjLB67Gu0HRX3u/XOq7UU2Nx6nsjvS16Z9uwfpg==}
     engines: {node: '>=0.6'}
 
-  qs@6.14.2:
-    resolution: {integrity: sha512-V/yCWTTF7VJ9hIh18Ugr2zhJMP01MY7c5kh4J870L7imm6/DIzBsNLTXzMwUA3yZ5b/KBqLx8Kp3uRvd7xSe3Q==}
+  qs@6.15.1:
+    resolution: {integrity: sha512-6YHEFRL9mfgcAvql/XhwTvf5jKcOiiupt2FiJxHkiX1z4j7WL8J/jRHYLluORvc1XxB5rV20KoeK00gVJamspg==}
     engines: {node: '>=0.6'}
 
   queue-microtask@1.2.3:
@@ -12476,7 +12476,7 @@ snapshots:
     dependencies:
       side-channel: 1.1.0
 
-  qs@6.14.2:
+  qs@6.15.1:
     dependencies:
       side-channel: 1.1.0
 
@@ -13006,7 +13006,7 @@ snapshots:
 
   stripe@20.0.0(@types/node@25.0.0):
     dependencies:
-      qs: 6.14.2
+      qs: 6.15.1
     optionalDependencies:
       '@types/node': 25.0.0
 
