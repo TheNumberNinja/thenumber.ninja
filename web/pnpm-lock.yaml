@@ -45,8 +45,8 @@ importers:
         specifier: 5.2.0
         version: 5.2.0
       '@uppy/dashboard':
-        specifier: 5.1.0
-        version: 5.1.0(@uppy/core@5.2.0)
+        specifier: 5.1.1
+        version: 5.1.1(@uppy/core@5.2.0)
       dotenv:
         specifier: 17.2.3
         version: 17.2.3
@@ -2567,8 +2567,8 @@ packages:
   '@uppy/core@5.2.0':
     resolution: {integrity: sha512-uvfNyz4cnaplt7LYJmEZHuqOuav0tKp4a9WKJIaH6iIj7XiqYvS2J5SEByexAlUFlzefOAyjzj4Ja2dd/8aMrw==}
 
-  '@uppy/dashboard@5.1.0':
-    resolution: {integrity: sha512-TCuDbsAWokPO2LzubDoXyBskY/DHFB9tyDeHJe1FGBHrm0sY2zd+yEW7c4HNMDiIYCs/AdFJWAjQosCT07rD6Q==}
+  '@uppy/dashboard@5.1.1':
+    resolution: {integrity: sha512-6H/xVvhhdfwp1+FRMp2C+tudyaedqD5+LMDB8Iw20k9+QCL1eGzOh4wXm6MCqJtNfQ1tLaprGMG1jlo7yS/uyw==}
     peerDependencies:
       '@uppy/core': ^5.2.0
 
@@ -9494,7 +9494,7 @@ snapshots:
       nanoid: 5.1.6
       preact: 10.28.2
 
-  '@uppy/dashboard@5.1.0(@uppy/core@5.2.0)':
+  '@uppy/dashboard@5.1.1(@uppy/core@5.2.0)':
     dependencies:
       '@transloadit/prettier-bytes': 0.3.5
       '@uppy/core': 5.2.0
