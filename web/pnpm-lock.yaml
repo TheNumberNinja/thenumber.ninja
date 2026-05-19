@@ -64,16 +64,16 @@ importers:
         version: 20.0.0(@types/node@25.0.0)
     devDependencies:
       '@11ty/eleventy':
-        specifier: ^3.1.2
+        specifier: 3.1.2
         version: 3.1.2
       '@11ty/eleventy-navigation':
-        specifier: ^1.0.5
+        specifier: 1.0.5
         version: 1.0.5
       '@11ty/eleventy-plugin-rss':
-        specifier: ^2.0.4
+        specifier: 2.0.4
         version: 2.0.4
       '@11ty/eleventy-plugin-vite':
-        specifier: ^7.0.0
+        specifier: 7.0.0
         version: 7.0.0(@types/node@25.0.0)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.2)
       '@eslint/js':
         specifier: ^9.39.1
