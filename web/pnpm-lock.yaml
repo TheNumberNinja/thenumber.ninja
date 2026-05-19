@@ -112,8 +112,8 @@ importers:
         specifier: 3.7.4
         version: 3.7.4
       slugify:
-        specifier: 1.6.6
-        version: 1.6.6
+        specifier: 1.6.9
+        version: 1.6.9
       vite:
         specifier: 7.3.2
         version: 7.3.2(@types/node@25.0.0)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.2)
@@ -5612,8 +5612,8 @@ packages:
     resolution: {integrity: sha512-iOBWFgUX7caIZiuutICxVgX1SdxwAVFFKwt1EvMYYec/NWO5meOJ6K5uQxhrYBdQJne4KxiqZc+KptFOWFSI9w==}
     engines: {node: '>=18'}
 
-  slugify@1.6.6:
-    resolution: {integrity: sha512-h+z7HKHYXj6wJU+AnS/+IH8Uh9fdcX1Lrhg1/VMdf9PwoBQXFcXiAdsy2tSK0P6gKwJLXp02r90ahUCqHk9rrw==}
+  slugify@1.6.9:
+    resolution: {integrity: sha512-vZ7rfeehZui7wQs438JXBckYLkIIdfHOXsaVEUMyS5fHo1483l1bMdo0EDSWYclY0yZKFOipDy4KHuKs6ssvdg==}
     engines: {node: '>=8.0.0'}
 
   sonic-boom@4.2.0:
@@ -6466,7 +6466,7 @@ snapshots:
       posthtml: 0.16.6
       posthtml-match-helper: 2.0.3(posthtml@0.16.6)
       semver: 7.7.3
-      slugify: 1.6.6
+      slugify: 1.6.9
       tinyglobby: 0.2.16
     transitivePeerDependencies:
       - bufferutil
@@ -12879,7 +12879,7 @@ snapshots:
       ansi-styles: 6.2.3
       is-fullwidth-code-point: 5.1.0
 
-  slugify@1.6.6: {}
+  slugify@1.6.9: {}
 
   sonic-boom@4.2.0:
     dependencies:
