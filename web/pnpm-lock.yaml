@@ -15,7 +15,7 @@ importers:
         specifier: ^3.967.0
         version: 3.967.0
       '@fortawesome/fontawesome-free':
-        specifier: ^7.1.0
+        specifier: 7.1.0
         version: 7.1.0
       '@netlify/integrations':
         specifier: ^0.5.4
