@@ -6,7 +6,7 @@
   "prHourlyLimit": 0,
   "dependencyDashboard": true,
   "configMigration": true,
-  "rangeStrategy": "replace",
+  "rangeStrategy": "pin",
   "postUpdateOptions": ["pnpmDedupe"],
   "ignorePaths": ["**/node_modules/**", "**/package-lock.json"],
   "lockFileMaintenance": {
