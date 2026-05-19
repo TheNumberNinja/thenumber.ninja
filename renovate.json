@@ -2,7 +2,6 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "timezone": "Europe/London",
-  "schedule": ["before 7am every weekday"],
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
   "dependencyDashboard": true,
