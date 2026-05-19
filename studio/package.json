@@ -31,7 +31,7 @@
     "@sanity/client": "^6.28.3",
     "@sanity/eslint-config-studio": "^5.0.2",
     "eslint": "^9.22.0",
-    "prettier": "^3.5.3",
+    "prettier": "3.5.3",
     "typescript": "^5.8.2"
   },
   "prettier": {
