@@ -3,3 +3,5 @@
 .DS_Store
 .idea
 web/src/functions/tests/coverage
+.worktrees/
+/.claude/skills/review-upgrades
