@@ -15,7 +15,7 @@ function isProduction() {
 let buildInformation = {};
 try {
   buildInformation = require(`${__dirname}/build.json`);
-} catch (e) {
+} catch {
   // File doesn't exist. Probably running locally.
 }
 
@@ -31,7 +31,7 @@ Sentry.AWSLambda.init({
   dsn: process.env.SENTRY_DSN,
   environment: process.env.ENV,
   release: `the-number-ninja@${getCommitRef()}`,
-  beforeSend(event, hint) {
+  beforeSend(event, _hint) {
     // Don't send events if it's not production
     if (!isProduction()) {
       return null;
@@ -56,7 +56,7 @@ const respond = (statusCode, body = null) => {
   };
 };
 
-export const handler = Sentry.AWSLambda.wrapHandler(async function (event, context) {
+export const handler = Sentry.AWSLambda.wrapHandler(async function (event, _context) {
   if (event.httpMethod !== 'POST') {
     return respond(405, { error: 'Method Not Allowed' });
   }
@@ -91,6 +91,7 @@ export const handler = Sentry.AWSLambda.wrapHandler(async function (event, conte
     'checkout.session.completed': checkoutSessionCompleted,
     'checkout.session.expired': checkoutSessionExpired,
     'customer.subscription.created': customerSubscriptionCreated,
+    'customer.subscription.deleted': customerSubscriptionDeleted,
   };
 
   const eventType = stripeEvent['type'];
@@ -107,7 +108,7 @@ export const handler = Sentry.AWSLambda.wrapHandler(async function (event, conte
     Sentry.captureException(err);
     console.error('💣 Stripe error:', err);
 
-    return respond(err.statusCode);
+    return respond(err.statusCode ?? 500);
   }
 });
 
@@ -206,6 +207,89 @@ async function checkoutSessionExpired(event) {
   }
 
   await removeStripeIdsFromSanity();
+  await triggerNetlifyBuild();
+
+  return respond(200);
+}
+
+async function getMatchingPublishedClientDocsForSubscriptionId(subscriptionId) {
+  const filter = `*[
+    _type == "client" &&
+    !(_id in path("drafts.**")) &&
+    subscription.subscriptionId == $subscriptionId
+  ] { "id": _id }`;
+
+  return await readClient.fetch(filter, { subscriptionId }).catch(err => {
+    Sentry.captureException(err);
+    console.error('💣 Sanity get client by subscriptionId error:', err);
+    return [];
+  });
+}
+
+async function getMatchingPublishedClientDocByCustomerId(customerId) {
+  const filter = `*[
+    _type == "client" &&
+    !(_id in path("drafts.**")) &&
+    subscription.customerId == $customerId
+  ][0] { "id": _id }`;
+
+  return await readClient.fetch(filter, { customerId }).catch(err => {
+    Sentry.captureException(err);
+    console.error('💣 Sanity get client by customerId error:', err);
+    return null;
+  });
+}
+
+async function clearSanitySubscriptionDetails(id) {
+  const paths = [
+    'subscription.type',
+    'subscription.subscriptionId',
+    'subscription.agreement',
+    'subscription.proposalId',
+    'subscription.proposalNumber',
+    'subscription.products',
+    'subscription.discount',
+  ];
+
+  const doc = await writeClient.patch(id).unset(paths).commit();
+
+  console.info(
+    `✏️ Cleared Sanity client document ${id} (rev ${doc._rev}); unset paths: ${JSON.stringify(paths)}`
+  );
+}
+
+async function customerSubscriptionDeleted(event) {
+  const subscriptionId = event.data.object.id;
+  const customerId = event.data.object.customer;
+  const matches = await getMatchingPublishedClientDocsForSubscriptionId(subscriptionId);
+
+  if (matches.length === 0) {
+    // subscriptionId not found — may be a retry after a partial failure where unset
+    // succeeded but the build hook failed. The customerId is preserved in Sanity even
+    // after the subscription is cleared, so look up by it and trigger the build.
+    if (customerId) {
+      const doc = await getMatchingPublishedClientDocByCustomerId(customerId);
+      if (doc) {
+        console.log(`🔄 Retry recovery: subscriptionId ${subscriptionId} already cleared; triggering build for doc ${doc.id} via customerId ${customerId}`);
+        await triggerNetlifyBuild();
+        return respond(200);
+      }
+    }
+    const msg = `💣 No published Sanity client document found for subscription ID ${subscriptionId} (customerId: ${customerId})`;
+    console.error(msg);
+    Sentry.captureException(new Error(msg));
+    return respond(200);
+  }
+
+  if (matches.length > 1) {
+    const ids = matches.map(m => m.id);
+    const msg = `💣 Ambiguous match: ${matches.length} published Sanity client documents share subscription ID ${subscriptionId}: ${JSON.stringify(ids)}. Not mutating any — manual cleanup required.`;
+    console.error(msg);
+    Sentry.captureException(new Error(msg));
+    return respond(200);
+  }
+
+  await clearSanitySubscriptionDetails(matches[0].id);
   await triggerNetlifyBuild();
 
   return respond(200);
