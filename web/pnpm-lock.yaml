@@ -27,10 +27,10 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0
       '@sanity/client':
-        specifier: ^7.13.2
+        specifier: 7.13.2
         version: 7.13.2
       '@sanity/image-url':
-        specifier: ^2.0.2
+        specifier: 2.0.2
         version: 2.0.2
       '@sentry/serverless':
         specifier: ^7.120.4
