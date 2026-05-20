@@ -1,3 +1,9 @@
+# Netlify's build-image wrapper (run-build-functions.sh) parses the packageManager
+# field with a bare-semver regex and rejects Corepack's +sha512.HASH suffix.
+# pnpm v10 auto-rewrites packageManager with that hash on every install unless
+# this setting is false. See web/package.json `packageManager` and renovate.json.
+manage-package-manager-versions: false
+
 onlyBuiltDependencies:
   - esbuild
   - netlify-cli

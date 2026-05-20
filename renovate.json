@@ -50,6 +50,16 @@
       ],
       "datasourceTemplate": "node-version",
       "depNameTemplate": "node"
+    },
+    {
+      "customType": "regex",
+      "description": "Track pnpm version in the packageManager field of any package.json — captures bare semver only. Netlify's build-image wrapper (run-build-functions.sh) rejects Corepack's +sha512.HASH suffix; the matching packageRule below disables the default npm-manager update for this depType so this customManager is the sole writer.",
+      "managerFilePatterns": ["/(^|/)package\\.json$/"],
+      "matchStrings": [
+        "\"packageManager\"\\s*:\\s*\"pnpm@(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)\""
+      ],
+      "datasourceTemplate": "npm",
+      "depNameTemplate": "pnpm"
     }
   ],
   "packageRules": [
@@ -124,6 +134,12 @@
       "matchPackageNames": ["pnpm"],
       "groupName": "pnpm",
       "minimumReleaseAge": "5 days"
+    },
+    {
+      "description": "Disable the default npm manager's update for the packageManager field on pnpm: it would re-pin with Corepack's +sha512.HASH suffix, which Netlify's build-image wrapper rejects. The bare-semver customManager above is the sole writer for this field — it keeps in sync with engines.pnpm and mise.toml in the same grouped PR.",
+      "matchPackageNames": ["pnpm"],
+      "matchDepTypes": ["packageManager"],
+      "enabled": false
     },
     {
       "description": "5-day minimum age for production dependencies (supply-chain protection)",
