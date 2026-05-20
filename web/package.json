@@ -42,7 +42,7 @@
     "@uppy/aws-s3": "5.1.0",
     "@uppy/core": "5.2.0",
     "@uppy/dashboard": "5.1.1",
-    "dotenv": "17.2.3",
+    "dotenv": "17.4.2",
     "lodash": "4.18.1",
     "luxon": "3.7.2",
     "qs": "6.15.1",
