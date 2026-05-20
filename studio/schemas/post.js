@@ -6,69 +6,69 @@ export default {
     {
       name: 'title',
       type: 'string',
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'slug',
       type: 'slug',
       options: {
-        source: 'title'
+        source: 'title',
       },
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'date',
       type: 'date',
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'image',
       type: 'image',
       options: {
-        hotspot: true
+        hotspot: true,
       },
       fields: [
         {
           name: 'alt',
           type: 'string',
-          title: 'Alt text'
+          title: 'Alt text',
         },
         {
           name: 'caption',
           type: 'string',
-          title: 'Caption'
+          title: 'Caption',
         },
         {
           name: 'attribution',
           type: 'array',
           of: [
             {
-              type: 'block'
-            }
-          ]
-        }
+              type: 'block',
+            },
+          ],
+        },
       ],
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'summary',
       type: 'array',
       of: [
         {
-          type: 'block'
-        }
+          type: 'block',
+        },
       ],
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'content',
       type: 'array',
       of: [
         {
-          type: 'block'
+          type: 'block',
         },
         {
-          type: 'table'
+          type: 'table',
         },
         {
           type: 'image',
@@ -76,98 +76,98 @@ export default {
             {
               name: 'caption',
               type: 'string',
-              title: 'Caption'
-            }
+              title: 'Caption',
+            },
           ],
           options: {
-            hotspot: true
+            hotspot: true,
           },
-        }
+        },
       ],
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'categories',
       type: 'array',
       of: [
         {
-          type: 'string'
-        }
+          type: 'string',
+        },
       ],
       options: {
         layout: 'grid',
         list: [
           {
             title: 'Behind the Calculator',
-            value: 'Behind the Calculator'
+            value: 'Behind the Calculator',
           },
           {
             title: 'Bookkeeping',
-            value: 'Bookkeeping'
+            value: 'Bookkeeping',
           },
           {
             title: 'Cloud',
-            value: 'Cloud'
+            value: 'Cloud',
           },
           {
             title: 'Government Support',
-            value: 'Government Support'
+            value: 'Government Support',
           },
           {
             title: 'Invoicing',
-            value: 'Invoicing'
+            value: 'Invoicing',
           },
           {
             title: 'Legal',
-            value: 'Legal'
+            value: 'Legal',
           },
           {
             title: 'Limited Company',
-            value: 'Limited Company'
+            value: 'Limited Company',
           },
           {
             title: 'News',
-            value: 'News'
+            value: 'News',
           },
           {
             title: 'Outsourcing',
-            value: 'Outsourcing'
+            value: 'Outsourcing',
           },
           {
             title: 'Payroll',
-            value: 'Payroll'
+            value: 'Payroll',
           },
           {
             title: 'Planning',
-            value: 'Planning'
+            value: 'Planning',
           },
           {
             title: 'Self-Assessment',
-            value: 'Self-Assessment'
+            value: 'Self-Assessment',
           },
           {
             title: 'Self-Employed',
-            value: 'Self-Employed'
+            value: 'Self-Employed',
           },
           {
             title: 'Sole Trader',
-            value: 'Sole Trader'
+            value: 'Sole Trader',
           },
           {
             title: 'Tax',
-            value: 'Tax'
+            value: 'Tax',
           },
           {
             title: 'Technical',
-            value: 'Technical'
+            value: 'Technical',
           },
           {
             title: 'Tips',
-            value: 'Tips'
-          }
-        ]
+            value: 'Tips',
+          },
+        ],
       },
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
   ],
   preview: {
@@ -185,7 +185,7 @@ export default {
         subtitle: parsedDate.toLocaleDateString(undefined, dateOptions),
         media,
       }
-    }
+    },
   },
   orderings: [
     {
@@ -193,9 +193,10 @@ export default {
       name: 'date',
       by: [
         {
-          field: 'date', direction: 'desc',
-        }
-      ]
-    }
-  ]
+          field: 'date',
+          direction: 'desc',
+        },
+      ],
+    },
+  ],
 }

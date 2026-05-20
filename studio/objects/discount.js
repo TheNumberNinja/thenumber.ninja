@@ -6,17 +6,17 @@ export default {
     {
       name: 'amount',
       type: 'number',
-      validation: Rule => Rule.integer().min(0),
+      validation: (Rule) => Rule.integer().min(0),
     },
     {
       name: 'percentage',
       type: 'number',
-      validation: Rule => Rule.integer().min(0).max(100),
+      validation: (Rule) => Rule.integer().min(0).max(100),
     },
     {
       name: 'description',
       type: 'string',
-      validation: Rule => Rule.required(),
-    }
-  ]
+      validation: (Rule) => Rule.required(),
+    },
+  ],
 }

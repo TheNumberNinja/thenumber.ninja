@@ -9,7 +9,7 @@ vi.mock('@sentry/serverless', () => ({
   default: {
     AWSLambda: {
       init: vi.fn(),
-      wrapHandler: (fn) => fn,
+      wrapHandler: fn => fn,
     },
     captureException: vi.fn(),
   },

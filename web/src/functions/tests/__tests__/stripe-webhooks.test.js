@@ -153,10 +153,7 @@ describe('checkout.session.completed', () => {
   });
 
   test('returns 200 and skips Stripe calls when setup_intent is absent', async () => {
-    const res = await handler(
-      makeEvent('checkout.session.completed', { setup_intent: null }),
-      {}
-    );
+    const res = await handler(makeEvent('checkout.session.completed', { setup_intent: null }), {});
 
     expect(res.statusCode).toBe(200);
     expect(globalThis.__mockStripe.setupIntents.retrieve).not.toHaveBeenCalled();
@@ -220,8 +217,8 @@ describe('customer.subscription.deleted', () => {
     // prior attempt cleared subscription.subscriptionId but the build hook failed.
     // The lookup by subscriptionId returns []; fallback by customerId finds the doc.
     sanityClient.fetch
-      .mockResolvedValueOnce([])                  // getMatchingPublishedClientDocsForSubscriptionId → no match
-      .mockResolvedValueOnce({ id: 'doc-abc' });  // getMatchingPublishedClientDocByCustomerId → found
+      .mockResolvedValueOnce([]) // getMatchingPublishedClientDocsForSubscriptionId → no match
+      .mockResolvedValueOnce({ id: 'doc-abc' }); // getMatchingPublishedClientDocByCustomerId → found
 
     const res = await handler(
       makeEvent('customer.subscription.deleted', { id: 'sub_cleared', customer: 'cus_x' }),
@@ -238,10 +235,7 @@ describe('customer.subscription.deleted', () => {
   test('logs + captures to Sentry and returns 200 when multiple docs match (ambiguity guard)', async () => {
     sanityClient.fetch.mockResolvedValue([{ id: 'doc-a' }, { id: 'doc-b' }]);
 
-    const res = await handler(
-      makeEvent('customer.subscription.deleted', { id: 'sub_dup' }),
-      {}
-    );
+    const res = await handler(makeEvent('customer.subscription.deleted', { id: 'sub_dup' }), {});
 
     expect(res.statusCode).toBe(200);
     const { captureException } = (await import('@sentry/serverless')).default;
@@ -259,12 +253,11 @@ describe('handler — hardened outer catch', () => {
   test('returns 500 (not undefined) when dispatched handler throws a plain Error', async () => {
     // Make the Sanity fetch succeed (one match) but the write throw a plain Error.
     sanityClient.fetch.mockResolvedValue([{ id: 'doc-id' }]);
-    writeClient.patch.mockImplementation(() => { throw new Error('write failure'); });
+    writeClient.patch.mockImplementation(() => {
+      throw new Error('write failure');
+    });
 
-    const res = await handler(
-      makeEvent('customer.subscription.deleted', { id: 'sub_x' }),
-      {}
-    );
+    const res = await handler(makeEvent('customer.subscription.deleted', { id: 'sub_x' }), {});
 
     // Before the fix: respond(undefined) → statusCode undefined.
     // After the fix:  respond(err.statusCode ?? 500) → statusCode 500.

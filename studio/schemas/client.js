@@ -6,9 +6,7 @@ async function clientIdMatchesName(clientId, context) {
   const msgUint8 = new TextEncoder().encode(clientName) // encode as (utf-8) Uint8Array
   const hashBuffer = await crypto.subtle.digest('SHA-1', msgUint8) // hash the message
   const hashArray = Array.from(new Uint8Array(hashBuffer)) // convert buffer to byte array
-  const hashHex = hashArray
-    .map((b) => b.toString(16).padStart(2, '0'))
-    .join('') // convert bytes to hex string
+  const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join('') // convert bytes to hex string
 
   if (clientId === hashHex) {
     return true
@@ -25,7 +23,7 @@ export default {
     {
       name: 'name',
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'clientId',
@@ -34,17 +32,17 @@ export default {
       components: {
         input: ClientIdInput,
       },
-      validation: Rule => Rule.custom(clientIdMatchesName).warning(),
+      validation: (Rule) => Rule.custom(clientIdMatchesName).warning(),
     },
     {
       name: 'email',
       type: 'string',
       title: 'E-mail',
-      validation: Rule => Rule.required().email()
+      validation: (Rule) => Rule.required().email(),
     },
     {
       name: 'subscription',
-      type: 'subscription'
+      type: 'subscription',
     },
     {
       name: 'documents',
@@ -60,30 +58,30 @@ export default {
                 list: [
                   {
                     title: 'Limited Company summary',
-                    value: 'Limited Company summary'
+                    value: 'Limited Company summary',
                   },
                   {
                     title: 'Personal summary',
-                    value: 'Personal summary'
+                    value: 'Personal summary',
                   },
                   {
                     title: 'VAT summary',
-                    value: 'VAT summary'
-                  }
-                ]
+                    value: 'VAT summary',
+                  },
+                ],
               },
-              validation: Rule => Rule.required()
+              validation: (Rule) => Rule.required(),
             },
             {
               name: 'lastUpdated',
               type: 'date',
-              validation: Rule => Rule.required()
-            }
+              validation: (Rule) => Rule.required(),
+            },
           ],
           preview: {
             select: {
               title: 'type',
-              lastUpdated: 'lastUpdated'
+              lastUpdated: 'lastUpdated',
             },
             prepare(selection) {
               const {title, lastUpdated} = selection
@@ -92,12 +90,12 @@ export default {
               const dateOptions = {year: 'numeric', month: 'long', day: 'numeric'}
               return {
                 title,
-                subtitle: parsedDate.toLocaleDateString(undefined, dateOptions)
+                subtitle: parsedDate.toLocaleDateString(undefined, dateOptions),
               }
-            }
-          }
-        }
-      ]
-    }
-  ]
+            },
+          },
+        },
+      ],
+    },
+  ],
 }

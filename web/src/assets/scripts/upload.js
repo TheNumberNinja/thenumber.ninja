@@ -11,12 +11,31 @@ import '@uppy/dashboard/css/style.min.css';
   const config = window.uploadConfig || {};
 
   const BLOCKED_EXTENSIONS = [
-    '.exe', '.bat', '.cmd', '.com', '.msi', '.scr', '.pif',
-    '.js', '.vbs', '.vbe', '.jse', '.ws', '.wsf', '.ps1',
-    '.sh', '.bash',
-    '.jar', '.jnlp',
-    '.php', '.asp', '.aspx', '.jsp', '.hta',
-    '.lnk', '.url',
+    '.exe',
+    '.bat',
+    '.cmd',
+    '.com',
+    '.msi',
+    '.scr',
+    '.pif',
+    '.js',
+    '.vbs',
+    '.vbe',
+    '.jse',
+    '.ws',
+    '.wsf',
+    '.ps1',
+    '.sh',
+    '.bash',
+    '.jar',
+    '.jnlp',
+    '.php',
+    '.asp',
+    '.aspx',
+    '.jsp',
+    '.hta',
+    '.lnk',
+    '.url',
     '.reg',
   ];
 
@@ -65,7 +84,7 @@ import '@uppy/dashboard/css/style.min.css';
     restrictions: {
       maxFileSize: 50 * 1024 * 1024, // 50MB
     },
-    onBeforeFileAdded: (currentFile) => {
+    onBeforeFileAdded: currentFile => {
       if (isBlockedExtension(currentFile.name)) {
         const ext = getExtension(currentFile.name);
         uppy.info(`File type ${ext} is not allowed`, 'error', 3000);
@@ -94,7 +113,7 @@ import '@uppy/dashboard/css/style.min.css';
               rows: 3,
               maxLength: MAX_NOTE_LENGTH,
               value: value || '',
-              onInput: (ev) => {
+              onInput: ev => {
                 const newValue = ev.target.value;
                 if (newValue.length <= MAX_NOTE_LENGTH) {
                   onChange(newValue);
@@ -102,9 +121,13 @@ import '@uppy/dashboard/css/style.min.css';
               },
               placeholder: 'Add a note about this file...',
             }),
-            h('div', {
-              class: `note-counter ${(value?.length || 0) > MAX_NOTE_LENGTH - 50 ? 'warning' : ''}`,
-            }, `${value?.length || 0}/${MAX_NOTE_LENGTH}`),
+            h(
+              'div',
+              {
+                class: `note-counter ${(value?.length || 0) > MAX_NOTE_LENGTH - 50 ? 'warning' : ''}`,
+              },
+              `${value?.length || 0}/${MAX_NOTE_LENGTH}`
+            ),
           ]);
         },
       },
@@ -141,12 +164,14 @@ import '@uppy/dashboard/css/style.min.css';
     },
   });
 
-  uppy.on('complete', (result) => {
+  uppy.on('complete', result => {
     if (result.failed.length === 0) {
       showSuccess(`${result.successful.length} file(s) uploaded successfully.`);
       resetBatchId();
     } else if (result.successful.length > 0) {
-      showError(`${result.successful.length} file(s) uploaded, but ${result.failed.length} failed.`);
+      showError(
+        `${result.successful.length} file(s) uploaded, but ${result.failed.length} failed.`
+      );
     } else {
       showError('Upload failed. Please try again.');
     }
@@ -156,7 +181,7 @@ import '@uppy/dashboard/css/style.min.css';
     console.error('Upload error for', file.name, error);
   });
 
-  uppy.on('error', (error) => {
+  uppy.on('error', error => {
     console.error('Uppy error:', error);
     showError(error.message || 'An unexpected error occurred.');
   });

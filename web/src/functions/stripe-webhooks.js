@@ -270,7 +270,9 @@ async function customerSubscriptionDeleted(event) {
     if (customerId) {
       const doc = await getMatchingPublishedClientDocByCustomerId(customerId);
       if (doc) {
-        console.log(`🔄 Retry recovery: subscriptionId ${subscriptionId} already cleared; triggering build for doc ${doc.id} via customerId ${customerId}`);
+        console.log(
+          `🔄 Retry recovery: subscriptionId ${subscriptionId} already cleared; triggering build for doc ${doc.id} via customerId ${customerId}`
+        );
         await triggerNetlifyBuild();
         return respond(200);
       }

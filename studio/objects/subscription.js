@@ -12,16 +12,16 @@ export default {
         list: [
           {
             title: 'Stripe',
-            value: 'stripe'
+            value: 'stripe',
           },
           {
             title: 'Invoice',
-            value: 'invoice'
+            value: 'invoice',
           },
-        ]
+        ],
       },
       default: 'stripe',
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'agreement',
@@ -31,12 +31,12 @@ export default {
       name: 'proposalId',
       type: 'string',
       title: 'Proposal ID',
-      validation: Rule => Rule.warning()
+      validation: (Rule) => Rule.warning(),
     },
     {
       name: 'proposalNumber',
       type: 'string',
-      validation: Rule => Rule.warning()
+      validation: (Rule) => Rule.warning(),
     },
     {
       name: 'customerId',
@@ -49,7 +49,7 @@ export default {
         objectType: 'customer',
       },
       title: 'Stripe customer ID',
-      validation: Rule => Rule.regex(/^cus_.+/).error('Customer ID must start with "cus_"'),
+      validation: (Rule) => Rule.regex(/^cus_.+/).error('Customer ID must start with "cus_"'),
     },
     {
       name: 'subscriptionId',
@@ -62,26 +62,26 @@ export default {
         objectType: 'subscription',
       },
       title: 'Stripe subscription ID',
-      validation: Rule => Rule.regex(/^sub_.+/).error('Subscription ID must start with "sub_"'),
+      validation: (Rule) => Rule.regex(/^sub_.+/).error('Subscription ID must start with "sub_"'),
     },
     {
       name: 'products',
       type: 'array',
       of: [
         {
-          type: 'oneOffProduct'
+          type: 'oneOffProduct',
         },
         {
-          type: 'monthlyProduct'
+          type: 'monthlyProduct',
         },
         {
-          type: 'accountsProduct'
+          type: 'accountsProduct',
         },
-      ]
+      ],
     },
     {
       name: 'discount',
-      type: 'discount'
-    }
-  ]
+      type: 'discount',
+    },
+  ],
 }

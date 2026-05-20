@@ -6,13 +6,12 @@ export default {
     {
       name: 'term',
       type: 'string',
-      validation: Rule => Rule.required(),
-
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'definition',
       type: 'string',
-      validation: Rule => Rule.required(),
-    }
-  ]
+      validation: (Rule) => Rule.required(),
+    },
+  ],
 }

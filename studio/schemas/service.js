@@ -1,7 +1,7 @@
 import {FontAwesomeSixIconInput} from '../components/FontAwesomeSixIcon'
 
 function requiredForWebsiteOwnPage(value, context) {
-  if (typeof value !== "undefined") {
+  if (typeof value !== 'undefined') {
     return true
   }
 
@@ -9,11 +9,11 @@ function requiredForWebsiteOwnPage(value, context) {
     return true
   }
 
-  return "This field is required to allow a web page to be created."
+  return 'This field is required to allow a web page to be created.'
 }
 
 function disallowedIfWebsiteOwnPageDestinationNotSelected(value, context) {
-  if (typeof value === "undefined") {
+  if (typeof value === 'undefined') {
     return true
   }
 
@@ -21,11 +21,11 @@ function disallowedIfWebsiteOwnPageDestinationNotSelected(value, context) {
     return true
   }
 
-  return "This field must be blank if a web page is not being created for this service."
+  return 'This field must be blank if a web page is not being created for this service.'
 }
 
 function requiredForWebsiteServicesPage(value, context) {
-  if (typeof value !== "undefined") {
+  if (typeof value !== 'undefined') {
     return true
   }
 
@@ -33,11 +33,11 @@ function requiredForWebsiteServicesPage(value, context) {
     return true
   }
 
-  return "This field is required for the service to be shown on the services page."
+  return 'This field is required for the service to be shown on the services page.'
 }
 
 function disallowedIfWebsiteServicesPageNotSelected(value, context) {
-  if (typeof value === "undefined") {
+  if (typeof value === 'undefined') {
     return true
   }
 
@@ -45,11 +45,11 @@ function disallowedIfWebsiteServicesPageNotSelected(value, context) {
     return true
   }
 
-  return "This field must be blank the service is not being displayed on the services page."
+  return 'This field must be blank the service is not being displayed on the services page.'
 }
 
 function disallowedIfNoWebsiteDestinationSelected(value, context) {
-  if (typeof value === "undefined") {
+  if (typeof value === 'undefined') {
     return true
   }
 
@@ -57,12 +57,11 @@ function disallowedIfNoWebsiteDestinationSelected(value, context) {
     return true
   }
 
-  return "This field must be blank if the service will not have a web page and will not be shown in the services page."
+  return 'This field must be blank if the service will not have a web page and will not be shown in the services page.'
 }
 
-
 function requiredForProposalAndMenus(value, context) {
-  if (typeof value !== "undefined") {
+  if (typeof value !== 'undefined') {
     return true
   }
 
@@ -70,11 +69,11 @@ function requiredForProposalAndMenus(value, context) {
     return true
   }
 
-  return "This field is required for the service to be included in the proposal and menus."
+  return 'This field is required for the service to be included in the proposal and menus.'
 }
 
 function disallowedIfNoProposalOrMenuDestinationSelected(value, context) {
-  if (typeof value === "undefined") {
+  if (typeof value === 'undefined') {
     return true
   }
 
@@ -82,7 +81,7 @@ function disallowedIfNoProposalOrMenuDestinationSelected(value, context) {
     return true
   }
 
-  return "This field must be blank if the service is not included in a proposal or pricing menu."
+  return 'This field must be blank if the service is not included in a proposal or pricing menu.'
 }
 
 function destinationSelected(chosenDestinations, wantedDestinations) {
@@ -90,7 +89,7 @@ function destinationSelected(chosenDestinations, wantedDestinations) {
     return false
   }
 
-  return wantedDestinations.some(wanted => chosenDestinations.includes(wanted))
+  return wantedDestinations.some((wanted) => chosenDestinations.includes(wanted))
 }
 
 function websiteOwnPageDestinationSelected(chosenDestinations) {
@@ -102,8 +101,10 @@ function websiteServicesPageDestinationSelected(chosenDestinations) {
 }
 
 function anyWebsiteDestinationSelected(chosenDestinations) {
-  return websiteOwnPageDestinationSelected(chosenDestinations) ||
-      websiteServicesPageDestinationSelected(chosenDestinations)
+  return (
+    websiteOwnPageDestinationSelected(chosenDestinations) ||
+    websiteServicesPageDestinationSelected(chosenDestinations)
+  )
 }
 
 function proposalOrMenuDestinationSelected(chosenDestinations) {
@@ -161,7 +162,7 @@ export default {
       type: 'string',
       title: 'Default title',
       description: 'Can be overridden for specific destinations',
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'destinations',
@@ -172,7 +173,7 @@ export default {
           type: 'string',
         },
       ],
-      validation: Rule => Rule.required().error("At least one destination must be selected."),
+      validation: (Rule) => Rule.required().error('At least one destination must be selected.'),
       options: {
         list: [
           {title: 'Website: Own page', value: 'websiteOwnPage'},
@@ -180,8 +181,8 @@ export default {
           {title: 'Proposal', value: 'proposal'},
           {title: 'Menu: Limited Company', value: 'menuLimitedCompany'},
           {title: 'Menu: Self Assessment', value: 'menuSelfAssessment'},
-        ]
-      }
+        ],
+      },
     },
 
     // Website
@@ -192,7 +193,7 @@ export default {
       description: "You can leave this blank if you're happy with the default title",
       group: 'website',
       fieldset: 'website',
-      validation: Rule => Rule.custom(disallowedIfNoWebsiteDestinationSelected),
+      validation: (Rule) => Rule.custom(disallowedIfNoWebsiteDestinationSelected),
     },
     {
       name: 'slug',
@@ -203,10 +204,10 @@ export default {
       },
       group: 'website',
       fieldset: 'website',
-      validation: Rule => [
+      validation: (Rule) => [
         Rule.custom(requiredForWebsiteOwnPage),
         Rule.custom(disallowedIfWebsiteOwnPageDestinationNotSelected),
-      ]
+      ],
     },
     {
       name: 'subheading',
@@ -219,12 +220,12 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'block'
-        }
+          type: 'block',
+        },
       ],
       group: 'website',
       fieldset: 'website',
-      validation: Rule => [
+      validation: (Rule) => [
         Rule.custom(requiredForWebsiteServicesPage),
         Rule.custom(disallowedIfWebsiteServicesPageNotSelected),
       ],
@@ -235,12 +236,12 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'block'
-        }
+          type: 'block',
+        },
       ],
       group: 'website',
       fieldset: 'website',
-      validation: Rule => [
+      validation: (Rule) => [
         Rule.custom(requiredForWebsiteOwnPage),
         Rule.custom(disallowedIfWebsiteOwnPageDestinationNotSelected),
       ],
@@ -253,7 +254,7 @@ export default {
       components: {
         input: FontAwesomeSixIconInput,
       },
-      validation: Rule => [
+      validation: (Rule) => [
         Rule.custom(requiredForWebsiteServicesPage),
         Rule.custom(disallowedIfWebsiteServicesPageNotSelected),
       ],
@@ -264,7 +265,7 @@ export default {
       title: 'Is an AML check required before the call?',
       group: 'website',
       fieldset: 'website',
-      validation: Rule => [
+      validation: (Rule) => [
         Rule.custom(requiredForWebsiteOwnPage),
         // I can't find a way to allow a boolean to be set to undefined so any existing value
         // will have to be left if it was ever set. It will be ignored based on the destinations,
@@ -280,19 +281,19 @@ export default {
         list: [
           {
             title: 'Introductory call',
-            value: 'bb50d345-c515-452b-aaba-81b1cb631d26'
+            value: 'bb50d345-c515-452b-aaba-81b1cb631d26',
           },
           {
             title: 'Power hour',
-            value: '8ece32f5-84b4-494c-9e67-9748f5b4948e'
+            value: '8ece32f5-84b4-494c-9e67-9748f5b4948e',
           },
           {
             title: 'Automation power hour',
-            value: 'e342377e-0005-4633-8be7-d518565bbd1f'
-          }
-        ]
+            value: 'e342377e-0005-4633-8be7-d518565bbd1f',
+          },
+        ],
       },
-      validation: Rule => [
+      validation: (Rule) => [
         Rule.custom(requiredForWebsiteOwnPage),
         Rule.custom(disallowedIfWebsiteOwnPageDestinationNotSelected),
       ],
@@ -302,7 +303,7 @@ export default {
       type: 'string',
       group: 'website',
       fieldset: 'website',
-      hidden: true
+      hidden: true,
     },
 
     // Proposal and menus
@@ -313,7 +314,7 @@ export default {
       description: "You can leave this blank if you're happy with the default title",
       group: 'proposalAndMenus',
       fieldset: 'proposalAndMenus',
-      validation: Rule => Rule.custom(disallowedIfNoProposalOrMenuDestinationSelected),
+      validation: (Rule) => Rule.custom(disallowedIfNoProposalOrMenuDestinationSelected),
     },
     {
       name: 'proposalContent',
@@ -321,15 +322,15 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'block'
-        }
+          type: 'block',
+        },
       ],
       group: 'proposalAndMenus',
       fieldset: 'proposalAndMenus',
-      validation: Rule => [
+      validation: (Rule) => [
         Rule.custom(requiredForProposalAndMenus),
         Rule.custom(disallowedIfNoProposalOrMenuDestinationSelected),
       ],
     },
-  ]
+  ],
 }

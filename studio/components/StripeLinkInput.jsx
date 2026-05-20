@@ -6,10 +6,13 @@ export const StripeLinkInput = (props) => {
   const {elementProps, onChange, schemaType, value = ''} = props
   const {baseUrl, objectType} = schemaType.options
 
-  const handleChange = useCallback((event) => {
-    const nextValue = event.currentTarget.value
-    onChange(nextValue ? set(nextValue) : unset())
-  }, [onChange])
+  const handleChange = useCallback(
+    (event) => {
+      const nextValue = event.currentTarget.value
+      onChange(nextValue ? set(nextValue) : unset())
+    },
+    [onChange],
+  )
 
   let link = ''
   if (value && value.length > 4) {
@@ -19,7 +22,9 @@ export const StripeLinkInput = (props) => {
   return (
     <Stack space={2}>
       <TextInput {...elementProps} />
-      <Text><div dangerouslySetInnerHTML={{__html: link}}></div></Text>
+      <Text>
+        <div dangerouslySetInnerHTML={{__html: link}}></div>
+      </Text>
     </Stack>
   )
 }

@@ -6,12 +6,12 @@ export default {
     {
       name: 'start',
       type: 'date',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'end',
       type: 'date',
-      validation: Rule => Rule.required().min(Rule.valueOfField('start'))
-    }
-  ]
+      validation: (Rule) => Rule.required().min(Rule.valueOfField('start')),
+    },
+  ],
 }

@@ -1,5 +1,5 @@
 import {defineConfig} from 'sanity'
-import {structureTool} from "sanity/structure";
+import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 import {table} from '@sanity/table'
@@ -29,17 +29,17 @@ export default defineConfig({
               title: 'Services page order',
               filter: `"websiteServicesPage" in destinations`,
               S,
-              context
-            })
+              context,
+            }),
           ])
-      }
+      },
     }),
     visionTool(),
     table(),
-    media()
+    media(),
   ],
 
   schema: {
-    types: schemaTypes
-  }
+    types: schemaTypes,
+  },
 })
