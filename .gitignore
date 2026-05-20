@@ -1,5 +1,9 @@
 # Local Netlify folder
 .netlify
+# Netlify CLI's Deno-runtime lockfile for Edge Functions: regenerated on every
+# `netlify dev` run, and production Netlify builds generate their own. Not a
+# project-managed lockfile (no deno.json/deno.jsonc in the repo).
+web/deno.lock
 .DS_Store
 .idea
 web/src/functions/tests/coverage
