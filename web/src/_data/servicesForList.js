@@ -1,11 +1,5 @@
 import client from '../../config/utils/sanityClient.js';
 import { toHTML as toHtml } from '@portabletext/to-html';
-import imageUrlBuilder from '@sanity/image-url';
-const builder = imageUrlBuilder(client);
-
-function headshotUrl(source) {
-  return builder.image(source).auto('format').url();
-}
 
 async function getServices() {
   const filter = `*[_type == "service" && "websiteServicesPage" in destinations && !(_id in path("drafts.**"))]|order(orderRank) {

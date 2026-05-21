@@ -20,6 +20,7 @@ import { tally, trafft } from './config/shortcodes/index.js';
 
 import eleventyNavigationPlugin from '@11ty/eleventy-navigation';
 import EleventyVitePlugin from '@11ty/eleventy-plugin-vite';
+
 import markdownLib from './config/plugins/markdown.js';
 export default function (eleventyConfig) {
   // Add shortcodes
