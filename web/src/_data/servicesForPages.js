@@ -1,7 +1,7 @@
 import client from '../../config/utils/sanityClient.js';
 import { toHTML as toHtml } from '@portabletext/to-html';
-import imageUrlBuilder from '@sanity/image-url';
-const builder = imageUrlBuilder(client);
+import { createImageUrlBuilder } from '@sanity/image-url';
+const builder = createImageUrlBuilder(client);
 
 function headshotUrl(source) {
   return builder.image(source).auto('format').url();
