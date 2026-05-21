@@ -38,11 +38,6 @@ export default function (eleventyConfig) {
       appType: 'mpa',
       build: {
         rollupOptions: {
-          input: {
-            app: 'assets/app.js',
-            dashboard: 'assets/dashboard.js',
-            upload: 'assets/upload.js',
-          },
           output: {
             entryFileNames: 'assets/[name].js',
             chunkFileNames: 'assets/[name]-[hash].js',
