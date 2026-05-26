@@ -1,19 +1,9 @@
 import { describe, test, expect, vi, beforeEach, afterEach } from 'vitest';
 import { DateTime, Settings } from 'luxon';
 
-// Hoisted mocks so tests can capture and configure call args on the same
-// instances the module under test uses (the Stripe singleton + Sanity client
-// are constructed once at module load).
-const { sanityFetchMock, stripeCheckoutCreate, stripeTaxRatesList, stripeCustomersList } =
-  vi.hoisted(() => ({
-    sanityFetchMock: vi.fn(),
-    stripeCheckoutCreate: vi.fn(),
-    stripeTaxRatesList: vi.fn(),
-    stripeCustomersList: vi.fn(),
-  }));
-
+// Mock external dependencies before importing the module
 vi.mock('../../../../config/utils/sanityClient.js', () => ({
-  default: { fetch: sanityFetchMock },
+  default: { fetch: vi.fn() },
 }));
 
 vi.mock('@sentry/serverless', () => ({
@@ -36,9 +26,8 @@ vi.mock('stripe', () => {
   return {
     default: class Stripe {
       constructor() {
-        this.checkout = { sessions: { create: stripeCheckoutCreate } };
-        this.taxRates = { list: stripeTaxRatesList };
-        this.customers = { list: stripeCustomersList };
+        this.checkout = { sessions: { create: vi.fn() } };
+        this.taxRates = { list: vi.fn() };
       }
     },
   };
@@ -48,23 +37,7 @@ import {
   calculateNumberOfCatchUpMonths,
   generateAccountsLineItems,
   calculateRemainingContractMonths,
-  calculateCancelAt,
-  handler,
 } from '../../create-checkout-session.js';
-
-function asyncIterableOf(items) {
-  return {
-    [Symbol.asyncIterator]() {
-      let idx = 0;
-      return {
-        next: () =>
-          idx < items.length
-            ? Promise.resolve({ value: items[idx++], done: false })
-            : Promise.resolve({ value: undefined, done: true }),
-      };
-    },
-  };
-}
 
 describe('Time-based calculations', () => {
   const fixedTimestamp = new Date('2024-01-15T00:00:00.000Z').getTime();
@@ -123,60 +96,6 @@ describe('Time-based calculations', () => {
       Settings.now = () => new Date('2024-01-01T00:00:00.000Z').getTime();
       expect(calculateNumberOfCatchUpMonths('2024-12-31')).toBe(0);
     });
-  });
-});
-
-describe('calculateCancelAt', () => {
-  beforeEach(() => {
-    Settings.now = () => new Date('2026-05-20T00:00:00.000Z').getTime();
-  });
-
-  afterEach(() => {
-    Settings.now = () => Date.now();
-  });
-
-  test('returns Unix timestamp for end-of-day Europe/London on the day BEFORE a future GMT endDate', () => {
-    // cancel_at must fire before the (N+1)th renewal that Stripe schedules
-    // at 00:00 UTC on agreement.end for an exact-N-month aligned contract.
-    // For endDate=2027-12-31, the cancel moment is 2027-12-30T23:59:59 GMT.
-    // Independently computed via: date -j -u -f "%Y-%m-%d %H:%M:%S" "2027-12-30 23:59:59" +%s
-    expect(calculateCancelAt('2027-12-31')).toBe(1830211199);
-  });
-
-  test('returns Unix timestamp for end-of-day Europe/London on the day BEFORE a future BST endDate', () => {
-    // For endDate=2027-06-30, the cancel moment is 2027-06-29T23:59:59 BST = 2027-06-29T22:59:59Z.
-    // Independently computed via: date -j -u -f "%Y-%m-%d %H:%M:%S" "2027-06-29 22:59:59" +%s
-    // This BST case proves the Europe/London zone is honoured across DST.
-    expect(calculateCancelAt('2027-06-30')).toBe(1814309999);
-  });
-
-  test('throws Error with statusCode 400 when end date is today', () => {
-    expect.assertions(2);
-    try {
-      calculateCancelAt('2026-05-20');
-    } catch (err) {
-      expect(err).toBeInstanceOf(Error);
-      expect(err.statusCode).toBe(400);
-    }
-  });
-
-  test('throws Error with statusCode 400 when end date is in the past', () => {
-    expect.assertions(2);
-    try {
-      calculateCancelAt('2026-05-19');
-    } catch (err) {
-      expect(err).toBeInstanceOf(Error);
-      expect(err.statusCode).toBe(400);
-    }
-  });
-
-  test('for an exact-N-month aligned contract, cancel_at fires before the (N+1)th renewal', () => {
-    // Stripe's billing anchor is trial_end (= agreement.start parsed in the default zone, which on
-    // AWS Lambda is UTC because the runtime sets TZ=UTC). For start=2026-06-30, the 13th renewal
-    // fires at exactly 2027-06-30T00:00:00Z. cancel_at MUST be strictly less than that moment, or
-    // the customer is billed 13 times for a 12-month contract.
-    const thirteenthRenewalUtc = Date.UTC(2027, 5, 30, 0, 0, 0) / 1000; // June is month index 5
-    expect(calculateCancelAt('2027-06-30')).toBeLessThan(thirteenthRenewalUtc);
   });
 });
 
@@ -393,75 +312,5 @@ describe('generateAccountsLineItems', () => {
     expect(result).toHaveLength(1);
     expect(result[0].price_data.unit_amount).toBe(productAmount * 12);
     expect(result[0].price_data.product_data.name).toBe('Basic Accounts (12 months alignment fee)');
-  });
-});
-
-describe('createSession (integration: cancel_at wiring)', () => {
-  beforeEach(() => {
-    Settings.now = () => new Date('2026-05-20T00:00:00.000Z').getTime();
-    sanityFetchMock.mockReset();
-    stripeCheckoutCreate.mockReset();
-    stripeTaxRatesList.mockReset();
-    stripeCustomersList.mockReset();
-
-    stripeCheckoutCreate.mockResolvedValue({ id: 'cs_test', url: 'https://stripe.test/cs_test' });
-    stripeTaxRatesList.mockReturnValue(
-      asyncIterableOf([
-        { display_name: 'VAT', percentage: 20.0, inclusive: false, id: 'txr_test' },
-      ])
-    );
-    stripeCustomersList.mockReturnValue(asyncIterableOf([]));
-  });
-
-  afterEach(() => {
-    Settings.now = () => Date.now();
-  });
-
-  test('subscription mode sets subscription_data.cancel_at from agreement.end', async () => {
-    sanityFetchMock.mockResolvedValue({
-      name: 'Test Client',
-      email: 'test@example.com',
-      subscription: {
-        agreement: { start: '2026-06-01', end: '2027-12-31' },
-        products: [
-          { _type: 'monthlyProduct', name: 'Support', priceId: 'price_x', quantity: 1 },
-        ],
-      },
-    });
-
-    const event = {
-      httpMethod: 'POST',
-      body: JSON.stringify({ configuration: 'cid', baseUrl: 'https://example.test' }),
-    };
-    const res = await handler(event, {}, () => {});
-
-    expect(res.statusCode).toBe(200);
-    expect(stripeCheckoutCreate).toHaveBeenCalledTimes(1);
-
-    const payload = stripeCheckoutCreate.mock.calls[0][0];
-    // Magic number derived in the calculateCancelAt unit test (2027-12-31 GMT case).
-    expect(payload.subscription_data.cancel_at).toBe(1830211199);
-  });
-
-  test('subscription mode with past agreement.end returns HTTP 400', async () => {
-    sanityFetchMock.mockResolvedValue({
-      name: 'Test Client',
-      email: 'test@example.com',
-      subscription: {
-        agreement: { start: '2025-01-01', end: '2025-12-31' },
-        products: [
-          { _type: 'monthlyProduct', name: 'Support', priceId: 'price_x', quantity: 1 },
-        ],
-      },
-    });
-
-    const event = {
-      httpMethod: 'POST',
-      body: JSON.stringify({ configuration: 'cid', baseUrl: 'https://example.test' }),
-    };
-    const res = await handler(event, {}, () => {});
-
-    expect(res.statusCode).toBe(400);
-    expect(stripeCheckoutCreate).not.toHaveBeenCalled();
   });
 });

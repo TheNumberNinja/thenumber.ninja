@@ -259,38 +259,6 @@ function calculateTrialEnd(startDate) {
   return agreementStartDate.toUnixInteger();
 }
 
-/**
- * Returns the Unix timestamp at which Stripe should auto-cancel the subscription.
- *
- * The returned moment is end-of-day Europe/London on the day BEFORE endDate
- * — NOT end-of-day on endDate itself. This is deliberate: trial_end is set to
- * agreement.start (see calculateTrialEnd), so Stripe's billing anchor is the
- * day-of-month of agreement.start. For an exact-N-month contract (same
- * day-of-month start and end), the (N+1)th renewal would fire at 00:00 UTC
- * on agreement.end, which is BEFORE end-of-day London on the same date.
- * Setting cancel_at to end-of-day-on-endDate would let that (N+1)th invoice
- * fire before cancellation — billing the customer for N+1 months instead of N.
- *
- * By cancelling at end-of-day London on (endDate - 1), the cancellation
- * always fires BEFORE the (N+1)th renewal at agreement.end T00:00, so the
- * customer is billed exactly N times for an aligned-boundary contract.
- *
- * Throws a 400-status Error when endDate is today or earlier — a checkout
- * for an already-expired contract is rejected at the handler boundary.
- */
-function calculateCancelAt(endDate) {
-  const agreementEnd = DateTime.fromFormat(endDate, 'yyyy-MM-dd', { zone: 'Europe/London' });
-  const today = DateTime.now().setZone('Europe/London').startOf('day');
-
-  if (agreementEnd <= today) {
-    const err = new Error(`Agreement end date ${endDate} must be after today`);
-    err.statusCode = 400;
-    throw err;
-  }
-
-  return agreementEnd.minus({ days: 1 }).endOf('day').toUnixInteger();
-}
-
 async function getConfiguration(clientId) {
   const filter = `*[_type == "client" && !(_id in path("drafts.**")) && clientId == "${clientId}"][0] {
     name,
@@ -386,9 +354,6 @@ async function createSession(clientId, baseUrl, taxRateId) {
       if (trialEndDate) {
         payload['subscription_data']['trial_end'] = trialEndDate;
       }
-      payload['subscription_data']['cancel_at'] = calculateCancelAt(
-        subscriptionConfiguration.agreement.end
-      );
     }
   }
 
@@ -439,5 +404,4 @@ export {
   calculateNumberOfCatchUpMonths,
   generateAccountsLineItems,
   calculateRemainingContractMonths,
-  calculateCancelAt,
 };
