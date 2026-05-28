@@ -60,8 +60,8 @@ importers:
         specifier: 6.15.1
         version: 6.15.1
       stripe:
-        specifier: 20.4.1
-        version: 20.4.1(@types/node@25.0.0)
+        specifier: 22.1.1
+        version: 22.1.1(@types/node@25.0.0)
     devDependencies:
       '@11ty/eleventy':
         specifier: 3.1.5
@@ -5580,11 +5580,11 @@ packages:
     resolution: {integrity: sha512-A21Xsm1XzUkK0qK1ZrytDUvqsQWict2Cykhvi0fBQntGG5JSprESasEyV1EZ/4CiR5WB5KjzLTrP/bO37B0wPg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  stripe@20.4.1:
-    resolution: {integrity: sha512-axCguHItc8Sxt0HC6aSkdVRPffjYPV7EQqZRb2GkIa8FzWDycE7nHJM19C6xAIynH1Qp1/BHiopSi96jGBxT0w==}
-    engines: {node: '>=16'}
+  stripe@22.1.1:
+    resolution: {integrity: sha512-cmodIYP27tBkJ8G7DuGgWw0PFuemlFZbuF3Wwr1TrjFjUa3T7NIgCe6TVwX8BO2ynu+xtTuDGfHafNDCPt9lXA==}
+    engines: {node: '>=18'}
     peerDependencies:
-      '@types/node': '>=16'
+      '@types/node': '>=18'
     peerDependenciesMeta:
       '@types/node':
         optional: true
@@ -12446,7 +12446,7 @@ snapshots:
 
   strip-outer@2.0.0: {}
 
-  stripe@20.4.1(@types/node@25.0.0):
+  stripe@22.1.1(@types/node@25.0.0):
     optionalDependencies:
       '@types/node': 25.0.0
 
