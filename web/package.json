@@ -54,7 +54,7 @@
     "@11ty/eleventy-plugin-rss": "2.0.4",
     "@11ty/eleventy-plugin-vite": "7.1.1",
     "@eslint/js": "9.39.4",
-    "@vitejs/plugin-legacy": "7.2.1",
+    "@vitejs/plugin-legacy": "8.0.2",
     "chokidar": "5.0.0",
     "concurrently": "9.2.1",
     "esbuild": "0.28.0",
@@ -66,7 +66,7 @@
     "netlify-cli": "23.15.1",
     "prettier": "3.8.3",
     "slugify": "1.6.9",
-    "vite": "7.3.3",
+    "vite": "8.0.14",
     "vitest": "4.1.6",
     "ws": "8.20.1"
   },
