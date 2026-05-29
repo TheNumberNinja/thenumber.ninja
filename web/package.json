@@ -6,7 +6,7 @@
   "type": "module",
   "engines": {
     "node": ">=22.22.3",
-    "pnpm": ">=10.33.4"
+    "pnpm": "11.5.0"
   },
   "scripts": {
     "build": "rm -rf ./dist && npx @11ty/eleventy",
