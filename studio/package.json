@@ -28,7 +28,7 @@
     "sanity": "3.99.0",
     "sanity-plugin-media": "2.4.2",
     "sanity-plugin-netlify": "1.4.0",
-    "styled-components": "6.4.1"
+    "styled-components": "6.4.2"
   },
   "devDependencies": {
     "@sanity/client": "6.29.1",
