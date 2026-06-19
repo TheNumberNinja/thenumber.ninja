@@ -142,6 +142,11 @@
       "enabled": false
     },
     {
+      "description": "Keep engines fields as ranges, never exact pins. engines declares the supported version range; the exact selectors are packageManager + mise.toml (still pinned by the global rangeStrategy:pin). Without this override, rangeStrategy:pin rewrites engines.pnpm to an exact latest version (e.g. 11.x) that drifts from the actual pinned pnpm 10.x and breaks Renovate's pnpm lockfile update with ERR_PNPM_UNSUPPORTED_ENGINE. 'replace' (unlike 'bump') only rewrites the range when a release falls outside it: pnpm 10.x minor/patch updates leave '>=10 <11' unchanged, and it changes only at a new major (pnpm 11.x) as part of the deliberate major upgrade.",
+      "matchDepTypes": ["engines"],
+      "rangeStrategy": "replace"
+    },
+    {
       "description": "5-day minimum age for production dependencies (supply-chain protection)",
       "matchDepTypes": ["dependencies"],
       "minimumReleaseAge": "5 days"
