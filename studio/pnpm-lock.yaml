@@ -10,40 +10,40 @@ importers:
     dependencies:
       '@sanity/orderable-document-list':
         specifier: 1.5.1
-        version: 1.5.1(@emotion/is-prop-valid@1.4.0)(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(rxjs@7.8.2)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 1.5.1(@emotion/is-prop-valid@1.4.0)(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(rxjs@7.8.2)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       '@sanity/table':
         specifier: 1.1.4
-        version: 1.1.4(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 1.1.4(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       '@sanity/ui':
         specifier: 2.16.22
-        version: 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       '@sanity/vision':
         specifier: 3.99.0
-        version: 3.99.0(@babel/runtime@7.26.9)(@codemirror/lint@6.8.4)(@codemirror/theme-one-dark@6.1.2)(@emotion/is-prop-valid@1.4.0)(codemirror@6.0.1)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 3.99.0(@babel/runtime@7.26.9)(@codemirror/lint@6.8.4)(@codemirror/theme-one-dark@6.1.2)(@emotion/is-prop-valid@1.4.0)(codemirror@6.0.1)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       lodash:
         specifier: 4.18.1
         version: 4.18.1
       react:
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: 19.2.7
+        version: 19.2.7
       react-dom:
-        specifier: 18.3.1
-        version: 18.3.1(react@18.3.1)
+        specifier: 19.2.7
+        version: 19.2.7(react@19.2.7)
       react-is:
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: 19.2.7
+        version: 19.2.7
       sanity:
         specifier: 3.99.0
-        version: 3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
+        version: 3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
       sanity-plugin-media:
         specifier: 2.4.2
-        version: 2.4.2(@sanity/ui@2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 2.4.2(@sanity/ui@2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       sanity-plugin-netlify:
         specifier: 1.4.0
-        version: 1.4.0(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 1.4.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       styled-components:
         specifier: 6.4.2
-        version: 6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
     devDependencies:
       '@sanity/client':
         specifier: 6.29.1
@@ -4315,10 +4315,10 @@ packages:
     peerDependencies:
       react: ^17.0.0 || ^18.0.0 || ^19.0.0 || ^0.0.0-experimental
 
-  react-dom@18.3.1:
-    resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
+  react-dom@19.2.7:
+    resolution: {integrity: sha512-t0BRVXvbiE/o20Hfw669rLbMCDWtYZLvmJigy2f0MxsXF+71pxhR3xOkspmsO8h3ZlNzyibAmtCa3l4lYKk6gQ==}
     peerDependencies:
-      react: ^18.3.1
+      react: ^19.2.7
 
   react-dropzone@11.7.1:
     resolution: {integrity: sha512-zxCMwhfPy1olUEbw3FLNPLhAm/HnaYH5aELIEglRbqabizKAdHs0h+WuyOpmA+v1JXn0++fpQDdNfUagWt5hJQ==}
@@ -4368,6 +4368,9 @@ packages:
 
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
+
+  react-is@19.2.7:
+    resolution: {integrity: sha512-kZFnouyVv7eP/Phmrlo9FK+zcAdriZJvzxXHF1Sl1P377WSGe2G/JxVolhTrB/jeV47lKImhNUsijjHAAbcl/A==}
 
   react-redux@8.1.3:
     resolution: {integrity: sha512-n0ZrutD7DaX/j9VscF+uTALI3oUPa/pO4Z3soOBIjuRn/FzVu6aehhysxZCLi6y7duMf52WNZGMl7CtuK5EnRw==}
@@ -4441,8 +4444,8 @@ packages:
       react: '>=16 || >=17 || >= 18 || >= 19'
       react-dom: '>=16 || >=17 || >= 18 || >=19'
 
-  react@18.3.1:
-    resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
+  react@19.2.7:
+    resolution: {integrity: sha512-HNe9WslTbXmFK8o8cmwgAeJFSBvt1bPdHCVKtaaV+WlAN36mpT4hcRpwbf3fY56ar2oIXzsBpOAiIRHAdY0OlQ==}
     engines: {node: '>=0.10.0'}
 
   read-pkg-up@7.0.1:
@@ -4684,8 +4687,8 @@ packages:
     resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==}
     engines: {node: '>=v12.22.7'}
 
-  scheduler@0.23.2:
-    resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
+  scheduler@0.27.0:
+    resolution: {integrity: sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q==}
 
   scroll-into-view-if-needed@3.1.0:
     resolution: {integrity: sha512-49oNpRjWRvnU8NyGVmUaYG4jtTkNonFZI86MmGRDqBphEK2EXT9gdEUoQPZhuBM8yWHxCWbobltqYO5M4XrUvQ==}
@@ -5069,6 +5072,7 @@ packages:
   tsconfck@3.1.6:
     resolution: {integrity: sha512-ks6Vjr/jEw0P1gmOVwutM3B7fWxoWBL2KRDb1JfqGVawBmO5UsvmWOQFGHBPl5yxYz4eERr19E6L7NMv+Fej4w==}
     engines: {node: ^18 || >=20}
+    deprecated: unmaintained
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
@@ -6489,36 +6493,36 @@ snapshots:
 
   '@date-fns/utc@2.1.1': {}
 
-  '@dnd-kit/accessibility@3.1.1(react@18.3.1)':
+  '@dnd-kit/accessibility@3.1.1(react@19.2.7)':
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
       tslib: 2.8.1
 
-  '@dnd-kit/core@6.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@dnd-kit/core@6.3.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
-      '@dnd-kit/accessibility': 3.1.1(react@18.3.1)
-      '@dnd-kit/utilities': 3.2.2(react@18.3.1)
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      '@dnd-kit/accessibility': 3.1.1(react@19.2.7)
+      '@dnd-kit/utilities': 3.2.2(react@19.2.7)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
       tslib: 2.8.1
 
-  '@dnd-kit/modifiers@6.0.1(@dnd-kit/core@6.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
+  '@dnd-kit/modifiers@6.0.1(@dnd-kit/core@6.3.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)':
     dependencies:
-      '@dnd-kit/core': 6.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@dnd-kit/utilities': 3.2.2(react@18.3.1)
-      react: 18.3.1
+      '@dnd-kit/core': 6.3.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@dnd-kit/utilities': 3.2.2(react@19.2.7)
+      react: 19.2.7
       tslib: 2.8.1
 
-  '@dnd-kit/sortable@7.0.2(@dnd-kit/core@6.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
+  '@dnd-kit/sortable@7.0.2(@dnd-kit/core@6.3.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)':
     dependencies:
-      '@dnd-kit/core': 6.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@dnd-kit/utilities': 3.2.2(react@18.3.1)
-      react: 18.3.1
+      '@dnd-kit/core': 6.3.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@dnd-kit/utilities': 3.2.2(react@19.2.7)
+      react: 19.2.7
       tslib: 2.8.1
 
-  '@dnd-kit/utilities@3.2.2(react@18.3.1)':
+  '@dnd-kit/utilities@3.2.2(react@19.2.7)':
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
       tslib: 2.8.1
 
   '@emotion/babel-plugin@11.13.5':
@@ -6553,17 +6557,17 @@ snapshots:
 
   '@emotion/memoize@0.9.0': {}
 
-  '@emotion/react@11.14.0(@types/react@19.0.10)(react@18.3.1)':
+  '@emotion/react@11.14.0(@types/react@19.0.10)(react@19.2.7)':
     dependencies:
       '@babel/runtime': 7.26.9
       '@emotion/babel-plugin': 11.13.5
       '@emotion/cache': 11.14.0
       '@emotion/serialize': 1.3.3
-      '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@18.3.1)
+      '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@19.2.7)
       '@emotion/utils': 1.4.2
       '@emotion/weak-memoize': 0.4.0
       hoist-non-react-statics: 3.3.2
-      react: 18.3.1
+      react: 19.2.7
     optionalDependencies:
       '@types/react': 19.0.10
     transitivePeerDependencies:
@@ -6581,9 +6585,9 @@ snapshots:
 
   '@emotion/unitless@0.10.0': {}
 
-  '@emotion/use-insertion-effect-with-fallbacks@1.2.0(react@18.3.1)':
+  '@emotion/use-insertion-effect-with-fallbacks@1.2.0(react@19.2.7)':
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
 
   '@emotion/utils@1.4.2': {}
 
@@ -6722,29 +6726,29 @@ snapshots:
       '@floating-ui/core': 1.7.5
       '@floating-ui/utils': 0.2.11
 
-  '@floating-ui/react-dom@2.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@floating-ui/react-dom@2.1.8(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
       '@floating-ui/dom': 1.7.6
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
 
   '@floating-ui/utils@0.2.11': {}
 
-  '@hello-pangea/dnd@18.0.1(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@hello-pangea/dnd@18.0.1(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
       '@babel/runtime': 7.26.9
       css-box-model: 1.2.1
       raf-schd: 4.0.3
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-redux: 9.2.0(@types/react@19.0.10)(react@18.3.1)(redux@5.0.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
+      react-redux: 9.2.0(@types/react@19.0.10)(react@19.2.7)(redux@5.0.1)
       redux: 5.0.1
     transitivePeerDependencies:
       - '@types/react'
 
-  '@hookform/resolvers@3.10.0(react-hook-form@7.54.2(react@18.3.1))':
+  '@hookform/resolvers@3.10.0(react-hook-form@7.54.2(react@19.2.7))':
     dependencies:
-      react-hook-form: 7.54.2(react@18.3.1)
+      react-hook-form: 7.54.2(react@19.2.7)
 
   '@humanfs/core@0.19.1': {}
 
@@ -6946,22 +6950,22 @@ snapshots:
     dependencies:
       mux-embed: 5.18.1
 
-  '@mux/mux-player-react@3.13.0(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@mux/mux-player-react@3.13.0(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
-      '@mux/mux-player': 3.13.0(react@18.3.1)
+      '@mux/mux-player': 3.13.0(react@19.2.7)
       '@mux/playback-core': 0.35.0
       prop-types: 15.8.1
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
     optionalDependencies:
       '@types/react': 19.0.10
 
-  '@mux/mux-player@3.13.0(react@18.3.1)':
+  '@mux/mux-player@3.13.0(react@19.2.7)':
     dependencies:
       '@mux/mux-video': 0.31.0
       '@mux/playback-core': 0.35.0
-      media-chrome: 4.19.0(react@18.3.1)
-      player.style: 0.3.4(react@18.3.1)
+      media-chrome: 4.19.0(react@19.2.7)
+      player.style: 0.3.4(react@19.2.7)
     transitivePeerDependencies:
       - react
 
@@ -7078,7 +7082,7 @@ snapshots:
       get-random-values-esm: 1.0.2
       lodash: 4.18.1
 
-  '@portabletext/editor@1.58.1(@sanity/schema@3.99.0(@types/react@19.0.10))(@sanity/types@3.99.0(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rxjs@7.8.2)':
+  '@portabletext/editor@1.58.1(@sanity/schema@3.99.0(@types/react@19.0.10))(@sanity/types@3.99.0(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(rxjs@7.8.2)':
     dependencies:
       '@portabletext/block-tools': 1.1.38(@sanity/types@3.99.0(@types/react@19.0.10))(@types/react@19.0.10)
       '@portabletext/keyboard-shortcuts': 1.1.0
@@ -7086,19 +7090,19 @@ snapshots:
       '@portabletext/to-html': 2.0.14
       '@sanity/schema': 3.99.0(@types/react@19.0.10)
       '@sanity/types': 3.99.0(@types/react@19.0.10)
-      '@xstate/react': 6.1.0(@types/react@19.0.10)(react@18.3.1)(xstate@5.31.1)
+      '@xstate/react': 6.1.0(@types/react@19.0.10)(react@19.2.7)(xstate@5.31.1)
       debug: 4.4.3(supports-color@8.1.1)
       get-random-values-esm: 1.0.2
       immer: 10.1.1
       lodash: 4.18.1
       lodash.startcase: 4.4.0
-      react: 18.3.1
-      react-compiler-runtime: 19.1.0-rc.2(react@18.3.1)
+      react: 19.2.7
+      react-compiler-runtime: 19.1.0-rc.2(react@19.2.7)
       rxjs: 7.8.2
       slate: 0.117.2
       slate-dom: 0.116.0(slate@0.117.2)
-      slate-react: 0.117.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(slate-dom@0.116.0(slate@0.117.2))(slate@0.117.2)
-      use-effect-event: 1.0.2(react@18.3.1)
+      slate-react: 0.117.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(slate-dom@0.116.0(slate@0.117.2))(slate@0.117.2)
+      use-effect-event: 1.0.2(react@19.2.7)
       xstate: 5.31.1
     transitivePeerDependencies:
       - '@types/react'
@@ -7112,11 +7116,11 @@ snapshots:
       '@sanity/diff-match-patch': 3.2.0
       lodash: 4.18.1
 
-  '@portabletext/react@3.2.1(react@18.3.1)':
+  '@portabletext/react@3.2.1(react@19.2.7)':
     dependencies:
       '@portabletext/toolkit': 2.0.17
       '@portabletext/types': 2.0.13
-      react: 18.3.1
+      react: 19.2.7
 
   '@portabletext/to-html@2.0.14':
     dependencies:
@@ -7129,26 +7133,26 @@ snapshots:
 
   '@portabletext/types@2.0.13': {}
 
-  '@reduxjs/toolkit@2.6.1(react-redux@8.1.3(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1))(react@18.3.1)':
+  '@reduxjs/toolkit@2.6.1(react-redux@8.1.3(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(redux@5.0.1))(react@19.2.7)':
     dependencies:
       immer: 10.1.1
       redux: 5.0.1
       redux-thunk: 3.1.0(redux@5.0.1)
       reselect: 5.1.1
     optionalDependencies:
-      react: 18.3.1
-      react-redux: 8.1.3(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1)
+      react: 19.2.7
+      react-redux: 8.1.3(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(redux@5.0.1)
 
-  '@rexxars/react-json-inspector@9.0.1(react@18.3.1)':
+  '@rexxars/react-json-inspector@9.0.1(react@19.2.7)':
     dependencies:
       debounce: 1.2.1
       md5-o-matic: 0.1.1
-      react: 18.3.1
+      react: 19.2.7
 
-  '@rexxars/react-split-pane@1.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@rexxars/react-split-pane@1.0.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
 
   '@rolldown/pluginutils@1.0.0-beta.27': {}
 
@@ -7216,13 +7220,13 @@ snapshots:
       nanoid: 3.3.12
       rxjs: 7.8.2
 
-  '@sanity/cli@3.99.0(@types/node@22.13.9)(@types/react@19.0.10)(react@18.3.1)(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)':
+  '@sanity/cli@3.99.0(@types/node@22.13.9)(@types/react@19.0.10)(react@19.2.7)(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)':
     dependencies:
       '@babel/traverse': 7.29.0
       '@sanity/client': 7.22.0
       '@sanity/codegen': 3.99.0
       '@sanity/runtime-cli': 9.2.0(@types/node@22.13.9)(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
-      '@sanity/telemetry': 0.8.1(react@18.3.1)
+      '@sanity/telemetry': 0.8.1(react@19.2.7)
       '@sanity/template-validator': 2.4.6
       '@sanity/util': 3.99.0(@types/react@19.0.10)
       chalk: 4.1.2
@@ -7348,9 +7352,9 @@ snapshots:
 
   '@sanity/generate-help-url@3.0.0': {}
 
-  '@sanity/icons@3.7.4(react@18.3.1)':
+  '@sanity/icons@3.7.4(react@19.2.7)':
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
 
   '@sanity/id-utils@1.0.0':
     dependencies:
@@ -7387,29 +7391,29 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  '@sanity/incompatible-plugin@1.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@sanity/incompatible-plugin@1.0.5(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
 
-  '@sanity/insert-menu@1.1.13(@emotion/is-prop-valid@1.4.0)(@sanity/types@3.99.0(@types/react@19.0.10))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@sanity/insert-menu@1.1.13(@emotion/is-prop-valid@1.4.0)(@sanity/types@3.99.0(@types/react@19.0.10))(react-dom@19.2.7(react@19.2.7))(react-is@18.3.1)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))':
     dependencies:
-      '@sanity/icons': 3.7.4(react@18.3.1)
+      '@sanity/icons': 3.7.4(react@19.2.7)
       '@sanity/types': 3.99.0(@types/react@19.0.10)
-      '@sanity/ui': 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@sanity/ui': 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@18.3.1)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       lodash: 4.18.1
-      react: 18.3.1
-      react-compiler-runtime: 19.1.0-rc.2(react@18.3.1)
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-compiler-runtime: 19.1.0-rc.2(react@19.2.7)
+      react-dom: 19.2.7(react@19.2.7)
       react-is: 18.3.1
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
       - styled-components
 
-  '@sanity/logos@2.2.2(react@18.3.1)':
+  '@sanity/logos@2.2.2(react@19.2.7)':
     dependencies:
       '@sanity/color': 3.0.6
-      react: 18.3.1
+      react: 19.2.7
 
   '@sanity/media-library-types@1.4.0': {}
 
@@ -7454,18 +7458,18 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  '@sanity/orderable-document-list@1.5.1(@emotion/is-prop-valid@1.4.0)(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(rxjs@7.8.2)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@sanity/orderable-document-list@1.5.1(@emotion/is-prop-valid@1.4.0)(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(rxjs@7.8.2)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))':
     dependencies:
-      '@hello-pangea/dnd': 18.0.1(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@sanity/icons': 3.7.4(react@18.3.1)
-      '@sanity/incompatible-plugin': 1.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@sanity/ui': 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@hello-pangea/dnd': 18.0.1(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@sanity/icons': 3.7.4(react@19.2.7)
+      '@sanity/incompatible-plugin': 1.0.5(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@sanity/ui': 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       lexorank: 1.0.5
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      sanity: 3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
-      sanity-plugin-utils: 1.8.0(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(rxjs@7.8.2)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
+      sanity: 3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
+      sanity-plugin-utils: 1.8.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(rxjs@7.8.2)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
+      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
       - '@types/react'
@@ -7480,13 +7484,13 @@ snapshots:
       - '@sanity/client'
       - '@sanity/types'
 
-  '@sanity/preview-url-secret@2.1.16(@sanity/client@7.22.0)(@sanity/icons@3.7.4(react@18.3.1))(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))':
+  '@sanity/preview-url-secret@2.1.16(@sanity/client@7.22.0)(@sanity/icons@3.7.4(react@19.2.7))(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))':
     dependencies:
       '@sanity/client': 7.22.0
       '@sanity/uuid': 3.0.2
     optionalDependencies:
-      '@sanity/icons': 3.7.4(react@18.3.1)
-      sanity: 3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
+      '@sanity/icons': 3.7.4(react@19.2.7)
+      sanity: 3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
 
   '@sanity/runtime-cli@9.2.0(@types/node@22.13.9)(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)':
     dependencies:
@@ -7542,7 +7546,7 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  '@sanity/sdk@0.0.0-alpha.25(@types/react@19.0.10)(immer@10.1.1)(react@18.3.1)(use-sync-external-store@1.6.0(react@18.3.1))':
+  '@sanity/sdk@0.0.0-alpha.25(@types/react@19.0.10)(immer@10.1.1)(react@19.2.7)(use-sync-external-store@1.6.0(react@19.2.7))':
     dependencies:
       '@sanity/client': 6.29.1
       '@sanity/comlink': 3.1.1
@@ -7553,30 +7557,30 @@ snapshots:
       lodash-es: 4.18.1
       reselect: 5.1.1
       rxjs: 7.8.2
-      zustand: 5.0.13(@types/react@19.0.10)(immer@10.1.1)(react@18.3.1)(use-sync-external-store@1.6.0(react@18.3.1))
+      zustand: 5.0.13(@types/react@19.0.10)(immer@10.1.1)(react@19.2.7)(use-sync-external-store@1.6.0(react@19.2.7))
     transitivePeerDependencies:
       - '@types/react'
       - immer
       - react
       - use-sync-external-store
 
-  '@sanity/table@1.1.4(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@sanity/table@1.1.4(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))':
     dependencies:
-      '@sanity/icons': 3.7.4(react@18.3.1)
-      '@sanity/incompatible-plugin': 1.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@sanity/ui': 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      react: 18.3.1
-      sanity: 3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
+      '@sanity/icons': 3.7.4(react@19.2.7)
+      '@sanity/incompatible-plugin': 1.0.5(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@sanity/ui': 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
+      react: 19.2.7
+      sanity: 3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
       - react-dom
       - react-is
       - styled-components
 
-  '@sanity/telemetry@0.8.1(react@18.3.1)':
+  '@sanity/telemetry@0.8.1(react@19.2.7)':
     dependencies:
       lodash: 4.18.1
-      react: 18.3.1
+      react: 19.2.7
       rxjs: 7.8.2
       typeid-js: 0.3.0
 
@@ -7597,39 +7601,57 @@ snapshots:
       '@sanity/media-library-types': 1.4.0
       '@types/react': 19.0.10
 
-  '@sanity/ui@2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@sanity/ui@2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@18.3.1)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))':
     dependencies:
-      '@floating-ui/react-dom': 2.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@floating-ui/react-dom': 2.1.8(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@juggle/resize-observer': 3.4.0
       '@sanity/color': 3.0.6
-      '@sanity/icons': 3.7.4(react@18.3.1)
+      '@sanity/icons': 3.7.4(react@19.2.7)
       csstype: 3.2.3
-      motion: 12.39.0(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react: 18.3.1
-      react-compiler-runtime: 1.0.0(react@18.3.1)
-      react-dom: 18.3.1(react@18.3.1)
+      motion: 12.39.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      react: 19.2.7
+      react-compiler-runtime: 1.0.0(react@19.2.7)
+      react-dom: 19.2.7(react@19.2.7)
       react-is: 18.3.1
-      react-refractor: 2.2.0(react@18.3.1)
-      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      use-effect-event: 2.0.3(react@18.3.1)
+      react-refractor: 2.2.0(react@19.2.7)
+      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      use-effect-event: 2.0.3(react@19.2.7)
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
 
-  '@sanity/ui@3.2.0(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@sanity/ui@2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))':
     dependencies:
-      '@floating-ui/react-dom': 2.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@floating-ui/react-dom': 2.1.8(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@juggle/resize-observer': 3.4.0
       '@sanity/color': 3.0.6
-      '@sanity/icons': 3.7.4(react@18.3.1)
+      '@sanity/icons': 3.7.4(react@19.2.7)
       csstype: 3.2.3
-      motion: 12.39.0(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react: 18.3.1
-      react-compiler-runtime: 1.0.0(react@18.3.1)
-      react-dom: 18.3.1(react@18.3.1)
-      react-is: 18.3.1
-      react-refractor: 4.0.0(react@18.3.1)
-      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      use-effect-event: 2.0.3(react@18.3.1)
+      motion: 12.39.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      react: 19.2.7
+      react-compiler-runtime: 1.0.0(react@19.2.7)
+      react-dom: 19.2.7(react@19.2.7)
+      react-is: 19.2.7
+      react-refractor: 2.2.0(react@19.2.7)
+      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      use-effect-event: 2.0.3(react@19.2.7)
+    transitivePeerDependencies:
+      - '@emotion/is-prop-valid'
+
+  '@sanity/ui@3.2.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))':
+    dependencies:
+      '@floating-ui/react-dom': 2.1.8(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@juggle/resize-observer': 3.4.0
+      '@sanity/color': 3.0.6
+      '@sanity/icons': 3.7.4(react@19.2.7)
+      csstype: 3.2.3
+      motion: 12.39.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      react: 19.2.7
+      react-compiler-runtime: 1.0.0(react@19.2.7)
+      react-dom: 19.2.7(react@19.2.7)
+      react-is: 19.2.7
+      react-refractor: 4.0.0(react@19.2.7)
+      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      use-effect-event: 2.0.3(react@19.2.7)
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
 
@@ -7660,7 +7682,7 @@ snapshots:
       '@types/uuid': 8.3.4
       uuid: 8.3.2
 
-  '@sanity/vision@3.99.0(@babel/runtime@7.26.9)(@codemirror/lint@6.8.4)(@codemirror/theme-one-dark@6.1.2)(@emotion/is-prop-valid@1.4.0)(codemirror@6.0.1)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@sanity/vision@3.99.0(@babel/runtime@7.26.9)(@codemirror/lint@6.8.4)(@codemirror/theme-one-dark@6.1.2)(@emotion/is-prop-valid@1.4.0)(codemirror@6.0.1)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))':
     dependencies:
       '@codemirror/autocomplete': 6.20.2
       '@codemirror/commands': 6.10.3
@@ -7671,25 +7693,25 @@ snapshots:
       '@codemirror/view': 6.43.0
       '@juggle/resize-observer': 3.4.0
       '@lezer/highlight': 1.2.3
-      '@rexxars/react-json-inspector': 9.0.1(react@18.3.1)
-      '@rexxars/react-split-pane': 1.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@rexxars/react-json-inspector': 9.0.1(react@19.2.7)
+      '@rexxars/react-split-pane': 1.0.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@sanity/color': 3.0.6
-      '@sanity/icons': 3.7.4(react@18.3.1)
-      '@sanity/ui': 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@sanity/icons': 3.7.4(react@19.2.7)
+      '@sanity/ui': 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       '@sanity/uuid': 3.0.2
-      '@uiw/react-codemirror': 4.23.10(@babel/runtime@7.26.9)(@codemirror/autocomplete@6.20.2)(@codemirror/language@6.12.3)(@codemirror/lint@6.8.4)(@codemirror/search@6.7.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.43.0)(codemirror@6.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@uiw/react-codemirror': 4.23.10(@babel/runtime@7.26.9)(@codemirror/autocomplete@6.20.2)(@codemirror/language@6.12.3)(@codemirror/lint@6.8.4)(@codemirror/search@6.7.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.43.0)(codemirror@6.0.1)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       is-hotkey-esm: 1.0.0
       json-2-csv: 5.5.9
       json5: 2.2.3
       lodash: 4.18.1
       quick-lru: 5.1.1
-      react: 18.3.1
-      react-compiler-runtime: 19.1.0-rc.2(react@18.3.1)
+      react: 19.2.7
+      react-compiler-runtime: 19.1.0-rc.2(react@19.2.7)
       react-fast-compare: 3.2.2
-      react-rx: 4.2.2(react@18.3.1)(rxjs@7.8.2)
+      react-rx: 4.2.2(react@19.2.7)(rxjs@7.8.2)
       rxjs: 7.8.2
-      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      use-effect-event: 2.0.3(react@18.3.1)
+      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      use-effect-event: 2.0.3(react@19.2.7)
     transitivePeerDependencies:
       - '@babel/runtime'
       - '@codemirror/lint'
@@ -7733,31 +7755,31 @@ snapshots:
 
   '@sentry/core@8.55.0': {}
 
-  '@sentry/react@8.55.0(react@18.3.1)':
+  '@sentry/react@8.55.0(react@19.2.7)':
     dependencies:
       '@sentry/browser': 8.55.0
       '@sentry/core': 8.55.0
       hoist-non-react-statics: 3.3.2
-      react: 18.3.1
+      react: 19.2.7
 
-  '@tanem/react-nprogress@5.0.55(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tanem/react-nprogress@5.0.55(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
       '@babel/runtime': 7.26.9
       hoist-non-react-statics: 3.3.2
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
 
-  '@tanstack/react-table@8.21.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tanstack/react-table@8.21.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
       '@tanstack/table-core': 8.21.3
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
 
-  '@tanstack/react-virtual@3.13.24(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tanstack/react-virtual@3.13.24(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
       '@tanstack/virtual-core': 3.14.0
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
 
   '@tanstack/table-core@8.21.3': {}
 
@@ -7947,7 +7969,7 @@ snapshots:
       '@codemirror/state': 6.6.0
       '@codemirror/view': 6.43.0
 
-  '@uiw/react-codemirror@4.23.10(@babel/runtime@7.26.9)(@codemirror/autocomplete@6.20.2)(@codemirror/language@6.12.3)(@codemirror/lint@6.8.4)(@codemirror/search@6.7.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.43.0)(codemirror@6.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@uiw/react-codemirror@4.23.10(@babel/runtime@7.26.9)(@codemirror/autocomplete@6.20.2)(@codemirror/language@6.12.3)(@codemirror/lint@6.8.4)(@codemirror/search@6.7.0)(@codemirror/state@6.6.0)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.43.0)(codemirror@6.0.1)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
       '@babel/runtime': 7.26.9
       '@codemirror/commands': 6.10.3
@@ -7956,8 +7978,8 @@ snapshots:
       '@codemirror/view': 6.43.0
       '@uiw/codemirror-extensions-basic-setup': 4.23.10(@codemirror/autocomplete@6.20.2)(@codemirror/commands@6.10.3)(@codemirror/language@6.12.3)(@codemirror/lint@6.8.4)(@codemirror/search@6.7.0)(@codemirror/state@6.6.0)(@codemirror/view@6.43.0)
       codemirror: 6.0.1
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
     transitivePeerDependencies:
       - '@codemirror/autocomplete'
       - '@codemirror/language'
@@ -7978,11 +8000,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@xstate/react@6.1.0(@types/react@19.0.10)(react@18.3.1)(xstate@5.31.1)':
+  '@xstate/react@6.1.0(@types/react@19.0.10)(react@19.2.7)(xstate@5.31.1)':
     dependencies:
-      react: 18.3.1
-      use-isomorphic-layout-effect: 1.2.0(@types/react@19.0.10)(react@18.3.1)
-      use-sync-external-store: 1.6.0(react@18.3.1)
+      react: 19.2.7
+      use-isomorphic-layout-effect: 1.2.0(@types/react@19.0.10)(react@19.2.7)
+      use-sync-external-store: 1.6.0(react@19.2.7)
     optionalDependencies:
       xstate: 5.31.1
     transitivePeerDependencies:
@@ -8324,9 +8346,9 @@ snapshots:
     dependencies:
       custom-media-element: 1.4.6
 
-  ce-la-react@0.3.2(react@18.3.1):
+  ce-la-react@0.3.2(react@19.2.7):
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
 
   chalk@2.4.2:
     dependencies:
@@ -9185,15 +9207,15 @@ snapshots:
       es-set-tostringtag: 2.1.0
       mime-types: 2.1.35
 
-  framer-motion@12.39.0(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  framer-motion@12.39.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
     dependencies:
       motion-dom: 12.39.0
       motion-utils: 12.39.0
       tslib: 2.8.1
     optionalDependencies:
       '@emotion/is-prop-valid': 1.4.0
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
 
   from2@2.3.0:
     dependencies:
@@ -9963,16 +9985,16 @@ snapshots:
 
   mdn-data@2.0.30: {}
 
-  media-chrome@4.11.1(react@18.3.1):
+  media-chrome@4.11.1(react@19.2.7):
     dependencies:
       '@vercel/edge': 1.3.1
-      ce-la-react: 0.3.2(react@18.3.1)
+      ce-la-react: 0.3.2(react@19.2.7)
     transitivePeerDependencies:
       - react
 
-  media-chrome@4.19.0(react@18.3.1):
+  media-chrome@4.19.0(react@19.2.7):
     dependencies:
-      ce-la-react: 0.3.2(react@18.3.1)
+      ce-la-react: 0.3.2(react@19.2.7)
     transitivePeerDependencies:
       - react
 
@@ -10088,14 +10110,14 @@ snapshots:
 
   motion-utils@12.39.0: {}
 
-  motion@12.39.0(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  motion@12.39.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
     dependencies:
-      framer-motion: 12.39.0(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      framer-motion: 12.39.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       tslib: 2.8.1
     optionalDependencies:
       '@emotion/is-prop-valid': 1.4.0
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
 
   ms@2.0.0: {}
 
@@ -10396,15 +10418,15 @@ snapshots:
     dependencies:
       find-up: 5.0.0
 
-  player.style@0.1.10(react@18.3.1):
+  player.style@0.1.10(react@19.2.7):
     dependencies:
-      media-chrome: 4.11.1(react@18.3.1)
+      media-chrome: 4.11.1(react@19.2.7)
     transitivePeerDependencies:
       - react
 
-  player.style@0.3.4(react@18.3.1):
+  player.style@0.3.4(react@19.2.7):
     dependencies:
-      media-chrome: 4.19.0(react@18.3.1)
+      media-chrome: 4.19.0(react@19.2.7)
     transitivePeerDependencies:
       - react
 
@@ -10497,151 +10519,150 @@ snapshots:
     dependencies:
       performance-now: 2.1.0
 
-  react-clientside-effect@1.2.7(react@18.3.1):
+  react-clientside-effect@1.2.7(react@19.2.7):
     dependencies:
       '@babel/runtime': 7.26.9
-      react: 18.3.1
+      react: 19.2.7
 
-  react-compiler-runtime@1.0.0(react@18.3.1):
+  react-compiler-runtime@1.0.0(react@19.2.7):
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
 
-  react-compiler-runtime@19.1.0-rc.2(react@18.3.1):
+  react-compiler-runtime@19.1.0-rc.2(react@19.2.7):
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
 
-  react-dom@18.3.1(react@18.3.1):
+  react-dom@19.2.7(react@19.2.7):
     dependencies:
-      loose-envify: 1.4.0
-      react: 18.3.1
-      scheduler: 0.23.2
+      react: 19.2.7
+      scheduler: 0.27.0
 
-  react-dropzone@11.7.1(react@18.3.1):
+  react-dropzone@11.7.1(react@19.2.7):
     dependencies:
       attr-accept: 2.2.5
       file-selector: 0.4.0
       prop-types: 15.8.1
-      react: 18.3.1
+      react: 19.2.7
 
   react-fast-compare@3.2.2: {}
 
-  react-file-icon@1.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-file-icon@1.6.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
     dependencies:
       colord: 2.9.3
       prop-types: 15.8.1
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
 
-  react-focus-lock@2.13.6(@types/react@19.0.10)(react@18.3.1):
+  react-focus-lock@2.13.6(@types/react@19.0.10)(react@19.2.7):
     dependencies:
       '@babel/runtime': 7.26.9
       focus-lock: 1.3.6
       prop-types: 15.8.1
-      react: 18.3.1
-      react-clientside-effect: 1.2.7(react@18.3.1)
-      use-callback-ref: 1.3.3(@types/react@19.0.10)(react@18.3.1)
-      use-sidecar: 1.1.3(@types/react@19.0.10)(react@18.3.1)
+      react: 19.2.7
+      react-clientside-effect: 1.2.7(react@19.2.7)
+      use-callback-ref: 1.3.3(@types/react@19.0.10)(react@19.2.7)
+      use-sidecar: 1.1.3(@types/react@19.0.10)(react@19.2.7)
     optionalDependencies:
       '@types/react': 19.0.10
 
-  react-hook-form@7.54.2(react@18.3.1):
+  react-hook-form@7.54.2(react@19.2.7):
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
 
-  react-i18next@14.0.2(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-i18next@14.0.2(i18next@23.16.8)(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
     dependencies:
       '@babel/runtime': 7.26.9
       html-parse-stringify: 3.0.1
       i18next: 23.16.8
-      react: 18.3.1
+      react: 19.2.7
     optionalDependencies:
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.2.7(react@19.2.7)
 
   react-is@16.13.1: {}
 
   react-is@18.3.1: {}
 
-  react-redux@8.1.3(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1):
+  react-is@19.2.7: {}
+
+  react-redux@8.1.3(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(redux@5.0.1):
     dependencies:
       '@babel/runtime': 7.26.9
       '@types/hoist-non-react-statics': 3.3.6
       '@types/use-sync-external-store': 0.0.3
       hoist-non-react-statics: 3.3.2
-      react: 18.3.1
+      react: 19.2.7
       react-is: 18.3.1
-      use-sync-external-store: 1.6.0(react@18.3.1)
+      use-sync-external-store: 1.6.0(react@19.2.7)
     optionalDependencies:
       '@types/react': 19.0.10
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.2.7(react@19.2.7)
       redux: 5.0.1
 
-  react-redux@9.2.0(@types/react@19.0.10)(react@18.3.1)(redux@5.0.1):
+  react-redux@9.2.0(@types/react@19.0.10)(react@19.2.7)(redux@5.0.1):
     dependencies:
       '@types/use-sync-external-store': 0.0.6
-      react: 18.3.1
-      use-sync-external-store: 1.6.0(react@18.3.1)
+      react: 19.2.7
+      use-sync-external-store: 1.6.0(react@19.2.7)
     optionalDependencies:
       '@types/react': 19.0.10
       redux: 5.0.1
 
-  react-refractor@2.2.0(react@18.3.1):
+  react-refractor@2.2.0(react@19.2.7):
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
       refractor: 3.6.0
       unist-util-filter: 2.0.3
       unist-util-visit-parents: 3.1.1
 
-  react-refractor@4.0.0(react@18.3.1):
+  react-refractor@4.0.0(react@19.2.7):
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
       refractor: 5.0.0
       unist-util-filter: 5.0.1
       unist-util-visit-parents: 6.0.2
 
   react-refresh@0.17.0: {}
 
-  react-rx@4.2.2(react@18.3.1)(rxjs@7.8.2):
+  react-rx@4.2.2(react@19.2.7)(rxjs@7.8.2):
     dependencies:
       observable-callback: 1.0.3(rxjs@7.8.2)
-      react: 18.3.1
-      react-compiler-runtime: 1.0.0(react@18.3.1)
+      react: 19.2.7
+      react-compiler-runtime: 1.0.0(react@19.2.7)
       rxjs: 7.8.2
-      use-effect-event: 2.0.3(react@18.3.1)
+      use-effect-event: 2.0.3(react@19.2.7)
 
-  react-select@5.10.1(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-select@5.10.1(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
     dependencies:
       '@babel/runtime': 7.26.9
       '@emotion/cache': 11.14.0
-      '@emotion/react': 11.14.0(@types/react@19.0.10)(react@18.3.1)
+      '@emotion/react': 11.14.0(@types/react@19.0.10)(react@19.2.7)
       '@floating-ui/dom': 1.7.6
       '@types/react-transition-group': 4.4.12(@types/react@19.0.10)
       memoize-one: 6.0.0
       prop-types: 15.8.1
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-transition-group: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      use-isomorphic-layout-effect: 1.2.0(@types/react@19.0.10)(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
+      react-transition-group: 4.4.5(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      use-isomorphic-layout-effect: 1.2.0(@types/react@19.0.10)(react@19.2.7)
     transitivePeerDependencies:
       - '@types/react'
       - supports-color
 
-  react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-transition-group@4.4.5(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
     dependencies:
       '@babel/runtime': 7.26.9
       dom-helpers: 5.2.1
       loose-envify: 1.4.0
       prop-types: 15.8.1
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
 
-  react-virtuoso@4.12.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-virtuoso@4.12.5(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
     dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
 
-  react@18.3.1:
-    dependencies:
-      loose-envify: 1.4.0
+  react@19.2.7: {}
 
   read-pkg-up@7.0.1:
     dependencies:
@@ -10895,17 +10916,17 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sanity-plugin-media@2.4.2(@sanity/ui@2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
+  sanity-plugin-media@2.4.2(@sanity/ui@2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)):
     dependencies:
-      '@hookform/resolvers': 3.10.0(react-hook-form@7.54.2(react@18.3.1))
-      '@reduxjs/toolkit': 2.6.1(react-redux@8.1.3(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1))(react@18.3.1)
+      '@hookform/resolvers': 3.10.0(react-hook-form@7.54.2(react@19.2.7))
+      '@reduxjs/toolkit': 2.6.1(react-redux@8.1.3(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(redux@5.0.1))(react@19.2.7)
       '@sanity/client': 6.29.1
       '@sanity/color': 3.0.6
-      '@sanity/icons': 3.7.4(react@18.3.1)
-      '@sanity/incompatible-plugin': 1.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@sanity/ui': 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@sanity/icons': 3.7.4(react@19.2.7)
+      '@sanity/incompatible-plugin': 1.0.5(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@sanity/ui': 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       '@sanity/uuid': 3.0.2
-      '@tanem/react-nprogress': 5.0.55(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tanem/react-nprogress': 5.0.55(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       copy-to-clipboard: 3.3.3
       date-fns: 2.30.0
       filesize: 9.0.11
@@ -10913,19 +10934,19 @@ snapshots:
       is-hotkey: 0.2.0
       nanoid: 3.3.12
       pluralize: 8.0.0
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-dropzone: 11.7.1(react@18.3.1)
-      react-file-icon: 1.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-hook-form: 7.54.2(react@18.3.1)
-      react-redux: 8.1.3(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1)
-      react-select: 5.10.1(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-virtuoso: 4.12.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
+      react-dropzone: 11.7.1(react@19.2.7)
+      react-file-icon: 1.6.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      react-hook-form: 7.54.2(react@19.2.7)
+      react-redux: 8.1.3(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(redux@5.0.1)
+      react-select: 5.10.1(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      react-virtuoso: 4.12.5(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       redux: 5.0.1
       redux-observable: 3.0.0-rc.2(redux@5.0.1)(rxjs@7.8.2)
       rxjs: 7.8.2
-      sanity: 3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
-      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      sanity: 3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
+      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       zod: 3.24.2
     transitivePeerDependencies:
       - '@types/react'
@@ -10933,17 +10954,17 @@ snapshots:
       - react-native
       - supports-color
 
-  sanity-plugin-netlify@1.4.0(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
+  sanity-plugin-netlify@1.4.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)):
     dependencies:
-      '@sanity/icons': 3.7.4(react@18.3.1)
-      '@sanity/incompatible-plugin': 1.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@sanity/ui': 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@sanity/icons': 3.7.4(react@19.2.7)
+      '@sanity/incompatible-plugin': 1.0.5(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@sanity/ui': 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       axios: 1.8.2
       nanoid: 3.3.12
-      react: 18.3.1
-      sanity: 3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
+      react: 19.2.7
+      sanity: 3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
       spacetime: 6.16.3
-      swr: 2.4.1(react@18.3.1)
+      swr: 2.4.1(react@19.2.7)
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
       - debug
@@ -10951,37 +10972,37 @@ snapshots:
       - react-is
       - styled-components
 
-  sanity-plugin-utils@1.8.0(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(rxjs@7.8.2)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
+  sanity-plugin-utils@1.8.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(rxjs@7.8.2)(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)):
     dependencies:
-      '@sanity/icons': 3.7.4(react@18.3.1)
-      '@sanity/incompatible-plugin': 1.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@sanity/ui': 3.2.0(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      react: 18.3.1
+      '@sanity/icons': 3.7.4(react@19.2.7)
+      '@sanity/incompatible-plugin': 1.0.5(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@sanity/ui': 3.2.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@19.2.7)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
+      react: 19.2.7
       react-fast-compare: 3.2.2
       rxjs: 7.8.2
-      sanity: 3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
-      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      sanity: 3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
+      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
       - react-dom
       - react-is
 
-  sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0):
+  sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0):
     dependencies:
-      '@dnd-kit/core': 6.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@dnd-kit/modifiers': 6.0.1(@dnd-kit/core@6.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
-      '@dnd-kit/sortable': 7.0.2(@dnd-kit/core@6.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
-      '@dnd-kit/utilities': 3.2.2(react@18.3.1)
+      '@dnd-kit/core': 6.3.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@dnd-kit/modifiers': 6.0.1(@dnd-kit/core@6.3.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)
+      '@dnd-kit/sortable': 7.0.2(@dnd-kit/core@6.3.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)
+      '@dnd-kit/utilities': 3.2.2(react@19.2.7)
       '@juggle/resize-observer': 3.4.0
-      '@mux/mux-player-react': 3.13.0(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@mux/mux-player-react': 3.13.0(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@portabletext/block-tools': 1.1.38(@sanity/types@3.99.0(@types/react@19.0.10))(@types/react@19.0.10)
-      '@portabletext/editor': 1.58.1(@sanity/schema@3.99.0(@types/react@19.0.10))(@sanity/types@3.99.0(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rxjs@7.8.2)
-      '@portabletext/react': 3.2.1(react@18.3.1)
+      '@portabletext/editor': 1.58.1(@sanity/schema@3.99.0(@types/react@19.0.10))(@sanity/types@3.99.0(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(rxjs@7.8.2)
+      '@portabletext/react': 3.2.1(react@19.2.7)
       '@portabletext/toolkit': 2.0.17
-      '@rexxars/react-json-inspector': 9.0.1(react@18.3.1)
+      '@rexxars/react-json-inspector': 9.0.1(react@19.2.7)
       '@sanity/asset-utils': 2.2.1
       '@sanity/bifur-client': 0.4.1
-      '@sanity/cli': 3.99.0(@types/node@22.13.9)(@types/react@19.0.10)(react@18.3.1)(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
+      '@sanity/cli': 3.99.0(@types/node@22.13.9)(@types/react@19.0.10)(react@19.2.7)(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0)
       '@sanity/client': 7.22.0
       '@sanity/color': 3.0.6
       '@sanity/comlink': 3.1.1
@@ -10990,28 +11011,28 @@ snapshots:
       '@sanity/diff-patch': 5.0.0
       '@sanity/eventsource': 5.0.2
       '@sanity/export': 3.45.3(@types/react@19.0.10)
-      '@sanity/icons': 3.7.4(react@18.3.1)
+      '@sanity/icons': 3.7.4(react@19.2.7)
       '@sanity/id-utils': 1.0.0
       '@sanity/image-url': 1.1.0
       '@sanity/import': 3.38.3(@types/react@19.0.10)
-      '@sanity/insert-menu': 1.1.13(@emotion/is-prop-valid@1.4.0)(@sanity/types@3.99.0(@types/react@19.0.10))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      '@sanity/logos': 2.2.2(react@18.3.1)
+      '@sanity/insert-menu': 1.1.13(@emotion/is-prop-valid@1.4.0)(@sanity/types@3.99.0(@types/react@19.0.10))(react-dom@19.2.7(react@19.2.7))(react-is@18.3.1)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
+      '@sanity/logos': 2.2.2(react@19.2.7)
       '@sanity/media-library-types': 1.4.0
       '@sanity/message-protocol': 0.13.3
       '@sanity/migrate': 3.99.0(@types/react@19.0.10)
       '@sanity/mutator': 3.99.0(@types/react@19.0.10)
       '@sanity/presentation-comlink': 1.0.33(@sanity/client@7.22.0)(@sanity/types@3.99.0(@types/react@19.0.10))
-      '@sanity/preview-url-secret': 2.1.16(@sanity/client@7.22.0)(@sanity/icons@3.7.4(react@18.3.1))(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))
+      '@sanity/preview-url-secret': 2.1.16(@sanity/client@7.22.0)(@sanity/icons@3.7.4(react@19.2.7))(sanity@3.99.0(@emotion/is-prop-valid@1.4.0)(@types/node@22.13.9)(@types/react@19.0.10)(immer@10.1.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(terser@5.39.0)(typescript@5.9.3)(yaml@2.7.0))
       '@sanity/schema': 3.99.0(@types/react@19.0.10)
-      '@sanity/sdk': 0.0.0-alpha.25(@types/react@19.0.10)(immer@10.1.1)(react@18.3.1)(use-sync-external-store@1.6.0(react@18.3.1))
-      '@sanity/telemetry': 0.8.1(react@18.3.1)
+      '@sanity/sdk': 0.0.0-alpha.25(@types/react@19.0.10)(immer@10.1.1)(react@19.2.7)(use-sync-external-store@1.6.0(react@19.2.7))
+      '@sanity/telemetry': 0.8.1(react@19.2.7)
       '@sanity/types': 3.99.0(@types/react@19.0.10)
-      '@sanity/ui': 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@sanity/ui': 2.16.22(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react-is@18.3.1)(react@19.2.7)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       '@sanity/util': 3.99.0(@types/react@19.0.10)
       '@sanity/uuid': 3.0.2
-      '@sentry/react': 8.55.0(react@18.3.1)
-      '@tanstack/react-table': 8.21.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tanstack/react-virtual': 3.13.24(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@sentry/react': 8.55.0(react@19.2.7)
+      '@tanstack/react-table': 8.21.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@tanstack/react-virtual': 3.13.24(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@types/react-is': 19.0.0
       '@types/shallow-equals': 1.0.3
       '@types/speakingurl': 13.0.6
@@ -11019,7 +11040,7 @@ snapshots:
       '@types/use-sync-external-store': 1.5.0
       '@types/which': 3.0.4
       '@vitejs/plugin-react': 4.7.0(vite@6.4.2(@types/node@22.13.9)(jiti@2.7.0)(terser@5.39.0)(yaml@2.7.0))
-      '@xstate/react': 6.1.0(@types/react@19.0.10)(react@18.3.1)(xstate@5.31.1)
+      '@xstate/react': 6.1.0(@types/react@19.0.10)(react@19.2.7)(xstate@5.31.1)
       archiver: 7.0.1
       arrify: 2.0.1
       async-mutex: 0.4.1
@@ -11038,7 +11059,7 @@ snapshots:
       exif-component: 1.0.1
       fast-deep-equal: 3.1.3
       form-data: 4.0.2
-      framer-motion: 12.39.0(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      framer-motion: 12.39.0(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       get-it: 8.7.2
       get-random-values-esm: 1.0.2
       groq-js: 1.30.1
@@ -11068,22 +11089,22 @@ snapshots:
       path-to-regexp: 6.3.0
       peek-stream: 1.1.3
       pirates: 4.0.6
-      player.style: 0.1.10(react@18.3.1)
+      player.style: 0.1.10(react@19.2.7)
       pluralize-esm: 9.0.5
       polished: 4.3.1
       preferred-pm: 4.1.1
       pretty-ms: 7.0.1
       quick-lru: 5.1.1
       raf: 3.4.1
-      react: 18.3.1
-      react-compiler-runtime: 19.1.0-rc.2(react@18.3.1)
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-compiler-runtime: 19.1.0-rc.2(react@19.2.7)
+      react-dom: 19.2.7(react@19.2.7)
       react-fast-compare: 3.2.2
-      react-focus-lock: 2.13.6(@types/react@19.0.10)(react@18.3.1)
-      react-i18next: 14.0.2(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-focus-lock: 2.13.6(@types/react@19.0.10)(react@19.2.7)
+      react-i18next: 14.0.2(i18next@23.16.8)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       react-is: 18.3.1
-      react-refractor: 2.2.0(react@18.3.1)
-      react-rx: 4.2.2(react@18.3.1)(rxjs@7.8.2)
+      react-refractor: 2.2.0(react@19.2.7)
+      react-rx: 4.2.2(react@19.2.7)(rxjs@7.8.2)
       read-pkg-up: 7.0.1
       refractor: 3.6.0
       resolve-from: 5.0.0
@@ -11097,15 +11118,15 @@ snapshots:
       semver: 7.8.0
       shallow-equals: 1.0.0
       speakingurl: 14.0.1
-      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       tar-fs: 2.1.4
       tar-stream: 3.1.7
       tinyglobby: 0.2.16
       urlpattern-polyfill: 10.1.0
-      use-device-pixel-ratio: 1.1.2(react@18.3.1)
-      use-effect-event: 2.0.3(react@18.3.1)
-      use-hot-module-reload: 2.0.0(react@18.3.1)
-      use-sync-external-store: 1.6.0(react@18.3.1)
+      use-device-pixel-ratio: 1.1.2(react@19.2.7)
+      use-effect-event: 2.0.3(react@19.2.7)
+      use-hot-module-reload: 2.0.0(react@19.2.7)
+      use-sync-external-store: 1.6.0(react@19.2.7)
       uuid: 11.1.0
       vite: 6.4.2(@types/node@22.13.9)(jiti@2.7.0)(terser@5.39.0)(yaml@2.7.0)
       which: 5.0.0
@@ -11138,9 +11159,7 @@ snapshots:
     dependencies:
       xmlchars: 2.2.0
 
-  scheduler@0.23.2:
-    dependencies:
-      loose-envify: 1.4.0
+  scheduler@0.27.0: {}
 
   scroll-into-view-if-needed@3.1.0:
     dependencies:
@@ -11245,14 +11264,14 @@ snapshots:
       slate: 0.117.2
       tiny-invariant: 1.3.1
 
-  slate-react@0.117.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(slate-dom@0.116.0(slate@0.117.2))(slate@0.117.2):
+  slate-react@0.117.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(slate-dom@0.116.0(slate@0.117.2))(slate@0.117.2):
     dependencies:
       '@juggle/resize-observer': 3.4.0
       direction: 1.0.4
       is-hotkey: 0.2.0
       lodash: 4.18.1
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
       scroll-into-view-if-needed: 3.1.0
       slate: 0.117.2
       slate-dom: 0.116.0(slate@0.117.2)
@@ -11418,15 +11437,15 @@ snapshots:
 
   style-mod@4.1.3: {}
 
-  styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
     dependencies:
       '@emotion/is-prop-valid': 1.4.0
       csstype: 3.2.3
-      react: 18.3.1
+      react: 19.2.7
       stylis: 4.3.6
     optionalDependencies:
       css-to-react-native: 3.2.0
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.2.7(react@19.2.7)
 
   stylis@4.2.0: {}
 
@@ -11446,11 +11465,11 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  swr@2.4.1(react@18.3.1):
+  swr@2.4.1(react@19.2.7):
     dependencies:
       dequal: 2.0.3
-      react: 18.3.1
-      use-sync-external-store: 1.6.0(react@18.3.1)
+      react: 19.2.7
+      use-sync-external-store: 1.6.0(react@19.2.7)
 
   symbol-tree@3.2.4: {}
 
@@ -11737,46 +11756,46 @@ snapshots:
 
   urlpattern-polyfill@10.1.0: {}
 
-  use-callback-ref@1.3.3(@types/react@19.0.10)(react@18.3.1):
+  use-callback-ref@1.3.3(@types/react@19.0.10)(react@19.2.7):
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
       tslib: 2.8.1
     optionalDependencies:
       '@types/react': 19.0.10
 
-  use-device-pixel-ratio@1.1.2(react@18.3.1):
+  use-device-pixel-ratio@1.1.2(react@19.2.7):
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
 
-  use-effect-event@1.0.2(react@18.3.1):
+  use-effect-event@1.0.2(react@19.2.7):
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
 
-  use-effect-event@2.0.3(react@18.3.1):
+  use-effect-event@2.0.3(react@19.2.7):
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
 
-  use-hot-module-reload@2.0.0(react@18.3.1):
+  use-hot-module-reload@2.0.0(react@19.2.7):
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
 
-  use-isomorphic-layout-effect@1.2.0(@types/react@19.0.10)(react@18.3.1):
+  use-isomorphic-layout-effect@1.2.0(@types/react@19.0.10)(react@19.2.7):
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
     optionalDependencies:
       '@types/react': 19.0.10
 
-  use-sidecar@1.1.3(@types/react@19.0.10)(react@18.3.1):
+  use-sidecar@1.1.3(@types/react@19.0.10)(react@19.2.7):
     dependencies:
       detect-node-es: 1.1.0
-      react: 18.3.1
+      react: 19.2.7
       tslib: 2.8.1
     optionalDependencies:
       '@types/react': 19.0.10
 
-  use-sync-external-store@1.6.0(react@18.3.1):
+  use-sync-external-store@1.6.0(react@19.2.7):
     dependencies:
-      react: 18.3.1
+      react: 19.2.7
 
   util-deprecate@1.0.2: {}
 
@@ -11994,9 +12013,9 @@ snapshots:
 
   zod@3.24.2: {}
 
-  zustand@5.0.13(@types/react@19.0.10)(immer@10.1.1)(react@18.3.1)(use-sync-external-store@1.6.0(react@18.3.1)):
+  zustand@5.0.13(@types/react@19.0.10)(immer@10.1.1)(react@19.2.7)(use-sync-external-store@1.6.0(react@19.2.7)):
     optionalDependencies:
       '@types/react': 19.0.10
       immer: 10.1.1
-      react: 18.3.1
-      use-sync-external-store: 1.6.0(react@18.3.1)
+      react: 19.2.7
+      use-sync-external-store: 1.6.0(react@19.2.7)
