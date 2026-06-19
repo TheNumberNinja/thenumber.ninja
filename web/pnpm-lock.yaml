@@ -64,8 +64,8 @@ importers:
         version: 20.4.1(@types/node@25.0.0)
     devDependencies:
       '@11ty/eleventy':
-        specifier: 3.1.5
-        version: 3.1.5
+        specifier: 3.1.6
+        version: 3.1.6
       '@11ty/eleventy-navigation':
         specifier: 1.0.5
         version: 1.0.5
@@ -155,8 +155,8 @@ packages:
     resolution: {integrity: sha512-6QE+duqSQ0GY9rENXYb4iPR4AYGdrFpqnmi59tFp9VrleOl0QSh8VlBr2yd6dlhkdtj7904poZW5PvGr9cMiJQ==}
     engines: {node: '>=18'}
 
-  '@11ty/eleventy@3.1.5':
-    resolution: {integrity: sha512-hZ0g6MwZyRxCqXsPm82gIM304LraKbUz3ZmezOSjsqxttZG6cHTib3Qq8QkESJoKwnr+yX1eyfOkPC5/mEgZnQ==}
+  '@11ty/eleventy@3.1.6':
+    resolution: {integrity: sha512-ZlSiR1PLdS2lv7TelBgWAhcvMiLNZkPBlLEb+lh7kGYZ+Mk0bo9qcYgVsewvw9W7Em0RH3wd01h5fAstNDh0zA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -5477,8 +5477,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  semver@7.8.0:
-    resolution: {integrity: sha512-AcM7dV/5ul4EekoQ29Agm5vri8JNqRyj39o0qpX6vDF2GZrtutZl5RwgD1XnZjiTAfncsJhMI48QQH3sN87YNA==}
+  semver@7.8.4:
+    resolution: {integrity: sha512-rUCObTnP32Q08R2uuIrt7r9PlEonuTmtuXYcW6s5kjdlj3xbnwe+21yXptAUYcMAABLkYYTtnmzb3w3EDZfueA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -6411,7 +6411,7 @@ snapshots:
 
   '@11ty/eleventy-utils@2.0.7': {}
 
-  '@11ty/eleventy@3.1.5':
+  '@11ty/eleventy@3.1.6':
     dependencies:
       '@11ty/dependency-tree': 4.0.2
       '@11ty/dependency-tree-esm': 2.0.4
@@ -6443,7 +6443,7 @@ snapshots:
       please-upgrade-node: 3.2.0
       posthtml: 0.16.7
       posthtml-match-helper: 2.0.3(posthtml@0.16.7)
-      semver: 7.8.0
+      semver: 7.8.4
       slugify: 1.6.9
       tinyglobby: 0.2.16
     transitivePeerDependencies:
@@ -7914,7 +7914,7 @@ snapshots:
       https-proxy-agent: 7.0.6(supports-color@10.2.2)
       node-fetch: 2.7.0
       nopt: 8.1.0
-      semver: 7.8.0
+      semver: 7.8.4
       tar: 7.5.15
     transitivePeerDependencies:
       - encoding
@@ -7954,7 +7954,7 @@ snapshots:
       find-up: 7.0.0
       minimatch: 9.0.5
       read-pkg: 9.0.1
-      semver: 7.8.0
+      semver: 7.8.4
       yaml: 2.8.2
       yargs: 17.7.2
 
@@ -8002,7 +8002,7 @@ snapshots:
       resolve: 2.0.0-next.5
       rfdc: 1.4.1
       safe-json-stringify: 1.2.0
-      semver: 7.8.0
+      semver: 7.8.4
       string-width: 7.2.0
       supports-color: 10.2.2
       terminal-link: 4.0.0
@@ -8073,7 +8073,7 @@ snapshots:
       image-size: 2.0.2
       js-image-generator: 1.0.4
       parse-gitignore: 2.0.0
-      semver: 7.8.0
+      semver: 7.8.4
       tmp-promise: 3.0.3
       uuid: 11.1.0
       write-file-atomic: 5.0.1
@@ -8091,7 +8091,7 @@ snapshots:
       image-size: 2.0.2
       js-image-generator: 1.0.4
       parse-gitignore: 2.0.0
-      semver: 7.8.0
+      semver: 7.8.4
       tmp-promise: 3.0.3
       uuid: 13.0.0
       write-file-atomic: 5.0.1
@@ -8110,7 +8110,7 @@ snapshots:
       image-size: 2.0.2
       js-image-generator: 1.0.4
       parse-gitignore: 2.0.0
-      semver: 7.8.0
+      semver: 7.8.4
       tmp-promise: 3.0.3
 
   '@netlify/edge-bundler@14.9.5':
@@ -8130,7 +8130,7 @@ snapshots:
       p-wait-for: 5.0.2
       parse-imports: 2.2.1
       path-key: 4.0.0
-      semver: 7.8.0
+      semver: 7.8.4
       tar: 7.5.15
       tmp-promise: 3.0.3
       urlpattern-polyfill: 8.0.2
@@ -8334,7 +8334,7 @@ snapshots:
       precinct: 12.2.0(supports-color@10.2.2)
       require-package-name: 2.0.1
       resolve: 2.0.0-next.5
-      semver: 7.8.0
+      semver: 7.8.4
       tmp-promise: 3.0.3
       toml: 3.0.0
       unixify: 1.0.0
@@ -8375,7 +8375,7 @@ snapshots:
       precinct: 12.2.0(supports-color@10.2.2)
       require-package-name: 2.0.1
       resolve: 2.0.0-next.5
-      semver: 7.8.0
+      semver: 7.8.4
       tmp-promise: 3.0.3
       toml: 3.0.0
       unixify: 1.0.0
@@ -8974,7 +8974,7 @@ snapshots:
       '@typescript-eslint/visitor-keys': 8.49.0
       debug: 4.4.3(supports-color@10.2.2)
       minimatch: 9.0.5
-      semver: 7.8.0
+      semver: 7.8.4
       tinyglobby: 0.2.16
       ts-api-utils: 2.1.0(typescript@5.9.3)
       typescript: 5.9.3
@@ -10453,7 +10453,7 @@ snapshots:
       process-warning: 5.0.0
       rfdc: 1.4.1
       secure-json-parse: 4.1.0
-      semver: 7.8.0
+      semver: 7.8.4
       toad-cache: 3.7.0
 
   fastq@1.19.1:
@@ -10661,7 +10661,7 @@ snapshots:
     dependencies:
       '@xhmikosr/downloader': 13.0.1
       node-fetch: 3.3.2
-      semver: 7.8.0
+      semver: 7.8.4
     transitivePeerDependencies:
       - bare-abort-controller
       - react-native-b4a
@@ -11129,7 +11129,7 @@ snapshots:
       lodash.isstring: 4.0.1
       lodash.once: 4.1.1
       ms: 2.1.3
-      semver: 7.8.0
+      semver: 7.8.4
 
   junk@3.1.0: {}
 
@@ -11317,7 +11317,7 @@ snapshots:
 
   make-dir@4.0.0:
     dependencies:
-      semver: 7.8.0
+      semver: 7.8.4
 
   make-error@1.3.6: {}
 
@@ -11658,19 +11658,19 @@ snapshots:
   normalize-package-data@6.0.2:
     dependencies:
       hosted-git-info: 7.0.2
-      semver: 7.8.0
+      semver: 7.8.4
       validate-npm-package-license: 3.0.4
 
   normalize-package-data@7.0.1:
     dependencies:
       hosted-git-info: 8.1.0
-      semver: 7.8.0
+      semver: 7.8.4
       validate-npm-package-license: 3.0.4
 
   normalize-package-data@8.0.0:
     dependencies:
       hosted-git-info: 9.0.3
-      semver: 7.8.0
+      semver: 7.8.4
       validate-npm-package-license: 3.0.4
 
   normalize-path@2.1.1:
@@ -11842,7 +11842,7 @@ snapshots:
       ky: 1.14.1
       registry-auth-token: 5.1.0
       registry-url: 6.0.1
-      semver: 7.8.0
+      semver: 7.8.4
 
   parallel-transform@1.2.0:
     dependencies:
@@ -12335,7 +12335,7 @@ snapshots:
 
   semver@7.7.2: {}
 
-  semver@7.8.0: {}
+  semver@7.8.4: {}
 
   send@1.2.0:
     dependencies:
@@ -12376,7 +12376,7 @@ snapshots:
     dependencies:
       '@img/colour': 1.0.0
       detect-libc: 2.1.2
-      semver: 7.8.0
+      semver: 7.8.4
     optionalDependencies:
       '@img/sharp-darwin-arm64': 0.34.5
       '@img/sharp-darwin-x64': 0.34.5
@@ -12876,7 +12876,7 @@ snapshots:
       is-npm: 6.1.0
       latest-version: 9.0.0
       pupa: 3.3.0
-      semver: 7.8.0
+      semver: 7.8.4
       xdg-basedir: 5.1.0
 
   uqr@0.1.2: {}
