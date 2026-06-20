@@ -7,3 +7,16 @@ manage-package-manager-versions: false
 onlyBuiltDependencies:
   - esbuild
   - netlify-cli
+
+# pnpm 11's supply-chain check (trustPolicy) flags these mainstream transitive
+# deps (all netlify-cli's, plus chokidar/semver) as "trust downgrade" false
+# positives, which fails `pnpm install` on Netlify. Excluded surgically so the
+# verification stays ON for every other package. Revisit if pnpm's heuristic
+# improves or these clear upstream.
+trustPolicyExclude:
+  - '@netlify/edge-bundler'
+  - '@netlify/images'
+  - '@netlify/serverless-functions-api'
+  - '@netlify/zip-it-and-ship-it'
+  - chokidar
+  - semver

@@ -1,0 +1,16 @@
+# Keep packageManager as bare semver (no Corepack +sha512 hash) so Corepack and
+# Renovate's bare-semver customManager can both parse it. Mirrors web/pnpm-workspace.yaml.
+manage-package-manager-versions: false
+
+# pnpm 11's supply-chain check (trustPolicy) flags these mainstream transitive
+# deps as "trust downgrade" false positives, which fails `pnpm install`. Excluded
+# surgically so the verification stays ON for every other package. Revisit if
+# pnpm's heuristic improves or these clear upstream.
+trustPolicyExclude:
+  - '@portabletext/editor'
+  - '@reduxjs/toolkit'
+  - '@sanity/template-validator'
+  - react-redux
+  - reselect
+  - semver
+  - undici-types

@@ -43,9 +43,9 @@
     "bracketSpacing": false,
     "singleQuote": true
   },
-  "packageManager": "pnpm@10.28.2+sha512.QYcvA3rSL3NI47Heu69+hnz9RI8nJtnPdMCPGVB8MdLI56EVJbmD/rwt9kC1Q43uYCPrsfhO1DzC1lTSvDJiZA==",
+  "packageManager": "pnpm@11.7.0",
   "engines": {
     "node": ">=22.22.3",
-    "pnpm": ">=10 <11"
+    "pnpm": ">=11 <12"
   }
 }
