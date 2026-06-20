@@ -1,12 +1,20 @@
 # Netlify's build-image wrapper (run-build-functions.sh) parses the packageManager
 # field with a bare-semver regex and rejects Corepack's +sha512.HASH suffix.
-# pnpm v10 auto-rewrites packageManager with that hash on every install unless
+# pnpm auto-rewrites packageManager with that hash on every install unless
 # this setting is false. See web/package.json `packageManager` and renovate.json.
 manage-package-manager-versions: false
 
-onlyBuiltDependencies:
-  - esbuild
-  - netlify-cli
+# pnpm 11 requires explicit per-package build-script approval (strictDepBuilds is
+# on by default; any unhandled build script fails install with ERR_PNPM_IGNORED_BUILDS).
+# Replaces pnpm 10's onlyBuiltDependencies, which v11 ignores. true = run the
+# package's install/build script; core-js only prints a funding notice so it's skipped.
+allowBuilds:
+  '@parcel/watcher': true
+  core-js: false
+  esbuild: true
+  netlify-cli: true
+  sharp: true
+  unix-dgram: true
 
 # pnpm 11's supply-chain check (trustPolicy) flags these mainstream transitive
 # deps (all netlify-cli's, plus chokidar/semver) as "trust downgrade" false
