@@ -4,7 +4,8 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 import {table} from '@sanity/table'
 import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
-import {netlifyTool} from 'sanity-plugin-netlify'
+import {dashboardTool} from '@sanity/dashboard'
+import {netlifyWidget} from 'sanity-plugin-dashboard-widget-netlify'
 import {media} from 'sanity-plugin-media'
 
 export default defineConfig({
@@ -15,7 +16,25 @@ export default defineConfig({
   dataset: process.env.SANITY_STUDIO_DATASET as string,
 
   plugins: [
-    netlifyTool(),
+    dashboardTool({
+      widgets: [
+        netlifyWidget({
+          title: 'Netlify deploys',
+          sites: [
+            {
+              title: 'thenumber.ninja',
+              // Set these in studio/.env.local (and the Sanity deploy env). The repo
+              // is public, so the build hook stays out of source via env vars.
+              // Netlify: Site settings > General > Site details (name + API ID),
+              // and Site settings > Build & deploy > Build hooks (build hook ID).
+              name: process.env.SANITY_STUDIO_NETLIFY_SITE_NAME as string,
+              apiId: process.env.SANITY_STUDIO_NETLIFY_API_ID as string,
+              buildHookId: process.env.SANITY_STUDIO_NETLIFY_BUILD_HOOK_ID as string,
+            },
+          ],
+        }),
+      ],
+    }),
     structureTool({
       structure: (S, context) => {
         return S.list()
