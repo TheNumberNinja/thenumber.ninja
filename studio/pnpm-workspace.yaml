@@ -2,6 +2,12 @@
 # Renovate's bare-semver customManager can both parse it. Mirrors web/pnpm-workspace.yaml.
 manage-package-manager-versions: false
 
+# pnpm 11 requires explicit per-package build-script approval (strictDepBuilds is
+# on by default; an unhandled build script fails install with ERR_PNPM_IGNORED_BUILDS).
+# Sanity bundles esbuild and needs its native binary at build time.
+allowBuilds:
+  esbuild: true
+
 # pnpm 11's supply-chain check (trustPolicy) flags these mainstream transitive
 # deps as "trust downgrade" false positives, which fails `pnpm install`. Excluded
 # surgically so the verification stays ON for every other package. Revisit if
