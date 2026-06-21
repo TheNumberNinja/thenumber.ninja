@@ -16,6 +16,7 @@ trustPolicyExclude:
   - '@portabletext/editor'
   - '@reduxjs/toolkit'
   - '@sanity/template-validator'
+  - groq
   - react-redux
   - reselect
   - semver
