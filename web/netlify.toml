@@ -11,7 +11,7 @@
   ignore = "./scripts/should-build.sh"
 
 [build.environment]
-  NODE_VERSION = "24.16.0"
+  NODE_VERSION = "24.17.0"
   NPM_FLAGS = "--prefix=/dev/null"
 
 [functions]
