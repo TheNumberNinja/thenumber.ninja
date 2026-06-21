@@ -8,6 +8,24 @@ import {dashboardTool} from '@sanity/dashboard'
 import {netlifyWidget} from 'sanity-plugin-dashboard-widget-netlify'
 import {media} from 'sanity-plugin-media'
 
+// Netlify deploy widget config. Set these in the build/deploy environment
+// (studio/.env.local locally, or the Sanity deploy env). The repo is public, so
+// the build hook stays out of source. The guard fails the build with a clear
+// message if any are missing, and narrows the types so the widget never receives
+// `undefined`.
+// Netlify: Site settings > General > Site details (name + API ID),
+// and Site settings > Build & deploy > Build hooks (build hook ID).
+const netlifySiteName = process.env.SANITY_STUDIO_NETLIFY_SITE_NAME
+const netlifyApiId = process.env.SANITY_STUDIO_NETLIFY_API_ID
+const netlifyBuildHookId = process.env.SANITY_STUDIO_NETLIFY_BUILD_HOOK_ID
+
+if (!netlifySiteName || !netlifyApiId || !netlifyBuildHookId) {
+  throw new Error(
+    'Missing Netlify deploy widget env vars. Set SANITY_STUDIO_NETLIFY_SITE_NAME, ' +
+      'SANITY_STUDIO_NETLIFY_API_ID and SANITY_STUDIO_NETLIFY_BUILD_HOOK_ID.',
+  )
+}
+
 export default defineConfig({
   name: 'default',
   title: 'thenumber.ninja',
@@ -23,13 +41,9 @@ export default defineConfig({
           sites: [
             {
               title: 'thenumber.ninja',
-              // Set these in studio/.env.local (and the Sanity deploy env). The repo
-              // is public, so the build hook stays out of source via env vars.
-              // Netlify: Site settings > General > Site details (name + API ID),
-              // and Site settings > Build & deploy > Build hooks (build hook ID).
-              name: process.env.SANITY_STUDIO_NETLIFY_SITE_NAME as string,
-              apiId: process.env.SANITY_STUDIO_NETLIFY_API_ID as string,
-              buildHookId: process.env.SANITY_STUDIO_NETLIFY_BUILD_HOOK_ID as string,
+              name: netlifySiteName,
+              apiId: netlifyApiId,
+              buildHookId: netlifyBuildHookId,
             },
           ],
         }),
