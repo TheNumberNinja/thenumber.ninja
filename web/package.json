@@ -61,7 +61,7 @@
     "eslint": "9.39.4",
     "globals": "16.5.0",
     "markdown-it": "14.3.0",
-    "markdown-it-anchor": "9.2.0",
+    "markdown-it-anchor": "9.2.1",
     "markdown-it-link-attributes": "4.0.1",
     "netlify-cli": "26.1.0",
     "prettier": "3.9.5",
