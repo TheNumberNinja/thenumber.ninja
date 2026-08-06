@@ -94,9 +94,16 @@
       "groupName": "Vite"
     },
     {
-      "description": "Group ESLint core, configs, and globals (flat-config ecosystem moves together)",
-      "matchPackageNames": ["eslint", "@eslint/**", "@sanity/eslint-config-studio", "globals"],
-      "groupName": "ESLint"
+      "description": "Group ESLint per workspace, NOT across both. web/ only depends on eslint + @eslint/js + globals and tracks ESLint majors immediately, but studio/ pulls @sanity/eslint-config-studio, which drags in eslint-plugin-react and eslint-plugin-jsx-a11y; those three lag a major behind (all still declare eslint ^9 as of ESLint 10). A single group made the two workspaces move in lockstep, so the studio half being unmergeable blocked the web half too. Split so each can land on its own; with strictPeerDependencies the studio PR fails to resolve until its plugins declare support, and starts working by itself once they do.",
+      "matchPackageNames": ["eslint", "@eslint/**", "globals"],
+      "matchFileNames": ["web/**"],
+      "groupName": "ESLint (web)"
+    },
+    {
+      "description": "Studio half of the ESLint split above. @sanity/eslint-config-studio belongs here only; it has no web/ dependant.",
+      "matchPackageNames": ["eslint", "@sanity/eslint-config-studio", "globals"],
+      "matchFileNames": ["studio/**"],
+      "groupName": "ESLint (studio)"
     },
     {
       "description": "Group Prettier and its plugins (plugin versions are tied to Prettier's API)",
