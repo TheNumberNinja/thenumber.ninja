@@ -2,6 +2,17 @@
 # Renovate's bare-semver customManager can both parse it. Mirrors web/pnpm-workspace.yaml.
 manage-package-manager-versions: false
 
+# Fail the install on an unmet peer instead of resolving one silently. pnpm only
+# evaluates peers when it RESOLVES, so this costs a routine --frozen-lockfile
+# install nothing; it fires where the decision is actually made, including when
+# Renovate regenerates a lockfile. Without it, studio ran for two months on a
+# TypeScript outside typescript-eslint's declared range and nothing reported it,
+# because the linter that would have loaded typescript-eslint was itself dead.
+# This is also what keeps TypeScript 7 out without a Renovate hold rule to rot:
+# the bump simply fails to resolve until typescript-eslint supports it, then
+# starts working on its own.
+strictPeerDependencies: true
+
 # pnpm 11 requires explicit per-package build-script approval (strictDepBuilds is
 # on by default; an unhandled build script fails install with ERR_PNPM_IGNORED_BUILDS).
 # Sanity bundles esbuild and needs its native binary at build time.

@@ -4,6 +4,24 @@
 # this setting is false. See web/package.json `packageManager` and renovate.json.
 manage-package-manager-versions: false
 
+# Fail the install on an unmet peer instead of resolving one silently. pnpm only
+# evaluates peers when it RESOLVES, so a routine --frozen-lockfile install pays
+# nothing; this fires where the decision is made, including when Renovate
+# regenerates a lockfile. Mirrors studio/pnpm-workspace.yaml.
+strictPeerDependencies: true
+
+# @netlify/build and @netlify/opentelemetry-utils pin @opentelemetry/api to
+# ~1.8.0, but another dependency in the same tree requires ^1.9.0, so no single
+# version satisfies both. @opentelemetry/api is deliberately a frozen, stable
+# API surface (that is the package's entire purpose), and 1.9.x is backwards
+# compatible with 1.8.x, so the netlify range is simply over-tight. Scoped to
+# those two parents so the check stays strict everywhere else. Remove once
+# netlify widens its range.
+peerDependencyRules:
+  allowedVersions:
+    '@netlify/build>@opentelemetry/api': '1.9.x'
+    '@netlify/opentelemetry-utils>@opentelemetry/api': '1.9.x'
+
 # pnpm 11 requires explicit per-package build-script approval (strictDepBuilds is
 # on by default; any unhandled build script fails install with ERR_PNPM_IGNORED_BUILDS).
 # Replaces pnpm 10's onlyBuiltDependencies, which v11 ignores. true = run the

@@ -34,12 +34,13 @@
     "styled-components": "6.4.3"
   },
   "devDependencies": {
-    "@sanity/client": "7.23.2",
-    "@sanity/eslint-config-studio": "5.0.2",
+    "@sanity/client": "7.24.0",
+    "@sanity/eslint-config-studio": "6.0.0",
+    "@types/node": "24.13.3",
     "eslint": "9.39.5",
     "globals": "16.5.0",
     "prettier": "3.9.5",
-    "typescript": "7.0.2"
+    "typescript": "6.0.3"
   },
   "prettier": {
     "semi": false,
