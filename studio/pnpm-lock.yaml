@@ -64,8 +64,8 @@ importers:
         specifier: 16.5.0
         version: 16.5.0
       prettier:
-        specifier: 3.9.5
-        version: 3.9.5
+        specifier: 3.9.6
+        version: 3.9.6
       typescript:
         specifier: 6.0.3
         version: 6.0.3
@@ -1028,10 +1028,6 @@ packages:
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
 
-  '@eslint-community/regexpp@4.12.1':
-    resolution: {integrity: sha512-CCZCDJuduB9OUkFkY2IgppNZMi2lBQgD2qzwXkEia16cge2pijY/aXi96CJMquDMn3nJdlPV1A5KrJEXwfLNzQ==}
-    engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
-
   '@eslint-community/regexpp@4.12.2':
     resolution: {integrity: sha512-EriSTlt5OC9/7SXkRSCAhfSxxoSUgBm33OH+IkwbdpgoqsSsUg7y3uh+IICI/Qg4BBWr3U2i39RpmycbxMq4ew==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
@@ -1885,10 +1881,6 @@ packages:
     peerDependenciesMeta:
       babel-plugin-react-compiler:
         optional: true
-
-  '@sanity/client@7.23.2':
-    resolution: {integrity: sha512-WC0vsGGpe4IGVFBvYMFFPa3KLH0vzgZwzvHIN20IDmPjuifDHSCbpq299Yj7jJQb2xBMJ7zQj45RyOzOIC7PUA==}
-    engines: {node: '>=20'}
 
   '@sanity/client@7.24.0':
     resolution: {integrity: sha512-YfXm/MzcknFiOe4Y5nYIFEhqqYwrQaWt7f4Vy3sbt3ZbDbd8oMoPaQ/WeSSbWFkHV8RFm01dE16u4Z1VNude+g==}
@@ -4414,8 +4406,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier@3.9.5:
-    resolution: {integrity: sha512-/FVl766LpUfB5vXgCYOYa0MeV/441Ia99AeICQIQFTY/Nw0roZwULcXpku5i1/m5kt/baz+s4Zogspd839HSMg==}
+  prettier@3.9.6:
+    resolution: {integrity: sha512-OpN0zzVdiaiAhxpuuj5efpIS4sY9j7bY6uR5mnj5yPzGkdkjNKSJeUThPb60Jw29QuAZgA4o+/iB49kFiaBX6g==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -6658,8 +6650,6 @@ snapshots:
       eslint: 9.39.5(jiti@2.7.0)
       eslint-visitor-keys: 3.4.3
 
-  '@eslint-community/regexpp@4.12.1': {}
-
   '@eslint-community/regexpp@4.12.2': {}
 
   '@eslint/config-array@0.21.2':
@@ -7538,7 +7528,7 @@ snapshots:
     dependencies:
       '@inquirer/prompts': 8.5.2(@types/node@24.13.3)
       '@oclif/core': 4.11.14
-      '@sanity/client': 7.23.2
+      '@sanity/client': 7.24.0
       boxen: 8.0.1
       debug: 4.4.3(supports-color@8.1.1)
       empathic: 2.0.1
@@ -7668,13 +7658,6 @@ snapshots:
       - vue-tsc
       - xstate
 
-  '@sanity/client@7.23.2':
-    dependencies:
-      '@sanity/eventsource': 5.0.4
-      get-it: 8.8.0
-      nanoid: 3.3.16
-      rxjs: 7.8.2
-
   '@sanity/client@7.24.0':
     dependencies:
       '@sanity/eventsource': 5.0.4
@@ -7703,7 +7686,7 @@ snapshots:
       groq-js: 1.30.3
       json5: 2.2.3
       lodash-es: 4.18.1
-      prettier: 3.9.5
+      prettier: 3.9.6
       reselect: 5.2.0
       tsconfig-paths: 4.2.0
       zod: 4.4.3
@@ -9305,7 +9288,7 @@ snapshots:
   eslint@9.39.5(jiti@2.7.0):
     dependencies:
       '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.5(jiti@2.7.0))
-      '@eslint-community/regexpp': 4.12.1
+      '@eslint-community/regexpp': 4.12.2
       '@eslint/config-array': 0.21.2
       '@eslint/config-helpers': 0.4.2
       '@eslint/core': 0.17.0
@@ -10545,7 +10528,7 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier@3.9.5: {}
+  prettier@3.9.6: {}
 
   pretty-ms@9.3.0:
     dependencies:
