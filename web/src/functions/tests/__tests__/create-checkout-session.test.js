@@ -1,5 +1,5 @@
 import { describe, test, expect, vi, beforeEach, afterEach } from 'vitest';
-import { DateTime, Settings } from 'luxon';
+import { Settings } from 'luxon';
 
 // Mock external dependencies before importing the module
 vi.mock('../../../../config/utils/sanityClient.js', () => ({

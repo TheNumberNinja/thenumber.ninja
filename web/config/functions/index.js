@@ -1,6 +1,5 @@
 import crypto from 'crypto';
 import { readFileSync } from 'fs';
-import { join } from 'path';
 
 function isProduction() {
   return process.env.ENV === 'production';
@@ -28,12 +27,12 @@ function getCommitRef() {
         if ('commitRef' in buildInformation) {
           return buildInformation['commitRef'];
         }
-      } catch (_e) {
+      } catch {
         // Try next path
         continue;
       }
     }
-  } catch (_e) {
+  } catch {
     // All paths failed
   }
 

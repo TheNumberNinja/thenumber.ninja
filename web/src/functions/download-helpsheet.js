@@ -6,7 +6,7 @@ Sentry.AWSLambda.init({
   dsn: process.env.SENTRY_DSN,
   environment: process.env.ENV,
   release: `the-number-ninja@${getCommitRef()}`,
-  beforeSend(event, hint) {
+  beforeSend(event, _hint) {
     // Don't send events if it's not production
     if (!isProduction()) {
       return null;
@@ -50,7 +50,7 @@ const respond = (statusCode, body) => {
   return response;
 };
 
-export const handler = Sentry.AWSLambda.wrapHandler(async function (event, context) {
+export const handler = Sentry.AWSLambda.wrapHandler(async function (event, _context) {
   if (event.httpMethod !== 'POST') {
     return respond(405, { error: 'Method Not Allowed' });
   }

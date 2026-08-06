@@ -10,7 +10,7 @@ Sentry.AWSLambda.init({
   dsn: process.env.SENTRY_DSN,
   environment: process.env.ENV,
   release: `the-number-ninja@${getCommitRef()}`,
-  beforeSend(event, hint) {
+  beforeSend(event, _hint) {
     // Don't send events if it's not production
     if (!isProduction()) {
       return null;
@@ -49,7 +49,7 @@ async function getTaxRate() {
   throw 'No VAT tax rate configured in Stripe';
 }
 
-const handler = Sentry.AWSLambda.wrapHandler(async (event, context, callback) => {
+const handler = Sentry.AWSLambda.wrapHandler(async (event, _context, _callback) => {
   if (event.httpMethod !== 'POST') {
     return respond(405, { error: 'Method Not Allowed' });
   }
