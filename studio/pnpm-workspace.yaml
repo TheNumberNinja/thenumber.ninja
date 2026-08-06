@@ -19,5 +19,6 @@ trustPolicyExclude:
   - groq
   - react-redux
   - reselect
+  - sanity-plugin-utils
   - semver
   - undici-types
