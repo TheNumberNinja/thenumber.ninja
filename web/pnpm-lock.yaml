@@ -27,8 +27,8 @@ importers:
         specifier: 5.0.2
         version: 5.0.2
       '@sanity/client':
-        specifier: 7.23.2
-        version: 7.23.2
+        specifier: 7.26.0
+        version: 7.26.0
       '@sanity/image-url':
         specifier: 2.1.1
         version: 2.1.1
@@ -2051,8 +2051,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@sanity/client@7.23.2':
-    resolution: {integrity: sha512-WC0vsGGpe4IGVFBvYMFFPa3KLH0vzgZwzvHIN20IDmPjuifDHSCbpq299Yj7jJQb2xBMJ7zQj45RyOzOIC7PUA==}
+  '@sanity/client@7.26.0':
+    resolution: {integrity: sha512-7GEzTFRY6kWRjHbJYUDEGKPXHVl/XItGpV5LYCLcWMvBlgfujXuAjdp4hJVZqX8F8OtBzIFqdhiSn5Kh5u/V5Q==}
     engines: {node: '>=20'}
 
   '@sanity/eventsource@5.0.4':
@@ -8274,7 +8274,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.60.4':
     optional: true
 
-  '@sanity/client@7.23.2':
+  '@sanity/client@7.26.0':
     dependencies:
       '@sanity/eventsource': 5.0.4
       get-it: 8.8.0
