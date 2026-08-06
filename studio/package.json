@@ -34,7 +34,7 @@
     "styled-components": "6.4.4"
   },
   "devDependencies": {
-    "@sanity/client": "7.26.1",
+    "@sanity/client": "7.26.2",
     "@sanity/eslint-config-studio": "6.0.0",
     "@types/node": "24.13.3",
     "eslint": "9.39.5",
