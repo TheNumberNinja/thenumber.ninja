@@ -1,18 +1,8 @@
-import {useCallback} from 'react'
 import {Stack, Text, TextInput} from '@sanity/ui'
-import {set, unset} from 'sanity'
 
 export const StripeLinkInput = (props) => {
-  const {elementProps, onChange, schemaType, value = ''} = props
+  const {elementProps, schemaType, value = ''} = props
   const {baseUrl, objectType} = schemaType.options
-
-  const handleChange = useCallback(
-    (event) => {
-      const nextValue = event.currentTarget.value
-      onChange(nextValue ? set(nextValue) : unset())
-    },
-    [onChange],
-  )
 
   let link = ''
   if (value && value.length > 4) {

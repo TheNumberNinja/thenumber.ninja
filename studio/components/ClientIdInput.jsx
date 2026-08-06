@@ -1,17 +1,7 @@
-import {useCallback} from 'react'
 import {Stack, Text, TextInput} from '@sanity/ui'
-import {set, unset} from 'sanity'
 
 export const ClientIdInput = (props) => {
-  const {elementProps, onChange, value = ''} = props
-
-  const handleChange = useCallback(
-    (event) => {
-      const nextValue = event.currentTarget.value
-      onChange(nextValue ? set(nextValue) : unset())
-    },
-    [onChange],
-  )
+  const {elementProps, value = ''} = props
 
   let link = ''
   if (value.length > 0) {

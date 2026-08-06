@@ -63,9 +63,10 @@ export default {
       media: 'image',
     },
     prepare(selection) {
-      const {title, services, media} = selection
+      const {title, media} = selection
       return {
         title,
+        // Re-add `services` to the destructure above to enable this subtitle.
         // subtitle: services?.map(
         //   (key) => key.split('-').map(
         //     (word) => word.charAt(0).toUpperCase() + word.slice(1)
