@@ -69,9 +69,6 @@ importers:
       '@11ty/eleventy-navigation':
         specifier: 1.0.5
         version: 1.0.5
-      '@11ty/eleventy-plugin-rss':
-        specifier: 3.0.0
-        version: 3.0.0(supports-color@10.2.2)
       '@11ty/eleventy-plugin-vite':
         specifier: 8.0.0
         version: 8.0.0(@types/node@25.0.0)(esbuild@0.28.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.2)
@@ -143,9 +140,6 @@ packages:
   '@11ty/eleventy-plugin-bundle@3.0.7':
     resolution: {integrity: sha512-QK1tRFBhQdZASnYU8GMzpTdsMMFLVAkuU0gVVILqNyp09xJJZb81kAS3AFrNrwBCsgLxTdWHJ8N64+OTTsoKkA==}
     engines: {node: '>=18'}
-
-  '@11ty/eleventy-plugin-rss@3.0.0':
-    resolution: {integrity: sha512-kKW4DcR57xAyRx0e8gNhKh56ahHVEaAj8/TuXQDnw+B46ig2bWADJAlyj/GdV37IG5ja9dZ4SgKZrs/CHz6YWQ==}
 
   '@11ty/eleventy-plugin-vite@8.0.0':
     resolution: {integrity: sha512-dbKKhD+AMHcf832rEnt4FsSBWawQJCoHLePREz+oRGmqyud0lj3mZcqfDVxBJKqvtiUyE3VTtXX0po+CZQgg8A==}
@@ -6097,15 +6091,6 @@ snapshots:
       posthtml-match-helper: 2.0.3(posthtml@0.16.7)
     transitivePeerDependencies:
       - posthtml
-      - supports-color
-
-  '@11ty/eleventy-plugin-rss@3.0.0(supports-color@10.2.2)':
-    dependencies:
-      '@11ty/eleventy-utils': 2.0.7
-      '@11ty/posthtml-urls': 1.0.3
-      debug: 4.4.3(supports-color@10.2.2)
-      posthtml: 0.16.7
-    transitivePeerDependencies:
       - supports-color
 
   '@11ty/eleventy-plugin-vite@8.0.0(@types/node@25.0.0)(esbuild@0.28.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.2)':
