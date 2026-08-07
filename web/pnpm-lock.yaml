@@ -106,8 +106,8 @@ importers:
         specifier: 4.0.1
         version: 4.0.1
       netlify-cli:
-        specifier: 27.0.3
-        version: 27.0.3(@types/node@25.0.0)(picomatch@4.0.5)(rollup@4.60.4)(supports-color@10.2.2)
+        specifier: 27.1.0
+        version: 27.1.0(@types/node@25.0.0)(picomatch@4.0.5)(rollup@4.60.4)(supports-color@10.2.2)
       prettier:
         specifier: 3.9.6
         version: 3.9.6
@@ -4401,8 +4401,8 @@ packages:
     resolution: {integrity: sha512-8Ofs/AUQh8MaEcrlq5xOX0CQ9ypTF5dl78mjlMNfOK08fzpgTHQRQPBxcPlEtIw0yRpws+Zo/3r+5WRby7u3Gg==}
     engines: {node: '>= 0.6'}
 
-  netlify-cli@27.0.3:
-    resolution: {integrity: sha512-DcDBavUSy22vsXyHqOwC02ovLve+oDKw9A6373EUupZULxJQdwz1POty75fg6KEFjrdHif0JlMkLRGrgidim+Q==}
+  netlify-cli@27.1.0:
+    resolution: {integrity: sha512-o2iu7u0GKLI7FeAIPajKIHbv+Ve0ZVUfbGlt67VEV7DuphrVl9Tu7sZ1VwZwHWi6tgbV/7tWpxaZC+tmGTgGCg==}
     engines: {node: '>=22.13.0'}
     hasBin: true
 
@@ -10759,7 +10759,7 @@ snapshots:
 
   negotiator@1.0.0: {}
 
-  netlify-cli@27.0.3(@types/node@25.0.0)(picomatch@4.0.5)(rollup@4.60.4)(supports-color@10.2.2):
+  netlify-cli@27.1.0(@types/node@25.0.0)(picomatch@4.0.5)(rollup@4.60.4)(supports-color@10.2.2):
     dependencies:
       '@fastify/static': 10.1.2
       '@netlify/ai': 0.4.4
