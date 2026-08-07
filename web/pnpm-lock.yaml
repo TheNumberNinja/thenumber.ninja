@@ -70,11 +70,11 @@ importers:
         specifier: 1.0.5
         version: 1.0.5
       '@11ty/eleventy-plugin-rss':
-        specifier: 2.0.4
-        version: 2.0.4(supports-color@10.2.2)
+        specifier: 3.0.0
+        version: 3.0.0(supports-color@10.2.2)
       '@11ty/eleventy-plugin-vite':
-        specifier: 7.1.1
-        version: 7.1.1(@types/node@25.0.0)(jiti@2.6.1)(lightningcss@1.33.0)(terser@5.43.1)(yaml@2.8.2)
+        specifier: 8.0.0
+        version: 8.0.0(@types/node@25.0.0)(esbuild@0.28.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.2)
       '@eslint/js':
         specifier: 10.0.1
         version: 10.0.1(eslint@10.8.0(jiti@2.6.1)(supports-color@10.2.2))
@@ -144,12 +144,12 @@ packages:
     resolution: {integrity: sha512-QK1tRFBhQdZASnYU8GMzpTdsMMFLVAkuU0gVVILqNyp09xJJZb81kAS3AFrNrwBCsgLxTdWHJ8N64+OTTsoKkA==}
     engines: {node: '>=18'}
 
-  '@11ty/eleventy-plugin-rss@2.0.4':
-    resolution: {integrity: sha512-LF60sGVlxGTryQe3hTifuzrwF8R7XbrNsM2xfcDcNMSliLN4kmB+7zvoLRySRx0AQDjqhPTAeeeT0ra6/9zHUQ==}
+  '@11ty/eleventy-plugin-rss@3.0.0':
+    resolution: {integrity: sha512-kKW4DcR57xAyRx0e8gNhKh56ahHVEaAj8/TuXQDnw+B46ig2bWADJAlyj/GdV37IG5ja9dZ4SgKZrs/CHz6YWQ==}
 
-  '@11ty/eleventy-plugin-vite@7.1.1':
-    resolution: {integrity: sha512-ZpQPy4a6hwGNKYcWdQ8T7OCdxYDqgXPe6nn6QEjlaISpOYSC7M/7HZ6KVxqDBOswzKy6Z0Gs00KDNZ4qk6YaVQ==}
-    engines: {node: '>=18'}
+  '@11ty/eleventy-plugin-vite@8.0.0':
+    resolution: {integrity: sha512-dbKKhD+AMHcf832rEnt4FsSBWawQJCoHLePREz+oRGmqyud0lj3mZcqfDVxBJKqvtiUyE3VTtXX0po+CZQgg8A==}
+    engines: {node: ^20.19.0 || >=22.12.0}
 
   '@11ty/eleventy-utils@2.0.7':
     resolution: {integrity: sha512-6QE+duqSQ0GY9rENXYb4iPR4AYGdrFpqnmi59tFp9VrleOl0QSh8VlBr2yd6dlhkdtj7904poZW5PvGr9cMiJQ==}
@@ -5804,46 +5804,6 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  vite@7.3.6:
-    resolution: {integrity: sha512-4XP60spRGjSZFf1qYH+dJIkK2znL3zQfl9KkOV9MkkRR/3Dls0dxaBsQPTloEc5BLXWPL9vsOxopxyKoMmDueg==}
-    engines: {node: ^20.19.0 || >=22.12.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': ^20.19.0 || >=22.12.0
-      jiti: '>=1.21.0'
-      less: ^4.0.0
-      lightningcss: ^1.21.0
-      sass: ^1.70.0
-      sass-embedded: ^1.70.0
-      stylus: '>=0.54.8'
-      sugarss: ^5.0.0
-      terser: ^5.16.0
-      tsx: ^4.8.1
-      yaml: ^2.4.2
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      jiti:
-        optional: true
-      less:
-        optional: true
-      lightningcss:
-        optional: true
-      sass:
-        optional: true
-      sass-embedded:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-      tsx:
-        optional: true
-      yaml:
-        optional: true
-
   vite@8.2.0:
     resolution: {integrity: sha512-pn+CFpM0lwDeKwmOq1ZaBK/9sjorZcgqxki6MbY/jPEVd9vichIlmlD4HmQ5wdP5EgqQCFRaACBxMC7uEGc6lQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -6139,7 +6099,7 @@ snapshots:
       - posthtml
       - supports-color
 
-  '@11ty/eleventy-plugin-rss@2.0.4(supports-color@10.2.2)':
+  '@11ty/eleventy-plugin-rss@3.0.0(supports-color@10.2.2)':
     dependencies:
       '@11ty/eleventy-utils': 2.0.7
       '@11ty/posthtml-urls': 1.0.3
@@ -6148,15 +6108,16 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@11ty/eleventy-plugin-vite@7.1.1(@types/node@25.0.0)(jiti@2.6.1)(lightningcss@1.33.0)(terser@5.43.1)(yaml@2.8.2)':
+  '@11ty/eleventy-plugin-vite@8.0.0(@types/node@25.0.0)(esbuild@0.28.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.2)':
     dependencies:
       '@11ty/eleventy-utils': 2.0.7
-      vite: 7.3.6(@types/node@25.0.0)(jiti@2.6.1)(lightningcss@1.33.0)(terser@5.43.1)(yaml@2.8.2)
+      vite: 8.2.0(@types/node@25.0.0)(esbuild@0.28.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.2)
     transitivePeerDependencies:
       - '@types/node'
+      - '@vitejs/devtools'
+      - esbuild
       - jiti
       - less
-      - lightningcss
       - sass
       - sass-embedded
       - stylus
@@ -8501,7 +8462,8 @@ snapshots:
 
   '@types/esrecurse@4.3.1': {}
 
-  '@types/estree@1.0.8': {}
+  '@types/estree@1.0.8':
+    optional: true
 
   '@types/estree@1.0.9': {}
 
@@ -11778,6 +11740,7 @@ snapshots:
       '@rollup/rollup-win32-x64-gnu': 4.60.4
       '@rollup/rollup-win32-x64-msvc': 4.60.4
       fsevents: 2.3.3
+    optional: true
 
   router@2.2.0(supports-color@10.2.2):
     dependencies:
@@ -12365,22 +12328,6 @@ snapshots:
   validate-npm-package-name@5.0.1: {}
 
   vary@1.1.2: {}
-
-  vite@7.3.6(@types/node@25.0.0)(jiti@2.6.1)(lightningcss@1.33.0)(terser@5.43.1)(yaml@2.8.2):
-    dependencies:
-      esbuild: 0.28.1
-      fdir: 6.5.0(picomatch@4.0.5)
-      picomatch: 4.0.5
-      postcss: 8.5.25
-      rollup: 4.60.4
-      tinyglobby: 0.2.17
-    optionalDependencies:
-      '@types/node': 25.0.0
-      fsevents: 2.3.3
-      jiti: 2.6.1
-      lightningcss: 1.33.0
-      terser: 5.43.1
-      yaml: 2.8.2
 
   vite@8.2.0(@types/node@25.0.0)(esbuild@0.28.1)(jiti@2.6.1)(terser@5.43.1)(yaml@2.8.2):
     dependencies:
