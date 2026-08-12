@@ -61,10 +61,17 @@ export default [
     category: 'Self Assessment',
   },
   {
-    slug: 'self-assessment-questionnaire',
+    slug: 'self-assessment-questionnaire-2024-25',
     title: 'Self Assessment Tax Return 2024/25',
     formService: 'tally',
     formId: 'wQ4Pa1',
+    category: 'Self Assessment',
+  },
+  {
+    slug: 'self-assessment-questionnaire',
+    title: 'Self Assessment Tax Return 2025/26',
+    formService: 'tally',
+    formId: 'b5ErdL',
     category: 'Self Assessment',
   },
   {
