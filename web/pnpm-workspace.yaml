@@ -1,8 +1,15 @@
 # Netlify's build-image wrapper (run-build-functions.sh) parses the packageManager
-# field with a bare-semver regex and rejects Corepack's +sha512.HASH suffix.
-# pnpm auto-rewrites packageManager with that hash on every install unless
-# this setting is false. See web/package.json `packageManager` and renovate.json.
-manage-package-manager-versions: false
+# field with a bare-semver regex and rejects Corepack's +sha512.HASH suffix, so
+# web/package.json must keep `packageManager` as bare semver. Renovate's
+# customManager in renovate.json also matches bare semver only: with the suffix
+# present the field is invisible to it and silently stops being updated.
+#
+# This was enforced by `manage-package-manager-versions: false`, which is an .npmrc
+# setting and was never valid here: pnpm warned it was unrecognised on every install
+# and ignored it. No replacement is needed, because pnpm 11 already defaults that
+# setting to false and does not rewrite the field. Corepack still does, so never run
+# `corepack use` / `corepack install` in this repo -- that is what reintroduced the
+# suffix in 200d334, along with a stray package-lock.json.
 
 # Fail the install on an unmet peer instead of resolving one silently. pnpm only
 # evaluates peers when it RESOLVES, so a routine --frozen-lockfile install pays
