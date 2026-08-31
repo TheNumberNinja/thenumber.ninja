@@ -31,7 +31,7 @@
     "sanity": "6.8.0",
     "sanity-plugin-dashboard-widget-netlify": "3.0.14",
     "sanity-plugin-media": "6.0.9",
-    "styled-components": "6.4.4"
+    "styled-components": "6.5.3"
   },
   "devDependencies": {
     "@sanity/client": "7.26.2",
