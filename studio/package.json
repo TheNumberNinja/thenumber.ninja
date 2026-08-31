@@ -48,7 +48,7 @@
     "bracketSpacing": false,
     "singleQuote": true
   },
-  "packageManager": "pnpm@11.19.0",
+  "packageManager": "pnpm@11.24.0",
   "engines": {
     "node": ">=22.22.3",
     "pnpm": ">=11.8.0 <12"
