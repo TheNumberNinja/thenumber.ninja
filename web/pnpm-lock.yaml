@@ -27,8 +27,8 @@ importers:
         specifier: 5.0.3
         version: 5.0.3
       '@sanity/client':
-        specifier: 7.26.0
-        version: 7.26.0
+        specifier: 7.26.2
+        version: 7.26.2
       '@sanity/image-url':
         specifier: 2.1.1
         version: 2.1.1
@@ -2170,8 +2170,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@sanity/client@7.26.0':
-    resolution: {integrity: sha512-7GEzTFRY6kWRjHbJYUDEGKPXHVl/XItGpV5LYCLcWMvBlgfujXuAjdp4hJVZqX8F8OtBzIFqdhiSn5Kh5u/V5Q==}
+  '@sanity/client@7.26.2':
+    resolution: {integrity: sha512-iEkGiHbrxCnT/A30A6pH+vX4otP3lLp935Vwuv0/YrnETxrKCn6PnsZU+TfTm6ZEZ9kZGs8wKP5yBLmZw5S6OQ==}
     engines: {node: '>=20'}
 
   '@sanity/eventsource@5.0.4':
@@ -3739,8 +3739,8 @@ packages:
     resolution: {integrity: sha512-9fSjSaos/fRIVIp+xSJlE6lfwhES7LNtKaCBIamHsjr2na1BiABJPo0mOjjz8GJDURarmCPGqaiVg5mfjb98CQ==}
     engines: {node: '>= 0.4'}
 
-  get-it@8.8.0:
-    resolution: {integrity: sha512-vRyooMBzoIdEbARGT3JcvWqMD67YzC5SKlMqofyfck1ebLh2zzlpD4hVQ3xiuuiADk4jNs0rTezVlxCMqOlZfA==}
+  get-it@8.8.3:
+    resolution: {integrity: sha512-IfkbWqOGO2kd2Ccgiz/NIzk3bcwjtVqBm3RNa3j/veHg2q7c1DgS3EXrCrvIWH0jbNTbhkdblnxBP7Dm8CiH+A==}
     engines: {node: '>=14.0.0'}
 
   get-port-please@3.2.0:
@@ -8542,10 +8542,10 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.60.4':
     optional: true
 
-  '@sanity/client@7.26.0':
+  '@sanity/client@7.26.2':
     dependencies:
       '@sanity/eventsource': 5.0.4
-      get-it: 8.8.0
+      get-it: 8.8.3
       nanoid: 3.3.17
       rxjs: 7.8.2
 
@@ -10295,7 +10295,7 @@ snapshots:
       hasown: 2.0.3
       math-intrinsics: 1.1.0
 
-  get-it@8.8.0:
+  get-it@8.8.3:
     dependencies:
       decompress-response: 7.0.0
       is-retry-allowed: 2.2.0
