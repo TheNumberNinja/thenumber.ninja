@@ -35,10 +35,10 @@
   },
   "devDependencies": {
     "@sanity/client": "7.26.2",
-    "@sanity/eslint-config-studio": "6.0.0",
+    "@sanity/eslint-config-studio": "7.0.0",
     "@types/node": "24.13.3",
-    "eslint": "9.39.5",
-    "globals": "16.5.0",
+    "eslint": "10.9.1",
+    "globals": "17.11.0",
     "prettier": "3.9.6",
     "typescript": "6.0.3"
   },
