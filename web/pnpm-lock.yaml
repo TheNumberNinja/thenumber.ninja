@@ -64,8 +64,8 @@ importers:
         version: 20.4.1(@types/node@26.4.0)
     devDependencies:
       '@11ty/eleventy':
-        specifier: 3.1.6
-        version: 3.1.6(supports-color@10.2.2)
+        specifier: 3.1.7
+        version: 3.1.7(supports-color@10.2.2)
       '@11ty/eleventy-navigation':
         specifier: 1.0.5
         version: 1.0.5
@@ -123,14 +123,18 @@ importers:
 
 packages:
 
+  '@11ty/chokidar-with-glob-support@1.1.0':
+    resolution: {integrity: sha512-B4X9ZPBHG3j/HCT64A8a0PZMkxOj8cUSPto0L61J4KRuwX4EIuUWerggHcWc3RdUx3ih4xtvK8WGjJ4Ak7S/fQ==}
+    engines: {node: '>=18'}
+
   '@11ty/dependency-tree-esm@2.0.4':
     resolution: {integrity: sha512-MYKC0Ac77ILr1HnRJalzKDlb9Z8To3kXQCltx299pUXXUFtJ1RIONtULlknknqW8cLe19DLVgmxVCtjEFm7h0A==}
 
   '@11ty/dependency-tree@4.0.2':
     resolution: {integrity: sha512-RTF6VTZHatYf7fSZBUN3RKwiUeJh5dhWV61gDPrHhQF2/gzruAkYz8yXuvGLx3w3ZBKreGrR+MfYpSVkdbdbLA==}
 
-  '@11ty/eleventy-dev-server@2.0.8':
-    resolution: {integrity: sha512-15oC5M1DQlCaOMUq4limKRYmWiGecDaGwryr7fTE/oM9Ix8siqMvWi+I8VjsfrGr+iViDvWcH/TVI6D12d93mA==}
+  '@11ty/eleventy-dev-server@2.1.2':
+    resolution: {integrity: sha512-cwReJlQtIZsFuwMhm2fXwwjj+uUVvRkuoESgDtR5Mg9tY2qRj8UbNC8xhYRBuYVpACd3E09CxGPkk/Qj15Zo+A==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -149,14 +153,27 @@ packages:
     resolution: {integrity: sha512-6QE+duqSQ0GY9rENXYb4iPR4AYGdrFpqnmi59tFp9VrleOl0QSh8VlBr2yd6dlhkdtj7904poZW5PvGr9cMiJQ==}
     engines: {node: '>=18'}
 
-  '@11ty/eleventy@3.1.6':
-    resolution: {integrity: sha512-ZlSiR1PLdS2lv7TelBgWAhcvMiLNZkPBlLEb+lh7kGYZ+Mk0bo9qcYgVsewvw9W7Em0RH3wd01h5fAstNDh0zA==}
+  '@11ty/eleventy@3.1.7':
+    resolution: {integrity: sha512-ioyq2V884tmKDxVH80OPq5cCn4IJqfV4p2BzznxNDn7o7LbA/g5RDl7zYLk5B/TUgoFyLO+dFbIawBWpAHxlyA==}
     engines: {node: '>=18'}
     hasBin: true
+
+  '@11ty/gray-matter@1.0.0':
+    resolution: {integrity: sha512-7mJJl+wf1AByoT0PknQiQfOPnVNT4fevGrUBVWO4HXsnYn1aQPyRyrELYrNUFleUBM++KzMKN6QaxHPk0t/6/g==}
+    engines: {node: '>=11'}
 
   '@11ty/lodash-custom@4.17.21':
     resolution: {integrity: sha512-Mqt6im1xpb1Ykn3nbcCovWXK3ggywRJa+IXIdoz4wIIK+cvozADH63lexcuPpGS/gJ6/m2JxyyXDyupkMr5DHw==}
     engines: {node: '>=14'}
+
+  '@11ty/nunjucks@3.3.0':
+    resolution: {integrity: sha512-kmMWFLcTMVeniw5G/pYV/uvPL/rN3Nm4WjRtkL9gZoXYh4cbME09ubVTHVJFr/G/h6wR89qJ8jULVqYJ4HI3yg==}
+    hasBin: true
+    peerDependencies:
+      '@11ty/chokidar-with-glob-support': ^1.1.0
+    peerDependenciesMeta:
+      '@11ty/chokidar-with-glob-support':
+        optional: true
 
   '@11ty/posthtml-urls@1.0.3':
     resolution: {integrity: sha512-1YvhnkaNlFnnJic1rBMWmTC2adbuy+JQiBfl1Hecr1Wjjik1pQZmGyk/eC9zKX/FQv52s2Nht1Gi/UwhYqrBeg==}
@@ -2386,9 +2403,6 @@ packages:
   arg@4.1.3:
     resolution: {integrity: sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==}
 
-  argparse@1.0.10:
-    resolution: {integrity: sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==}
-
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
 
@@ -2545,10 +2559,6 @@ packages:
     peerDependencies:
       ajv: 4.11.8 - 8
 
-  binary-extensions@2.3.0:
-    resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
-    engines: {node: '>=8'}
-
   bindings@1.5.0:
     resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
 
@@ -2662,10 +2672,6 @@ packages:
 
   chardet@2.2.0:
     resolution: {integrity: sha512-rddelWYNPRrXq6PtNEN2S3f6t9ILzvqaN5pVgi4kqt9jHQaXIial9PznB5iSPVlQSLNaaH22ItWz3EJtQ10+OA==}
-
-  chokidar@3.6.0:
-    resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
-    engines: {node: '>= 8.10.0'}
 
   chokidar@4.0.3:
     resolution: {integrity: sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==}
@@ -3701,10 +3707,6 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
-  gray-matter@4.0.3:
-    resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
-    engines: {node: '>=6.0'}
-
   h3@1.15.11:
     resolution: {integrity: sha512-L3THSe2MPeBwgIZVSH5zLdBBU90TOxarvhK9d04IDY2AmVS8j2Jz2LIWtwsGOU3lu2I5jCN7FNvVfY2+XyF+mg==}
 
@@ -3896,10 +3898,6 @@ packages:
   is-bigint@1.1.0:
     resolution: {integrity: sha512-n4ZT37wG78iz03xPRKJrHTdZbe3IicyucEtdRsV5yglwc3GyUfbAfpSeD0FJ41NbUNSt5wbhqfp1fS+BgnvDFQ==}
     engines: {node: '>= 0.4'}
-
-  is-binary-path@2.1.0:
-    resolution: {integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==}
-    engines: {node: '>=8'}
 
   is-boolean-object@1.2.2:
     resolution: {integrity: sha512-wa56o2/ElJMYqjCjGkXri7it5FbebW5usLw/nPmCMs5DeZ7eziSYZhSmPRn0txqeW4LnAmQQU7FgqLpsEFKM4A==}
@@ -4142,10 +4140,6 @@ packages:
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
-  js-yaml@3.15.2:
-    resolution: {integrity: sha512-6EuL879VkRA+1Cz578mKMiKvjPNEuk6+r1JaFzoSWejZmtf7xWbIyw1e3KkxlkzTIt9Taw6JBhEppG7utc1P+w==}
-    hasBin: true
-
   js-yaml@4.3.2:
     resolution: {integrity: sha512-SFNOvSJ+Dgf/9An904Yx+CgSlIPCkIpao4qo51lpee25TIRejdH3rhR4EZMGoNx3/TP3O+wzWuiTFl4sqbltzA==}
     hasBin: true
@@ -4333,8 +4327,8 @@ packages:
   linkify-it@6.1.0:
     resolution: {integrity: sha512-wJ/TwpSDTLepCrQoYWYIExIKg5Zchex2Nn5yk2mFnB+6PtdkHtyLx742md9csRjjOnGkKIS/RrbY7l8D6gT9Vw==}
 
-  liquidjs@10.29.0:
-    resolution: {integrity: sha512-pCVOhs6FLAR8su3ItJ07diN26t6W5dHQRnmTMy8HPyTFuv1+oSCVJIGp5pGjfQyOZfh50KswvKtMTp6p4JEIdw==}
+  liquidjs@10.30.0:
+    resolution: {integrity: sha512-Fw4wA+8CZsJkaeLEIlPE3AoponfjEZhj7FQvYNcAEcg7jNRik7mEMoaco382FBdrYlykVf6w4vClPNctz2OYjg==}
     engines: {node: '>=16'}
     hasBin: true
 
@@ -4722,16 +4716,6 @@ packages:
 
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
-
-  nunjucks@3.2.4:
-    resolution: {integrity: sha512-26XRV6BhkgK0VOxfbU5cQI+ICFUtMLixv1noZn1tGU38kQH5A5nmmbk/O45xdyBhD1esk47nKrY0mvQpZIhRjQ==}
-    engines: {node: '>= 6.9.0'}
-    hasBin: true
-    peerDependencies:
-      chokidar: ^3.3.0
-    peerDependenciesMeta:
-      chokidar:
-        optional: true
 
   object-inspect@1.13.4:
     resolution: {integrity: sha512-W67iLl4J2EXEGTbfeHCffrjDfitvLANg0UlX3wFUUSTx92KXRFegMHUVgSqE+wvhAbi4WqjGg9czysTV2Epbew==}
@@ -5205,10 +5189,6 @@ packages:
     resolution: {integrity: sha512-AhNB2KgKeVJr16nK9LLZbJNWnYoT23ZrumNKFDebHBdkC8KHSqWo871JAUhoWC/RtjEVdqNMFpM6qrwRbaUqpw==}
     engines: {node: '>=18'}
 
-  readdirp@3.6.0:
-    resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
-    engines: {node: '>=8.10.0'}
-
   readdirp@4.1.2:
     resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
     engines: {node: '>= 14.18.0'}
@@ -5527,9 +5507,6 @@ packages:
   split2@4.2.0:
     resolution: {integrity: sha512-UcjcJOWknrNkF6PLX83qcHM6KHgVKNkV62Y8a5uYDVv9ydGQVwAHMKqHdJje1VTWpljG0WYpCDhrCdAOYH4TWg==}
     engines: {node: '>= 10.x'}
-
-  sprintf-js@1.0.3:
-    resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
 
   ssri@11.0.0:
     resolution: {integrity: sha512-aZpUoMN/Jj2MqA4vMCeiKGnc/8SuSyHbGSBdgFbZxP8OJGF/lFkIuElzPxsN0q8TQQ+prw3P4EDfB3TBHHgfXw==}
@@ -6279,6 +6256,11 @@ packages:
 
 snapshots:
 
+  '@11ty/chokidar-with-glob-support@1.1.0':
+    dependencies:
+      chokidar: 4.0.3
+      picomatch: 4.0.7
+
   '@11ty/dependency-tree-esm@2.0.4':
     dependencies:
       '@11ty/eleventy-utils': 2.0.7
@@ -6290,10 +6272,10 @@ snapshots:
     dependencies:
       '@11ty/eleventy-utils': 2.0.7
 
-  '@11ty/eleventy-dev-server@2.0.8(supports-color@10.2.2)':
+  '@11ty/eleventy-dev-server@2.1.2(supports-color@10.2.2)':
     dependencies:
+      '@11ty/chokidar-with-glob-support': 1.1.0
       '@11ty/eleventy-utils': 2.0.7
-      chokidar: 3.6.0
       debug: 4.4.3(supports-color@10.2.2)
       finalhandler: 1.3.2(supports-color@10.2.2)
       mime: 3.0.0
@@ -6342,11 +6324,12 @@ snapshots:
 
   '@11ty/eleventy-utils@2.0.7': {}
 
-  '@11ty/eleventy@3.1.6(supports-color@10.2.2)':
+  '@11ty/eleventy@3.1.7(supports-color@10.2.2)':
     dependencies:
+      '@11ty/chokidar-with-glob-support': 1.1.0
       '@11ty/dependency-tree': 4.0.2
       '@11ty/dependency-tree-esm': 2.0.4
-      '@11ty/eleventy-dev-server': 2.0.8(supports-color@10.2.2)
+      '@11ty/eleventy-dev-server': 2.1.2(supports-color@10.2.2)
       '@11ty/eleventy-plugin-bundle': 3.0.7(posthtml@0.16.7)(supports-color@10.2.2)
       '@11ty/eleventy-utils': 2.0.7
       '@11ty/lodash-custom': 4.17.21
@@ -6354,22 +6337,21 @@ snapshots:
       '@11ty/recursive-copy': 4.0.4
       '@sindresorhus/slugify': 2.2.1
       bcp-47-normalize: 2.3.0
-      chokidar: 3.6.0
       debug: 4.4.3(supports-color@10.2.2)
       dependency-graph: 1.0.0
       entities: 6.0.1
       filesize: 10.1.6
-      gray-matter: 4.0.3
+      gray-matter: '@11ty/gray-matter@1.0.0'
       iso-639-1: 3.1.6
       js-yaml: 4.3.2
       kleur: 4.1.5
-      liquidjs: 10.29.0
+      liquidjs: 10.30.0
       luxon: 3.7.2
       markdown-it: 14.3.1
       minimist: 1.2.8
       moo: 0.5.2
       node-retrieve-globals: 6.0.1
-      nunjucks: 3.2.4(chokidar@3.6.0)
+      nunjucks: '@11ty/nunjucks@3.3.0(@11ty/chokidar-with-glob-support@1.1.0)'
       picomatch: 4.0.7
       please-upgrade-node: 3.2.0
       posthtml: 0.16.7
@@ -6382,7 +6364,22 @@ snapshots:
       - supports-color
       - utf-8-validate
 
+  '@11ty/gray-matter@1.0.0':
+    dependencies:
+      js-yaml: 4.3.2
+      kind-of: 6.0.3
+      section-matter: 1.0.0
+      strip-bom-string: 1.0.0
+
   '@11ty/lodash-custom@4.17.21': {}
+
+  '@11ty/nunjucks@3.3.0(@11ty/chokidar-with-glob-support@1.1.0)':
+    dependencies:
+      a-sync-waterfall: 1.0.1
+      asap: 2.0.6
+      commander: 5.1.0
+    optionalDependencies:
+      '@11ty/chokidar-with-glob-support': 1.1.0
 
   '@11ty/posthtml-urls@1.0.3':
     dependencies:
@@ -9046,10 +9043,6 @@ snapshots:
 
   arg@4.1.3: {}
 
-  argparse@1.0.10:
-    dependencies:
-      sprintf-js: 1.0.3
-
   argparse@2.0.1: {}
 
   argparse@3.0.1: {}
@@ -9199,8 +9192,6 @@ snapshots:
       jsonpointer: 5.0.1
       leven: 3.1.0
 
-  binary-extensions@2.3.0: {}
-
   bindings@1.5.0:
     dependencies:
       file-uri-to-path: 1.0.0
@@ -9329,18 +9320,6 @@ snapshots:
   chalk@5.6.2: {}
 
   chardet@2.2.0: {}
-
-  chokidar@3.6.0:
-    dependencies:
-      anymatch: 3.1.3
-      braces: 3.0.3
-      glob-parent: 5.1.2
-      is-binary-path: 2.1.0
-      is-glob: 4.0.3
-      normalize-path: 3.0.0
-      readdirp: 3.6.0
-    optionalDependencies:
-      fsevents: 2.3.3
 
   chokidar@4.0.3:
     dependencies:
@@ -10493,13 +10472,6 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  gray-matter@4.0.3:
-    dependencies:
-      js-yaml: 3.15.2
-      kind-of: 6.0.3
-      section-matter: 1.0.0
-      strip-bom-string: 1.0.0
-
   h3@1.15.11:
     dependencies:
       cookie-es: 1.2.3
@@ -10757,10 +10729,6 @@ snapshots:
     dependencies:
       has-bigints: 1.1.0
 
-  is-binary-path@2.1.0:
-    dependencies:
-      binary-extensions: 2.3.0
-
   is-boolean-object@1.2.2:
     dependencies:
       call-bound: 1.0.4
@@ -10948,11 +10916,6 @@ snapshots:
 
   js-tokens@4.0.0: {}
 
-  js-yaml@3.15.2:
-    dependencies:
-      argparse: 1.0.10
-      esprima: 4.0.1
-
   js-yaml@4.3.2:
     dependencies:
       argparse: 2.0.1
@@ -11111,7 +11074,7 @@ snapshots:
     dependencies:
       uc.micro: 3.0.0
 
-  liquidjs@10.29.0:
+  liquidjs@10.30.0:
     dependencies:
       commander: 10.0.1
 
@@ -11602,14 +11565,6 @@ snapshots:
   nth-check@2.1.1:
     dependencies:
       boolbase: 1.0.0
-
-  nunjucks@3.2.4(chokidar@3.6.0):
-    dependencies:
-      a-sync-waterfall: 1.0.1
-      asap: 2.0.6
-      commander: 5.1.0
-    optionalDependencies:
-      chokidar: 3.6.0
 
   object-inspect@1.13.4: {}
 
@@ -12102,10 +12057,6 @@ snapshots:
     dependencies:
       minimatch: 10.2.6
 
-  readdirp@3.6.0:
-    dependencies:
-      picomatch: 2.3.2
-
   readdirp@4.1.2: {}
 
   readdirp@5.1.1: {}
@@ -12488,8 +12439,6 @@ snapshots:
       through2: 2.0.5
 
   split2@4.2.0: {}
-
-  sprintf-js@1.0.3: {}
 
   ssri@11.0.0:
     dependencies:
