@@ -54,7 +54,7 @@
     "@11ty/eleventy-plugin-vite": "8.0.0",
     "@eslint/js": "10.0.1",
     "@vitejs/plugin-legacy": "8.2.3",
-    "chokidar": "5.0.0",
+    "chokidar": "6.0.0",
     "concurrently": "10.0.5",
     "esbuild": "0.28.2",
     "eslint": "10.9.1",
