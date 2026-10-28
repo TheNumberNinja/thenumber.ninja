@@ -29,6 +29,9 @@ allowBuilds:
 # surgically so the verification stays ON for every other package. Revisit if
 # pnpm's heuristic improves or these clear upstream.
 trustPolicyExclude:
+  # Vision's Shiki colour palette (via @pierre/diffs); 2.0.0 is pure theme JSON
+  # and was flagged only because it was published without provenance.
+  - '@pierre/theme'
   - '@portabletext/editor'
   - '@reduxjs/toolkit'
   - '@sanity/template-validator'
