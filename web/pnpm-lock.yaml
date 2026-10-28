@@ -60,8 +60,8 @@ importers:
         specifier: 6.16.1
         version: 6.16.1
       stripe:
-        specifier: 20.4.1
-        version: 20.4.1(@types/node@26.4.0)
+        specifier: 23.0.1
+        version: 23.0.1(@types/node@26.4.0)
     devDependencies:
       '@11ty/eleventy':
         specifier: 3.1.6
@@ -5625,11 +5625,11 @@ packages:
     resolution: {integrity: sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ==}
     engines: {node: '>=0.10.0'}
 
-  stripe@20.4.1:
-    resolution: {integrity: sha512-axCguHItc8Sxt0HC6aSkdVRPffjYPV7EQqZRb2GkIa8FzWDycE7nHJM19C6xAIynH1Qp1/BHiopSi96jGBxT0w==}
-    engines: {node: '>=16'}
+  stripe@23.0.1:
+    resolution: {integrity: sha512-VFLs9IAzSZ8GIm6/vqhjqOL0fbYrSNYCpgZ3LS3YkSi/i5RnyMpu/Hf9YxPTOCYwc3mZKU3IJvuvKffQH2NLMg==}
+    engines: {node: '>=20'}
     peerDependencies:
-      '@types/node': '>=16'
+      '@types/node': '>=20'
     peerDependenciesMeta:
       '@types/node':
         optional: true
@@ -12598,7 +12598,7 @@ snapshots:
 
   strip-json-comments@2.0.1: {}
 
-  stripe@20.4.1(@types/node@26.4.0):
+  stripe@23.0.1(@types/node@26.4.0):
     optionalDependencies:
       '@types/node': 26.4.0
 
