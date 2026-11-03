@@ -113,11 +113,11 @@ export const handler = Sentry.AWSLambda.wrapHandler(async function (event, _cont
 });
 
 async function getSanityDocumentIdForClientId(clientId) {
-  const filter = `*[_type == "client" && clientId == "${clientId}"][0] {
+  const filter = `*[_type == "client" && clientId == $clientId][0] {
         "id": _id
       }`;
 
-  return await readClient.fetch(filter).catch(err => {
+  return await readClient.fetch(filter, { clientId }).catch(err => {
     console.error('💣 Sanity get client error:', err);
     Sentry.captureException(err);
   });

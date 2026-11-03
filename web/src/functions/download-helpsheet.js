@@ -25,15 +25,17 @@ async function getDocument(documentKey, email) {
   const filter = `*[
     _type == "client" &&
     !(_id in path("drafts.**")) &&
-    email == "${email.toLowerCase()}" &&
-    "${documentKey}" in documents[]._key
+    email == $email &&
+    $documentKey in documents[]._key
   ][0] {
     "client": name,
-    "type": documents[_key == "${documentKey}"][0].type,
-    "url": documents[_key == "${documentKey}"][0].asset->url
+    "type": documents[_key == $documentKey][0].type,
+    "url": documents[_key == $documentKey][0].asset->url
 }`;
 
-  return await client.fetch(filter).catch(err => console.error(err));
+  return await client
+    .fetch(filter, { email: email.toLowerCase(), documentKey })
+    .catch(err => console.error(err));
 }
 
 const respond = (statusCode, body) => {
@@ -56,6 +58,10 @@ export const handler = Sentry.AWSLambda.wrapHandler(async function (event, _cont
   }
 
   const { email, documentKey } = JSON.parse(event.body);
+
+  if (typeof email !== 'string' || typeof documentKey !== 'string' || !email || !documentKey) {
+    return respond(400, { error: 'An email address and document are required.' });
+  }
   console.info(`✉️ ${email}`);
   console.info(`🗝️ ${documentKey}`);
 
