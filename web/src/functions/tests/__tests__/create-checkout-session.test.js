@@ -33,11 +33,28 @@ vi.mock('stripe', () => {
   };
 });
 
+import sanityClient from '../../../../config/utils/sanityClient.js';
 import {
+  getConfiguration,
   calculateNumberOfCatchUpMonths,
   generateAccountsLineItems,
   calculateRemainingContractMonths,
 } from '../../create-checkout-session.js';
+
+describe('getConfiguration', () => {
+  test('looks up the published client by a clientId parameter, not by query text', async () => {
+    sanityClient.fetch.mockResolvedValue({ name: 'Acme Ltd' });
+    const clientId = 'abc" || true || "';
+
+    await getConfiguration(clientId);
+
+    const [query, params] = sanityClient.fetch.mock.calls[0];
+    expect(query).toContain('clientId == $clientId');
+    expect(query).toContain('!(_id in path("drafts.**"))');
+    expect(query).not.toContain(clientId);
+    expect(params).toEqual({ clientId });
+  });
+});
 
 describe('Time-based calculations', () => {
   const fixedTimestamp = new Date('2024-01-15T00:00:00.000Z').getTime();

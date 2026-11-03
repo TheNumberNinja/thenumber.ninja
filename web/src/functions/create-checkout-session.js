@@ -401,6 +401,7 @@ function calculateNumberOfCatchUpMonths(yearEnd) {
 
 export {
   handler,
+  getConfiguration,
   calculateNumberOfCatchUpMonths,
   generateAccountsLineItems,
   calculateRemainingContractMonths,

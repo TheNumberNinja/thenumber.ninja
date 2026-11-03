@@ -58,12 +58,26 @@ describe('download-helpsheet', () => {
     );
   });
 
-  test('returns 400 when no document matches the email', async () => {
-    sanityClient.fetch.mockResolvedValue(null);
+  test('refuses a document key when the email does not match the one on record', async () => {
+    // Stands in for Sanity: the stored document is returned only if the query
+    // filters on both values and the submitted ones match. A query that drops
+    // either filter would return the document to anyone and fail this test.
+    sanityClient.fetch.mockImplementation(async (query, params) => {
+      const emailMatches =
+        query.includes('email == $email') && params.email === 'stored@example.com';
+      const keyMatches =
+        query.includes('$documentKey in documents[]._key') && params.documentKey === 'abc';
 
-    const response = await post({ email: 'a@example.com', documentKey: 'abc' });
+      return emailMatches && keyMatches
+        ? { client: 'Acme Ltd', type: 'Accounts', url: 'https://cdn.sanity.io/files/doc.pdf' }
+        : null;
+    });
 
-    expect(response.statusCode).toBe(400);
+    const refused = await post({ email: 'wrong@example.com', documentKey: 'abc' });
+    const allowed = await post({ email: 'Stored@Example.com', documentKey: 'abc' });
+
+    expect(refused.statusCode).toBe(400);
+    expect(allowed.statusCode).toBe(200);
   });
 
   test.each([
