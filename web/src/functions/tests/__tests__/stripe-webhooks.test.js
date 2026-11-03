@@ -102,6 +102,12 @@ describe('customer.subscription.created', () => {
 
     const wc = writeClient;
     expect(res.statusCode).toBe(200);
+    expect(sanityClient.fetch).toHaveBeenCalledWith(
+      expect.stringContaining('clientId == $clientId'),
+      {
+        clientId: 'client-abc',
+      }
+    );
     expect(wc.patch).toHaveBeenCalledWith('sanity-doc-abc');
     expect(wc.patch.mock.results[0].value.set).toHaveBeenCalledWith({
       'subscription.customerId': 'cus_x',

@@ -260,13 +260,13 @@ function calculateTrialEnd(startDate) {
 }
 
 async function getConfiguration(clientId) {
-  const filter = `*[_type == "client" && !(_id in path("drafts.**")) && clientId == "${clientId}"][0] {
+  const filter = `*[_type == "client" && !(_id in path("drafts.**")) && clientId == $clientId][0] {
     name,
     email,
     subscription,
   }`;
 
-  return await client.fetch(filter).catch(err => console.error(err));
+  return await client.fetch(filter, { clientId }).catch(err => console.error(err));
 }
 
 async function createDiscountCoupon(discountConfiguration) {
@@ -401,6 +401,7 @@ function calculateNumberOfCatchUpMonths(yearEnd) {
 
 export {
   handler,
+  getConfiguration,
   calculateNumberOfCatchUpMonths,
   generateAccountsLineItems,
   calculateRemainingContractMonths,
