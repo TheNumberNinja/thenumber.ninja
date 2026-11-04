@@ -17,3 +17,9 @@ node_modules/
 
 # accessibility and SEO check reports (scripts/checks/)
 .checks/
+
+# Environment variables: .env.example lists the names and is committed
+# (withotto.app ignores .env*, which would ignore the example file too).
+.env
+.env.*
+!.env.example
