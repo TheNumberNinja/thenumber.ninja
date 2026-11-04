@@ -42,12 +42,16 @@ Accounts, tax and bookkeeping for UK limited companies run by one or two directo
 
 ## Capabilities and Constraints
 
-**Surfaces.** v2 (`site/`) replaces v1 (`web/`) and must cover both before the switch-over:
+**Surfaces.** v2 (`site/`) replaces v1 (`web/`) and must cover both the public pages and the client area before the switch-over. The public pages come first. How the client dashboard renders (static or on-demand) is undecided.
 
-- public pages: home, service businesses, online retailers, Power Hour, how we work, about, talks, Get started, legal pages, and a 404
-- the client area: the client dashboard, uploads, forms, guides and helpsheets, the glossary, client call booking, and updating payment card details
+**Site map.** Each page in the main menu answers a prospect's question; client tools stay out of it.
 
-The marketing pages come first. How the client dashboard renders (static or on-demand) is undecided.
+- **Main menu:** Service businesses (the core package, its prices and who it fits), E-commerce (priced individually, with a published starting figure), How we work (onboarding, the year, working hours), About (Emma, Stuart and With Otto), and Get started, shown as the button.
+- **Power Hour:** linked from the service pages and the footer, not the main menu.
+- **Talks page:** not in the menu or the footer. Emma shares its link at the end of a talk, so the SEO check's unlinked-page rule needs a deliberate exclusion for it.
+- **Footer:** the client area (client dashboard, forms, step by step guides, client call bookings) behind one link, the glossary, and the privacy, cookie and terms pages. It also carries the legal name ("The Number Ninjas Ltd, trading as The Number Ninja"), the company number, the registered office, and the working hours (9am to 4pm, Monday to Friday, by email and video call). Never a phone number.
+- **Get started** replaces v1's Get in touch and Book a call pages: a short form first, then the booking calendar. The form routes limited companies selling services to the introductory call, product sellers to an e-commerce call, and anyone not yet a limited company to the Power Hour first, with the option to book a call anyway. It also asks how the person heard about us, which replaces analytics.
+- **Removed from v1**, with redirects so old links still land somewhere sensible: the Automation Power Hour, the Growth Event page (replaced by the talks page), Why outsource?, Get in touch, the Book a call landing page and the introductory call page (all three to Get started), and the home page carousel. Client call bookings keep their current addresses.
 
 **Technical.** Astro 7, static output, Tailwind 4, `astro-icon`, Netlify Functions. Interactivity is TypeScript in `<script>` tags; no UI framework unless a task justifies one. No analytics, tracking or cookie-setting third-party script. URLs end in a slash. Every price comes from `site/src/data/prices.ts`. The repo is public, so no search research and no internal rules go in it. `site/CLAUDE.md` holds the full list.
 
@@ -63,11 +67,12 @@ The marketing pages come first. How the client dashboard renders (static or on-d
 ## Evidence on Hand
 
 - Emma's headshot: `web/src/assets/images/headshots/emma.jpg`.
-- Badges: IAB member and Xero Silver partner, in `web/src/assets/images/seals/`. Show each only while it is current. The IAB badge's file is named "in practice", a wording the shared rule forbids in copy, so check the badge itself before reusing it.
-- One testimonial: Penni Pickering of Kabo Creative. No others exist yet.
+- Badges: v1's "IAB member in practice" seal is not reused. v2 uses the plain IAB member logo and the badge Xero supplies for the Silver tier, both still to be obtained. Show each only while it is current.
+- One testimonial: Penni Pickering of Kabo Creative. Three or four more are being collected (two or three service businesses, one e-commerce client), so layouts must look deliberate with one quote and still work with several.
 - Trading since 2016.
 - Emma's printing calculator story, for the About page, in her own words.
-- **Photography:** new real photos of Emma and Stuart are planned. Until they arrive, layouts use clearly marked placeholders. v1's four carousel images are not photos of the practice.
+- **Photography:** new photos of Emma and Stuart, taken in a matching style, are planned. Until they arrive, layouts use clearly marked placeholders. v1's carousel is removed.
+- **Still to come before launch:** Emma's About section in her own words, and Stuart's surname (never guess it). Whether the Instagram and Facebook links stay is undecided.
 - **Absences that must not be filled with invented content:** client counts, ratings, reviews, other testimonials, response times, outcome promises, and any professional credential beyond IAB membership.
 
 ## Product Principles
