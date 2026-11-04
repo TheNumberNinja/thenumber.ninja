@@ -41,13 +41,11 @@ const canonical = canonicalUrl(Astro.url.pathname, Astro.site);
       canonical={canonical}
       noindex={noindex}
     />
-    {
-      /*
-       * Open Graph basics written directly: astro-seo's openGraph prop
-       * requires an image, and the site has none yet. Move these into its
-       * openGraph prop when an image exists in public/.
-       */
-    }
+    {/*
+     * Open Graph basics written directly: astro-seo's openGraph prop
+     * requires an image, and the site has none yet. Move these into its
+     * openGraph prop when an image exists in public/.
+     */}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:locale" content="en_GB" />

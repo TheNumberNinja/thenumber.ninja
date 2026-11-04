@@ -21,7 +21,9 @@ describe("canonicalUrl", () => {
   });
 
   it("keeps a path that already ends in a slash", () => {
-    expect(canonicalUrl("/about/", site)).toBe("https://thenumber.ninja/about/");
+    expect(canonicalUrl("/about/", site)).toBe(
+      "https://thenumber.ninja/about/",
+    );
   });
 
   it("adds the trailing slash when it's missing", () => {
