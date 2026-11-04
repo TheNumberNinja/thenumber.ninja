@@ -1,0 +1,4 @@
+root_dir = "dist/"
+# No exclusions yet: the site has no external links. Add a host here only with
+# a comment saying why a failure from it says nothing about the link.
+exclude = []
