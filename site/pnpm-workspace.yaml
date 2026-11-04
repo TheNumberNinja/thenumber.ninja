@@ -21,6 +21,12 @@ strictPeerDependencies: true
 allowBuilds:
   esbuild: true
   sharp: true
+  # netlify-cli's postinstall and unix-dgram's native build (an optional
+  # netlify-cli dependency) are not needed: `netlify dev` and the functions
+  # work without them. false skips them explicitly rather than failing the
+  # install. web/ runs both; nothing here depends on them.
+  netlify-cli: false
+  unix-dgram: false
 
 # pnpm's trust check flags these mainstream transitive dependencies of
 # netlify-cli as "trust downgrade" false positives, which fails the install.
