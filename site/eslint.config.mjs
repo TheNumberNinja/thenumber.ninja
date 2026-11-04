@@ -35,4 +35,10 @@ export default defineConfig(
       ],
     },
   },
+  {
+    // The check scripts are copied from withotto.app, which has no ESLint.
+    // Keep them identical to its copy rather than fix this rule's two hits.
+    files: ["scripts/checks/**"],
+    rules: { "preserve-caught-error": "off" },
+  },
 );
