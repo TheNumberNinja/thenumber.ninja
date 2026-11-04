@@ -56,7 +56,7 @@ env:
 
 jobs:
   validate:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 5
     permissions:
       pull-requests: read # list the PRs for the status's commit
@@ -119,7 +119,7 @@ jobs:
     # GitHub-hosted: free for this public repo, and the image has Google
     # Chrome preinstalled. withotto.app uses Blacksmith's 4-vCPU runners for
     # steadier performance scores; performance only warns here.
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 30
     permissions:
       contents: read
@@ -280,7 +280,7 @@ jobs:
   comment:
     needs: [validate, lighthouse]
     if: ${{ !cancelled() && needs.validate.outputs.pr != '' && needs.lighthouse.outputs.summary == 'true' && needs.lighthouse.outputs.reports == 'true' }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 5
     permissions:
       pull-requests: write # create or update the scores comment
