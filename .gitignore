@@ -9,3 +9,5 @@ web/deno.lock
 web/src/functions/tests/coverage
 .worktrees/
 /.claude/skills/review-upgrades
+# Shared rules rendered from the private shared-rules repo at session start; never committed here
+/.claude/rules/tnn-shared/
