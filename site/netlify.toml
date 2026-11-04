@@ -1,0 +1,51 @@
+# Netlify config for v2 of the site (site/). It is a second Netlify site on
+# this repo: v1 keeps deploying from web/ until the switch-over.
+
+[build]
+  base = "site/"
+  # The Vitest suites, then the build, as v1's netlify:build runs its tests
+  # first. test:checks is left out: its accessibility tests launch Chromium,
+  # which Netlify's build image doesn't have. CI and `pnpm check` run them.
+  command = "pnpm test:site && pnpm test:functions && pnpm build"
+  publish = "dist/"
+  # Build only when site/ changed. A copy of web/scripts/should-build.sh, not
+  # a reference to it, because web/ goes at the switch-over.
+  ignore = "./scripts/should-build.sh"
+
+[build.environment]
+  NODE_VERSION = "24.22.1"
+
+[functions]
+  directory = "netlify/functions"
+
+[dev]
+  # Netlify's Astro preset runs `astro dev` on port 4321.
+  framework = "astro"
+
+# Security headers, from web/netlify.toml. X-XSS-Protection is left out: it is
+# deprecated, and browsers that still honour it can be made to misbehave.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# PREVIEW SITE ONLY: REMOVE AT THE SWITCH-OVER. While v2 runs as a second site
+# it duplicates the live site, so nothing on it may be indexed. Left in place
+# when this site becomes thenumber.ninja, it would remove the whole site from
+# search results. Functions don't get these headers, so
+# netlify/functions/health/health.ts sets its own; remove that too.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+# Year-long caching only for Astro's hashed build files, whose names change
+# whenever their content does. v1's rules cached every .js and .css file this
+# way, which would keep an unhashed file from public/ stale for a year.
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
