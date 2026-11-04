@@ -1,0 +1,63 @@
+{
+  "name": "thenumber-ninja-site",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=24.22.1",
+    "pnpm": ">=12.14.0 <13"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check:types": "astro check",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
+    "test": "pnpm test:checks && pnpm test:site && pnpm test:functions",
+    "test:checks": "node scripts/run-tests.mjs \"scripts/checks/**/*.test.mjs\"",
+    "test:site": "vitest run src/",
+    "test:functions": "vitest run netlify/",
+    "check": "node scripts/checks/all.mjs",
+    "check:seo": "node scripts/checks/seo.mjs",
+    "check:a11y": "node scripts/checks/a11y.mjs",
+    "check:links": "node scripts/checks/links.mjs",
+    "check:baseline": "node scripts/checks/baseline.mjs",
+    "setup:browsers": "playwright install chromium"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "8.1.0",
+    "@astrojs/sitemap": "3.7.4",
+    "@tailwindcss/vite": "4.3.3",
+    "astro": "7.4.1",
+    "astro-icon": "1.2.0",
+    "astro-seo": "1.2.0",
+    "sharp": "0.35.5",
+    "tailwindcss": "4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "@axe-core/playwright": "4.14.0",
+    "@eslint/js": "10.0.1",
+    "@netlify/functions": "6.0.3",
+    "axe-core": "4.14.0",
+    "cheerio": "1.2.0",
+    "eslint": "10.13.0",
+    "eslint-plugin-astro": "3.2.1",
+    "eslint-plugin-jsx-a11y-x": "0.2.0",
+    "globals": "17.13.0",
+    "netlify-cli": "27.14.2",
+    "playwright": "1.64.1",
+    "prettier": "3.9.10",
+    "prettier-plugin-astro": "1.1.1",
+    "prettier-plugin-tailwindcss": "0.8.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.1",
+    "vitest": "5.0.5"
+  },
+  "packageManager": "pnpm@12.14.0"
+}

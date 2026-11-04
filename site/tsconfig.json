@@ -1,0 +1,18 @@
+{
+  // Strict, unlike withotto.app's `base` plus strictNullChecks.
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
+  "compilerOptions": {
+    // `paths` without `baseUrl`: TypeScript 6 deprecates baseUrl and 7 removes
+    // it. Paths resolve relative to this file.
+    "paths": {
+      "@lib/*": ["./src/lib/*"],
+      "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@data/*": ["./src/data/*"]
+    }
+  }
+}
