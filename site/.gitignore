@@ -1,0 +1,16 @@
+# build output
+dist/
+# ...except the SEO check's fixture sites, which are built output by design
+!scripts/checks/fixtures/**/dist/
+
+# Astro
+.astro/
+
+# dependencies
+node_modules/
+
+# Netlify CLI
+.netlify/
+
+# macOS
+.DS_Store

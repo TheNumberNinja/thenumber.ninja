@@ -1,0 +1,74 @@
+---
+// The one layout every page uses. It carries what shared rules 10 and 11 ask
+// of every page: the language, a skip link, landmarks, a title and
+// description from the page, a canonical built from the page's own path, and
+// Open Graph basics.
+import { SEO } from "astro-seo";
+import { canonicalUrl, pageTitle, SITE_NAME } from "@lib/seo";
+import "../styles/global.css";
+
+export interface Props {
+  // The page's own title, without the site name: the layout adds it. About
+  // 30 to 60 characters in total, including the suffix.
+  title: string;
+  // One or two sentences saying what the reader will find, about 70 to 160
+  // characters. Never a site-wide default.
+  description: string;
+  // Keeps the page out of search results.
+  noindex?: boolean;
+}
+
+const { title, description, noindex = false } = Astro.props;
+
+if (!Astro.site) {
+  throw new Error("BaseLayout needs `site` set in astro.config.mjs.");
+}
+
+const fullTitle = pageTitle(title);
+const canonical = canonicalUrl(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <SEO
+      charset="UTF-8"
+      title={fullTitle}
+      description={description}
+      canonical={canonical}
+      noindex={noindex}
+    />
+    {
+      /*
+       * Open Graph basics written directly: astro-seo's openGraph prop
+       * requires an image, and the site has none yet. Move these into its
+       * openGraph prop when an image exists in public/.
+       */
+    }
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-white focus:p-2 focus:underline">
+      Skip to main content
+    </a>
+    <header class="p-4">
+      <a href="/">{SITE_NAME}</a>
+    </header>
+    <main id="main" tabindex="-1" class="flex-1 p-4">
+      <slot />
+    </main>
+    <footer class="p-4">
+      <p>{SITE_NAME}</p>
+    </footer>
+  </body>
+</html>
