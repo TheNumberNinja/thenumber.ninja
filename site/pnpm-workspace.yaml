@@ -1,0 +1,43 @@
+engineStrict: true
+
+# Supply-chain cooldown: refuse to resolve any package version (direct or
+# transitive) published less than 5 days ago. Closes the lockFileMaintenance
+# gap that Renovate's minimumReleaseAge cannot enforce for pnpm. Setting it
+# explicitly makes pnpm fail rather than fall back to an older version.
+minimumReleaseAge: 7200
+
+# Supply-chain trust policy: block packages whose trust level dropped vs an
+# earlier release (provenance downgrade / possible takeover).
+trustPolicy: no-downgrade
+
+# Fail the install on an unmet peer instead of resolving one silently. pnpm only
+# evaluates peers when it RESOLVES, so a routine --frozen-lockfile install pays
+# nothing; this fires where the decision is made, including when Renovate
+# regenerates a lockfile. Mirrors web/ and studio/ (withotto.app doesn't set it).
+strictPeerDependencies: true
+
+# Explicit per-package build-script approval: true runs the package's
+# install/build script.
+allowBuilds:
+  esbuild: true
+  sharp: true
+  # netlify-cli's postinstall and unix-dgram's native build (an optional
+  # netlify-cli dependency) are not needed: `netlify dev` and the functions
+  # work without them. false skips them explicitly rather than failing the
+  # install. web/ runs both; nothing here depends on them.
+  netlify-cli: false
+  unix-dgram: false
+
+# pnpm's trust check flags these mainstream transitive dependencies of
+# netlify-cli as "trust downgrade" false positives, which fails the install.
+# Excluded surgically, as in web/pnpm-workspace.yaml, so the check stays on for
+# every other package. Revisit if pnpm's heuristic improves or these clear
+# upstream.
+trustPolicyExclude:
+  - "@netlify/serverless-functions-api"
+  # Long-established releases published without provenance after versions
+  # that had it. Without this exception the trust check rejects 6.3.1, the
+  # only remaining candidate is 6.3.2 (published 2026-11-02, inside the
+  # 5-day cooldown), and the install fails. Same exception as withotto.app's
+  # lighthouse.yml. Versions only, so newer semver releases are still checked.
+  - "semver@5.7.2 || 6.3.1"

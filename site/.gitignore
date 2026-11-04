@@ -1,0 +1,25 @@
+# build output
+dist/
+# ...except the SEO check's fixture sites, which are built output by design
+!scripts/checks/fixtures/**/dist/
+
+# Astro
+.astro/
+
+# dependencies
+node_modules/
+
+# Netlify CLI
+.netlify/
+
+# macOS
+.DS_Store
+
+# accessibility and SEO check reports (scripts/checks/)
+.checks/
+
+# Environment variables: .env.example lists the names and is committed
+# (withotto.app ignores .env*, which would ignore the example file too).
+.env
+.env.*
+!.env.example

@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/*
+ * Minimal base for the skeleton. Design tokens arrive with the first real
+ * page; until then the browser's defaults and Tailwind's preflight apply.
+ */
