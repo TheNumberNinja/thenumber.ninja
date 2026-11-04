@@ -41,6 +41,14 @@ Tests sit next to the code they cover (`foo.ts`, `foo.test.ts`). Use `tests/` on
 - **TypeScript stays on 6.0.x** until `@astrojs/check` and typescript-eslint support 7 (Renovate holds it).
 - **Markdown:** Astro 7 uses the Sätteri processor by default. remark and rehype plugins need `@astrojs/markdown-remark` and `markdown.processor: unified()` in `astro.config.mjs`.
 
+## Shared rules
+
+Before writing or planning anything a visitor or client reads (page copy, headings, alt text, prices, structured data, form labels, error messages, emails), read `../.claude/rules/tnn-shared/number-ninja.md`. It sets the brand, voice, services, prices and what copy may claim. If `practice-snapshot.md` sits beside it, it is confidential: never quote or paraphrase it in anything committed or published.
+
+## Design context
+
+`../PRODUCT.md` holds the product truth design work starts from: users, purpose, positioning, brand commitments, evidence on hand. `../DESIGN.md` will hold the visual system once one is chosen; until then there isn't one, and v1's look is a starting point, not a rule. Do UI work through the Impeccable skill (`/impeccable`), which reads both.
+
 ## The checks baseline
 
 `pnpm check` fails on any blocking finding not recorded in `checks-baseline.json`. The baseline starts empty, and there is no file until something is recorded. Shrinking it (fixing a recorded finding) needs no approval. Growing it needs the user's approval: fix the finding instead wherever you can.
