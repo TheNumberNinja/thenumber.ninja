@@ -21,3 +21,17 @@ strictPeerDependencies: true
 allowBuilds:
   esbuild: true
   sharp: true
+
+# pnpm's trust check flags these mainstream transitive dependencies of
+# netlify-cli as "trust downgrade" false positives, which fails the install.
+# Excluded surgically, as in web/pnpm-workspace.yaml, so the check stays on for
+# every other package. Revisit if pnpm's heuristic improves or these clear
+# upstream.
+trustPolicyExclude:
+  - "@netlify/serverless-functions-api"
+  # Long-established releases published without provenance after versions
+  # that had it. Without this exception the trust check rejects 6.3.1, the
+  # only remaining candidate is 6.3.2 (published 2026-11-02, inside the
+  # 5-day cooldown), and the install fails. Same exception as withotto.app's
+  # lighthouse.yml. Versions only, so newer semver releases are still checked.
+  - "semver@5.7.2 || 6.3.1"
