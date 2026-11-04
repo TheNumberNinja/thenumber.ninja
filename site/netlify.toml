@@ -19,7 +19,6 @@
   directory = "netlify/functions"
 
 [dev]
-  # Netlify's Astro preset runs `astro dev` on port 4321.
   framework = "astro"
 
 # Security headers, from web/netlify.toml. X-XSS-Protection is left out: it is
