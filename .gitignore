@@ -11,3 +11,5 @@ web/src/functions/tests/coverage
 /.claude/skills/review-upgrades
 # Shared rules rendered from the private shared-rules repo at session start; never committed here
 /.claude/rules/tnn-shared/
+# Working plans and briefs for agent sessions; kept locally, not in the repo
+/docs/plans/
