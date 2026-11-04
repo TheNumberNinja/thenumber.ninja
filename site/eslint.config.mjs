@@ -25,9 +25,24 @@ export default defineConfig(
   // eslint-plugin-jsx-a11y doesn't support ESLint 10; never install both.
   astro.configs["jsx-a11y-strict"],
   {
-    languageOptions: {
-      globals: { ...globals.node, ...globals.browser },
-    },
+    // Node-only code: the check scripts, the functions and the config files.
+    // Browser globals stay invalid here, so `window` in a script is an error.
+    files: ["scripts/**", "netlify/**", "*.{js,mjs,cjs,ts}"],
+    languageOptions: { globals: globals.node },
+  },
+  {
+    // a11y.mjs passes functions to Playwright's page.evaluate, which run in the
+    // browser page, so it also needs browser globals.
+    files: ["scripts/checks/a11y.mjs"],
+    languageOptions: { globals: { ...globals.node, ...globals.browser } },
+  },
+  {
+    // Astro components run their frontmatter in Node at build time and their
+    // <script> tags in the browser, so src/ accepts both.
+    files: ["src/**"],
+    languageOptions: { globals: { ...globals.node, ...globals.browser } },
+  },
+  {
     rules: {
       "@typescript-eslint/no-unused-vars": [
         "error",

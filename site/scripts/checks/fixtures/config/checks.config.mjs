@@ -7,7 +7,7 @@
  * between withotto.app and support.withotto.app belongs here.
  */
 
-/** @type {import("./scripts/checks/lib/config.mjs").ChecksConfig} */
+/** @type {import("../../lib/config.mjs").ChecksConfig} */
 export default {
   site: "https://withotto.app",
   distDir: "dist",

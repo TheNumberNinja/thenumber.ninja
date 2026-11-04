@@ -24,7 +24,7 @@ Run from `site/`. Tools come from `mise.toml` (`mise install`), then `pnpm insta
 - `src/layouts/`, `src/components/`, `src/styles/global.css` (Tailwind 4).
 - `src/lib/`: shared code, such as `seo.ts`, which builds titles and canonicals.
 - `src/data/prices.ts`: every price on the site, typed. Pages read prices from here, never type them in (shared rules sections 9 and 12).
-- `src/content.config.ts` and `src/content/`: content collections for Markdown and MDX, each with a Zod schema.
+- `src/content.config.ts` and `src/content/`: content collections for Markdown and MDX. None exist yet; add each with a Zod schema when its content arrives.
 - `netlify/functions/<name>/<name>.ts`: Netlify Functions in the modern format (`export default async (req: Request, context: Context)` plus `export const config`), each in its own folder with its test beside it. Never put a test at the top level of `netlify/functions/`: Netlify deploys every file there as a function.
 - `scripts/checks/`: the SEO, accessibility and link checks, copied from withotto.app. Site settings live in `checks.config.mjs`, not in the scripts.
 
