@@ -67,7 +67,7 @@
     "slugify": "1.6.9",
     "vite": "8.2.4",
     "vitest": "5.0.5",
-    "ws": "8.22.0"
+    "ws": "8.22.1"
   },
   "packageManager": "pnpm@11.28.8"
 }
