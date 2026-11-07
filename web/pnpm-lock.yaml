@@ -27,8 +27,8 @@ importers:
         specifier: 6.0.0
         version: 6.0.0
       '@sanity/client':
-        specifier: 8.11.0
-        version: 8.11.0(vitest@5.0.5(@opentelemetry/api@1.9.1)(@types/node@26.4.0)(vite@8.2.4(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))
+        specifier: 8.14.1
+        version: 8.14.1(vitest@5.0.5(@opentelemetry/api@1.9.1)(@types/node@26.4.0)(vite@8.2.4(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))
       '@sanity/image-url':
         specifier: 2.1.1
         version: 2.1.1
@@ -2124,8 +2124,8 @@ packages:
       rollup:
         optional: true
 
-  '@sanity/client@8.11.0':
-    resolution: {integrity: sha512-veR3k1ZKFqfB0QbmqNSVYedGb9WTwux2ifF+Xy5V5Uef/iMo79LSQCtPPliPUAM1XgOz/u1uyrHxH/1BC/MAPA==}
+  '@sanity/client@8.14.1':
+    resolution: {integrity: sha512-NQNo0yigdHF4edYwUEVqyDi4ZsTUmWT2YMGUn/sQOW6/T+KPAuVXbVZk6gO+Vzd7dTAhaWj8AV/gIddjpo5P6Q==}
     engines: {node: '>=22.12.0'}
 
   '@sanity/image-url@2.1.1':
@@ -2177,6 +2177,9 @@ packages:
   '@smithy/core@3.37.0':
     resolution: {integrity: sha512-97imTcCyiPd8k0e9+ts/Sp0W65Dn9Ti357J7M09Ov4tI8Q1JDJVFSoAJtjEVKqfHEr3Pdo2jfolqKCaaiszH0g==}
     engines: {node: '>=18.0.0'}
+    deprecated: |-
+      Deprecated due to a bug in custom logger data redaction. Upgrade to the latest version. If you used a custom logger with this
+        version, review your logs and rotate any credentials or other secrets. See https://github.com/aws/aws-sdk-js-v3/issues/8393.
 
   '@smithy/credential-provider-imds@4.5.2':
     resolution: {integrity: sha512-A9uSdn72ozbRUSit0eib0TW7nXuNPlaeM0zcGkJ+nE6tFcSDbnmtwoxbTCFBukVQcszDAyvsd7+rTduPTXpygg==}
@@ -3392,8 +3395,8 @@ packages:
     resolution: {integrity: sha512-jZVIVilXZfAx6H20ZKKEj5dabbpD9ETmMj3uHsjMmgBzBHB6tsHrmdWB4mAiy3amtN6MOoVkfXRQu4wf1n88Rw==}
     engines: {node: '>=22.12'}
 
-  eventsource@5.1.3:
-    resolution: {integrity: sha512-rkZZeKloVPdaZ9tj/AoUPxp7Oz4iGC+8ZIxnauSTZZm6vAMSKX0YjrueNBDHVq5oTsUf/Q9Q/PEzGokVxRBkJg==}
+  eventsource@5.1.4:
+    resolution: {integrity: sha512-awkjURTcaMUKjtEqM/78nMtFSfGcgGST6EbXGV2/E7LJXzWwnNaByn1zACiX9VluWzokVeHpjRdzo3nZr9zhMg==}
     engines: {node: '>=22.12.0'}
 
   execa@5.1.1:
@@ -8465,9 +8468,9 @@ snapshots:
       estree-walker: 2.0.2
       picomatch: 4.0.7
 
-  '@sanity/client@8.11.0(vitest@5.0.5(@opentelemetry/api@1.9.1)(@types/node@26.4.0)(vite@8.2.4(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))':
+  '@sanity/client@8.14.1(vitest@5.0.5(@opentelemetry/api@1.9.1)(@types/node@26.4.0)(vite@8.2.4(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))':
     dependencies:
-      eventsource: 5.1.3
+      eventsource: 5.1.4
       get-it: 9.6.2(vitest@5.0.5(@opentelemetry/api@1.9.1)(@types/node@26.4.0)(vite@8.2.4(@types/node@26.4.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))
       obug: 3.0.0
       rxjs: 7.8.2
@@ -9911,7 +9914,7 @@ snapshots:
 
   eventsource-parser@4.1.3: {}
 
-  eventsource@5.1.3:
+  eventsource@5.1.4:
     dependencies:
       eventsource-parser: 4.1.3
 
