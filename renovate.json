@@ -4,7 +4,9 @@
   "timezone": "Europe/London",
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
-  "dependencyDashboard": true,
+  "dependencyDashboard": {
+    "enabled": true
+  },
   "configMigration": true,
   "rangeStrategy": "pin",
   "postUpdateOptions": ["pnpmDedupe"],
