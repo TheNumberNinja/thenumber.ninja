@@ -53,6 +53,11 @@ typography:
     fontSize: "1rem"
     fontWeight: 500
     lineHeight: 1.4
+  button:
+    fontFamily: "Albert Sans Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 600
+    lineHeight: 1.2
 rounded:
   none: "0px"
 spacing:
@@ -66,12 +71,13 @@ components:
   button-primary:
     backgroundColor: "{colors.chartreuse}"
     textColor: "{colors.ink}"
-    typography: "{typography.label}"
+    typography: "{typography.button}"
     rounded: "{rounded.none}"
     padding: "0.75rem 1.4rem"
   button-ink:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.paper}"
+    typography: "{typography.button}"
     rounded: "{rounded.none}"
     padding: "0.75rem 1.4rem"
   button-ink-hover:
@@ -87,10 +93,13 @@ components:
     typography: "{typography.question}"
     rounded: "{rounded.none}"
   jump-link:
-    backgroundColor: "{colors.teal}"
     textColor: "{colors.paper}"
+    typography: "{typography.label}"
     rounded: "{rounded.none}"
     padding: "0.55rem 1rem"
+  jump-link-hover:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.teal}"
   note-copper:
     backgroundColor: "{colors.copper}"
     textColor: "{colors.ink}"
@@ -115,8 +124,8 @@ It is flat, airy and square. There are no shadows, no rounded corners, no gradie
 The owner has rejected cobalt as a default colour, a signage or wayfinding look (too governmental), serif display type, rounded card grids, skeuomorphism and busy illustration.
 
 **Key Characteristics:**
-- Three colours plus ink and white; no tints, gradients or extra hues.
-- Chartreuse is reserved: the opened question and the primary action only.
+- Three colours plus ink and white; no gradients or extra hues, and no tints beyond the primary button's hover.
+- Chartreuse is reserved: the opened question, the primary action and the closing bands, plus the current-page, selection and focus marks.
 - Questions as headings, set large; answers at calm reading size.
 - Square edges, hairline rules, drawn line arrows and ticks.
 - Flat: colour bands and rules, never shadows.
@@ -143,11 +152,11 @@ Emma's colours: a deep teal ground, an acid chartreuse highlight and a pale copp
 - **Hairline** (rule) and **Hairline on Teal** (rule-on-teal): 1px dividers between list rows, questions and sections.
 
 ### Named Rules
-**The Reserved Highlight Rule.** Chartreuse appears only on the opened question, the primary action and the closing band that holds it. Never use it for decoration, tags, icons or emphasis in running text.
+**The Reserved Highlight Rule.** Chartreuse fills only the opened question, the primary action and the closing bands that end a page. As a line it also marks the current page in the nav, selected text, and the focus ring on teal and ink, where ink would vanish. Never use it for decoration, tags, icons or emphasis in running text.
 
-**The Five Colours Rule.** Teal, chartreuse, copper, ink and white, plus the derived text and rule tones above. No tints, gradients or new hues; a new need is met by one of these five on a different ground.
+**The Five Colours Rule.** Teal, chartreuse, copper, ink and white, plus the derived text and rule tones above. No tints, gradients or new hues; a new need is met by one of these five on a different ground. The one blend is the primary button's hover, chartreuse mixed slightly toward white.
 
-**The Whole Region Rule.** Teal and chartreuse are fields, not accents: they fill full-width bands or a full question row, never small boxes or borders.
+**The Whole Region Rule.** Teal and chartreuse are fields, not accents: they fill full-width bands or a full question row, never small boxes or borders. Small controls on teal (the Menu button, jump links) are outlined in white instead.
 
 ## Typography
 
@@ -163,7 +172,8 @@ Emma's colours: a deep teal ground, an acid chartreuse highlight and a pale copp
 - **Question** (600, clamp 1.625-2.5rem, 1.12): the disclosure questions and the "Where next?" links.
 - **Lead** (400-500, 1.375rem, 1.45): the sentence under a page title; the price's qualifying line. Max about 46ch.
 - **Body** (400, 1.1875rem, 1.55): answers and running text, kept to 56-60ch. Answers inside an opened question set at 1.25rem.
-- **Label** (500-600, 1rem-1.0625rem): nav, buttons, jump links, captions, footer.
+- **Label** (500-600, 1rem): nav, jump links, captions, footer.
+- **Button** (600, 1.0625rem, 1.2): the primary and ink buttons.
 
 ### Named Rules
 **The Question Is the Heading Rule.** Section headings are the visitor's questions in their own words. They are not preceded by small uppercase labels or kickers.
@@ -201,7 +211,7 @@ Solid, square and plain.
 - **Ink:** ink ground, white text, hover turns teal. Used for the action that sits on a chartreuse close band, where a chartreuse button would vanish.
 
 ### Question Disclosure (signature)
-Native details elements sharing one name, so one is open at a time and it works without JavaScript. On teal, each closed question is a white semibold row between hairline rules with a drawn arrow pointing down at the right. Opening one fills the row with chartreuse, bleeds it slightly past the column edges, turns text ink, flips the arrow up (0.35s), and eases the answer open to its height (0.45s, expo ease) where the browser supports it. The answer is a short paragraph followed by one to two underlined next-step links in 600 weight. Reduced motion removes every transition.
+Native details elements sharing one name, so one is open at a time and it works without JavaScript; in browsers from before the name attribute, a short script closes the others. On teal, each closed question is a white semibold row between hairline rules with a drawn arrow pointing down at the right. Opening one fills the row with chartreuse, bleeds it slightly past the column edges, turns text ink, flips the arrow up (0.35s), and eases the answer open to its height (0.45s, expo ease) where the browser supports it. The answer is a short paragraph followed by one to two underlined next-step links in 600 weight. Reduced motion removes every transition.
 
 ### Closing Bands
 A full-width chartreuse band ends a page with its one next step. On the home page it is a title with a short paragraph and an ink button ("Ask us yours"); on inner pages it is "Where next?" with large question-size links in ruled rows, each ending in a drawn arrow, the last leading back to the home page questions.
@@ -213,7 +223,7 @@ Full-width rows between hairlines; labels left at regular weight, amounts right 
 "Most of our clients" and "We're probably not right for you if" side by side at equal weight: the first framed by a 2px ink outline on white, the second filled pale copper. Both hold ruled lists with muted sub-lines.
 
 ### Navigation
-Teal header, 4.75rem tall. Wordmark in 700 at left; links in 500 weight at right, underline on hover, current page underlined 3px in chartreuse; Get started as the primary button. Under 56rem a square outlined Menu button (2px white border, fills white on hover) toggles a stacked list with hairline rules on teal.
+Teal header, 4.75rem tall. Wordmark in 700 at left; links in 500 weight at right, underline on hover, current page underlined 3px in chartreuse; Get started as the primary button. Under 56rem a square outlined Menu button (2px white border, fills white on hover) toggles a stacked list with hairline rules on teal. The button shows only when JavaScript runs; without it the list is simply open.
 
 ### Jump Links
 On inner page heads, the page's questions repeat as square outlined links (1.5px white border on teal) that fill white with teal text on hover.
@@ -225,7 +235,7 @@ Ink ground, three columns (legal identity, working hours, more links) collapsing
 
 ### Do:
 - **Do** fill whole regions with teal or chartreuse; let colour changes between full-width bands do the structuring.
-- **Do** keep chartreuse for the opened question, the primary action and the closing band that holds it.
+- **Do** keep chartreuse for the opened question, the primary action and the closing bands.
 - **Do** head every section with the visitor's question and answer it in the right-hand column of the 5fr / 7fr split.
 - **Do** separate list items with hairline rules rather than boxes.
 - **Do** end every answer and every page with one next step and a way back.

@@ -53,6 +53,11 @@ typography:
     fontSize: "1rem"
     fontWeight: 500
     lineHeight: 1.4
+  button:
+    fontFamily: "Albert Sans Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 600
+    lineHeight: 1.2
 rounded:
   none: "0px"
 spacing:
@@ -66,12 +71,13 @@ components:
   button-primary:
     backgroundColor: "{colors.chartreuse}"
     textColor: "{colors.ink}"
-    typography: "{typography.label}"
+    typography: "{typography.button}"
     rounded: "{rounded.none}"
     padding: "0.75rem 1.4rem"
   button-ink:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.paper}"
+    typography: "{typography.button}"
     rounded: "{rounded.none}"
     padding: "0.75rem 1.4rem"
   button-ink-hover:
@@ -87,10 +93,13 @@ components:
     typography: "{typography.question}"
     rounded: "{rounded.none}"
   jump-link:
-    backgroundColor: "{colors.teal}"
     textColor: "{colors.paper}"
+    typography: "{typography.label}"
     rounded: "{rounded.none}"
     padding: "0.55rem 1rem"
+  jump-link-hover:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.teal}"
   note-copper:
     backgroundColor: "{colors.copper}"
     textColor: "{colors.ink}"
@@ -107,14 +116,14 @@ components:
 <!-- impeccable:design-map -->
 Name: The Number Ninja
 Colors: primary: teal #0d5c58; secondary: chartreuse #cfdc4f; tertiary: copper #f8dccb; neutral: ink #15172b; neutral: paper #ffffff; neutral: teal-text #cfe6e2; neutral: muted #3f5452 (+2 more in the sidecar)
-Fonts: Albert Sans Variable (display, headline, title, question, lead, body, label)
+Fonts: Albert Sans Variable (display, headline, title, question, lead, body, label, button)
 Spacing: gutter clamp(1.25rem, 3.9vw, 3.5rem), container 83rem, column-gap 3.5rem, row 0.75rem, section-sm 4.5rem, section-lg 6.5rem
 Radius: none 0px
 North Star: "Your Question, Answered"
 Rules:
-- The Reserved Highlight Rule. Chartreuse appears only on the opened question, the primary action and the closing band that holds it.
-- The Five Colours Rule. Teal, chartreuse, copper, ink and white, plus the derived text and rule tones above.
-- The Whole Region Rule. Teal and chartreuse are fields, not accents: they fill full-width bands or a full question row, never small boxes or borders.
+- The Reserved Highlight Rule. Chartreuse fills only the opened question, the primary action and the closing bands that end a page. As a line it also marks the current page in the nav, selected text, and the focus ring on teal and ink, where ink would vanish.
+- The Five Colours Rule. Teal, chartreuse, copper, ink and white, plus the derived text and rule tones above. The one blend is the primary button's hover.
+- The Whole Region Rule. Teal and chartreuse are fields, not accents: they fill full-width bands or a full question row, never small boxes or borders. Small controls on teal (the Menu button, jump links) are outlined in white instead.
 - The Question Is the Heading Rule. Section headings are the visitor's questions in their own words.
 - The One Family Rule. Albert Sans does everything.
 - The Flat Field Rule. No box-shadow, no gradient, no blur.
@@ -128,7 +137,7 @@ Don't:
 - Don't use chartreuse as decoration, a tag colour or text emphasis.
 Do:
 - Do fill whole regions with teal or chartreuse; let colour changes between full-width bands do the structuring.
-- Do keep chartreuse for the opened question, the primary action and the closing band that holds it.
+- Do keep chartreuse for the opened question, the primary action and the closing bands.
 - Do head every section with the visitor's question and answer it in the right-hand column of the 5fr / 7fr split.
 - Do separate list items with hairline rules rather than boxes.
 - Do end every answer and every page with one next step and a way back.

@@ -19,7 +19,9 @@ export default defineConfig({
     // Holding pages are noindex, so they stay out of the sitemap.
     sitemap({
       filter: (page) =>
-        !Object.keys(holdingPages).some((slug) => page.endsWith(`/${slug}/`)),
+        !Object.keys(holdingPages).some(
+          (slug) => new URL(page).pathname === `/${slug}/`,
+        ),
     }),
     icon(),
     // Lets the checks report a content entry's own file as the source of its

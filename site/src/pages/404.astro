@@ -6,9 +6,38 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   title="Page not found on the new site"
   description="The page you asked for isn't here. It may have moved, or the address may be mistyped. The home page is the place to start."
   noindex>
-  <h1>Page not found</h1>
-  <p>We can't find the page you asked for.</p>
-  <p>
-    <a href="/">Go to the home page</a>
-  </p>
+  <div class="head on-teal">
+    <div class="wrap">
+      <h1>Page not found</h1>
+      <p>We can't find the page you asked for.</p>
+    </div>
+  </div>
+  <div class="wrap body">
+    <p>
+      <a href="/">Go to the home page</a>
+    </p>
+  </div>
 </BaseLayout>
+
+<style>
+  /* The same head and body as the holding pages. */
+  .head {
+    background: var(--color-teal);
+    color: var(--color-paper);
+    padding: 2.5rem 0 4rem;
+  }
+  h1 {
+    font-size: clamp(2.5rem, 5.4vw, 4.75rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+  }
+  .head p {
+    margin-top: 1rem;
+    font-size: 1.375rem;
+    color: var(--color-teal-text);
+  }
+  .body {
+    padding-block: 4rem 6rem;
+  }
+</style>

@@ -137,7 +137,11 @@
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Nav, buttons, jump links, captions, footer."
+        "purpose": "Nav, jump links, captions, footer."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "The primary and ink buttons."
       }
     },
     "shadows": [],
@@ -225,7 +229,7 @@
       "kind": "custom",
       "refersTo": "",
       "description": "Ruled rows, tabular amounts right, base row opened by a 3px ink rule.",
-      "html": "<table class=\"ds-pt\"><tbody><tr class=\"ds-base\"><th>The core package, one director</th><td>£245</td></tr><tr><th>VAT registered (quarterly VAT returns)</th><td>add £36.75</td></tr><tr><th>Each additional director</th><td>add £15</td></tr></tbody><caption>All prices are a month and + VAT.</caption></table>",
+      "html": "<table class=\"ds-pt\"><caption>All prices are a month and + VAT.</caption><tbody><tr class=\"ds-base\"><th>The core package, one director</th><td>£245</td></tr><tr><th>VAT registered (quarterly VAT returns)</th><td>add £36.75</td></tr><tr><th>Each additional director</th><td>add £15</td></tr></tbody></table>",
       "css": ".ds-pt{font-family:'Albert Sans Variable',ui-sans-serif,system-ui,sans-serif;width:100%;border-collapse:collapse;color:#15172b;font-size:1.1875rem;font-variant-numeric:lining-nums tabular-nums;}.ds-pt th,.ds-pt td{padding:.85rem 0;border-top:1px solid #15172b26;font-weight:400;text-align:left;}.ds-pt td{padding-left:1.5rem;font-weight:600;text-align:right;white-space:nowrap;}.ds-pt .ds-base th,.ds-pt .ds-base td{border-top:3px solid #15172b;font-size:1.5rem;font-weight:700;}.ds-pt caption{caption-side:bottom;padding-top:.5rem;font-size:1rem;text-align:left;color:#3f5452;}"
     },
     {
@@ -257,8 +261,8 @@
     "northStar": "Your Question, Answered",
     "overview": "**Creative North Star: \"Your Question, Answered\"**\n\nThe site is a set of questions in the visitor's own words, each opening in place to a plain answer from Emma. The visual system serves that: a deep teal field carries whole regions edge to edge, the questions sit on it at large semibold size between hairline rules, and the one question you open turns chartreuse. Everything else is white paper and ink, laid out in a calm two-column rhythm where the left column asks and the right column answers.\n\nIt is flat, airy and square. There are no shadows, no rounded corners, no gradients and no illustration; depth comes from whole-band colour changes (teal, white, copper, chartreuse, ink) and from rules. One sans family does all the work, with weight and size carrying the hierarchy. The palette is Emma's colours, taken from her photograph, and nothing outside it.\n\nThe owner has rejected cobalt as a default colour, a signage or wayfinding look (too governmental), serif display type, rounded card grids, skeuomorphism and busy illustration.",
     "keyCharacteristics": [
-      "Three colours plus ink and white; no tints, gradients or extra hues.",
-      "Chartreuse is reserved: the opened question and the primary action only.",
+      "Three colours plus ink and white; no gradients or extra hues, and no tints beyond the primary button's hover.",
+      "Chartreuse is reserved: the opened question, the primary action and the closing bands, plus the current-page, selection and focus marks.",
       "Questions as headings, set large; answers at calm reading size.",
       "Square edges, hairline rules, drawn line arrows and ticks.",
       "Flat: colour bands and rules, never shadows.",
@@ -267,17 +271,17 @@
     "rules": [
       {
         "name": "The Reserved Highlight Rule",
-        "body": "Chartreuse appears only on the opened question, the primary action and the closing band that holds it. Never use it for decoration, tags, icons or emphasis in running text.",
+        "body": "Chartreuse fills only the opened question, the primary action and the closing bands that end a page. As a line it also marks the current page in the nav, selected text, and the focus ring on teal and ink, where ink would vanish. Never use it for decoration, tags, icons or emphasis in running text.",
         "section": "colors"
       },
       {
         "name": "The Five Colours Rule",
-        "body": "Teal, chartreuse, copper, ink and white, plus the derived text and rule tones above. No tints, gradients or new hues; a new need is met by one of these five on a different ground.",
+        "body": "Teal, chartreuse, copper, ink and white, plus the derived text and rule tones above. No tints, gradients or new hues; a new need is met by one of these five on a different ground. The one blend is the primary button's hover, chartreuse mixed slightly toward white.",
         "section": "colors"
       },
       {
         "name": "The Whole Region Rule",
-        "body": "Teal and chartreuse are fields, not accents: they fill full-width bands or a full question row, never small boxes or borders.",
+        "body": "Teal and chartreuse are fields, not accents: they fill full-width bands or a full question row, never small boxes or borders. Small controls on teal (the Menu button, jump links) are outlined in white instead.",
         "section": "colors"
       },
       {
@@ -298,7 +302,7 @@
     ],
     "dos": [
       "**Do** fill whole regions with teal or chartreuse; let colour changes between full-width bands do the structuring.",
-      "**Do** keep chartreuse for the opened question, the primary action and the closing band that holds it.",
+      "**Do** keep chartreuse for the opened question, the primary action and the closing bands.",
       "**Do** head every section with the visitor's question and answer it in the right-hand column of the 5fr / 7fr split.",
       "**Do** separate list items with hairline rules rather than boxes.",
       "**Do** end every answer and every page with one next step and a way back.",

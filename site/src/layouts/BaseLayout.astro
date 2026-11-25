@@ -219,8 +219,16 @@ const here = Astro.url.pathname;
   }
 
   @media (max-width: 56rem) {
-    .menu-toggle {
+    /* Without JavaScript the button would do nothing, so it only shows
+       when the script can run; the menu is open instead. */
+    :global(.js) .menu-toggle {
       display: inline-flex;
+    }
+    /* Keeps the top row at header height when the menu below it is open. */
+    .mark {
+      display: flex;
+      align-items: center;
+      min-height: 4.75rem;
     }
     .menu {
       flex-basis: 100%;

@@ -62,13 +62,21 @@
     outline-color: var(--color-chartreuse);
   }
 
+  /* ::details-content gets its own rule: a browser that doesn't know it
+     would drop the whole selector list, and with it the fallback. */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
-    *::after,
-    ::details-content {
+    *::after {
       transition: none !important;
       animation: none !important;
+    }
+    /* The @supports also stops the minifier merging the two rules back. */
+    @supports selector(::details-content) {
+      ::details-content {
+        transition: none !important;
+        animation: none !important;
+      }
     }
   }
 }

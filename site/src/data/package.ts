@@ -4,13 +4,25 @@
  * can't drift apart (shared rule 12).
  */
 
-export const coreIncludes: string[] = [
-  "Xero, on the Grow plan",
-  "Bookkeeping, kept up to date each month",
-  "Annual accounts and corporation tax return",
-  "Your confirmation statement, with the Companies House fee",
-  "Director payroll",
-  "A secure client dashboard with your key dates",
+export interface IncludedItem {
+  text: string;
+  /** A sentence more, shown only on the Service businesses page. */
+  more?: string;
+}
+
+export const coreIncludes: IncludedItem[] = [
+  { text: "Xero, on the Grow plan" },
+  {
+    text: "Bookkeeping, kept up to date each month",
+    more: "Send us receipts by email or snap them in the app.",
+  },
+  {
+    text: "Annual accounts and corporation tax return",
+    more: "We confirm the tax bill in plenty of time.",
+  },
+  { text: "Your confirmation statement, with the Companies House fee" },
+  { text: "Director payroll" },
+  { text: "A secure client dashboard with your key dates" },
 ];
 
 /** "We're probably not right for you if…" Each item completes that sentence. */

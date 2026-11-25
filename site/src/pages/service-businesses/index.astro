@@ -5,21 +5,12 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Arrow from "@components/Arrow.astro";
 import Tick from "@components/Tick.astro";
 import { prices } from "@data/prices";
-import { notFor } from "@data/package";
+import { coreIncludes, notFor } from "@data/package";
 import { getStarted } from "@data/navigation";
 import { adjustmentText, pounds } from "@lib/money";
 
 const core = pounds(prices.corePackage.monthly);
 const sa = prices.selfAssessment;
-
-const included = [
-  "Xero, on the Grow plan",
-  "Bookkeeping, kept up to date each month. Send us receipts by email or snap them in the app.",
-  "Annual accounts and corporation tax return, with the tax bill confirmed in plenty of time",
-  "The confirmation statement, including the Companies House fee",
-  "Director payroll",
-  "A secure client dashboard, with your key dates in one place",
-];
 
 const sections = [
   { id: "included", question: "What's included?" },
@@ -75,10 +66,10 @@ const nextSteps = [
           one monthly fee. We do the bookkeeping, so you don't have to.
         </p>
         <ul class="ticks">
-          {included.map((item) => (
+          {coreIncludes.map((item) => (
             <li>
               <Tick class="tick" />
-              {item}
+              {item.more ? `${item.text}. ${item.more}` : item.text}
             </li>
           ))}
         </ul>
