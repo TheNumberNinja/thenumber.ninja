@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-25T14:44:43+00:00",
+  "title": "Design System: The Number Ninja",
+  "extensions": {
+    "colorMeta": {
+      "teal": {
+        "role": "primary",
+        "displayName": "Emma's Teal",
+        "canonical": "#0d5c58",
+        "tonalRamp": [
+          "#041c1a",
+          "#062e2c",
+          "#09403e",
+          "#0c534f",
+          "#3d7d79",
+          "#7aa5a3",
+          "#b6cecd",
+          "#e7efee"
+        ]
+      },
+      "chartreuse": {
+        "role": "secondary",
+        "displayName": "Opened Chartreuse",
+        "canonical": "#cfdc4f",
+        "tonalRamp": [
+          "#3e4218",
+          "#686e28",
+          "#919a37",
+          "#bac647",
+          "#d9e372",
+          "#e5ec9e",
+          "#f1f4ca",
+          "#fafced"
+        ]
+      },
+      "copper": {
+        "role": "tertiary",
+        "displayName": "Pale Copper",
+        "canonical": "#f8dccb",
+        "tonalRamp": [
+          "#4a423d",
+          "#7c6e66",
+          "#ae9a8e",
+          "#dfc6b7",
+          "#f9e3d5",
+          "#fbece2",
+          "#fdf4ef",
+          "#fefcfa"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#15172b",
+        "tonalRamp": [
+          "#06070d",
+          "#0a0c16",
+          "#0f101e",
+          "#131527",
+          "#444555",
+          "#7e7f8a",
+          "#b9b9bf",
+          "#e8e8ea"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff"
+      },
+      "teal-text": {
+        "role": "neutral",
+        "displayName": "Teal Mist",
+        "canonical": "#cfe6e2",
+        "tonalRamp": [
+          "#3e4544",
+          "#687371",
+          "#91a19e",
+          "#bacfcb",
+          "#d9ebe8",
+          "#e5f1ef",
+          "#f1f8f6",
+          "#fafcfc"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#3f5452",
+        "tonalRamp": [
+          "#131919",
+          "#202a29",
+          "#2c3b39",
+          "#394c4a",
+          "#657675",
+          "#95a1a0",
+          "#c5cccb",
+          "#eceeee"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#15172b26"
+      },
+      "rule-on-teal": {
+        "role": "neutral",
+        "displayName": "Hairline on Teal",
+        "canonical": "#ffffff4d"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "One fact per section at poster scale, such as the core package price."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Inner page titles on the teal page head."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Section headings phrased as questions."
+      },
+      "question": {
+        "displayName": "Question",
+        "purpose": "Disclosure questions and Where next links."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Sentence under a page title; the price's qualifying line."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Answers and running text, 56-60ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav, buttons, jump links, captions, footer."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The one easing: button hover, question fill, arrow flip, answer height."
+      },
+      {
+        "name": "button-hover",
+        "value": "0.2s",
+        "purpose": "Button background change."
+      },
+      {
+        "name": "question-fill",
+        "value": "0.3s",
+        "purpose": "Opened question turning chartreuse."
+      },
+      {
+        "name": "arrow-flip",
+        "value": "0.35s",
+        "purpose": "Disclosure arrow rotating from down to up."
+      },
+      {
+        "name": "answer-open",
+        "value": "0.45s",
+        "purpose": "Answer height easing open via ::details-content where supported; removed under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow",
+        "value": "32rem"
+      },
+      {
+        "name": "stack",
+        "value": "56rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Chartreuse, square; the main action (Get started).",
+      "html": "<a class=\"ds-btn\" href=\"#\">Get started</a>",
+      "css": ".ds-btn{font-family:'Albert Sans Variable',ui-sans-serif,system-ui,sans-serif;display:inline-flex;align-items:center;gap:.6rem;padding:.75rem 1.4rem;font-weight:600;font-size:1.0625rem;line-height:1.2;text-decoration:none;background:#cfdc4f;color:#15172b;border-radius:0;transition:background-color .2s cubic-bezier(0.16,1,0.3,1);}.ds-btn:hover{background:color-mix(in srgb,#cfdc4f 78%,white);}.ds-btn:focus-visible{outline:3px solid #15172b;outline-offset:3px;}"
+    },
+    {
+      "name": "Ink Button",
+      "kind": "button",
+      "refersTo": "button-ink",
+      "description": "Ink, square; the action on a chartreuse close band.",
+      "html": "<div class=\"ds-band\"><a class=\"ds-btn-ink\" href=\"#\">Get started</a></div>",
+      "css": ".ds-band{background:#cfdc4f;padding:1.5rem;}.ds-btn-ink{font-family:'Albert Sans Variable',ui-sans-serif,system-ui,sans-serif;display:inline-flex;padding:.75rem 1.4rem;font-weight:600;font-size:1.0625rem;line-height:1.2;text-decoration:none;background:#15172b;color:#fff;border-radius:0;transition:background-color .2s cubic-bezier(0.16,1,0.3,1);}.ds-btn-ink:hover{background:#0d5c58;}.ds-btn-ink:focus-visible{outline:3px solid #15172b;outline-offset:3px;}"
+    },
+    {
+      "name": "Question Disclosure",
+      "kind": "custom",
+      "refersTo": "question-open",
+      "description": "Signature: questions on teal between hairlines; the open one fills chartreuse. One open at a time.",
+      "html": "<div class=\"ds-q\"><details name=\"ds\"><summary><span>I want someone else to do my bookkeeping.</span><svg class=\"ds-arrow\" viewBox=\"0 0 34 34\" width=\"28\" height=\"28\" aria-hidden=\"true\"><path d=\"M8 17h16M17.5 10l7 7-7 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/></svg></summary><div class=\"ds-a\"><p>That's the core package.</p></div></details><details name=\"ds\" open><summary><span>What does it cost?</span><svg class=\"ds-arrow\" viewBox=\"0 0 34 34\" width=\"28\" height=\"28\" aria-hidden=\"true\"><path d=\"M8 17h16M17.5 10l7 7-7 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/></svg></summary><div class=\"ds-a\"><p>From £245 + VAT a month for a company with one director.</p><p class=\"ds-next\"><a href=\"#\">Every price and addition</a><a href=\"#\">Get started</a></p></div></details><details name=\"ds\"><summary><span>I'm not a limited company yet.</span><svg class=\"ds-arrow\" viewBox=\"0 0 34 34\" width=\"28\" height=\"28\" aria-hidden=\"true\"><path d=\"M8 17h16M17.5 10l7 7-7 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/></svg></summary><div class=\"ds-a\"><p>Start with a Power Hour.</p></div></details></div>",
+      "css": ".ds-q{font-family:'Albert Sans Variable',ui-sans-serif,system-ui,sans-serif;background:#0d5c58;color:#fff;padding:1.5rem;}.ds-q details{border-top:1px solid #ffffff4d;transition:background-color .3s cubic-bezier(0.16,1,0.3,1);}.ds-q details:last-child{border-bottom:1px solid #ffffff4d;}.ds-q details[open]{background:#cfdc4f;color:#15172b;border-top-color:transparent;margin-inline:-1.25rem;padding-inline:1.25rem;}.ds-q summary{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:.95rem 0;cursor:pointer;list-style:none;font-size:clamp(1.625rem,2.9vw,2.5rem);font-weight:600;line-height:1.12;letter-spacing:-.02em;}.ds-q summary::-webkit-details-marker{display:none;}.ds-q summary:hover span{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.18em;}.ds-q summary:focus-visible{outline:3px solid #cfdc4f;outline-offset:-7px;}.ds-q details[open] summary:focus-visible{outline-color:#15172b;}.ds-q .ds-arrow{flex:none;transform:rotate(90deg);transition:transform .35s cubic-bezier(0.16,1,0.3,1);}.ds-q details[open] .ds-arrow{transform:rotate(-90deg);}.ds-a p{font-size:1.25rem;line-height:1.5;max-width:58ch;}.ds-next{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;padding:.6rem 0 1.4rem;font-weight:600;font-size:1.125rem;}.ds-next a{color:inherit;text-decoration-thickness:1.5px;text-underline-offset:.2em;}"
+    },
+    {
+      "name": "Site Header",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "Teal bar: wordmark, links with chartreuse current-page underline, primary button.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-mark\" href=\"#\">The Number Ninja</a><ul><li><a href=\"#\" aria-current=\"page\">Service businesses</a></li><li><a href=\"#\">E-commerce</a></li><li><a href=\"#\">About</a></li></ul><a class=\"ds-nav-btn\" href=\"#\">Get started</a></header>",
+      "css": ".ds-nav{font-family:'Albert Sans Variable',ui-sans-serif,system-ui,sans-serif;display:flex;align-items:center;gap:2rem;min-height:4.75rem;padding:0 1.5rem;background:#0d5c58;color:#fff;}.ds-mark{margin-right:auto;font-weight:700;font-size:1.375rem;letter-spacing:-.01em;color:#fff;text-decoration:none;}.ds-nav ul{display:flex;gap:1.75rem;list-style:none;margin:0;padding:0;font-size:1.0625rem;font-weight:500;}.ds-nav ul a{color:#fff;text-decoration:none;}.ds-nav ul a:hover{text-decoration:underline;}.ds-nav ul a[aria-current=page]{text-decoration:underline;text-decoration-color:#cfdc4f;text-decoration-thickness:3px;text-underline-offset:.2em;}.ds-nav-btn{padding:.75rem 1.4rem;font-weight:600;background:#cfdc4f;color:#15172b;text-decoration:none;}.ds-nav a:focus-visible{outline:3px solid #cfdc4f;outline-offset:3px;}"
+    },
+    {
+      "name": "Jump Link",
+      "kind": "chip",
+      "refersTo": "jump-link",
+      "description": "Square outlined link on teal repeating the page's questions.",
+      "html": "<div class=\"ds-jl\"><a href=\"#\">What's included?</a><a href=\"#\">What does it cost?</a></div>",
+      "css": ".ds-jl{font-family:'Albert Sans Variable',ui-sans-serif,system-ui,sans-serif;display:flex;flex-wrap:wrap;gap:.6rem;background:#0d5c58;padding:1.25rem;}.ds-jl a{display:inline-block;padding:.55rem 1rem;border:1.5px solid #fff;color:#fff;font-size:1rem;font-weight:500;text-decoration:none;}.ds-jl a:hover{background:#fff;color:#0d5c58;}.ds-jl a:focus-visible{outline:3px solid #cfdc4f;outline-offset:3px;}"
+    },
+    {
+      "name": "Price Table",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Ruled rows, tabular amounts right, base row opened by a 3px ink rule.",
+      "html": "<table class=\"ds-pt\"><tbody><tr class=\"ds-base\"><th>The core package, one director</th><td>£245</td></tr><tr><th>VAT registered (quarterly VAT returns)</th><td>add £36.75</td></tr><tr><th>Each additional director</th><td>add £15</td></tr></tbody><caption>All prices are a month and + VAT.</caption></table>",
+      "css": ".ds-pt{font-family:'Albert Sans Variable',ui-sans-serif,system-ui,sans-serif;width:100%;border-collapse:collapse;color:#15172b;font-size:1.1875rem;font-variant-numeric:lining-nums tabular-nums;}.ds-pt th,.ds-pt td{padding:.85rem 0;border-top:1px solid #15172b26;font-weight:400;text-align:left;}.ds-pt td{padding-left:1.5rem;font-weight:600;text-align:right;white-space:nowrap;}.ds-pt .ds-base th,.ds-pt .ds-base td{border-top:3px solid #15172b;font-size:1.5rem;font-weight:700;}.ds-pt caption{caption-side:bottom;padding-top:.5rem;font-size:1rem;text-align:left;color:#3f5452;}"
+    },
+    {
+      "name": "Fit Panels",
+      "kind": "card",
+      "refersTo": "note-copper",
+      "description": "Who it fits (ink outline) beside who it doesn't (copper field), equal weight.",
+      "html": "<div class=\"ds-fit\"><div class=\"ds-yes\"><h3>Most of our clients</h3><ul><li>run a limited company with one or two directors</li><li>use Xero, or are happy to</li></ul></div><div class=\"ds-no\"><h3>We're probably not right for you if</h3><ul><li>you'd rather talk things through by phone<span>We work by email and video call.</span></li></ul></div></div>",
+      "css": ".ds-fit{font-family:'Albert Sans Variable',ui-sans-serif,system-ui,sans-serif;display:grid;grid-template-columns:1fr 1fr;color:#15172b;}.ds-fit>div{padding:2rem 1.5rem;}.ds-yes{border:2px solid #15172b;}.ds-no{background:#f8dccb;}.ds-fit h3{font-size:1.5rem;font-weight:700;line-height:1.15;letter-spacing:-.015em;margin:0 0 1rem;}.ds-fit ul{list-style:none;margin:0;padding:0;}.ds-fit li{padding:.75rem 0;border-top:1px solid #15172b26;}.ds-fit li span{display:block;font-size:1rem;color:#3f5452;}"
+    },
+    {
+      "name": "Where Next Band",
+      "kind": "custom",
+      "refersTo": "close-band",
+      "description": "Chartreuse closing band with large ruled links ending in drawn arrows.",
+      "html": "<section class=\"ds-wn\"><h2>Where next?</h2><ul><li><a href=\"#\">Get started and book an introductory call<svg class=\"ds-arrow\" viewBox=\"0 0 34 34\" width=\"28\" height=\"28\" aria-hidden=\"true\"><path d=\"M8 17h16M17.5 10l7 7-7 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/></svg></a></li><li><a href=\"#\">Back to the home page questions<svg class=\"ds-arrow\" viewBox=\"0 0 34 34\" width=\"28\" height=\"28\" aria-hidden=\"true\"><path d=\"M8 17h16M17.5 10l7 7-7 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/></svg></a></li></ul></section>",
+      "css": ".ds-wn{font-family:'Albert Sans Variable',ui-sans-serif,system-ui,sans-serif;background:#cfdc4f;color:#15172b;padding:2.5rem 1.5rem;}.ds-wn h2{font-size:clamp(1.875rem,3.4vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.025em;margin:0 0 1.1rem;}.ds-wn ul{list-style:none;margin:0;padding:0;}.ds-wn li{border-top:1px solid #15172b26;}.ds-wn a{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0;font-size:clamp(1.5rem,2.6vw,2.25rem);font-weight:600;letter-spacing:-.02em;color:#15172b;text-decoration:none;}.ds-wn a:hover{text-decoration:underline;}.ds-wn a:focus-visible{outline:3px solid #15172b;outline-offset:3px;}"
+    },
+    {
+      "name": "Tick List",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "What's included: ruled rows with a drawn teal tick.",
+      "html": "<ul class=\"ds-ticks\"><li><svg class=\"ds-tick\" viewBox=\"0 0 18 18\" width=\"18\" height=\"18\" aria-hidden=\"true\"><path d=\"M2 9.5l4.5 4.5L16 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\"/></svg>Xero, on the Grow plan</li><li><svg class=\"ds-tick\" viewBox=\"0 0 18 18\" width=\"18\" height=\"18\" aria-hidden=\"true\"><path d=\"M2 9.5l4.5 4.5L16 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\"/></svg>Director payroll</li></ul>",
+      "css": ".ds-ticks{font-family:'Albert Sans Variable',ui-sans-serif,system-ui,sans-serif;list-style:none;margin:0;padding:0;color:#15172b;font-size:1.1875rem;}.ds-ticks li{position:relative;padding:.7rem 0 .7rem 1.9rem;border-top:1px solid #15172b26;}.ds-ticks .ds-tick{position:absolute;left:0;top:1.1rem;color:#0d5c58;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Your Question, Answered",
+    "overview": "**Creative North Star: \"Your Question, Answered\"**\n\nThe site is a set of questions in the visitor's own words, each opening in place to a plain answer from Emma. The visual system serves that: a deep teal field carries whole regions edge to edge, the questions sit on it at large semibold size between hairline rules, and the one question you open turns chartreuse. Everything else is white paper and ink, laid out in a calm two-column rhythm where the left column asks and the right column answers.\n\nIt is flat, airy and square. There are no shadows, no rounded corners, no gradients and no illustration; depth comes from whole-band colour changes (teal, white, copper, chartreuse, ink) and from rules. One sans family does all the work, with weight and size carrying the hierarchy. The palette is Emma's colours, taken from her photograph, and nothing outside it.\n\nThe owner has rejected cobalt as a default colour, a signage or wayfinding look (too governmental), serif display type, rounded card grids, skeuomorphism and busy illustration.",
+    "keyCharacteristics": [
+      "Three colours plus ink and white; no tints, gradients or extra hues.",
+      "Chartreuse is reserved: the opened question and the primary action only.",
+      "Questions as headings, set large; answers at calm reading size.",
+      "Square edges, hairline rules, drawn line arrows and ticks.",
+      "Flat: colour bands and rules, never shadows.",
+      "Emma's photograph as the only image; no illustration budget."
+    ],
+    "rules": [
+      {
+        "name": "The Reserved Highlight Rule",
+        "body": "Chartreuse appears only on the opened question, the primary action and the closing band that holds it. Never use it for decoration, tags, icons or emphasis in running text.",
+        "section": "colors"
+      },
+      {
+        "name": "The Five Colours Rule",
+        "body": "Teal, chartreuse, copper, ink and white, plus the derived text and rule tones above. No tints, gradients or new hues; a new need is met by one of these five on a different ground.",
+        "section": "colors"
+      },
+      {
+        "name": "The Whole Region Rule",
+        "body": "Teal and chartreuse are fields, not accents: they fill full-width bands or a full question row, never small boxes or borders.",
+        "section": "colors"
+      },
+      {
+        "name": "The Question Is the Heading Rule",
+        "body": "Section headings are the visitor's questions in their own words. They are not preceded by small uppercase labels or kickers.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Albert Sans does everything. No serif display face, no second family, no monospace.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Field Rule",
+        "body": "No box-shadow, no gradient, no blur. If something needs to stand forward, it changes ground colour.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** fill whole regions with teal or chartreuse; let colour changes between full-width bands do the structuring.",
+      "**Do** keep chartreuse for the opened question, the primary action and the closing band that holds it.",
+      "**Do** head every section with the visitor's question and answer it in the right-hand column of the 5fr / 7fr split.",
+      "**Do** separate list items with hairline rules rather than boxes.",
+      "**Do** end every answer and every page with one next step and a way back.",
+      "**Do** set prices in tabular lining numerals, and give the one key figure poster scale.",
+      "**Do** use only the drawn arrow and tick, in currentColor, decorative and hidden from assistive tech.",
+      "**Do** brief the planned photo shoot of Emma to this palette; the current photo is a placeholder."
+    ],
+    "donts": [
+      "**Don't** use cobalt or any blue as a default colour, or add any hue outside Emma's colours.",
+      "**Don't** build a signage or wayfinding look; the owner found it too governmental.",
+      "**Don't** use a serif display face.",
+      "**Don't** use rounded card grids, or round any corner.",
+      "**Don't** add shadows, gradients, skeuomorphic texture or busy illustration.",
+      "**Don't** put small uppercase kickers or eyebrow labels above headings.",
+      "**Don't** use chartreuse as decoration, a tag colour or text emphasis."
+    ]
+  }
+}
