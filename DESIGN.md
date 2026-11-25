@@ -8,6 +8,7 @@ colors:
   ink: "#15172b"
   paper: "#ffffff"
   teal-text: "#cfe6e2"
+  ink-text: "#dfe3e2"
   muted: "#3f5452"
   rule: "#15172b26"
   rule-on-teal: "#ffffff4d"
@@ -115,13 +116,13 @@ components:
 
 <!-- impeccable:design-map -->
 Name: The Number Ninja
-Colors: primary: teal #0d5c58; secondary: chartreuse #cfdc4f; tertiary: copper #f8dccb; neutral: ink #15172b; neutral: paper #ffffff; neutral: teal-text #cfe6e2; neutral: muted #3f5452 (+2 more in the sidecar)
+Colors: primary: teal #0d5c58; secondary: chartreuse #cfdc4f; tertiary: copper #f8dccb; neutral: ink #15172b; neutral: paper #ffffff; neutral: teal-text #cfe6e2; neutral: muted #3f5452 (+3 more in the sidecar)
 Fonts: Albert Sans Variable (display, headline, title, question, lead, body, label, button)
 Spacing: gutter clamp(1.25rem, 3.9vw, 3.5rem), container 83rem, column-gap 3.5rem, row 0.75rem, section-sm 4.5rem, section-lg 6.5rem
 Radius: none 0px
 North Star: "Your Question, Answered"
 Rules:
-- The Reserved Highlight Rule. Chartreuse fills only the opened question, the primary action and the closing bands that end a page. As a line it also marks the current page in the nav, selected text, and the focus ring on teal and ink, where ink would vanish.
+- The Reserved Highlight Rule. Chartreuse fills only the opened question, the primary action and the closing bands that end a page. As a line it also marks the current page in the nav and the focus ring on teal and ink, where ink would vanish, and it fills selected text.
 - The Five Colours Rule. Teal, chartreuse, copper, ink and white, plus the derived text and rule tones above. The one blend is the primary button's hover.
 - The Whole Region Rule. Teal and chartreuse are fields, not accents: they fill full-width bands or a full question row, never small boxes or borders. Small controls on teal (the Menu button, jump links) are outlined in white instead.
 - The Question Is the Heading Rule. Section headings are the visitor's questions in their own words.

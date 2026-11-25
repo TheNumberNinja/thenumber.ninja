@@ -8,6 +8,7 @@ colors:
   ink: "#15172b"
   paper: "#ffffff"
   teal-text: "#cfe6e2"
+  ink-text: "#dfe3e2"
   muted: "#3f5452"
   rule: "#15172b26"
   rule-on-teal: "#ffffff4d"
@@ -148,11 +149,12 @@ Emma's colours: a deep teal ground, an acid chartreuse highlight and a pale copp
 - **Ink** (ink): all text on white, copper and chartreuse; the footer ground; the secondary button; the 2-3px heavy rules that start a table.
 - **Paper** (paper): page ground and text on teal and ink.
 - **Teal Mist** (teal-text): secondary text on teal (captions, leads, breadcrumbs), tinted from the teal itself.
+- **Ink Mist** (ink-text): secondary text on ink (the footer).
 - **Muted Ink** (muted): secondary text on white and copper (sub-lines in lists, table captions).
 - **Hairline** (rule) and **Hairline on Teal** (rule-on-teal): 1px dividers between list rows, questions and sections.
 
 ### Named Rules
-**The Reserved Highlight Rule.** Chartreuse fills only the opened question, the primary action and the closing bands that end a page. As a line it also marks the current page in the nav, selected text, and the focus ring on teal and ink, where ink would vanish. Never use it for decoration, tags, icons or emphasis in running text.
+**The Reserved Highlight Rule.** Chartreuse fills only the opened question, the primary action and the closing bands that end a page. As a line it also marks the current page in the nav and the focus ring on teal and ink, where ink would vanish, and it fills selected text. Never use it for decoration, tags, icons or emphasis in running text.
 
 **The Five Colours Rule.** Teal, chartreuse, copper, ink and white, plus the derived text and rule tones above. No tints, gradients or new hues; a new need is met by one of these five on a different ground. The one blend is the primary button's hover, chartreuse mixed slightly toward white.
 

@@ -15,6 +15,8 @@
   --color-paper: #ffffff;
   /* Secondary text on teal, tinted from the teal itself (6:1 on teal). */
   --color-teal-text: #cfe6e2;
+  /* Secondary text on ink, in the footer. */
+  --color-ink-text: #dfe3e2;
   /* Secondary text on white and copper (at least 6:1 on both). */
   --color-muted: #3f5452;
   --color-rule: #15172b26;

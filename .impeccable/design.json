@@ -84,6 +84,11 @@
           "#fafcfc"
         ]
       },
+      "ink-text": {
+        "role": "neutral",
+        "displayName": "Ink Mist",
+        "canonical": "#dfe3e2"
+      },
       "muted": {
         "role": "neutral",
         "displayName": "Muted Ink",
@@ -271,7 +276,7 @@
     "rules": [
       {
         "name": "The Reserved Highlight Rule",
-        "body": "Chartreuse fills only the opened question, the primary action and the closing bands that end a page. As a line it also marks the current page in the nav, selected text, and the focus ring on teal and ink, where ink would vanish. Never use it for decoration, tags, icons or emphasis in running text.",
+        "body": "Chartreuse fills only the opened question, the primary action and the closing bands that end a page. As a line it also marks the current page in the nav and the focus ring on teal and ink, where ink would vanish, and it fills selected text. Never use it for decoration, tags, icons or emphasis in running text.",
         "section": "colors"
       },
       {
