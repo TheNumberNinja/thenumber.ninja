@@ -4,6 +4,7 @@ import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
 import checksConfig from "./checks.config.mjs";
+import { holdingPages } from "./src/data/holding.ts";
 import routeSources from "./scripts/checks/lib/route-sources-integration.mjs";
 
 // https://astro.build/config
@@ -15,10 +16,11 @@ export default defineConfig({
   output: "static",
   integrations: [
     mdx(),
-    // No filter: with every page filtered out the integration writes no
-    // sitemap at all, which the SEO check blocks on. The noindex placeholder
-    // home page stays listed until real pages replace it.
-    sitemap(),
+    // Holding pages are noindex, so they stay out of the sitemap.
+    sitemap({
+      filter: (page) =>
+        !Object.keys(holdingPages).some((slug) => page.endsWith(`/${slug}/`)),
+    }),
     icon(),
     // Lets the checks report a content entry's own file as the source of its
     // findings. It does nothing until a page emits the route map

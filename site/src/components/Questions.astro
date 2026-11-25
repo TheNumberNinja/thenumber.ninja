@@ -1,0 +1,138 @@
+---
+// The questions visitors arrive with, each opening in place to a plain answer
+// that ends with one next step. Native <details> sharing one `name`, so one
+// answer is open at a time, keyboard and screen reader behaviour come from the
+// browser, and it works without JavaScript. Sits on the teal field.
+import Arrow from "@components/Arrow.astro";
+import type { NavLink } from "@data/navigation";
+
+export interface Question {
+  question: string;
+  answer: string;
+  links: NavLink[];
+  open?: boolean;
+}
+
+export interface Props {
+  // Groups the <details> so opening one closes the others.
+  group: string;
+  items: Question[];
+}
+
+const { group, items } = Astro.props;
+---
+
+<div class="questions">
+  {items.map((item) => (
+    <details name={group} open={item.open}>
+      <summary>
+        <span>{item.question}</span>
+        <Arrow class="arrow" />
+      </summary>
+      <div class="answer">
+        <p>{item.answer}</p>
+        <p class="next">
+          {item.links.map((link) => (
+            <a href={link.href}>{link.label}</a>
+          ))}
+        </p>
+      </div>
+    </details>
+  ))}
+</div>
+
+<style>
+  .questions {
+    --bleed: min(1.5rem, clamp(1.25rem, 3.9vw, 3.5rem));
+    border-bottom: 1px solid var(--color-rule-on-teal);
+  }
+  details {
+    border-top: 1px solid var(--color-rule-on-teal);
+    transition: background-color 0.3s var(--ease-out-expo);
+  }
+  details[open] {
+    background: var(--color-chartreuse);
+    color: var(--color-ink);
+    border-top-color: transparent;
+    margin-inline: calc(var(--bleed) * -1);
+    padding-inline: var(--bleed);
+  }
+  details[open] + details {
+    border-top-color: transparent;
+  }
+  summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.95rem 0;
+    cursor: pointer;
+    list-style: none;
+    font-size: clamp(1.625rem, 2.9vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary:hover span {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.18em;
+  }
+  details[open] summary:hover span {
+    text-decoration: none;
+  }
+  /* Room for an inset focus ring, so it never runs into an open answer. */
+  summary {
+    margin-inline: -0.75rem;
+    padding-inline: 0.75rem;
+  }
+  summary:focus-visible {
+    outline-offset: -7px;
+  }
+  details[open] summary:focus-visible {
+    outline-color: var(--color-ink);
+  }
+  .questions :global(.arrow) {
+    flex: none;
+    width: 2rem;
+    height: 2rem;
+    transform: rotate(90deg);
+    transition: transform 0.35s var(--ease-out-expo);
+  }
+  details[open] :global(.arrow) {
+    transform: rotate(-90deg);
+  }
+
+  /* Eases the answer open where the browser can animate to auto height. */
+  details::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition:
+      block-size 0.45s var(--ease-out-expo),
+      content-visibility 0.45s allow-discrete;
+  }
+  details[open]::details-content {
+    block-size: auto;
+  }
+
+  .answer p {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    max-width: 58ch;
+  }
+  .answer .next {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.6rem;
+    padding: 0.6rem 0 1.4rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+  }
+  .answer a:focus-visible {
+    outline-color: var(--color-ink);
+  }
+</style>

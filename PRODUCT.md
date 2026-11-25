@@ -35,7 +35,7 @@ Accounts, tax and bookkeeping for UK limited companies run by one or two directo
 ## Operating Context
 
 - Readers usually arrive by name, from a recommendation or a talk, rather than from a search.
-- Getting started: a free introductory call by video, a price on the call, a written proposal, online acceptance, a new client form, ID sent through a secure link, then Xero set up with bank feeds and a receipts email address.
+- Getting started: a free introductory call by video (with a price on the call only when the core package and its listed additions fit; anything else, including catch-up work for businesses that are behind, is priced in the proposal), a written proposal, online acceptance, a new client form, ID sent through a secure link, then Xero set up with bank feeds and a receipts email address.
 - The practice works 9am to 4pm, Monday to Friday, by email and booked video calls. There is no phone support and no phone number anywhere.
 - Each year the agreement is renewed and the fee reviewed.
 - Client records live in Sanity (`studio/`). Payments run through Stripe.
