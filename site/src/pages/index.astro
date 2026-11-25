@@ -1,13 +1,661 @@
 ---
-// Placeholder until the first real page replaces it. Kept out of search
-// results; holds no copy.
+// The home page: the questions visitors arrive with, answered in place, then
+// fit, price, next steps and who they'd deal with (shared rule section 2).
+// Direction: .impeccable/surfaces/site-src-pages-index-astro.md.
+import { Picture } from "astro:assets";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Questions, { type Question } from "@components/Questions.astro";
+import Tick from "@components/Tick.astro";
+import Arrow from "@components/Arrow.astro";
+import { adjustment, prices } from "@data/prices";
+import { coreIncludes, notFor } from "@data/package";
+import { getStarted, powerHour } from "@data/navigation";
+import { pounds } from "@lib/money";
+import emma from "@assets/images/emma.jpg";
+
+const core = pounds(prices.corePackage.monthly);
+const vat = pounds(adjustment("vat").monthly);
+const shop = pounds(adjustment("singleShop").monthly);
+
+const questions: Question[] = [
+  {
+    question: "I want someone else to do my bookkeeping.",
+    answer:
+      "That's the core package. We keep your books up to date in Xero each month, and you send us receipts by email or snap them in the app. Annual accounts, corporation tax, director payroll and your confirmation statement come with it.",
+    links: [
+      { label: "What's in the core package", href: "/service-businesses/" },
+      getStarted,
+    ],
+  },
+  {
+    question: "What does it cost?",
+    answer: `From ${core} + VAT a month for a company with one director, and that includes Xero. VAT returns add ${vat} + VAT a month. For the core package and its listed extras, you'll get a price on the introductory call, and we confirm it once we've seen the books.`,
+    links: [
+      {
+        label: "Every price and addition",
+        href: "/service-businesses/#prices",
+      },
+      getStarted,
+    ],
+    open: true,
+  },
+  {
+    question: "I've had a letter from HMRC. Can you help?",
+    answer: `Yes. If returns or payments are late, we find out what needs doing, catch up, then keep things up to date as your accountant. The catch-up is priced in a written proposal after the call. To talk a letter through first, book a Power Hour with Emma: ${pounds(prices.powerHour.priceIncVat)} including VAT.`,
+    links: [
+      {
+        label: "How catching up works",
+        href: "/service-businesses/#catching-up",
+      },
+      { label: "About the Power Hour", href: powerHour.href },
+    ],
+  },
+  {
+    question: "Can I switch part way through the year?",
+    answer:
+      "Yes. It's common to join part way through a tax year, or after one has ended. We catch up on what's already due and start the monthly work alongside it. The catch-up is priced in your written proposal.",
+    links: [
+      {
+        label: "How catching up works",
+        href: "/service-businesses/#catching-up",
+      },
+      getStarted,
+    ],
+  },
+  {
+    question: "I sell products online. Is this for me?",
+    answer: `Established online retailers typically pay from around ${pounds(prices.ecommerceFrom)} + VAT a month, priced individually. If you sell through a single online shop, the core package may fit with a ${shop} + VAT a month add-on. We confirm which on the call.`,
+    links: [{ label: "Accounts for online retailers", href: "/e-commerce/" }],
+  },
+  {
+    question: "I'm not a limited company yet.",
+    answer:
+      "Start with a Power Hour. It's the route for sole traders weighing up whether to incorporate, and for anyone not ready for a monthly package.",
+    links: [{ label: "How a Power Hour works", href: powerHour.href }],
+  },
+];
+
+const steps = [
+  {
+    title: "Tell us about your business",
+    text: "A short form, then you book a free introductory call by video.",
+  },
+  {
+    title: "An introductory call",
+    text: "Emma asks about the business. If the core package fits, she gives you a price on the call.",
+  },
+  {
+    title: "A written proposal",
+    text: "It follows the call, and prices anything outside the core package. No hard sell: accept online if it suits.",
+  },
+  {
+    title: "We set up Xero",
+    text: "Bank feeds connected, and your own email address for receipts.",
+  },
+];
 ---
 
 <BaseLayout
-  title="Placeholder home page for the new site"
-  description="This is a placeholder page for the new version of the site. The real home page replaces it before launch."
-  noindex>
-  <h1>Placeholder home page</h1>
-  <p>This page is a placeholder.</p>
+  title="Accounts and tax for limited companies"
+  description={`Accounts, tax and bookkeeping for UK limited companies with one or two directors, from ${core} + VAT a month including Xero. Based in Ely, working across the UK.`}>
+  <section class="hero on-teal" aria-labelledby="ask">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>
+          <strong>The Number Ninja</strong> does the accounts, tax and
+          bookkeeping for UK limited companies run by one or two directors.
+        </h1>
+        <h2 id="ask" class="ask">
+          Start with the question you came with
+        </h2>
+        <Questions group="home-questions" items={questions} />
+      </div>
+      <aside class="answerer" aria-label="Who answers">
+        <Picture
+          src={emma}
+          formats={["avif", "webp"]}
+          widths={[560, 1024]}
+          sizes="(max-width: 56rem) 9rem, 560px"
+          alt="Emma"
+          class="answerer-photo"
+          loading="eager"
+        />
+        <p>
+          <strong>Emma</strong> is the accountant, and the person you'd deal
+          with. Ely, Cambridgeshire, since 2016.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="fit-h">
+    <div class="wrap">
+      <h2 id="fit-h" class="section-title">
+        Is this for a business like mine?
+      </h2>
+      <div class="fit">
+        <div class="yes">
+          <h3>Most of our clients</h3>
+          <ul>
+            <li>
+              run a limited company with one or two directors
+              <span>and sell their time or expertise</span>
+            </li>
+            <li>are consultants, agencies, software and games studios</li>
+            <li>
+              use Xero, or are happy to
+              <span>with the bank account linked to it</span>
+            </li>
+          </ul>
+          <p class="also">
+            A few are established online retailers, priced individually.
+          </p>
+        </div>
+        <div class="no">
+          <h3>We're probably not right for you if</h3>
+          <ul>
+            {notFor.map((item) => (
+              <li>
+                {item.text}
+                {item.detail && <span>{item.detail}</span>}
+                {item.link && (
+                  <span>
+                    <a href={item.link.href}>{item.link.label}</a>
+                    {item.link.after}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band pt-0" aria-labelledby="price-h">
+    <div class="wrap price">
+      <div>
+        <h2 id="price-h" class="price-q">
+          What does the core package cost?
+        </h2>
+        <p class="big">
+          {core}
+          <span>
+            + VAT a month, for a company with one director, including Xero
+          </span>
+        </p>
+      </div>
+      <div>
+        <ul class="includes">
+          {coreIncludes.map((item) => (
+            <li>
+              <Tick class="tick" />
+              {item.text}
+            </li>
+          ))}
+        </ul>
+        <p class="after">
+          VAT returns add {vat} + VAT a month. See{" "}
+          <a href="/service-businesses/#prices">every price and addition</a>,
+          including directors' self assessment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band steps-band on-teal" aria-labelledby="steps-h">
+    <div class="wrap">
+      <h2 id="steps-h" class="section-title">
+        What happens if I get in touch?
+      </h2>
+      <ol class="steps">
+        {steps.map((step, i) => (
+          <li>
+            <span class="num" aria-hidden="true">
+              {i + 1}
+            </span>
+            {i < steps.length - 1 && <Arrow class="step-arrow" />}
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="people-h">
+    <div class="wrap people">
+      <h2 id="people-h" class="section-title">
+        Who would I be dealing with?
+      </h2>
+      <div>
+        <p>
+          Emma. She does all of our clients' bookkeeping and accounts work,
+          holds every call and answers your emails. You won't be passed to a
+          general inbox or a different face each year.
+        </p>
+        <p>
+          Stuart, our technical director, is a software engineer. He builds the
+          systems behind the scenes: the client dashboard, the onboarding forms,
+          and the connections that bring your data into Xero.
+        </p>
+        <ul class="facts">
+          <li>IAB member</li>
+          <li>Xero partner</li>
+          <li>Since 2016</li>
+          <li>Ely, Cambridgeshire</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band quote on-teal" aria-label="What a client says">
+    <figure class="wrap">
+      <blockquote>
+        <p>
+          “Emma makes running our accounts a breeze! As a two-director limited
+          company, managing clients, the business, and our accounts was a
+          handful.”
+        </p>
+      </blockquote>
+      <figcaption>Penni Pickering, Kabo Creative</figcaption>
+    </figure>
+  </section>
+
+  <section class="band close" aria-labelledby="close-h">
+    <div class="wrap close-row">
+      <div>
+        <h2 id="close-h" class="section-title">
+          Ask us yours
+        </h2>
+        <p>
+          Tell us about your business and book a free introductory call by
+          video. If the core package fits, you'll get a price on the call.
+          Either way, a written proposal follows.
+        </p>
+      </div>
+      <a class="btn btn-ink" href={getStarted.href}>
+        {getStarted.label}
+      </a>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .hero {
+    background: var(--color-teal);
+    color: var(--color-paper);
+    padding: 1.75rem 0 4rem;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 18.75rem;
+    gap: 3.5rem;
+    align-items: start;
+  }
+  h1 {
+    font-size: clamp(1.5rem, 2.1vw, 1.875rem);
+    font-weight: 500;
+    line-height: 1.25;
+    max-width: 36ch;
+    text-wrap: balance;
+  }
+  h1 strong {
+    font-weight: 700;
+  }
+  .ask {
+    margin: 2.1rem 0 0.6rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .answerer {
+    position: sticky;
+    top: 1.25rem;
+  }
+  .answerer :global(.answerer-photo) {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 58% 30%;
+    background: var(--color-copper);
+  }
+  .answerer p {
+    margin-top: 0.75rem;
+    font-size: 1.0625rem;
+    line-height: 1.45;
+    color: var(--color-teal-text);
+  }
+  .answerer strong {
+    color: var(--color-paper);
+    font-weight: 600;
+  }
+
+  .band {
+    padding: 6.5rem 0;
+  }
+  .band.pt-0 {
+    padding-top: 0;
+  }
+  .section-title {
+    margin-bottom: 1.75rem;
+  }
+
+  .fit {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .fit > div {
+    padding: 3rem clamp(1.25rem, 3.9vw, 3.5rem) 3.5rem;
+  }
+  .yes {
+    border: 2px solid var(--color-ink);
+  }
+  .no {
+    background: var(--color-copper);
+  }
+  .fit h3 {
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 1.1rem;
+  }
+  .fit ul {
+    list-style: none;
+  }
+  .fit li {
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--color-rule);
+  }
+  .fit li span {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 1rem;
+    color: var(--color-muted);
+  }
+  .also {
+    margin-top: 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-rule);
+  }
+  .fit li a {
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .price {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+  .price-q {
+    font-size: 1.375rem;
+    font-weight: 700;
+    margin-bottom: 0.9rem;
+  }
+  .big {
+    font-size: clamp(3.5rem, 7.4vw, 6rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+  .big span {
+    display: block;
+    max-width: 18ch;
+    margin-top: 0.9rem;
+    font-size: 1.375rem;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+  .includes {
+    list-style: none;
+    columns: 2;
+    column-gap: 2.5rem;
+  }
+  .includes li {
+    position: relative;
+    break-inside: avoid;
+    padding: 0.75rem 0 0.75rem 1.9rem;
+    border-top: 1px solid var(--color-rule);
+  }
+  .includes :global(.tick) {
+    position: absolute;
+    left: 0;
+    top: 1.15rem;
+    color: var(--color-teal);
+  }
+  .after {
+    margin-top: 1.5rem;
+    max-width: 60ch;
+    font-size: 1.125rem;
+  }
+
+  /*
+   * The steps band: teal, with copper numerals standing on one line that
+   * runs through all four steps, an arrow carrying it on to the next. Where
+   * the browser supports scroll timelines, the line draws and the steps rise
+   * in turn as the band scrolls in; everywhere else they are simply there.
+   */
+  .steps-band {
+    --num: clamp(5rem, 8.5vw, 8rem);
+    --num-h: calc(var(--num) * 0.8);
+    background: var(--color-teal);
+    color: var(--color-paper);
+  }
+  .steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 2.5rem;
+    margin-top: 1rem;
+    list-style: none;
+    view-timeline-name: --steps;
+  }
+  .steps::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--num-h);
+    height: 2px;
+    background: var(--color-copper);
+    transform-origin: left center;
+  }
+  .steps li {
+    position: relative;
+  }
+  .num {
+    display: block;
+    height: var(--num-h);
+    font-size: var(--num);
+    font-weight: 700;
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    color: var(--color-copper);
+    font-variant-numeric: lining-nums;
+  }
+  .steps :global(.step-arrow) {
+    position: absolute;
+    top: calc(var(--num-h) - 1rem + 1px);
+    right: -2.25rem;
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-copper);
+  }
+  .steps h3 {
+    margin: 1.5rem 0 0.4rem;
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .steps p {
+    max-width: 30ch;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    color: var(--color-teal-text);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .steps::before {
+        animation: steps-draw linear both;
+        animation-range: entry 20% cover 30%;
+      }
+      .steps li {
+        animation: steps-rise linear both;
+      }
+      /*
+       * The timeline sits in its own rules: merged into the animation
+       * shorthand by the CSS minifier, browsers drop the whole declaration.
+       */
+      .steps-band .steps::before,
+      .steps-band .steps li {
+        animation-timeline: --steps;
+      }
+      .steps li:nth-child(1) {
+        animation-range: entry 10% cover 22%;
+      }
+      .steps li:nth-child(2) {
+        animation-range: entry 20% cover 26%;
+      }
+      .steps li:nth-child(3) {
+        animation-range: entry 30% cover 30%;
+      }
+      .steps li:nth-child(4) {
+        animation-range: entry 40% cover 34%;
+      }
+    }
+  }
+  @keyframes steps-draw {
+    from {
+      transform: scaleX(0);
+    }
+  }
+  @keyframes steps-rise {
+    from {
+      opacity: 0;
+      transform: translateY(1.5rem);
+    }
+  }
+
+  .quote {
+    background: var(--color-teal);
+    color: var(--color-paper);
+  }
+  .quote blockquote p {
+    max-width: 26ch;
+    font-size: clamp(1.75rem, 3.4vw, 2.875rem);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  .quote figcaption {
+    margin-top: 1.6rem;
+    font-size: 1.125rem;
+    color: var(--color-teal-text);
+  }
+
+  .people {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+  .people .section-title {
+    margin-bottom: 0;
+  }
+  .people p {
+    max-width: 56ch;
+    margin-bottom: 1rem;
+  }
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.75rem;
+    margin-top: 1.4rem;
+    list-style: none;
+    font-weight: 600;
+    font-size: 1.0625rem;
+  }
+
+  .close {
+    background: var(--color-chartreuse);
+  }
+  .close-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2.5rem;
+  }
+  .close .section-title {
+    margin-bottom: 0;
+  }
+  .close p {
+    margin-top: 0.6rem;
+    max-width: 44ch;
+    font-size: 1.3125rem;
+  }
+
+  @media (max-width: 56rem) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+    .answerer {
+      position: static;
+      order: -1;
+      display: grid;
+      grid-template-columns: 6rem 1fr;
+      gap: 1rem;
+      align-items: center;
+    }
+    .answerer :global(.answerer-photo) {
+      aspect-ratio: 1;
+    }
+    .answerer p {
+      margin-top: 0;
+    }
+    .fit,
+    .price,
+    .people {
+      grid-template-columns: 1fr;
+    }
+    .includes {
+      columns: 1;
+    }
+    .steps-band {
+      --num: 4.5rem;
+    }
+    .steps {
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+    }
+    .steps::before,
+    .steps :global(.step-arrow) {
+      display: none;
+    }
+    .steps li {
+      display: grid;
+      grid-template-columns: 4.5rem 1fr;
+      column-gap: 1rem;
+      align-items: start;
+      padding-top: 1rem;
+      border-top: 2px solid var(--color-copper);
+    }
+    .num {
+      grid-row: span 2;
+    }
+    .steps h3 {
+      margin-top: 0.1rem;
+    }
+    .band {
+      padding: 4.5rem 0;
+    }
+  }
+</style>

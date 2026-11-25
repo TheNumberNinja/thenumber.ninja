@@ -1,0 +1,394 @@
+---
+// The core package page: what's included, every price, and who it fits.
+// Each section is headed by the question it answers, as on the home page.
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Arrow from "@components/Arrow.astro";
+import Tick from "@components/Tick.astro";
+import { prices } from "@data/prices";
+import { coreIncludes, notFor } from "@data/package";
+import { getStarted } from "@data/navigation";
+import { adjustmentText, pounds } from "@lib/money";
+
+const core = pounds(prices.corePackage.monthly);
+const sa = prices.selfAssessment;
+
+const sections = [
+  { id: "included", question: "What's included?" },
+  { id: "prices", question: "What does it cost?" },
+  { id: "self-assessment", question: "What about my own tax return?" },
+  { id: "fit", question: "What does the price assume?" },
+  { id: "catching-up", question: "What if my books are behind?" },
+  { id: "not-for", question: "Who isn't it for?" },
+];
+
+const nextSteps = [
+  { label: "Get started and book an introductory call", href: getStarted.href },
+  { label: "How a year with us works", href: "/how-we-work/" },
+  { label: "Back to the home page questions", href: "/" },
+];
+---
+
+<BaseLayout
+  title="The core package for service businesses"
+  description={`Accounts, tax, bookkeeping, payroll and Xero for service businesses with one or two directors, from ${core} + VAT a month. Every price and addition.`}>
+  <div class="page-head on-teal">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb" class="crumb">
+        <ol>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li aria-current="page">Service businesses</li>
+        </ol>
+      </nav>
+      <h1>The core package for service businesses</h1>
+      <p class="lead">
+        For UK limited companies with one or two directors that sell their time
+        or expertise: consultants, agencies, software and games studios.{" "}
+        <strong>From {core} + VAT a month, including Xero.</strong>
+      </p>
+      <ul class="toc" aria-label="Questions on this page">
+        {sections.map((s) => (
+          <li>
+            <a href={`#${s.id}`}>{s.question}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="qa" id="included" aria-labelledby="included-h">
+      <h2 id="included-h">What's included?</h2>
+      <div>
+        <p>
+          Everything a limited company with one director needs each year, for
+          one monthly fee. We do the bookkeeping, so you don't have to.
+        </p>
+        <ul class="ticks">
+          {coreIncludes.map((item) => (
+            <li>
+              <Tick class="tick" />
+              {item.more ? `${item.text}. ${item.more}` : item.text}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="qa" id="prices" aria-labelledby="prices-h">
+      <h2 id="prices-h">What does it cost?</h2>
+      <div>
+        <table>
+          <caption>
+            All prices are a month and + VAT. We confirm your price once we've
+            seen the books.
+          </caption>
+          <tbody>
+            <tr class="base">
+              <th scope="row">The core package, one director</th>
+              <td>{core}</td>
+            </tr>
+            {prices.corePackage.adjustments.map((a) => (
+              <tr>
+                <th scope="row">{a.label}</th>
+                <td>{adjustmentText(a.monthly)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p>
+          There are no transaction limits. We review the fee each year when we
+          renew the agreement, never mid-year.
+        </p>
+      </div>
+    </section>
+
+    <section class="qa" id="self-assessment" aria-labelledby="sa-h">
+      <h2 id="sa-h">What about my own tax return?</h2>
+      <div>
+        <p>
+          Directors' self assessment is {pounds(sa.monthly)} + VAT a month if
+          your income is salary and dividends from your company. Each other
+          source of income, such as rental income or another job, adds{" "}
+          {pounds(sa.perOtherIncomeSource)} a month.
+        </p>
+      </div>
+    </section>
+
+    <section class="qa" id="fit" aria-labelledby="fit-h">
+      <h2 id="fit-h">What does the price assume?</h2>
+      <div>
+        <p>
+          The price fits a company that sells services, trades in sterling, has
+          only directors on the payroll, uses Xero with its bank account linked,
+          sends receipts electronically as it goes, and answers our questions
+          within a week.
+        </p>
+        <p class="note">
+          More going on, such as staff on the payroll, stock or more than one
+          company? One fixed price wouldn't be fair to either of us. We ask a
+          few questions on the call and send you a price in a written proposal
+          afterwards.
+        </p>
+      </div>
+    </section>
+
+    <section class="qa" id="catching-up" aria-labelledby="catching-up-h">
+      <h2 id="catching-up-h">What if my books are behind?</h2>
+      <div>
+        <p>
+          It's common to come to us part way through a tax year, or after one
+          has ended. We catch up on what's already due and start the monthly
+          work alongside it.
+        </p>
+        <p>
+          If things have slipped further, with late returns or payments and
+          letters from HMRC, it works the same way: we find out what needs
+          doing, catch up, then keep your books up to date.
+        </p>
+        <p class="note">
+          Catch-up work is priced in the written proposal, not on the call.
+          Sometimes we need to look into what has and hasn't been registered or
+          filed before we can price it, so mention it when you get in touch.
+        </p>
+      </div>
+    </section>
+
+    <section class="qa" id="not-for" aria-labelledby="not-for-h">
+      <h2 id="not-for-h">Who isn't it for?</h2>
+      <div>
+        <p class="lead-in">We're probably not right for you if</p>
+        <ul class="plain">
+          {notFor.map((item) => (
+            <li>
+              {item.text}
+              {item.detail && <span>{item.detail}</span>}
+              {item.link && (
+                <span>
+                  <a href={item.link.href}>{item.link.label}</a>
+                  {item.link.after}
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <section class="next" aria-labelledby="next-h">
+    <div class="wrap">
+      <h2 id="next-h" class="section-title">
+        Where next?
+      </h2>
+      <ul>
+        {nextSteps.map((step) => (
+          <li>
+            <a href={step.href}>
+              {step.label}
+              <Arrow class="arrow" />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head {
+    background: var(--color-teal);
+    color: var(--color-paper);
+    padding: 1.1rem 0 4.5rem;
+  }
+  .crumb ol {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    font-size: 1rem;
+    color: var(--color-teal-text);
+  }
+  .crumb li + li::before {
+    content: "/";
+    margin-right: 0.5rem;
+  }
+  .crumb a {
+    color: var(--color-paper);
+  }
+  h1 {
+    max-width: 16ch;
+    margin-top: 1.1rem;
+    font-size: clamp(2.5rem, 5.4vw, 4.75rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+  .lead {
+    max-width: 46ch;
+    margin-top: 1.4rem;
+    font-size: 1.375rem;
+    line-height: 1.45;
+    color: var(--color-teal-text);
+  }
+  .lead strong {
+    color: var(--color-paper);
+    font-weight: 600;
+  }
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 2.1rem;
+    list-style: none;
+  }
+  .toc a {
+    display: inline-block;
+    padding: 0.55rem 1rem;
+    border: 1.5px solid var(--color-paper);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .toc a:hover {
+    background: var(--color-paper);
+    color: var(--color-teal);
+  }
+
+  .qa {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 3.5rem;
+    padding: 4.5rem 0;
+    border-top: 1px solid var(--color-rule);
+    scroll-margin-top: 1rem;
+  }
+  .qa:first-of-type {
+    border-top: 0;
+  }
+  .qa h2 {
+    position: sticky;
+    top: 1.5rem;
+    align-self: start;
+    font-size: clamp(1.75rem, 3vw, 2.625rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+  .qa p {
+    max-width: 60ch;
+    margin-bottom: 0.9rem;
+  }
+  .ticks,
+  .plain {
+    list-style: none;
+  }
+  .ticks li {
+    position: relative;
+    padding: 0.7rem 0 0.7rem 1.9rem;
+    border-top: 1px solid var(--color-rule);
+  }
+  .ticks :global(.tick) {
+    position: absolute;
+    left: 0;
+    top: 1.1rem;
+    color: var(--color-teal);
+  }
+  .plain li {
+    padding: 0.7rem 0;
+    border-top: 1px solid var(--color-rule);
+  }
+  .plain li span {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-muted);
+  }
+  .lead-in {
+    font-weight: 600;
+  }
+
+  table {
+    width: 100%;
+    margin: 0.5rem 0 1.1rem;
+    border-collapse: collapse;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+  th,
+  td {
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--color-rule);
+    font-weight: 400;
+    text-align: left;
+    vertical-align: top;
+  }
+  td {
+    padding-left: 1.5rem;
+    font-weight: 600;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .base th,
+  .base td {
+    border-top: 3px solid var(--color-ink);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  caption {
+    caption-side: bottom;
+    padding-top: 0.5rem;
+    font-size: 1rem;
+    text-align: left;
+    color: var(--color-muted);
+  }
+  .note {
+    margin-top: 1.1rem;
+    padding: 1.35rem 1.5rem;
+    background: var(--color-copper);
+  }
+
+  .next {
+    background: var(--color-chartreuse);
+    padding: 4rem 0;
+  }
+  .next .section-title {
+    margin-bottom: 1.1rem;
+  }
+  .next ul {
+    list-style: none;
+  }
+  .next li {
+    border-top: 1px solid var(--color-rule);
+  }
+  .next a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+  .next a:hover {
+    text-decoration: underline;
+  }
+  .next :global(.arrow) {
+    flex: none;
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  @media (max-width: 56rem) {
+    .qa {
+      grid-template-columns: 1fr;
+      gap: 1.1rem;
+      padding: 3.25rem 0;
+    }
+    .qa h2 {
+      position: static;
+    }
+  }
+</style>

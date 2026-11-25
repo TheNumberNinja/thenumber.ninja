@@ -1,0 +1,23 @@
+---
+// The site's one arrow, drawn to match the type's stroke. Decorative: the
+// link or button it sits in carries the words.
+export interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<svg
+  class={className}
+  viewBox="0 0 34 34"
+  width="34"
+  height="34"
+  aria-hidden="true"
+  focusable="false">
+  <path
+    d="M8 17h16M17.5 10l7 7-7 7"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="3"
+  />
+</svg>

@@ -1,0 +1,65 @@
+---
+// Holding pages for the routes the menu and footer link to before their real
+// pages exist, so every link lands somewhere and the link check passes. Kept
+// out of search results. Delete an entry here when its real page arrives.
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getStarted } from "@data/navigation";
+import { holdingPages } from "@data/holding";
+
+export const getStaticPaths = (() =>
+  Object.entries(holdingPages).map(([slug, page]) => ({
+    params: { holding: slug },
+    props: page,
+  }))) satisfies GetStaticPaths;
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} noindex>
+  <div class="head on-teal">
+    <div class="wrap">
+      <h1>{title}</h1>
+      <p>We're writing this page for the new site.</p>
+    </div>
+  </div>
+  <div class="wrap body">
+    <p>
+      <a href="/">Go back to the home page</a> or read about{" "}
+      <a href="/service-businesses/">the core package</a> for service
+      businesses.
+    </p>
+    {Astro.params.holding !== "get-started" && (
+      <p>
+        <a class="btn btn-ink" href={getStarted.href}>
+          {getStarted.label}
+        </a>
+      </p>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .head {
+    background: var(--color-teal);
+    color: var(--color-paper);
+    padding: 2.5rem 0 4rem;
+  }
+  h1 {
+    font-size: clamp(2.5rem, 5.4vw, 4.75rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+  }
+  .head p {
+    margin-top: 1rem;
+    font-size: 1.375rem;
+    color: var(--color-teal-text);
+  }
+  .body {
+    padding-block: 4rem 6rem;
+  }
+  .body p + p {
+    margin-top: 1.5rem;
+  }
+</style>

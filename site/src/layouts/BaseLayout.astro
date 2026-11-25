@@ -2,9 +2,11 @@
 // The one layout every page uses. It carries what shared rules 10 and 11 ask
 // of every page: the language, a skip link, landmarks, a title and
 // description from the page, a canonical built from the page's own path, and
-// Open Graph basics.
+// Open Graph basics. The header and footer live here because the checks
+// attribute their findings to this file (checks.config.mjs).
 import { SEO } from "astro-seo";
 import { canonicalUrl, pageTitle, SITE_NAME } from "@lib/seo";
+import { footerMenu, getStarted, legalMenu, mainMenu } from "@data/navigation";
 import "../styles/global.css";
 
 export interface Props {
@@ -26,6 +28,7 @@ if (!Astro.site) {
 
 const fullTitle = pageTitle(title);
 const canonical = canonicalUrl(Astro.url.pathname, Astro.site);
+const here = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -33,7 +36,12 @@ const canonical = canonicalUrl(Astro.url.pathname, Astro.site);
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0d5c58" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    {/* Set before first paint, so the small-screen menu never flashes open. */}
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
     <SEO
       charset="UTF-8"
       title={fullTitle}
@@ -54,19 +62,244 @@ const canonical = canonicalUrl(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonical} />
   </head>
   <body class="flex min-h-screen flex-col">
-    <a
-      href="#main"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-white focus:p-2 focus:underline">
+    <a href="#main" class="skip">
       Skip to main content
     </a>
-    <header class="p-4">
-      <a href="/">{SITE_NAME}</a>
+    <header class="on-teal site-header">
+      <div class="wrap bar">
+        <a class="mark" href="/">
+          {SITE_NAME}
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-menu">
+          Menu
+        </button>
+        <nav id="site-menu" class="menu" aria-label="Main">
+          <ul>
+            {mainMenu.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  aria-current={
+                    here.startsWith(link.href) ? "page" : undefined
+                  }>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a class="btn" href={getStarted.href}>
+            {getStarted.label}
+          </a>
+        </nav>
+      </div>
     </header>
-    <main id="main" tabindex="-1" class="flex-1 p-4">
+    <main id="main" tabindex="-1" class="flex-1">
       <slot />
     </main>
-    <footer class="p-4">
-      <p>{SITE_NAME}</p>
+    <footer class="site-footer">
+      <div class="wrap cols">
+        <div>
+          <p class="footer-mark">{SITE_NAME}</p>
+          <p class="legal">
+            The Number Ninjas Ltd, trading as The Number Ninja. Registered in
+            England and Wales, company number 10935726. Registered office: 3rd
+            Floor, 86-90 Paul Street, London, EC2A 4NE.
+          </p>
+        </div>
+        <div>
+          <h2>Working hours</h2>
+          <p>9am to 4pm, Monday to Friday, by email and video call</p>
+        </div>
+        <nav aria-label="Footer">
+          <h2>More</h2>
+          <ul>
+            {footerMenu.map((link) => (
+              <li>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+          <ul class="legal-links">
+            {legalMenu.map((link) => (
+              <li>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
     </footer>
   </body>
 </html>
+
+<script>
+  // The small-screen menu: a disclosure button. Without JavaScript the menu
+  // stays open (the .js class is set in the head), so every link is reachable.
+  const toggle = document.querySelector<HTMLButtonElement>(".menu-toggle");
+  toggle?.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!open));
+  });
+</script>
+
+<style>
+  .skip {
+    position: absolute;
+    left: 0.5rem;
+    top: -10rem;
+    z-index: 20;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    padding: 0.5rem 0.75rem;
+  }
+  .skip:focus {
+    top: 0.5rem;
+  }
+
+  .site-header {
+    background: var(--color-teal);
+    color: var(--color-paper);
+  }
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 2rem;
+    min-height: 4.75rem;
+  }
+  .mark {
+    margin-right: auto;
+    font-weight: 700;
+    font-size: 1.375rem;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .menu ul {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+    font-size: 1.0625rem;
+    font-weight: 500;
+  }
+  .menu ul a {
+    text-decoration: none;
+  }
+  .menu ul a:hover {
+    text-decoration: underline;
+  }
+  .menu ul a[aria-current="page"] {
+    text-decoration: underline;
+    text-decoration-color: var(--color-chartreuse);
+    text-decoration-thickness: 3px;
+  }
+  .menu-toggle {
+    display: none;
+    font: inherit;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-paper);
+    background: transparent;
+    border: 2px solid var(--color-paper);
+    padding: 0.45rem 1rem;
+    cursor: pointer;
+  }
+  .menu-toggle:hover {
+    background: var(--color-paper);
+    color: var(--color-teal);
+  }
+
+  @media (max-width: 56rem) {
+    /* Without JavaScript the button would do nothing, so it only shows
+       when the script can run; the menu is open instead. */
+    :global(.js) .menu-toggle {
+      display: inline-flex;
+    }
+    /* Keeps the top row at header height when the menu below it is open. */
+    .mark {
+      display: flex;
+      align-items: center;
+      min-height: 4.75rem;
+    }
+    .menu {
+      flex-basis: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+      padding: 0.5rem 0 1.5rem;
+    }
+    :global(.js) .menu-toggle[aria-expanded="false"] + .menu {
+      display: none;
+    }
+    .menu ul {
+      flex-direction: column;
+      gap: 0;
+      font-size: 1.25rem;
+    }
+    .menu ul li {
+      border-top: 1px solid var(--color-rule-on-teal);
+    }
+    .menu ul a {
+      display: block;
+      padding: 0.75rem 0;
+    }
+    .menu .btn {
+      align-self: flex-start;
+    }
+  }
+
+  .site-footer {
+    background: var(--color-ink);
+    color: var(--color-ink-text);
+    padding: 4rem 0 3rem;
+    font-size: 1rem;
+  }
+  .cols {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .footer-mark {
+    color: var(--color-paper);
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .legal {
+    margin-top: 0.6rem;
+    max-width: 52ch;
+  }
+  .site-footer h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-paper);
+    margin-bottom: 0.6rem;
+  }
+  .site-footer ul {
+    list-style: none;
+  }
+  .site-footer li {
+    padding: 0.2rem 0;
+  }
+  .legal-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.6rem;
+  }
+  .site-footer :focus-visible {
+    outline-color: var(--color-chartreuse);
+  }
+  @media (max-width: 56rem) {
+    .cols {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

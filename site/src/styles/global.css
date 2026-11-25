@@ -1,6 +1,129 @@
 @import "tailwindcss";
+@import "@fontsource-variable/albert-sans/wght.css";
 
 /*
- * Minimal base for the skeleton. Design tokens arrive with the first real
- * page; until then the browser's defaults and Tailwind's preflight apply.
+ * Emma's colours: three colours plus ink and white, nothing else. Teal carries
+ * whole regions, chartreuse marks only the opened question and the main
+ * action, and pale copper is the "not right for you" field. The surface brief
+ * for the home page (.impeccable/surfaces/) records why.
  */
+@theme {
+  --color-teal: #0d5c58;
+  --color-chartreuse: #cfdc4f;
+  --color-copper: #f8dccb;
+  --color-ink: #15172b;
+  --color-paper: #ffffff;
+  /* Secondary text on teal, tinted from the teal itself (6:1 on teal). */
+  --color-teal-text: #cfe6e2;
+  /* Secondary text on ink, in the footer. */
+  --color-ink-text: #dfe3e2;
+  /* Secondary text on white and copper (at least 6:1 on both). */
+  --color-muted: #3f5452;
+  --color-rule: #15172b26;
+  --color-rule-on-teal: #ffffff4d;
+
+  --font-sans: "Albert Sans Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* Lets <details> animate to its content's height where supported. */
+    interpolate-size: allow-keywords;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.1875rem;
+    line-height: 1.55;
+    font-variant-numeric: lining-nums;
+  }
+
+  ::selection {
+    background: var(--color-chartreuse);
+    color: var(--color-ink);
+  }
+
+  a {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.2em;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+
+  /* On teal, ink outlines disappear; chartreuse is the visible one there. */
+  .on-teal :focus-visible {
+    outline-color: var(--color-chartreuse);
+  }
+
+  /* ::details-content gets its own rule: a browser that doesn't know it
+     would drop the whole selector list, and with it the fallback. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+    /* The @supports also stops the minifier merging the two rules back. */
+    @supports selector(::details-content) {
+      ::details-content {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  }
+}
+
+@layer components {
+  /* The page's width and side gutter, used by every section. */
+  .wrap {
+    margin-inline: auto;
+    max-width: 83rem;
+    padding-inline: clamp(1.25rem, 3.9vw, 3.5rem);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.4rem;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    line-height: 1.2;
+    text-decoration: none;
+    background: var(--color-chartreuse);
+    color: var(--color-ink);
+    transition: background-color 0.2s var(--ease-out-expo);
+  }
+
+  .btn:hover {
+    background: color-mix(in srgb, var(--color-chartreuse) 78%, white);
+  }
+
+  .btn-ink {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  .btn-ink:hover {
+    background: var(--color-teal);
+  }
+
+  /* Section headings: one size step below the questions. */
+  .section-title {
+    font-size: clamp(1.875rem, 3.4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+}
