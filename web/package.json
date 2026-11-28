@@ -63,7 +63,7 @@
     "markdown-it-anchor": "10.1.0",
     "markdown-it-link-attributes": "4.0.1",
     "netlify-cli": "27.20.1",
-    "prettier": "3.9.10",
+    "prettier": "3.10.1",
     "slugify": "1.6.9",
     "vite": "8.4.0",
     "vitest": "5.1.2",
