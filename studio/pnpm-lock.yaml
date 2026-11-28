@@ -45,8 +45,8 @@ importers:
         specifier: 3.0.23
         version: 3.0.23(17492252ab0e6d10eb0831136741cf84)
       sanity-plugin-media:
-        specifier: 6.6.3
-        version: 6.6.3(@standard-schema/spec@1.1.0)(@types/react@19.2.18)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(sanity@6.24.0(@babel/core@7.29.7(supports-color@8.1.1))(@babel/runtime@7.29.7)(@noble/hashes@2.4.0)(@rolldown/plugin-babel@0.3.1(@babel/core@7.29.7(supports-color@8.1.1))(@babel/runtime@7.29.7)(rolldown@1.2.19)(vite@8.3.8(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.1)))(@types/node@24.19.2)(@types/react@19.2.18)(esbuild@0.28.2)(immer@11.1.18)(jiti@2.7.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(rolldown@1.2.19)(styled-components@6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@8.1.1)(tsx@4.23.13)(typescript@6.0.3))(styled-components@6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@8.1.1)(valibot@1.5.0(typescript@6.0.3))
+        specifier: 6.6.4
+        version: 6.6.4(@standard-schema/spec@1.1.0)(@types/react@19.2.18)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(redux@5.0.1)(sanity@6.24.0(@babel/core@7.29.7(supports-color@8.1.1))(@babel/runtime@7.29.7)(@noble/hashes@2.4.0)(@rolldown/plugin-babel@0.3.1(@babel/core@7.29.7(supports-color@8.1.1))(@babel/runtime@7.29.7)(rolldown@1.2.19)(vite@8.3.8(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.1)))(@types/node@24.19.2)(@types/react@19.2.18)(esbuild@0.28.2)(immer@11.1.18)(jiti@2.7.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(rolldown@1.2.19)(styled-components@6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@8.1.1)(tsx@4.23.13)(typescript@6.0.3))(styled-components@6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@8.1.1)(valibot@1.5.0(typescript@6.0.3))
       styled-components:
         specifier: 6.6.0
         version: 6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -4974,8 +4974,8 @@ packages:
       sanity: ^5 || ^6.0.0-0
       styled-components: ^6.1
 
-  sanity-plugin-media@6.6.3:
-    resolution: {integrity: sha512-Fvc2cuTpBLSzyV6mWFDhPzn6TXNmmfCQjS45L3aBQup+PnMXvfD/JpB6MzkIu5UwUtc4pE2fLh2ZwHctiLRJHg==}
+  sanity-plugin-media@6.6.4:
+    resolution: {integrity: sha512-WALB8bhUfpNVvYq3yzDj+7NLusaCwLzPPrD8HRD3qjzMhV1Ph3qQ1rNxl/9gcW4/N4L9dCnDWsr9rgjxCVTrCg==}
     engines: {node: '>=20.19 <22 || >=22.12'}
     peerDependencies:
       react: ^19.2
@@ -11236,7 +11236,7 @@ snapshots:
     transitivePeerDependencies:
       - remix
 
-  sanity-plugin-media@6.6.3(@standard-schema/spec@1.1.0)(@types/react@19.2.18)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(sanity@6.24.0(@babel/core@7.29.7(supports-color@8.1.1))(@babel/runtime@7.29.7)(@noble/hashes@2.4.0)(@rolldown/plugin-babel@0.3.1(@babel/core@7.29.7(supports-color@8.1.1))(@babel/runtime@7.29.7)(rolldown@1.2.19)(vite@8.3.8(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.1)))(@types/node@24.19.2)(@types/react@19.2.18)(esbuild@0.28.2)(immer@11.1.18)(jiti@2.7.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(rolldown@1.2.19)(styled-components@6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@8.1.1)(tsx@4.23.13)(typescript@6.0.3))(styled-components@6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@8.1.1)(valibot@1.5.0(typescript@6.0.3)):
+  sanity-plugin-media@6.6.4(@standard-schema/spec@1.1.0)(@types/react@19.2.18)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(redux@5.0.1)(sanity@6.24.0(@babel/core@7.29.7(supports-color@8.1.1))(@babel/runtime@7.29.7)(@noble/hashes@2.4.0)(@rolldown/plugin-babel@0.3.1(@babel/core@7.29.7(supports-color@8.1.1))(@babel/runtime@7.29.7)(rolldown@1.2.19)(vite@8.3.8(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.1)))(@types/node@24.19.2)(@types/react@19.2.18)(esbuild@0.28.2)(immer@11.1.18)(jiti@2.7.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(rolldown@1.2.19)(styled-components@6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@8.1.1)(tsx@4.23.13)(typescript@6.0.3))(styled-components@6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@8.1.1)(valibot@1.5.0(typescript@6.0.3)):
     dependencies:
       '@hookform/resolvers': 6.0.2(@standard-schema/spec@1.1.0)(react-hook-form@7.91.0(@types/react@19.2.18)(react@19.3.1))(valibot@1.5.0(typescript@6.0.3))(zod@4.6.7)
       '@reduxjs/toolkit': 2.12.0(react-redux@9.3.0(@types/react@19.2.18)(react@19.3.1)(redux@5.0.1))(react@19.3.1)
@@ -11261,7 +11261,6 @@ snapshots:
       react-redux: 9.3.0(@types/react@19.2.18)(react@19.3.1)(redux@5.0.1)
       react-select: 5.10.2(@types/react@19.2.18)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)
       react-virtuoso: 4.18.12(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      redux: 5.0.1
       redux-observable: 3.0.0-rc.2(redux@5.0.1)(rxjs@7.8.2)
       rxjs: 7.8.2
       sanity: 6.24.0(@babel/core@7.29.7(supports-color@8.1.1))(@babel/runtime@7.29.7)(@noble/hashes@2.4.0)(@rolldown/plugin-babel@0.3.1(@babel/core@7.29.7(supports-color@8.1.1))(@babel/runtime@7.29.7)(rolldown@1.2.19)(vite@8.3.8(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.1)))(@types/node@24.19.2)(@types/react@19.2.18)(esbuild@0.28.2)(immer@11.1.18)(jiti@2.7.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(rolldown@1.2.19)(styled-components@6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@8.1.1)(tsx@4.23.13)(typescript@6.0.3)
@@ -11286,6 +11285,7 @@ snapshots:
       - io-ts
       - joi
       - nope-validator
+      - redux
       - remix
       - superstruct
       - supports-color
