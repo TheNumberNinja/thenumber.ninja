@@ -53,7 +53,7 @@
     "@11ty/eleventy-navigation": "1.0.5",
     "@11ty/eleventy-plugin-vite": "8.0.0",
     "@eslint/js": "10.0.1",
-    "@vitejs/plugin-legacy": "8.2.3",
+    "@vitejs/plugin-legacy": "8.2.4",
     "chokidar": "6.0.0",
     "concurrently": "10.0.7",
     "esbuild": "0.28.2",
@@ -65,8 +65,8 @@
     "netlify-cli": "27.20.1",
     "prettier": "3.9.10",
     "slugify": "1.6.9",
-    "vite": "8.2.4",
-    "vitest": "5.0.5",
+    "vite": "8.4.0",
+    "vitest": "5.1.2",
     "ws": "8.23.0"
   },
   "packageManager": "pnpm@11.29.0"
